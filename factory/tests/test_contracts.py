@@ -6,6 +6,7 @@ import unittest
 
 from video_factory.contracts import validate_artifact, validate_production_chain
 from video_factory.errors import ValidationError
+from video_factory.validators import canonical_json, digest_text
 
 
 def valid_chain() -> dict[str, dict]:
@@ -133,7 +134,215 @@ def valid_source_audio_manifest() -> dict:
     }
 
 
+def valid_multisource_audio_manifest() -> dict:
+    original_en = "Keep moving when motivation is gone."
+    translated_ru = "Продолжай двигаться, когда мотивация исчезла."
+    review = {
+        "approved": True,
+        "approved_by": "translator@example.test",
+        "approved_at": "2026-08-30T10:00:00Z",
+        "asset_id": "source_002",
+        "source_in_seconds": 0.5,
+        "source_out_seconds": 1.5,
+        "original_transcript_sha256": digest_text(original_en),
+        "russian_transcript_sha256": digest_text(translated_ru),
+        "review_notes": "Точность перевода и контекст проверены.",
+    }
+    first_transcript = "Начни действовать сейчас."
+    segments = [
+        {
+            "index": 0,
+            "asset_id": "source_001",
+            "source_video_uri_or_path": "C:/media/source-1.mp4",
+            "source_in_seconds": 0,
+            "source_out_seconds": 1,
+            "program_in_seconds": 0,
+            "program_out_seconds": 1,
+            "speaker_name": "Спикер один",
+            "source_language": "ru",
+            "original_transcript": first_transcript,
+            "transcript": first_transcript,
+            "bilingual_review": None,
+            "rights_status": "commercial_license_confirmed",
+            "rights_evidence": "rights/source-1.pdf",
+            "extracted_audio_path": "C:/audio/source-1.wav",
+            "checksums": {
+                "source_video_sha256": "1" * 64,
+                "extracted_audio_sha256": "2" * 64,
+                "original_transcript_sha256": digest_text(first_transcript),
+                "transcript_sha256": digest_text(first_transcript),
+                "bilingual_review_sha256": None,
+            },
+        },
+        {
+            "index": 1,
+            "asset_id": "source_002",
+            "source_video_uri_or_path": "C:/media/source-2.mp4",
+            "source_in_seconds": 0.5,
+            "source_out_seconds": 1.5,
+            "program_in_seconds": 1,
+            "program_out_seconds": 2,
+            "speaker_name": "Speaker two",
+            "source_language": "en",
+            "original_transcript": original_en,
+            "transcript": translated_ru,
+            "bilingual_review": review,
+            "rights_status": "commercial_license_confirmed",
+            "rights_evidence": "rights/source-2.pdf",
+            "extracted_audio_path": "C:/audio/source-2.wav",
+            "checksums": {
+                "source_video_sha256": "3" * 64,
+                "extracted_audio_sha256": "4" * 64,
+                "original_transcript_sha256": digest_text(original_en),
+                "transcript_sha256": digest_text(translated_ru),
+                "bilingual_review_sha256": digest_text(canonical_json(review)),
+            },
+        },
+    ]
+    bindings_sha = digest_text(canonical_json(segments))
+    transcript = "\n".join(item["transcript"] for item in segments)
+    return {
+        "schema_version": "1.1.0",
+        "job_id": "job_motivation_001",
+        "lane": "motivation",
+        "audio_asset_id": f"source-audio-program-{bindings_sha[:24]}",
+        "segment_count": 2,
+        "segments": segments,
+        "transcript": transcript,
+        "rights_status": "commercial_license_confirmed",
+        "original_audio_only": True,
+        "tts": False,
+        "extracted_audio_path": "C:/audio/program.wav",
+        "checksums": {
+            "extracted_audio_sha256": "5" * 64,
+            "transcript_sha256": digest_text(transcript),
+            "segment_bindings_sha256": bindings_sha,
+        },
+        "created_at": "2026-08-30T10:00:00Z",
+    }
+
+
+def valid_qc_report() -> dict:
+    categories = (
+        "technical",
+        "audio",
+        "captions",
+        "facts",
+        "rights",
+        "dedup",
+        "policy",
+        "visual",
+    )
+    return {
+        "schema_version": "1.0.0",
+        "job_id": "job_qc_001",
+        "render_id": "render_qc_001",
+        "technical": {"audio_sample_rate_hz": 48000},
+        "checks": [
+            {
+                "check_id": f"{category}-pass",
+                "category": category,
+                "status": "pass",
+                "evidence": f"{category} evidence",
+            }
+            for category in categories
+        ],
+        "decision": {
+            "passed": True,
+            "needs_human_review": False,
+            "blocking_check_ids": [],
+            "review_notes": [],
+        },
+    }
+
+
+def valid_preview_approval() -> dict:
+    return {
+        "schema_version": "1.0.0",
+        "job_id": "job_preview_001",
+        "project_id": "project-job_preview_001",
+        "approved": True,
+        "approved_by": "operator@example.test",
+        "approved_at": "2026-08-29T12:00:00Z",
+        "project_tree_sha256": "a" * 64,
+        "project_manifest_sha256": "b" * 64,
+        "check_receipt_path": "C:/receipts/job_preview_001-check.json",
+        "check_receipt_sha256": "c" * 64,
+        "studio_url": "http://127.0.0.1:3002/#project/job_preview_001",
+        "review_notes": ["Timeline and captions reviewed in Studio."],
+    }
+
+
 class ContractTests(unittest.TestCase):
+    def test_preview_approval_is_strict_and_http_studio_bound(self) -> None:
+        approval = valid_preview_approval()
+        self.assertIs(validate_artifact("preview_approval", approval), approval)
+
+        approval = valid_preview_approval()
+        approval["approved"] = False
+        with self.assertRaises(ValidationError):
+            validate_artifact("preview_approval", approval)
+
+        approval = valid_preview_approval()
+        approval["studio_url"] = "file:///tmp/index.html"
+        with self.assertRaisesRegex(ValidationError, "HTTP"):
+            validate_artifact("preview_approval", approval)
+
+        approval = valid_preview_approval()
+        approval["unbounded_extra"] = True
+        with self.assertRaisesRegex(ValidationError, "not allowed"):
+            validate_artifact("preview_approval", approval)
+
+    def test_valid_qc_report_requires_all_eight_passing_categories(self) -> None:
+        report = valid_qc_report()
+        self.assertIs(validate_artifact("qc_report", report), report)
+
+        report = valid_qc_report()
+        report["checks"].pop()
+        with self.assertRaisesRegex(ValidationError, "fewer items than minItems"):
+            validate_artifact("qc_report", report)
+
+    def test_qc_report_rejects_duplicate_ids_and_categories(self) -> None:
+        report = valid_qc_report()
+        report["checks"][-1]["check_id"] = report["checks"][0]["check_id"]
+        with self.assertRaisesRegex(ValidationError, "duplicate check_id"):
+            validate_artifact("qc_report", report)
+
+        report = valid_qc_report()
+        report["checks"][-1]["category"] = report["checks"][0]["category"]
+        with self.assertRaisesRegex(ValidationError, "duplicate category"):
+            validate_artifact("qc_report", report)
+
+    def test_passing_qc_report_rejects_every_nonpass_status(self) -> None:
+        for status in ("warn", "fail", "not_run"):
+            with self.subTest(status=status):
+                report = valid_qc_report()
+                report["checks"][-1]["status"] = status
+                with self.assertRaisesRegex(ValidationError, "non-pass checks"):
+                    validate_artifact("qc_report", report)
+
+    def test_passing_qc_report_rejects_review_and_blocking_flags(self) -> None:
+        report = valid_qc_report()
+        report["decision"]["needs_human_review"] = True
+        with self.assertRaisesRegex(ValidationError, "needs_human_review"):
+            validate_artifact("qc_report", report)
+
+        report = valid_qc_report()
+        report["decision"]["blocking_check_ids"] = ["technical-pass"]
+        with self.assertRaisesRegex(ValidationError, "blocking_check_ids"):
+            validate_artifact("qc_report", report)
+
+    def test_failed_qc_report_can_preserve_fail_closed_evidence(self) -> None:
+        report = valid_qc_report()
+        report["checks"][-1]["status"] = "warn"
+        report["decision"] = {
+            "passed": False,
+            "needs_human_review": True,
+            "blocking_check_ids": ["visual-pass"],
+            "review_notes": ["Visual review is required."],
+        }
+        self.assertIs(validate_artifact("qc_report", report), report)
+
     def test_valid_source_audio_manifest_passes(self) -> None:
         manifest = valid_source_audio_manifest()
         self.assertIs(validate_artifact("source_audio_manifest", manifest), manifest)
@@ -153,6 +362,30 @@ class ContractTests(unittest.TestCase):
         manifest["checksums"]["transcript_sha256"] = "c" * 64
         with self.assertRaisesRegex(ValidationError, "does not match transcript"):
             validate_artifact("source_audio_manifest", manifest)
+
+    def test_multisource_audio_manifest_binds_order_transcripts_translation_and_no_prejoin(self) -> None:
+        manifest = valid_multisource_audio_manifest()
+        self.assertIs(validate_artifact("source_audio_manifest", manifest), manifest)
+
+        reordered = copy.deepcopy(manifest)
+        reordered["segments"].reverse()
+        with self.assertRaises(ValidationError):
+            validate_artifact("source_audio_manifest", reordered)
+
+        tampered_translation = copy.deepcopy(manifest)
+        tampered_translation["segments"][1]["transcript"] += " Лишнее."
+        with self.assertRaisesRegex(ValidationError, "transcript hash|aggregate"):
+            validate_artifact("source_audio_manifest", tampered_translation)
+
+        hidden_prejoin = copy.deepcopy(manifest)
+        hidden_prejoin["source_video_uri_or_path"] = "C:/media/hidden-prejoin.mp4"
+        with self.assertRaises(ValidationError):
+            validate_artifact("source_audio_manifest", hidden_prejoin)
+
+        wrong_review = copy.deepcopy(manifest)
+        wrong_review["segments"][1]["bilingual_review"]["asset_id"] = "source_001"
+        with self.assertRaisesRegex(ValidationError, "not bound"):
+            validate_artifact("source_audio_manifest", wrong_review)
 
     def test_valid_chain_passes(self) -> None:
         result = validate_production_chain(**valid_chain())

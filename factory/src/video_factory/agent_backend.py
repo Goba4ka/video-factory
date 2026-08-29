@@ -28,8 +28,6 @@ AUTOMATABLE_EDITORIAL_ROLES = frozenset(
         "research",
         "privacy_review",
         "sensitivity_review",
-        "medical_review",
-        "rights",
         "script",
         "editor",
     }

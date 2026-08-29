@@ -9,12 +9,18 @@
 3. Чат даст 3–5 тем с хуком, источниками и риском.
 4. Ответь по темам `да` / `нет`.
 5. После одобрения headless-воркеры готовят исследование, safety review, права,
-   сценарий и shotlist; Fish worker умеет job-bound озвучку. Полностью
-   unattended media discovery → HyperFrames compiler → render → semantic QC
-   пока остаётся P0 до server cutover. Любой недостающий факт или право закрывает
-   гейт, а публикация требует человека.
+   media manifest, сценарий, звук, shotlist и preview-ready HyperFrames project.
+   Pexels discovery, rights-bound media/source audio, compiler, preview gate,
+   render/QC handlers, пять semantic evidence producers, строгий evidence gate,
+   bundled real caption/face observers и human-review handoff реализованы.
+   До production cutover остаются provision exact observer models, непустой
+   human-approved dedup corpus и live provider/CUDA/GPU acceptance на сервере.
+   Любой недостающий факт или право закрывает гейт, а публикация требует человека.
 
-Если написать `начинаем` в главном чате, оркестратор может вести все пять линий как одну смену.
+Пять `chat_id` уже закреплены в реестре и изолируют queue pod/артефакты. Команда
+`начинаем` в главном чате пока формирует review-first смену, но не доказывает
+live-долговременную маршрутизацию пяти внешних чатов: это отдельный server/chat
+cutover gate, который нельзя закрыть одним наличием ID в JSON.
 
 ## Линии и дневная квота
 
@@ -30,11 +36,32 @@
 ## Что происходит после «да»
 
 ```text
-research → specialized safety review → rights → script → voice (Fish Audio) / source_audio (motivation only)
-         → editor → [P0: media/compiler/render/semantic QC] → final review → publisher gate
+research → specialized safety review → media_discovery → rights → media → script
+         → voice (Fish Audio) / source_audio (motivation only) → editor
+         → bgm → audio_mix → compiler
+         → preview_review → render → qc_auto_evidence → caption_transcript
+         → captions/facts/policy/dedup/visual analyzers → qc_evidence_gate
+         → qc → final_review → publisher gate
 ```
 
-У мотивации отдельный specialized safety review не нужен. Остальные линии автоматически получают `medical_review`, `privacy_review` или `sensitivity_review` из [реестра](./lanes/registry.json).
+У мотивации отдельный specialized safety review не нужен. Остальные линии получают
+`medical_review`, `privacy_review` или `sensitivity_review` из
+[реестра](./lanes/registry.json). `privacy_review` и `sensitivity_review` могут
+готовиться автономным read-only агентом и обязаны закрыться при неоднозначности;
+`medical_review` всегда является атрибутированным human gate и требует указать
+квалификацию проверяющего и примечание к решению.
+
+`rights` также не выполняется автономным Codex-воркером. Человек подтверждает
+точный SHA-256 RightsManifest, перечисляет все просмотренные `asset_id` и
+оставляет примечание; подмена хотя бы одного поля манифеста после решения
+блокирует media freeze и весь downstream.
+
+`bgm` никогда не качает музыку из сети. Он фиксирует готовый WAV, нормализует
+его к стабильным −14 LUFS / −1.5 dBTP и связывает SHA-256 с точным
+RightsManifest, human approval и локальным файлом license evidence. `audio_mix`
+ставит этот bed на −9 dB до speech-keyed ducking и сводит authoritative
+voice/source audio по записанному FFmpeg recipe; compiler получает только
+program mix, а B-roll остаётся без аудио.
 
 Публикация в соцсети намеренно не выполняется без отдельного checksum-bound
 подтверждения и подключённых аккаунтов. `final_review` и `publisher` никогда не
@@ -71,6 +98,11 @@ $factoryPython = 'C:\Users\ns277\.cache\codex-runtimes\codex-primary-runtime\dep
 - Его проект и доказательства: `factory/pilots/motivation-first-action/`
 - Приёмка V2: `factory/analysis/V2_ACCEPTANCE_20260829.md`
 - Перенос на сервер: `factory/deployment/SERVER_MIGRATION_GUIDE.md`
+- План расширения лицензированных источников: `factory/design/MEDIA_PROVIDER_EXPANSION.md`
+- Read-only приёмка реальной производительности 10–15 master-файлов:
+  `factory/design/THROUGHPUT_ACCEPTANCE.md`
+- Read-only проверка пяти отдельных Codex-сессий по явно переданному индексу и
+  rollout evidence: `factory/design/CHAT_TOPOLOGY_AUDIT.md`
 
 ## Как держать качество при 10–15 роликах
 

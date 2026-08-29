@@ -92,7 +92,7 @@ class AgentBackendTestCase(unittest.TestCase):
         )
 
     def test_refuses_human_final_review_and_publisher_roles(self) -> None:
-        for role in ("final_review", "publisher", "render"):
+        for role in ("medical_review", "rights", "final_review", "publisher", "render"):
             with self.subTest(role=role), self.assertRaisesRegex(
                 ValidationError, "not eligible"
             ):

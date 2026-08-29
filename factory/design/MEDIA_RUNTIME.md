@@ -267,6 +267,16 @@ finally {
 
 The final QC job must additionally gate duration, 30 fps target, H.264/AAC, integrated loudness `-16…-14 LUFS`, true peak `<= -1 dBTP`, caption completeness/safe zones, black/frozen tails, rights-hash equality and contact-sheet review. A render without these checks remains `qc_pending`.
 
+Default semantic QC is intentionally stricter than the editor preview. Caption
+word timing hard-fails when p95 absolute drift exceeds `0.25 s` or any matched
+word exceeds `0.45 s`. In speaker-required lanes, the largest accepted speaker
+face in each sampled frame must cover at least `2.5%` of the full frame in at
+least `80%` of speaker frames, and its median area must be at least `4.5%`.
+This permits brief establishing shots without accepting an edit whose speaker
+stays small. A face with model confidence `>= 0.70` touching the `1.5%` crop
+margin is a hard failure even when it is not marked as the active speaker, so
+an interviewer or second participant cannot be silently cut out.
+
 ## Fail-closed operating rules
 
 1. No topic approval → no HyperFrames project.

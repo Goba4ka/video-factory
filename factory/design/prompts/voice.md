@@ -26,8 +26,8 @@ that lane; its registry-owned hand-off is `source_audio`, never Fish/TTS.
 4. Preserve the immutable `vNN-<request-hash>.wav` returned by the command.
    Never overwrite an earlier generation.
 5. Validate the generated `*.voice.json` against `voice_manifest`. Raw Fish
-   audio is 44.1 kHz, 16-bit mono PCM; the render stage resamples the final mix
-   to the factory contract of 48 kHz.
+   audio is 44.1 kHz, 16-bit mono PCM; the downstream `audio_mix` stage creates
+   and validates the final 48 kHz stereo program mix before compilation.
 6. Decode the whole WAV and run transcription/content QA before approving it.
    Check names, dates, numbers, omissions, duplicate phrases, long silence,
    clipping and target duration.

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/qc_auto_evidence_manifest.schema.json",
+  "title": "QCAutoEvidenceManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "job_id", "lane_id", "render_id", "render_sha256",
+    "reports", "evidence", "created_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "lane_id": {
+      "enum": ["war_history", "celebrity_news", "motivation", "chinese_medicine", "health"]
+    },
+    "render_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "render_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reports": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"type": "object"}
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["technical", "audio", "rights"],
+      "properties": {
+        "technical": {"$ref": "#/$defs/descriptor"},
+        "audio": {"$ref": "#/$defs/descriptor"},
+        "rights": {"$ref": "#/$defs/descriptor"}
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "descriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

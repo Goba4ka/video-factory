@@ -35,11 +35,25 @@
    - явную границу совета.
 4. Получить от пользователя ответ `да`/`нет` по темам.
 
-`Да` означает разрешение произвести выбранную тему до контрольного MP4 внутри проекта, но не разрешение на внешнюю публикацию. `Нет` исключает тему из текущего цикла. После утверждения 2–3 тем производство продолжается автономно; если одобрено меньше двух, предлагается замена, а производство не начинается.
+`Да` означает разрешение поставить выбранную тему в registry-controlled pipeline,
+но не заменяет human medical, rights, preview, final-review и publication decisions.
+`Нет` исключает тему из текущего цикла. Если одобрено меньше двух, предлагается
+замена, а производство не начинается.
 
 ## 4. Производство
 
-Для каждой одобренной темы автономно произвести один вертикальный ролик длительностью 60–80 секунд. На один цикл — **2–3 контрольных MP4**.
+Для каждой одобренной темы провести один вертикальный ролик длительностью
+60–80 секунд по точному `health.roles` из `factory/lanes/registry.json`. На один цикл —
+**2–3 контрольных MP4**.
+
+Канонический DAG:
+
+`research -> medical_review (qualified human) -> media_discovery -> rights (human) -> media -> script -> voice -> editor -> bgm -> audio_mix -> compiler -> preview_review (human) -> render -> qc_auto_evidence -> caption_transcript -> captions_analyzer -> facts_analyzer -> policy_analyzer -> dedup_analyzer -> visual_analyzer -> qc_evidence_gate -> qc -> final_review (human) -> publisher`
+
+Роли не переставляются и не пропускаются. Музыка проходит отдельный
+rights-bound `bgm`, затем `audio_mix`; compiler получает одну program mix и глухой
+B-roll. Рендер требует checksum-bound human PreviewApproval. Весь post-render
+evidence DAG и human final review привязываются к одному render SHA-256.
 
 Для видео обязательны актуальные инструкции skills:
 
@@ -59,12 +73,22 @@
 Внутри каждого ролика должны сохраняться как минимум:
 
 - `research/claim_ledger.json` — тезисы, источники, ограничения и дата проверки;
+- `safety/medical_review.json` — решение qualified human с identity,
+  qualification, timestamp, note и binding к точному artifact;
+- `media/media_discovery_manifest.json`;
+- `rights/rights_manifest.json` и checksum-bound human approval с полным
+  списком `asset_id`;
+- `media/frozen_media_manifest.json`;
 - `script/SCRIPT.md` или эквивалентный утверждённый сценарий;
 - `captions/captions.srt` или эквивалентный caption artifact;
-- `media/` — только замороженные разрешённые ассеты;
-- `rights/rights_ledger.json` — происхождение, автор, URL, лицензия/разрешение, дата получения и локальный файл каждого ассета;
+- `audio/voice_manifest.json`, `audio/voice_rights_approval.json`,
+  `audio/bgm_manifest.json`, `audio/program_audio_manifest.json`;
+- `compiler/render_project_manifest.json` и `compiler/preview_approval.json`;
 - `render/render_manifest.json`;
+- `qc/qc_auto_evidence_manifest.json`, `qc/caption_transcript_manifest.json`,
+  `qc/analyzers/`, `qc/qc_evidence_bundle.json`;
 - `qc/qc_report.json`;
+- `review/final_review.json`;
 - `checksums/SHA256SUMS.txt`;
 - `renders/<slug>_control.mp4` — контрольный, не опубликованный MP4.
 
@@ -74,6 +98,8 @@
 
 - Замораживать только owned, licensed, public-domain, permission-based или совместимый Creative Commons контент.
 - Для каждого файла должна существовать проверяемая запись в rights ledger до финального render gate.
+- Discovery-манифест не является разрешением; media freeze блокируется
+  без human approval exact RightsManifest SHA-256 и всех `asset_id`.
 - Не использовать поисковый preview, watermark, непроверенный repost, неизвестную музыку, случайный UGC или «fair use» по умолчанию.
 - Условия атрибуции и ограничения на переработку переносятся в ledger и manifest.
 - AI-генерация маркируется и не используется как доказательство медицинского результата, симптома или реального пациента.
@@ -85,7 +111,11 @@
 
 ### Medical
 
-Проверяются персональная диагностика, препараты/дозировки, обещания результата, причинность, уязвимые группы, юрисдикция, экстренные признаки и явная граница совета. Любой незакрытый медицинский риск блокирует тему или render.
+Проверяются персональная диагностика, препараты/дозировки, обещания результата,
+причинность, уязвимые группы, юрисдикция, экстренные признаки и явная граница
+совета. `medical_review` выполняет только квалифицированный атрибутированный
+человек; автономный agent может лишь подготовить evidence. Любой незакрытый
+медицинский риск блокирует тему или render.
 
 ### Privacy
 
@@ -97,7 +127,9 @@
 
 ### Rights и technical QC
 
-Отсутствие rights evidence, claim traceability, корректных captions, manifest, QC или checksum блокирует выдачу MP4 как готового контрольного результата.
+Отсутствие rights evidence, claim traceability, корректных captions, любого
+producer/analyzer report, immutable QCEvidenceBundle, final QC или checksum-bound human
+final review блокирует выдачу MP4 как готового результата.
 
 ## 8. Публикация
 

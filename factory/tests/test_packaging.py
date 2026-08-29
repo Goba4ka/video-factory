@@ -9,8 +9,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from video_factory.contracts import CONTRACT_FILES
+
 
 FACTORY_ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_CONTRACTS = len(CONTRACT_FILES)
 
 
 @unittest.skipUnless(
@@ -78,8 +81,8 @@ class WheelInstallSmokeTests(unittest.TestCase):
                 check=True,
             )
             result = self.probe_install(target, cwd=root)
-            self.assertEqual(result["count"], 15)
-            self.assertEqual(len(result["loaded"]), 15)
+            self.assertEqual(result["count"], EXPECTED_CONTRACTS)
+            self.assertEqual(len(result["loaded"]), EXPECTED_CONTRACTS)
             self.assertTrue(Path(result["root"]).is_dir())
 
     def test_sdist_contains_contracts_and_installs_them(self) -> None:
@@ -126,7 +129,7 @@ class WheelInstallSmokeTests(unittest.TestCase):
                     if "/src/video_factory/schemas/" in name
                     and name.endswith(".schema.json")
                 ]
-            self.assertEqual(len(packaged_schemas), 15)
+            self.assertEqual(len(packaged_schemas), EXPECTED_CONTRACTS)
             subprocess.run(
                 [
                     sys.executable,
@@ -141,8 +144,8 @@ class WheelInstallSmokeTests(unittest.TestCase):
                 check=True,
             )
             result = self.probe_install(target, cwd=root)
-            self.assertEqual(result["count"], 15)
-            self.assertEqual(len(result["loaded"]), 15)
+            self.assertEqual(result["count"], EXPECTED_CONTRACTS)
+            self.assertEqual(len(result["loaded"]), EXPECTED_CONTRACTS)
             self.assertTrue(Path(result["root"]).is_dir())
 
 

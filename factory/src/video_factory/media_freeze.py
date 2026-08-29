@@ -895,6 +895,14 @@ def _validate_passed_rights_manifest(manifest: Any) -> dict[str, dict[str, Any]]
                 asset.get("attribution_text"),
                 f"assets[{asset_id}].attribution_text",
             )
+        local_path = asset.get("local_path")
+        download_url = asset.get("download_url")
+        has_local = isinstance(local_path, str) and bool(local_path.strip())
+        has_download = isinstance(download_url, str) and bool(download_url.strip())
+        if has_local == has_download:
+            raise MediaFreezeError(
+                f"assets[{asset_id}] must provide exactly one approved byte locator"
+            )
         by_id[asset_id] = asset
     if not by_id:
         raise MediaFreezeError("rights manifest assets must be a non-empty array")
@@ -969,8 +977,29 @@ def _explicit_assets(
                 )
             explicit = _ExplicitAsset(asset, "local_file", str(source))
         else:
-            direct_url = _validate_url(
+            raw_download_url = _require_string(
                 item.get("download_url"),
+                f"media_inputs[{index}].download_url",
+            )
+            if (
+                not allow_private_hosts
+                and urlsplit(raw_download_url).scheme.lower() != "https"
+            ):
+                raise MediaFreezeError(
+                    f"media_inputs[{index}].download_url must use https"
+                )
+            _require_string(
+                asset.get("license_receipt"),
+                f"RightsManifest asset {asset_id}.license_receipt",
+            )
+            for release_field in ("model_release", "property_release"):
+                if asset.get(release_field) not in {"confirmed", "not_applicable"}:
+                    raise MediaFreezeError(
+                        f"RightsManifest asset {asset_id}.{release_field} "
+                        "must be confirmed or not_applicable before download"
+                    )
+            direct_url = _validate_url(
+                raw_download_url,
                 field=f"media_inputs[{index}].download_url",
                 allow_private_hosts=allow_private_hosts,
             )

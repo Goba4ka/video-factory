@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/bgm_manifest.schema.json",
+  "title": "BgmManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "job_id", "idea_id", "lane_id", "bgm_asset_id",
+    "immutable_wav_path", "checksums", "audio", "normalization", "rights", "created_at"
+  ],
+  "properties": {
+    "schema_version": {"enum": ["1.1.0", "1.2.0"]},
+    "job_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "idea_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "lane_id": {
+      "enum": ["war_history", "celebrity_news", "motivation", "chinese_medicine", "health"]
+    },
+    "bgm_asset_id": {"type": "string", "minLength": 3, "maxLength": 128},
+    "immutable_wav_path": {"type": "string", "minLength": 1, "maxLength": 4096},
+    "checksums": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rights_manifest_sha256", "frozen_media_manifest_sha256",
+        "source_asset_sha256", "immutable_wav_sha256", "license_evidence_sha256",
+        "human_approval_sha256"
+      ],
+      "properties": {
+        "rights_manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "frozen_media_manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "source_asset_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "immutable_wav_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "license_evidence_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "human_approval_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        ,"catalog_track_record_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        ,"catalog_human_approval_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "music_selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "catalog_id", "catalog_version", "track_id", "track_record_sha256",
+        "archetype_id", "slot_id", "reference_fingerprint_ids",
+        "requested_platforms", "requested_territories", "requested_placements",
+        "catalog_human_approval_sha256"
+      ],
+      "properties": {
+        "catalog_id": {"type": "string", "minLength": 1},
+        "catalog_version": {"type": "string", "minLength": 1},
+        "track_id": {"type": "string", "minLength": 1},
+        "track_record_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "archetype_id": {"type": "string", "minLength": 1},
+        "slot_id": {"type": "string", "minLength": 1},
+        "reference_fingerprint_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "requested_platforms": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["youtube_shorts", "instagram_reels", "tiktok"]}},
+        "requested_territories": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "requested_placements": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["organic_feed", "paid_ads", "branded_content", "spark_ads"]}},
+        "catalog_human_approval_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sample_rate_hz", "channels", "sample_width_bits", "frames", "duration_seconds",
+        "integrated_loudness_lufs", "loudness_range_lu", "true_peak_dbtp"
+      ],
+      "properties": {
+        "sample_rate_hz": {"const": 48000},
+        "channels": {"const": 2},
+        "sample_width_bits": {"const": 16},
+        "frames": {"type": "integer", "minimum": 1},
+        "duration_seconds": {"type": "number", "minimum": 1, "maximum": 7200},
+        "integrated_loudness_lufs": {"type": "number", "minimum": -14.5, "maximum": -13.5},
+        "loudness_range_lu": {"type": "number", "minimum": 0, "maximum": 20},
+        "true_peak_dbtp": {"type": "number", "maximum": -1.4}
+      }
+    },
+    "normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "engine", "ffmpeg_version", "recipe_version",
+        "integrated_loudness_target_lufs", "true_peak_target_dbtp",
+        "lra_target_lu", "deterministic"
+      ],
+      "properties": {
+        "engine": {"const": "ffmpeg"},
+        "ffmpeg_version": {"type": "string", "minLength": 1, "maxLength": 512},
+        "recipe_version": {"const": "bgm-freeze-1.1.0"},
+        "integrated_loudness_target_lufs": {"const": -14},
+        "true_peak_target_dbtp": {"const": -1.5},
+        "lra_target_lu": {"const": 7},
+        "deterministic": {"const": true}
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "creator", "license", "license_url", "license_evidence_path",
+        "commercial_use", "modification_allowed", "attribution_required",
+        "attribution_text", "platforms", "territories", "expires_at",
+        "rights_status", "human_rights_gate_preserved", "human_approval"
+      ],
+      "properties": {
+        "creator": {"type": "string", "minLength": 1},
+        "license": {"type": "string", "minLength": 2},
+        "license_source": {"type": "string", "minLength": 2},
+        "license_url": {"type": "string", "format": "uri"},
+        "license_evidence_path": {"type": "string", "minLength": 1, "maxLength": 4096},
+        "commercial_use": {"const": true},
+        "modification_allowed": {"const": true},
+        "attribution_required": {"type": "boolean"},
+        "attribution_text": {"type": ["string", "null"]},
+        "platforms": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["youtube_shorts", "instagram_reels", "tiktok"]}
+        },
+        "placements": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": ["organic_feed", "paid_ads", "branded_content", "spark_ads"]}
+        },
+        "territories": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "expires_at": {"type": ["string", "null"], "format": "date-time"},
+        "rights_status": {"const": "approved"},
+        "human_rights_gate_preserved": {"const": true},
+        "human_approval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "approved", "approved_by", "approved_at", "approval_note",
+            "rights_manifest_sha256", "reviewed_asset_ids"
+          ],
+          "properties": {
+            "approved": {"const": true},
+            "approved_by": {"type": "string", "minLength": 1},
+            "approved_at": {"type": "string", "format": "date-time"},
+            "approval_note": {"type": "string", "minLength": 1},
+            "rights_manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "reviewed_asset_ids": {
+              "type": "array", "minItems": 1, "uniqueItems": true,
+              "items": {"type": "string", "minLength": 3, "maxLength": 128}
+            }
+          }
+        }
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"}
+  },
+  "allOf": [{
+    "if": {"properties": {"schema_version": {"const": "1.2.0"}}},
+    "then": {
+      "required": ["music_selection"],
+      "properties": {
+        "checksums": {"required": ["catalog_track_record_sha256", "catalog_human_approval_sha256"]},
+        "rights": {"required": ["license_source", "placements"]}
+      }
+    }
+  }]
+}

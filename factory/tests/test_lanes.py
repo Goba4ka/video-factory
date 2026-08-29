@@ -6,6 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from video_factory.analytics import PRODUCTION_STAGES
 from video_factory.errors import ValidationError
 from video_factory.lanes import (
     enabled_lane_ids,
@@ -52,6 +53,41 @@ class LaneRegistryTests(unittest.TestCase):
             lane_roles = roles_for_lane(lane_id)
             self.assertIn("voice", lane_roles, lane_id)
             self.assertNotIn("source_audio", lane_roles, lane_id)
+
+    def test_every_lane_discovers_before_rights_and_freeze(self) -> None:
+        for lane_id in (
+            "war_history",
+            "celebrity_news",
+            "motivation",
+            "chinese_medicine",
+            "health",
+        ):
+            roles = roles_for_lane(lane_id)
+            self.assertLess(roles.index("media_discovery"), roles.index("rights"))
+            self.assertLess(roles.index("rights"), roles.index("media"))
+
+    def test_every_lane_builds_licensed_bgm_and_program_mix_before_compiler(self) -> None:
+        for lane_id in (
+            "war_history",
+            "celebrity_news",
+            "motivation",
+            "chinese_medicine",
+            "health",
+        ):
+            roles = roles_for_lane(lane_id)
+            self.assertLess(roles.index("editor"), roles.index("bgm"), lane_id)
+            self.assertLess(roles.index("bgm"), roles.index("audio_mix"), lane_id)
+            self.assertLess(roles.index("audio_mix"), roles.index("compiler"), lane_id)
+
+    def test_analytics_covers_every_registered_lane_role(self) -> None:
+        registry = load_lane_registry()
+        registered_roles = {
+            role
+            for lane in registry["lanes"]
+            if lane["enabled"]
+            for role in roles_for_lane(lane["id"])
+        }
+        self.assertEqual(registered_roles - PRODUCTION_STAGES, set())
 
     def test_registry_rejects_allocation_drift(self) -> None:
         registry = copy.deepcopy(load_lane_registry())

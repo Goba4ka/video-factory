@@ -22,6 +22,13 @@ from .errors import (
     NotFoundError,
     ValidationError,
 )
+from .media_freeze import MediaFreezeError, verify_frozen_media_manifest
+from .source_audio import (
+    is_multisource_manifest,
+    source_audio_is_publishable,
+    source_audio_segments,
+    verify_multisource_program,
+)
 from .validators import canonical_json, digest_text, require_nonempty_string
 
 
@@ -126,6 +133,59 @@ def _probe_render_output(path: Path) -> dict[str, Any]:
     except (KeyError, TypeError, ValueError, ZeroDivisionError) as exc:
         raise ValidationError("ffprobe output is missing required technical values") from exc
     return result
+
+
+def _probe_source_audio_duration(path: Path) -> float:
+    command = [
+        _ffprobe_path(),
+        "-v",
+        "error",
+        "-show_entries",
+        "stream=codec_type:format=duration",
+        "-of",
+        "json",
+        str(path),
+    ]
+    try:
+        completed = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=60,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise ValidationError(f"ffprobe could not inspect source audio media: {exc}") from exc
+    if completed.returncode != 0:
+        raise ValidationError("source-audio frozen media is not ffprobe-decodable")
+    try:
+        payload = json.loads(completed.stdout)
+        stream_types = {
+            item["codec_type"] for item in payload["streams"] if isinstance(item, dict)
+        }
+        duration = float(payload["format"]["duration"])
+    except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        raise ValidationError("source-audio frozen media lacks duration/streams") from exc
+    if not {"video", "audio"}.issubset(stream_types) or not duration > 0:
+        raise ValidationError("source-audio frozen media must have video, audio, and duration")
+    return duration
+
+
+def _source_audio_rights_evidence(
+    rights: Mapping[str, Any], rights_status: str
+) -> str | None:
+    if rights_status == "internal_prototype":
+        return None
+    receipt = rights.get("license_receipt")
+    if isinstance(receipt, str) and receipt.strip():
+        return receipt.strip()
+    if rights_status == "commercial_license_confirmed":
+        license_url = rights.get("license_url")
+        if isinstance(license_url, str) and license_url.strip():
+            return license_url.strip()
+    raise ValidationError("source-audio segment lacks exact rights evidence")
 
 
 def _validate_render_probe(
@@ -263,6 +323,227 @@ def _ancestor_results(
     return artifacts, results_by_role
 
 
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    try:
+        with path.open("rb") as handle:
+            for block in iter(lambda: handle.read(1024 * 1024), b""):
+                digest.update(block)
+    except OSError as exc:
+        raise ValidationError(f"cannot hash local evidence file {path}: {exc}") from exc
+    return digest.hexdigest()
+
+
+def _qc_evidence_file(
+    descriptor: Any, *, field: str, require_json: bool = True
+) -> tuple[Path, str]:
+    if not isinstance(descriptor, Mapping) or set(descriptor) != {"path", "sha256"}:
+        raise ValidationError(f"{field} must contain exactly path and sha256")
+    root_value = os.environ.get("VIDEO_FACTORY_QC_EVIDENCE_ROOT")
+    if not root_value:
+        raise ValidationError("VIDEO_FACTORY_QC_EVIDENCE_ROOT must be configured")
+    root = Path(root_value).expanduser().resolve()
+    if not root.is_dir() or root.is_symlink():
+        raise ValidationError("VIDEO_FACTORY_QC_EVIDENCE_ROOT must be a regular directory")
+    raw_path = descriptor.get("path")
+    expected = descriptor.get("sha256")
+    if not isinstance(raw_path, str) or not raw_path or not isinstance(expected, str):
+        raise ValidationError(f"{field} descriptor values are invalid")
+    path = Path(raw_path).expanduser()
+    if not path.is_absolute() or path.is_symlink():
+        raise ValidationError(f"{field}.path must be an absolute regular file")
+    path = path.resolve()
+    try:
+        path.relative_to(root)
+    except ValueError as exc:
+        raise ValidationError(f"{field}.path escapes QC evidence root") from exc
+    if not path.is_file() or (require_json and path.suffix.lower() != ".json"):
+        raise ValidationError(f"{field}.path is not the required evidence file")
+    if _sha256_file(path) != expected:
+        raise ValidationError(f"{field} checksum does not match actual bytes")
+    return path, expected
+
+
+def _json_evidence(
+    path: Path, field: str, *, max_bytes: int = 8 * 1024 * 1024
+) -> dict[str, Any]:
+    try:
+        if path.stat().st_size > max_bytes:
+            raise ValidationError(f"{field} exceeds the evidence size limit")
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValidationError(f"{field} is unreadable JSON: {exc}") from exc
+    if not isinstance(value, dict):
+        raise ValidationError(f"{field} must contain one JSON object")
+    return value
+
+
+def _verify_report_evidence(
+    descriptor: Any, report: Mapping[str, Any], *, field: str
+) -> dict[str, str]:
+    path, sha256 = _qc_evidence_file(descriptor, field=field)
+    if _json_evidence(path, field) != dict(report):
+        raise ValidationError(f"{field} bytes do not match result.artifact")
+    return {"path": str(path), "sha256": sha256}
+
+
+def _verify_project_tree(project: Mapping[str, Any]) -> None:
+    """Prove that the compiler's immutable project still matches its manifest."""
+
+    raw_root = Path(project["project_root"]).expanduser()
+    if raw_root.is_symlink():
+        raise ValidationError("project_manifest.project_root must not be a symlink")
+    root = raw_root.resolve()
+    if not root.is_dir():
+        raise ValidationError("project_manifest.project_root is not an existing directory")
+
+    actual_files: list[dict[str, Any]] = []
+    try:
+        entries = sorted(root.rglob("*"), key=lambda item: item.as_posix())
+    except OSError as exc:
+        raise ValidationError(f"cannot enumerate HyperFrames project tree: {exc}") from exc
+    for path in entries:
+        if path.is_symlink():
+            raise ValidationError(f"HyperFrames project tree contains a symlink: {path}")
+        if not path.is_file():
+            continue
+        try:
+            relative = path.relative_to(root).as_posix()
+            size_bytes = path.stat().st_size
+        except OSError as exc:
+            raise ValidationError(f"cannot inspect HyperFrames project file {path}: {exc}") from exc
+        actual_files.append(
+            {
+                "path": relative,
+                "sha256": _sha256_file(path),
+                "size_bytes": size_bytes,
+            }
+        )
+
+    if actual_files != project["files"]:
+        raise ValidationError("HyperFrames project tree changed after compilation")
+    actual_tree_hash = digest_text(canonical_json(actual_files))
+    if actual_tree_hash != project["project_tree_sha256"]:
+        raise ValidationError("HyperFrames project tree checksum does not match manifest")
+
+
+def _verify_preview_receipt(approval: Mapping[str, Any]) -> None:
+    raw_path = Path(approval["check_receipt_path"]).expanduser()
+    if raw_path.is_symlink():
+        raise ValidationError("preview check receipt must not be a symlink")
+    receipt_path = raw_path.resolve()
+    if not receipt_path.is_file():
+        raise ValidationError("preview check receipt is not an existing local file")
+    if _sha256_file(receipt_path) != approval["check_receipt_sha256"]:
+        raise ValidationError("preview check receipt checksum does not match actual bytes")
+    try:
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValidationError("preview check receipt is not readable JSON") from exc
+    if not isinstance(receipt, dict) or receipt.get("ok") is not True:
+        raise ValidationError("preview check receipt must record HyperFrames ok=true")
+    if receipt.get("project_tree_sha256") != approval["project_tree_sha256"]:
+        raise ValidationError(
+            "preview check receipt is not bound to the approved project tree"
+        )
+
+
+def _verify_preview_binding(
+    approval: Mapping[str, Any], project: Mapping[str, Any]
+) -> None:
+    if approval["approved"] is not True:
+        raise ValidationError("preview approval is not approved")
+    if approval["job_id"] != project["job_id"]:
+        raise ValidationError("preview approval job_id does not match project manifest")
+    if approval["project_id"] != project["project_id"]:
+        raise ValidationError("preview approval project_id does not match project manifest")
+    if approval["project_tree_sha256"] != project["project_tree_sha256"]:
+        raise ValidationError("preview approval is not bound to project tree checksum")
+    manifest_hash = digest_text(canonical_json(project))
+    if approval["project_manifest_sha256"] != manifest_hash:
+        raise ValidationError("preview approval is not bound to project manifest checksum")
+    _verify_project_tree(project)
+    _verify_preview_receipt(approval)
+
+
+def _validate_rights_discovery_binding(
+    rights_manifest: Mapping[str, Any],
+    discovery_manifest: Mapping[str, Any],
+) -> None:
+    """Bind every approved rights asset to one immutable discovery candidate.
+
+    Discovery is deliberately not rights clearance.  The rights role may
+    select a subset of candidates and add item-level evidence, but it may not
+    replace provider ids, creators, landing/download URLs, license terms, or
+    the required API attribution while doing so.
+    """
+
+    validate_artifact("media_discovery_manifest", dict(discovery_manifest))
+    candidates = {
+        candidate["asset_id"]: candidate
+        for candidate in discovery_manifest["candidates"]
+    }
+    seen: set[str] = set()
+    for index, asset in enumerate(rights_manifest["assets"]):
+        asset_id = asset["asset_id"]
+        if asset_id in seen:
+            raise ValidationError(
+                f"rights_manifest contains duplicate asset_id {asset_id!r}"
+            )
+        seen.add(asset_id)
+        candidate = candidates.get(asset_id)
+        if candidate is None:
+            raise ValidationError(
+                f"rights_manifest asset {asset_id!r} is absent from media discovery"
+            )
+        source = candidate["ledger"]["source"]
+        license_record = candidate["ledger"]["license"]
+        attribution = candidate["ledger"]["attribution"]
+        expected = {
+            "landing_url": candidate["landing_url"],
+            "download_url": candidate["selected_file"]["download_url"],
+            "creator": source["creator_name"],
+            "license": license_record["name"],
+            "license_url": license_record["url"],
+            "commercial_use": license_record["commercial_use"],
+            "modification_allowed": license_record["modification_allowed"],
+        }
+        mismatched = sorted(
+            field for field, value in expected.items() if asset.get(field) != value
+        )
+        if mismatched:
+            raise ValidationError(
+                f"rights_manifest asset {asset_id!r} differs from media discovery: "
+                + ", ".join(mismatched)
+            )
+        if asset.get("local_path") is not None:
+            raise ValidationError(
+                f"rights_manifest asset {asset_id!r} cannot replace a discovered URL with local_path"
+            )
+        if asset.get("rights_status") != "approved":
+            raise ValidationError(
+                f"rights_manifest asset {asset_id!r} is not approved"
+            )
+        if not isinstance(asset.get("license_receipt"), str) or not asset[
+            "license_receipt"
+        ].strip():
+            raise ValidationError(
+                f"rights_manifest asset {asset_id!r} lacks item-level license evidence"
+            )
+        for release_field in ("model_release", "property_release"):
+            if asset.get(release_field) not in {"confirmed", "not_applicable"}:
+                raise ValidationError(
+                    f"rights_manifest asset {asset_id!r} has unresolved {release_field}"
+                )
+        if attribution["apply"] is True and (
+            asset.get("attribution_required") is not True
+            or asset.get("attribution_text") != attribution["text"]
+        ):
+            raise ValidationError(
+                f"rights_manifest asset {asset_id!r} does not preserve required attribution"
+            )
+
+
 def _validate_success_result(
     connection: sqlite3.Connection, task: sqlite3.Row, body: dict[str, Any]
 ) -> None:
@@ -310,6 +591,403 @@ def _validate_success_result(
                 raise ValidationError(f"{contract} has not passed its hard gate")
         if contract == "rights_manifest" and decision.get("missing_asset_ids"):
             raise ValidationError("rights_manifest still has missing assets")
+        if contract == "media_discovery_manifest":
+            if task["role"] != "media_discovery":
+                raise ValidationError(
+                    "media_discovery_manifest may only complete a media_discovery task"
+                )
+            if artifact["job_id"] != payload.get("job_id"):
+                raise ValidationError(
+                    "media_discovery_manifest is not bound to task job_id"
+                )
+            if artifact["lane"] != payload.get("lane_id"):
+                raise ValidationError(
+                    "media_discovery_manifest lane does not match task lane_id"
+                )
+        if contract == "rights_manifest":
+            if task["role"] != "rights":
+                raise ValidationError(
+                    "rights_manifest may only complete a rights task"
+                )
+            if (
+                payload.get("human_gate") is not True
+                or payload.get("rights_checksum_bound") is not True
+            ):
+                raise ValidationError(
+                    "rights must be an attributable checksum-bound human gate"
+                )
+            approval = body.get("human_approval")
+            if not isinstance(approval, dict):
+                raise ValidationError(
+                    "rights_manifest requires checksum-bound human_approval"
+                )
+            require_nonempty_string(
+                approval.get("approval_note"), "human_approval.approval_note"
+            )
+            manifest_sha256 = require_nonempty_string(
+                approval.get("rights_manifest_sha256"),
+                "human_approval.rights_manifest_sha256",
+            )
+            if manifest_sha256 != digest_text(canonical_json(artifact)):
+                raise ValidationError(
+                    "human approval is not bound to the exact rights_manifest"
+                )
+            reviewed_asset_ids = approval.get("reviewed_asset_ids")
+            if not isinstance(reviewed_asset_ids, list) or not all(
+                isinstance(item, str) and item.strip()
+                for item in reviewed_asset_ids
+            ):
+                raise ValidationError(
+                    "human_approval.reviewed_asset_ids must list reviewed assets"
+                )
+            if len(reviewed_asset_ids) != len(set(reviewed_asset_ids)):
+                raise ValidationError(
+                    "human_approval.reviewed_asset_ids must be unique"
+                )
+            expected_asset_ids = sorted(item["asset_id"] for item in artifact["assets"])
+            if sorted(reviewed_asset_ids) != expected_asset_ids:
+                raise ValidationError(
+                    "human approval does not cover every rights_manifest asset"
+                )
+            prior, _ = history()
+            discovery_manifest = prior.get("media_discovery_manifest")
+            if discovery_manifest is not None:
+                _validate_rights_discovery_binding(
+                    artifact, discovery_manifest
+                )
+        if contract == "frozen_media_manifest":
+            if task["role"] != "media":
+                raise ValidationError(
+                    "frozen_media_manifest may only complete a media task"
+                )
+            prior, _ = history()
+            rights_manifest = prior.get("rights_manifest")
+            if rights_manifest is None:
+                raise ValidationError(
+                    "frozen_media_manifest requires an upstream rights_manifest"
+                )
+            try:
+                verify_frozen_media_manifest(
+                    artifact,
+                    rights_manifest=rights_manifest,
+                    expected_job_id=payload.get("job_id"),
+                )
+            except MediaFreezeError as exc:
+                raise ValidationError(
+                    f"frozen_media_manifest byte verification failed: {exc}"
+                ) from exc
+        if contract == "bgm_manifest":
+            if task["role"] != "bgm":
+                raise ValidationError("bgm_manifest may only complete a bgm task")
+            if (
+                artifact["job_id"] != payload.get("job_id")
+                or artifact["idea_id"] != payload.get("idea_id")
+                or artifact["lane_id"] != payload.get("lane_id")
+            ):
+                raise ValidationError("bgm_manifest is not bound to task job/idea/lane")
+            prior, role_results = history()
+            rights_manifest = prior.get("rights_manifest")
+            frozen_manifest = prior.get("frozen_media_manifest")
+            rights_result = role_results.get("rights")
+            human_approval = (
+                rights_result.get("human_approval")
+                if isinstance(rights_result, Mapping)
+                else None
+            )
+            if rights_manifest is None or frozen_manifest is None:
+                raise ValidationError(
+                    "bgm_manifest requires upstream rights and frozen media"
+                )
+            if not isinstance(human_approval, Mapping):
+                raise ValidationError(
+                    "bgm_manifest requires upstream checksum-bound human rights approval"
+                )
+            rights_sha = digest_text(canonical_json(rights_manifest))
+            if (
+                artifact["checksums"]["rights_manifest_sha256"] != rights_sha
+                or artifact["checksums"]["frozen_media_manifest_sha256"]
+                != digest_text(canonical_json(frozen_manifest))
+                or artifact["rights"]["human_approval"] != dict(human_approval)
+                or artifact["checksums"]["human_approval_sha256"]
+                != digest_text(canonical_json(human_approval))
+                or human_approval.get("rights_manifest_sha256") != rights_sha
+            ):
+                raise ValidationError(
+                    "bgm_manifest rights or human approval binding was substituted"
+                )
+            reviewed = human_approval.get("reviewed_asset_ids")
+            rights_ids = {item["asset_id"] for item in rights_manifest["assets"]}
+            if not isinstance(reviewed, list) or set(reviewed) != rights_ids:
+                raise ValidationError("BGM human approval does not cover rights assets")
+            selected_rights = [
+                item
+                for item in rights_manifest["assets"]
+                if item["asset_id"] == artifact["bgm_asset_id"]
+            ]
+            selected_frozen = [
+                item
+                for item in frozen_manifest["assets"]
+                if item["asset_id"] == artifact["bgm_asset_id"]
+            ]
+            if len(selected_rights) != 1 or len(selected_frozen) != 1:
+                raise ValidationError("BGM asset is not uniquely rights-bound and frozen")
+            if (
+                selected_rights[0].get("rights_status") != "approved"
+                or selected_rights[0].get("commercial_use") is not True
+                or selected_rights[0].get("modification_allowed") is not True
+                or not str(selected_frozen[0].get("content_type", "")).startswith("audio/")
+            ):
+                raise ValidationError("BGM asset is not cleared licensed audio")
+            frozen_source = (
+                Path(frozen_manifest["frozen_root"]).expanduser().resolve()
+                / Path(selected_frozen[0]["frozen_path"])
+            ).resolve()
+            if (
+                not frozen_source.is_file()
+                or frozen_source.is_symlink()
+                or _sha256_file(frozen_source) != selected_frozen[0]["sha256"]
+                or artifact["checksums"]["source_asset_sha256"]
+                != selected_frozen[0]["sha256"]
+            ):
+                raise ValidationError("BGM frozen source checksum changed")
+            evidence = Path(
+                artifact["rights"]["license_evidence_path"]
+            ).expanduser().resolve()
+            if (
+                not evidence.is_file()
+                or evidence.is_symlink()
+                or _sha256_file(evidence)
+                != artifact["checksums"]["license_evidence_sha256"]
+            ):
+                raise ValidationError("BGM license evidence checksum changed")
+            output = Path(artifact["immutable_wav_path"]).expanduser().resolve()
+            if (
+                not output.is_file()
+                or output.is_symlink()
+                or _sha256_file(output)
+                != artifact["checksums"]["immutable_wav_sha256"]
+            ):
+                raise ValidationError("BGM immutable WAV checksum changed")
+            if Path(str(body.get("output_path", ""))).expanduser().resolve() != output:
+                raise ValidationError("bgm result.output_path differs from manifest")
+            manifest_path = Path(str(body.get("manifest_path", ""))).expanduser().resolve()
+            try:
+                stored = json.loads(manifest_path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+                raise ValidationError("BGM manifest file is unreadable") from exc
+            if stored != artifact:
+                raise ValidationError("BGM manifest file differs from result.artifact")
+        if contract == "program_audio_manifest":
+            if task["role"] != "audio_mix":
+                raise ValidationError(
+                    "program_audio_manifest may only complete an audio_mix task"
+                )
+            if (
+                artifact["job_id"] != payload.get("job_id")
+                or artifact["idea_id"] != payload.get("idea_id")
+                or artifact["lane_id"] != payload.get("lane_id")
+            ):
+                raise ValidationError(
+                    "program_audio_manifest is not bound to task job/idea/lane"
+                )
+            prior, _ = history()
+            bgm = prior.get("bgm_manifest")
+            shotlist = prior.get("shotlist")
+            authority_contract = (
+                "source_audio_manifest"
+                if payload.get("lane_id") == "motivation"
+                else "voice_manifest"
+            )
+            authority = prior.get(authority_contract)
+            if bgm is None or shotlist is None or authority is None:
+                raise ValidationError(
+                    "program_audio_manifest lacks BGM, ShotList, or speech authority"
+                )
+            authority_audio_sha = (
+                authority["checksums"]["extracted_audio_sha256"]
+                if authority_contract == "source_audio_manifest"
+                else authority["output_sha256"]
+            )
+            expected_authority = {
+                "contract": authority_contract,
+                "manifest_sha256": digest_text(canonical_json(authority)),
+                "audio_sha256": authority_audio_sha,
+                "authority": "spoken_content_and_timing",
+                "tts": authority_contract == "voice_manifest",
+            }
+            expected_bgm = {
+                "asset_id": bgm["bgm_asset_id"],
+                "manifest_sha256": digest_text(canonical_json(bgm)),
+                "audio_sha256": bgm["checksums"]["immutable_wav_sha256"],
+                "license_evidence_sha256": bgm["checksums"][
+                    "license_evidence_sha256"
+                ],
+                "human_approval_sha256": bgm["checksums"][
+                    "human_approval_sha256"
+                ],
+            }
+            if (
+                artifact["source_authority"] != expected_authority
+                or artifact["bgm"] != expected_bgm
+                or artifact["mix"]["broll_audio_muted"] is not True
+                or artifact["mix"]["sidechain_ducking"] is not True
+                or artifact["mix"]["deterministic"] is not True
+            ):
+                raise ValidationError(
+                    "program_audio_manifest input or deterministic mix binding differs"
+                )
+            if abs(
+                float(artifact["audio"]["duration_seconds"])
+                - float(shotlist["duration_seconds"])
+            ) > 0.1:
+                raise ValidationError("program audio duration differs from ShotList")
+            output = Path(artifact["immutable_output_path"]).expanduser().resolve()
+            if (
+                not output.is_file()
+                or output.is_symlink()
+                or output.stat().st_size != artifact["output_bytes"]
+                or _sha256_file(output) != artifact["output_sha256"]
+            ):
+                raise ValidationError("program audio output checksum changed")
+            if Path(str(body.get("output_path", ""))).expanduser().resolve() != output:
+                raise ValidationError("audio_mix result.output_path differs from manifest")
+            manifest_path = Path(str(body.get("manifest_path", ""))).expanduser().resolve()
+            try:
+                stored = json.loads(manifest_path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+                raise ValidationError("program audio manifest file is unreadable") from exc
+            if stored != artifact:
+                raise ValidationError(
+                    "program audio manifest file differs from result.artifact"
+                )
+        if contract == "project_manifest":
+            if task["role"] != "compiler":
+                raise ValidationError(
+                    "project_manifest may only complete a compiler task"
+                )
+            if artifact["job_id"] != payload.get("job_id"):
+                raise ValidationError("project_manifest is not bound to task job_id")
+            if artifact["lane_id"] != payload.get("lane_id"):
+                raise ValidationError("project_manifest lane_id does not match task lane_id")
+            prior, _ = history()
+            missing = [
+                name
+                for name in (
+                    "shotlist", "script_package", "frozen_media_manifest",
+                    "bgm_manifest", "program_audio_manifest",
+                )
+                if name not in prior
+            ]
+            if missing:
+                raise ValidationError(
+                    "project_manifest requires upstream artifacts: "
+                    + ", ".join(missing)
+                )
+            authority_contract = (
+                "source_audio_manifest"
+                if payload.get("lane_id") == "motivation"
+                else "voice_manifest"
+            )
+            authority = prior.get(authority_contract)
+            if authority is None:
+                raise ValidationError(
+                    f"project_manifest requires upstream {authority_contract}"
+                )
+            authority_audio_sha = (
+                authority["checksums"]["extracted_audio_sha256"]
+                if authority_contract == "source_audio_manifest"
+                else authority["output_sha256"]
+            )
+            program_audio = prior["program_audio_manifest"]
+            expected_bindings = {
+                "shotlist": {
+                    "contract": "shotlist",
+                    "schema_version": prior["shotlist"]["schema_version"],
+                    "idea_id": prior["shotlist"]["idea_id"],
+                    "sha256": digest_text(canonical_json(prior["shotlist"])),
+                },
+                "script_package": {
+                    "contract": "script_package",
+                    "schema_version": prior["script_package"]["schema_version"],
+                    "idea_id": prior["script_package"]["idea_id"],
+                    "job_id": prior["script_package"]["job_id"],
+                    "sha256": digest_text(canonical_json(prior["script_package"])),
+                },
+                "frozen_media_manifest": {
+                    "contract": "frozen_media_manifest",
+                    "schema_version": prior["frozen_media_manifest"]["schema_version"],
+                    "idea_id": prior["frozen_media_manifest"]["idea_id"],
+                    "job_id": prior["frozen_media_manifest"]["job_id"],
+                    "sha256": digest_text(
+                        canonical_json(prior["frozen_media_manifest"])
+                    ),
+                },
+                "authoritative_audio": {
+                    "contract": authority_contract,
+                    "schema_version": authority["schema_version"],
+                    "job_id": authority["job_id"],
+                    "sha256": digest_text(canonical_json(authority)),
+                    "audio_sha256": authority_audio_sha,
+                },
+                "program_audio": {
+                    "contract": "program_audio_manifest",
+                    "schema_version": program_audio["schema_version"],
+                    "job_id": program_audio["job_id"],
+                    "idea_id": program_audio["idea_id"],
+                    "lane_id": program_audio["lane_id"],
+                    "sha256": digest_text(canonical_json(program_audio)),
+                    "audio_sha256": program_audio["output_sha256"],
+                    "project_path": "assets/audio/program_mix.wav",
+                    "size_bytes": program_audio["output_bytes"],
+                },
+            }
+            if artifact["bindings"] != expected_bindings:
+                raise ValidationError(
+                    "project_manifest bindings do not match exact upstream artifacts"
+                )
+            _verify_project_tree(artifact)
+            manifest_path_value = body.get("manifest_path")
+            if not isinstance(manifest_path_value, str) or not manifest_path_value.strip():
+                raise ValidationError(
+                    "compiler completion requires result.manifest_path"
+                )
+            manifest_path = Path(manifest_path_value).expanduser().resolve()
+            try:
+                stored_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+                raise ValidationError("compiler ProjectManifest file is unreadable") from exc
+            if stored_manifest != artifact:
+                raise ValidationError(
+                    "compiler ProjectManifest file differs from result.artifact"
+                )
+            project_root_value = body.get("project_root")
+            if not isinstance(project_root_value, str) or (
+                Path(project_root_value).expanduser().resolve()
+                != Path(artifact["project_root"]).expanduser().resolve()
+            ):
+                raise ValidationError(
+                    "compiler result.project_root does not match ProjectManifest"
+                )
+        if contract == "preview_approval":
+            if task["role"] != "preview_review":
+                raise ValidationError(
+                    "preview_approval may only complete a preview_review task"
+                )
+            if payload.get("human_gate") is not True or payload.get("checksum_bound") is not True:
+                raise ValidationError(
+                    "preview_review task must be a checksum-bound human gate"
+                )
+            if set(body) != {"artifact"}:
+                raise ValidationError(
+                    "preview_review result may contain only the PreviewApproval artifact"
+                )
+            prior, _ = history()
+            project = prior.get("project_manifest")
+            if project is None:
+                raise ValidationError(
+                    "preview_approval requires an upstream project_manifest"
+                )
+            _verify_preview_binding(artifact, project)
         if contract == "source_audio_manifest":
             if task["role"] != "source_audio":
                 raise ValidationError(
@@ -319,6 +997,125 @@ def _validate_success_result(
                 raise ValidationError(
                     "source_audio_manifest is restricted to the motivation lane"
                 )
+            if artifact["job_id"] != payload.get("job_id"):
+                raise ValidationError(
+                    "source_audio_manifest is not bound to task job_id"
+                )
+            if artifact["lane"] != "motivation":
+                raise ValidationError(
+                    "source_audio_manifest lane must be motivation"
+                )
+            prior, _ = history()
+            rights_manifest = prior.get("rights_manifest")
+            frozen_manifest = prior.get("frozen_media_manifest")
+            if rights_manifest is None or frozen_manifest is None:
+                raise ValidationError(
+                    "source_audio_manifest requires upstream rights and frozen media"
+                )
+            try:
+                verify_frozen_media_manifest(
+                    frozen_manifest,
+                    rights_manifest=rights_manifest,
+                    expected_job_id=payload.get("job_id"),
+                )
+            except MediaFreezeError as exc:
+                raise ValidationError(
+                    f"source_audio_manifest frozen media verification failed: {exc}"
+                ) from exc
+            frozen_root = Path(frozen_manifest["frozen_root"]).expanduser().resolve()
+            for index, segment in enumerate(source_audio_segments(artifact)):
+                selected_frozen = [
+                    item
+                    for item in frozen_manifest["assets"]
+                    if item["asset_id"] == segment["asset_id"]
+                ]
+                selected_rights = [
+                    item
+                    for item in rights_manifest["assets"]
+                    if item["asset_id"] == segment["asset_id"]
+                ]
+                if len(selected_frozen) != 1 or len(selected_rights) != 1:
+                    raise ValidationError(
+                        f"source_audio_manifest segment {index} is not uniquely rights-bound and frozen"
+                    )
+                rights_item = selected_rights[0]
+                if (
+                    rights_item.get("rights_status") != "approved"
+                    or rights_item.get("commercial_use") is not True
+                    or rights_item.get("modification_allowed") is not True
+                ):
+                    raise ValidationError(
+                        f"source_audio_manifest segment {index} lacks commercial modified-use rights"
+                    )
+                frozen_source = (
+                    frozen_root / Path(selected_frozen[0]["frozen_path"])
+                ).resolve()
+                if (
+                    Path(segment["source_video_uri_or_path"]).expanduser().resolve()
+                    != frozen_source
+                ):
+                    raise ValidationError(
+                        f"source_audio_manifest segment {index} source path does not match frozen media"
+                    )
+                expected_source_sha = selected_frozen[0]["sha256"]
+                if (
+                    segment["checksums"]["source_video_sha256"]
+                    != expected_source_sha
+                    or _sha256_file(frozen_source) != expected_source_sha
+                ):
+                    raise ValidationError(
+                        f"source_audio_manifest segment {index} source hash does not match frozen bytes"
+                    )
+                expected_evidence = _source_audio_rights_evidence(
+                    rights_item, segment["rights_status"]
+                )
+                if segment["rights_evidence"] != expected_evidence:
+                    raise ValidationError(
+                        f"source_audio_manifest segment {index} rights evidence differs from RightsManifest"
+                    )
+                if is_multisource_manifest(artifact):
+                    source_duration = _probe_source_audio_duration(frozen_source)
+                    if float(segment["source_out_seconds"]) > source_duration + 0.05:
+                        raise ValidationError(
+                            f"source_audio_manifest segment {index} range exceeds frozen media duration"
+                        )
+            if artifact["checksums"]["transcript_sha256"] != digest_text(
+                artifact["transcript"]
+            ):
+                raise ValidationError(
+                    "source_audio_manifest transcript hash does not match transcript"
+                )
+            output_path_value = body.get("output_path")
+            if not isinstance(output_path_value, str) or not output_path_value.strip():
+                raise ValidationError(
+                    "source_audio completion requires result.output_path"
+                )
+            output_path = Path(output_path_value).expanduser().resolve()
+            if output_path != Path(artifact["extracted_audio_path"]).expanduser().resolve():
+                raise ValidationError(
+                    "source_audio output_path does not match extracted_audio_path"
+                )
+            if not output_path.is_file():
+                raise ValidationError(
+                    f"source_audio output file does not exist: {output_path}"
+                )
+            digest = hashlib.sha256()
+            try:
+                with output_path.open("rb") as handle:
+                    for block in iter(lambda: handle.read(1024 * 1024), b""):
+                        digest.update(block)
+            except OSError as exc:
+                raise ValidationError(f"cannot hash source_audio output: {exc}") from exc
+            if digest.hexdigest() != artifact["checksums"]["extracted_audio_sha256"]:
+                raise ValidationError(
+                    "source_audio extracted hash does not match actual output bytes"
+                )
+            if is_multisource_manifest(artifact):
+                verified_program = verify_multisource_program(artifact)
+                if verified_program != output_path:
+                    raise ValidationError(
+                        "source_audio multi-source verifier returned a different program WAV"
+                    )
         if contract == "voice_manifest":
             if not isinstance(expected_job, str) or not expected_job:
                 raise ValidationError("voice task requires payload.job_id")
@@ -381,6 +1178,273 @@ def _validate_success_result(
             )
             if approval["basis"] != expected_basis:
                 raise ValidationError("voice rights approval basis does not match status")
+        if contract == "caption_transcript_manifest":
+            if task["role"] != "caption_transcript":
+                raise ValidationError(
+                    "caption_transcript_manifest may only complete caption_transcript"
+                )
+            if (
+                artifact["job_id"] != payload.get("job_id")
+                or artifact["lane_id"] != payload.get("lane_id")
+            ):
+                raise ValidationError("caption transcript is not bound to task job/lane")
+            prior, _ = history()
+            render = prior.get("render_manifest")
+            if render is None:
+                raise ValidationError("caption transcript requires upstream render_manifest")
+            if (
+                artifact["render_id"] != render["render_id"]
+                or artifact["render_sha256"] != render["output_sha256"]
+            ):
+                raise ValidationError("caption transcript is stale for the rendered master")
+            if body.get("evidence") != artifact["evidence"]:
+                raise ValidationError("caption transcript result/evidence descriptor differs")
+            transcript_path, _ = _qc_evidence_file(
+                artifact["evidence"], field="caption_transcript.evidence"
+            )
+            transcript = _json_evidence(transcript_path, "caption_transcript.evidence")
+            validate_artifact("word_transcript_evidence", transcript)
+            if (
+                transcript["job_id"] != artifact["job_id"]
+                or transcript["render_id"] != artifact["render_id"]
+                or transcript["render_sha256"] != artifact["render_sha256"]
+                or transcript["status"] != "completed"
+                or transcript["warnings"]
+                or transcript["language"] != "ru"
+                or len(transcript["words"]) != artifact["word_count"]
+            ):
+                raise ValidationError("caption transcript evidence is incomplete or unbound")
+            if abs(
+                float(transcript["duration_seconds"])
+                - float(render["technical"]["duration_seconds"])
+            ) > 0.5:
+                raise ValidationError("caption transcript duration differs from render")
+        if contract == "qc_auto_evidence_manifest":
+            if task["role"] != "qc_auto_evidence":
+                raise ValidationError(
+                    "qc_auto_evidence_manifest may only complete qc_auto_evidence"
+                )
+            prior, _ = history()
+            render = prior.get("render_manifest")
+            if render is None:
+                raise ValidationError("automatic QC evidence requires upstream render")
+            if (
+                artifact["job_id"] != payload.get("job_id")
+                or artifact["lane_id"] != payload.get("lane_id")
+                or artifact["render_id"] != render["render_id"]
+                or artifact["render_sha256"] != render["output_sha256"]
+            ):
+                raise ValidationError("automatic QC evidence is stale or cross-job")
+            expected_render_manifest_sha = digest_text(canonical_json(render))
+            reports_by_category = {
+                report["category"]: report for report in artifact["reports"]
+            }
+            for category, report in reports_by_category.items():
+                if (
+                    report["bindings"].get("render_manifest_sha256")
+                    != expected_render_manifest_sha
+                ):
+                    raise ValidationError(
+                        f"automatic {category} evidence is not bound to RenderManifest"
+                    )
+                _verify_report_evidence(
+                    artifact["evidence"][category],
+                    report,
+                    field=f"qc_auto_evidence.{category}",
+                )
+        if contract == "qc_analyzer_report":
+            role_categories = {
+                "captions_analyzer": "captions",
+                "facts_analyzer": "facts",
+                "policy_analyzer": "policy",
+                "dedup_analyzer": "dedup",
+                "visual_analyzer": "visual",
+            }
+            expected_category = role_categories.get(task["role"])
+            if expected_category is None or artifact["category"] != expected_category:
+                raise ValidationError(
+                    "qc_analyzer_report category does not match analyzer task role"
+                )
+            if (
+                artifact["job_id"] != payload.get("job_id")
+                or artifact["lane_id"] != payload.get("lane_id")
+            ):
+                raise ValidationError("QC analyzer report is not bound to task job/lane")
+            _verify_report_evidence(
+                body.get("evidence"), artifact, field=f"{task['role']}.evidence"
+            )
+            prior, role_results = history()
+            render = prior.get("render_manifest")
+            if render is None:
+                raise ValidationError("QC analyzer requires upstream render_manifest")
+            if (
+                artifact["render_id"] != render["render_id"]
+                or artifact["render_sha256"] != render["output_sha256"]
+                or artifact["bindings"].get("output_sha256")
+                != render["output_sha256"]
+                or artifact["bindings"].get("render_manifest_sha256")
+                != digest_text(canonical_json(render))
+            ):
+                raise ValidationError("QC analyzer report is stale for RenderManifest")
+            binding_contracts = {
+                "claim_ledger_sha256": "claim_ledger",
+                "script_package_sha256": "script_package",
+                "shotlist_sha256": "shotlist",
+                "rights_manifest_sha256": "rights_manifest",
+                "frozen_media_manifest_sha256": "frozen_media_manifest",
+                "safety_gate_report_sha256": "safety_gate_report",
+            }
+            for binding, ancestor_contract in binding_contracts.items():
+                if binding not in artifact["bindings"]:
+                    continue
+                ancestor = prior.get(ancestor_contract)
+                if ancestor is None or artifact["bindings"][binding] != digest_text(
+                    canonical_json(ancestor)
+                ):
+                    raise ValidationError(
+                        f"QC analyzer binding {binding} differs from upstream artifact"
+                    )
+            if expected_category == "captions":
+                transcript_result = role_results.get("caption_transcript")
+                transcript = (
+                    transcript_result.get("artifact")
+                    if isinstance(transcript_result, Mapping)
+                    else None
+                )
+                if not isinstance(transcript, Mapping) or (
+                    artifact["bindings"].get("machine_evidence_sha256")
+                    != transcript.get("evidence", {}).get("sha256")
+                ):
+                    raise ValidationError(
+                        "captions analyzer is not bound to caption transcript evidence"
+                    )
+            if expected_category == "visual":
+                contact, contact_sha = _qc_evidence_file(
+                    body.get("contact_sheet"),
+                    field="visual_analyzer.contact_sheet",
+                    require_json=False,
+                )
+                del contact
+                if artifact["bindings"].get("contact_sheet_sha256") != contact_sha:
+                    raise ValidationError(
+                        "visual analyzer report is not bound to contact sheet bytes"
+                    )
+            if expected_category == "dedup":
+                corpus_value = os.environ.get("VIDEO_FACTORY_DEDUP_CORPUS_SNAPSHOT")
+                if not corpus_value:
+                    raise ValidationError(
+                        "VIDEO_FACTORY_DEDUP_CORPUS_SNAPSHOT must be configured"
+                    )
+                corpus_path = Path(corpus_value).expanduser()
+                if (
+                    not corpus_path.is_absolute()
+                    or corpus_path.is_symlink()
+                    or not corpus_path.is_file()
+                ):
+                    raise ValidationError(
+                        "VIDEO_FACTORY_DEDUP_CORPUS_SNAPSHOT must be a regular file"
+                    )
+                corpus_path = corpus_path.resolve()
+                corpus = _json_evidence(
+                    corpus_path,
+                    "dedup corpus snapshot",
+                    max_bytes=16 * 1024 * 1024,
+                )
+                validate_artifact("dedup_corpus_snapshot", corpus)
+                if (
+                    artifact["bindings"].get("corpus_snapshot_sha256")
+                    != _sha256_file(corpus_path)
+                ):
+                    raise ValidationError(
+                        "dedup analyzer report is not bound to configured corpus"
+                    )
+        if contract == "qc_evidence_bundle":
+            if task["role"] != "qc_evidence_gate":
+                raise ValidationError(
+                    "qc_evidence_bundle may only complete qc_evidence_gate"
+                )
+            if (
+                artifact["decision"]["passed"] is not True
+                or artifact["decision"]["needs_human_review"] is not False
+                or artifact["decision"]["blocking_categories"]
+            ):
+                raise ValidationError("qc_evidence_bundle has not passed its hard gate")
+            prior, role_results = history()
+            render = prior.get("render_manifest")
+            if render is None or (
+                artifact["job_id"] != payload.get("job_id")
+                or artifact["lane_id"] != payload.get("lane_id")
+                or artifact["render_id"] != render["render_id"]
+                or artifact["render_sha256"] != render["output_sha256"]
+            ):
+                raise ValidationError("qc_evidence_bundle is stale or cross-job")
+            analyzer_artifacts: dict[str, Mapping[str, Any]] = {}
+            auto_result = role_results.get("qc_auto_evidence")
+            auto_artifact = (
+                auto_result.get("artifact") if isinstance(auto_result, Mapping) else None
+            )
+            if isinstance(auto_artifact, Mapping):
+                analyzer_artifacts.update(
+                    {report["category"]: report for report in auto_artifact["reports"]}
+                )
+            for role in (
+                "captions_analyzer",
+                "facts_analyzer",
+                "policy_analyzer",
+                "dedup_analyzer",
+                "visual_analyzer",
+            ):
+                result = role_results.get(role)
+                report = result.get("artifact") if isinstance(result, Mapping) else None
+                if isinstance(report, Mapping):
+                    analyzer_artifacts[report["category"]] = report
+            if set(analyzer_artifacts) != {
+                "technical",
+                "audio",
+                "captions",
+                "facts",
+                "rights",
+                "dedup",
+                "policy",
+                "visual",
+            }:
+                raise ValidationError("qc_evidence_bundle lacks analyzer artifacts")
+            for row in artifact["reports"]:
+                report = analyzer_artifacts[row["category"]]
+                if row["artifact_sha256"] != digest_text(canonical_json(report)):
+                    raise ValidationError(
+                        f"qc_evidence_bundle {row['category']} artifact hash differs"
+                    )
+                descriptor = _verify_report_evidence(
+                    row["evidence"],
+                    report,
+                    field=f"qc_evidence_bundle.{row['category']}",
+                )
+                if (
+                    report["status"] != "pass"
+                    or report["needs_human_review"] is not False
+                    or report["warnings"]
+                    or report["findings"]
+                ):
+                    raise ValidationError(
+                        f"qc_evidence_bundle includes nonpassing {row['category']}"
+                    )
+                del descriptor
+            visual_result = role_results.get("visual_analyzer")
+            visual_contact = (
+                visual_result.get("contact_sheet")
+                if isinstance(visual_result, Mapping)
+                else None
+            )
+            if artifact["contact_sheet"] != visual_contact:
+                raise ValidationError(
+                    "qc_evidence_bundle contact sheet differs from visual analyzer"
+                )
+            _qc_evidence_file(
+                artifact["contact_sheet"],
+                field="qc_evidence_bundle.contact_sheet",
+                require_json=False,
+            )
         if contract == "safety_gate_report" and any(
             item.get("severity") == "blocking" for item in artifact["findings"]
         ):
@@ -421,6 +1485,32 @@ def _validate_success_result(
                     "safety_gate_report references unknown claim-ledger sources: "
                     + ", ".join(unknown_sources)
                 )
+            if task["role"] == "medical_review":
+                if (
+                    payload.get("human_gate") is not True
+                    or payload.get("human_qualification_required") is not True
+                ):
+                    raise ValidationError(
+                        "medical_review must be an attributable qualified-human gate"
+                    )
+                approval = body.get("human_approval")
+                if not isinstance(approval, dict):
+                    raise ValidationError(
+                        "medical_review requires qualified human_approval"
+                    )
+                approved_by = require_nonempty_string(
+                    approval.get("approved_by"), "human_approval.approved_by"
+                )
+                require_nonempty_string(
+                    approval.get("qualification"), "human_approval.qualification"
+                )
+                require_nonempty_string(
+                    approval.get("approval_note"), "human_approval.approval_note"
+                )
+                if artifact.get("reviewer") != approved_by:
+                    raise ValidationError(
+                        "medical_review reviewer must match human_approval.approved_by"
+                    )
         if contract == "script_package":
             if artifact["lane_id"] != payload.get("lane_id"):
                 raise ValidationError("script_package lane_id does not match task lane_id")
@@ -453,10 +1543,49 @@ def _validate_success_result(
                 raise ValidationError("medical script_package requires a disclaimer")
         if contract == "qc_report" and (
             artifact["decision"]["passed"] is not True
+            or artifact["decision"]["needs_human_review"] is not False
             or artifact["decision"]["blocking_check_ids"]
+            or any(check["status"] != "pass" for check in artifact["checks"])
         ):
             raise ValidationError("qc_report has not passed its hard gate")
         if contract == "render_manifest":
+            if task["role"] != "render":
+                raise ValidationError(
+                    "render_manifest may only complete a render task"
+                )
+            prior, _ = history()
+            project = prior.get("project_manifest")
+            preview = prior.get("preview_approval")
+            if project is None or preview is None:
+                raise ValidationError(
+                    "render_manifest requires upstream project_manifest and preview_approval"
+                )
+            _verify_preview_binding(preview, project)
+            input_hashes: dict[str, str] = {}
+            for item in artifact["input_hashes"]:
+                if item["path"] in input_hashes:
+                    raise ValidationError(
+                        f"render_manifest contains duplicate input path {item['path']!r}"
+                    )
+                input_hashes[item["path"]] = item["sha256"]
+            required_render_inputs = {
+                "project_manifest.json": digest_text(canonical_json(project)),
+                "preview_approval.json": digest_text(canonical_json(preview)),
+                **{
+                    f"project/{item['path']}": item["sha256"]
+                    for item in project["files"]
+                },
+            }
+            mismatched_inputs = sorted(
+                path
+                for path, expected_hash in required_render_inputs.items()
+                if input_hashes.get(path) != expected_hash
+            )
+            if mismatched_inputs:
+                raise ValidationError(
+                    "render_manifest is missing exact approved project inputs: "
+                    + ", ".join(mismatched_inputs)
+                )
             output_path_value = body.get("output_path")
             if not isinstance(output_path_value, str) or not output_path_value.strip():
                 raise ValidationError(
@@ -511,8 +1640,11 @@ def _validate_success_result(
         if contract == "qc_report":
             prior, _ = history()
             render = prior.get("render_manifest")
+            evidence_bundle = prior.get("qc_evidence_bundle")
             if render is None:
                 raise ValidationError("qc_report requires an upstream render_manifest")
+            if evidence_bundle is None:
+                raise ValidationError("qc_report requires an upstream qc_evidence_bundle")
             if artifact["render_id"] != render["render_id"]:
                 raise ValidationError("qc_report.render_id does not match rendered artifact")
             if (
@@ -520,6 +1652,38 @@ def _validate_success_result(
                 != render["technical"]["audio_sample_rate_hz"]
             ):
                 raise ValidationError("qc_report audio sample rate does not match render")
+            if (
+                evidence_bundle["render_id"] != render["render_id"]
+                or evidence_bundle["render_sha256"] != render["output_sha256"]
+            ):
+                raise ValidationError("upstream qc_evidence_bundle is stale for render")
+            expected_hashes = {
+                row["category"]: row["evidence"]["sha256"]
+                for row in evidence_bundle["reports"]
+            }
+            if body.get("evidence_sha256") != expected_hashes:
+                raise ValidationError(
+                    "qc_report result evidence hashes differ from qc_evidence_bundle"
+                )
+            if (
+                body.get("visual_contact_sheet_sha256")
+                != evidence_bundle["contact_sheet"]["sha256"]
+            ):
+                raise ValidationError(
+                    "qc_report visual contact sheet differs from qc_evidence_bundle"
+                )
+            checks_by_category = {
+                check["category"]: check for check in artifact["checks"]
+            }
+            for row in evidence_bundle["reports"]:
+                check = checks_by_category[row["category"]]
+                if (
+                    check.get("artifact") != row["evidence"]["path"]
+                    or f"#sha256={row['evidence']['sha256']}" not in check["evidence"]
+                ):
+                    raise ValidationError(
+                        f"qc_report {row['category']} check is not bound to evidence bundle"
+                    )
         if contract == "publish_manifest":
             prior, role_results = history()
             render = prior.get("render_manifest")
@@ -534,12 +1698,9 @@ def _validate_success_result(
                 raise ValidationError("publish_manifest.render_id does not match render")
             if qc["render_id"] != render["render_id"]:
                 raise ValidationError("upstream QC does not match render")
-            if (
-                source_audio is not None
-                and source_audio["rights_status"] == "internal_prototype"
-            ):
+            if source_audio is not None and not source_audio_is_publishable(source_audio):
                 raise ValidationError(
-                    "internal_prototype source audio is not eligible for publication"
+                    "one or more source-audio segments are not eligible for publication"
                 )
             approval = artifact["human_approval"]
             reviewed = final_review.get("human_approval")
@@ -561,13 +1722,30 @@ def _validate_success_result(
                 raise ValidationError("human approval is not bound to publish metadata")
 
     if payload.get("human_gate") is True:
-        approval = body.get("human_approval")
+        approval = (
+            body.get("artifact")
+            if contract == "preview_approval"
+            else body.get("human_approval")
+        )
         if not isinstance(approval, dict) or approval.get("approved") is not True:
             raise ValidationError("human-gated task requires approved human_approval")
-        require_nonempty_string(approval.get("approved_by"), "human_approval.approved_by")
+        approval_label = (
+            "preview_approval" if contract == "preview_approval" else "human_approval"
+        )
+        require_nonempty_string(
+            approval.get("approved_by"), f"{approval_label}.approved_by"
+        )
         _timestamp(approval.get("approved_at"))
         if payload.get("checksum_bound") is True:
             prior, _ = history()
+            if contract == "preview_approval":
+                project = prior.get("project_manifest")
+                if project is None:
+                    raise ValidationError(
+                        "preview human approval requires an upstream project_manifest"
+                    )
+                _verify_preview_binding(approval, project)
+                return
             render = prior.get("render_manifest")
             if render is None:
                 raise ValidationError("human approval requires an upstream render_manifest")
@@ -2203,9 +3381,21 @@ class Dispatcher:
         response = {
             "ok": completed_videos == target,
             "command": "simulate-day",
+            "simulation_only": True,
+            "production_ready": False,
+            "capacity_claim": "queue_wip_mechanics_only",
             "simulation_run": run_id,
             "target_videos": target,
             "completed_videos": completed_videos,
+            "real_provider_calls": 0,
+            "real_media_artifacts_created": False,
+            "real_renders_created": 0,
+            "real_publications": 0,
+            "human_gate_roles_simulated": [
+                role
+                for role in role_list
+                if role in {"preview_review", "final_review", "publisher"}
+            ],
             "workflow_roles": role_list,
             "pods": pod_list,
             "task_counts": {row["status"]: row["count"] for row in run_tasks},

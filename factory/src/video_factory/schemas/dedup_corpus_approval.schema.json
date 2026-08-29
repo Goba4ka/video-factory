@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/dedup_corpus_approval.schema.json",
+  "title": "DedupCorpusApproval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "approval_id",
+    "decision",
+    "approved_by",
+    "approved_at",
+    "approval_note",
+    "job_id",
+    "render_id",
+    "render_manifest",
+    "master"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "approval_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{5,127}$"},
+    "decision": {"const": "approved_for_dedup_corpus"},
+    "approved_by": {"type": "string", "minLength": 1, "maxLength": 200},
+    "approved_at": {"type": "string", "format": "date-time"},
+    "approval_note": {"type": "string", "minLength": 5, "maxLength": 2000},
+    "job_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{5,127}$"},
+    "render_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{5,127}$"},
+    "render_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "file_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "master": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "size_bytes": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/preview_approval.schema.json",
+  "title": "PreviewApproval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "project_id",
+    "approved",
+    "approved_by",
+    "approved_at",
+    "project_tree_sha256",
+    "project_manifest_sha256",
+    "check_receipt_path",
+    "check_receipt_sha256",
+    "studio_url",
+    "review_notes"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 6},
+    "project_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{5,127}$"},
+    "approved": {"const": true},
+    "approved_by": {"type": "string", "minLength": 2, "maxLength": 200},
+    "approved_at": {"type": "string", "format": "date-time"},
+    "project_tree_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "project_manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "check_receipt_path": {"type": "string", "minLength": 1},
+    "check_receipt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "studio_url": {"type": "string", "format": "uri"},
+    "review_notes": {
+      "type": "array",
+      "maxItems": 50,
+      "items": {"type": "string", "minLength": 1, "maxLength": 2000}
+    }
+  }
+}

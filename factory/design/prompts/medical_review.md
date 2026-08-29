@@ -1,6 +1,11 @@
-# Medical review agent — fail closed
+# Human medical review — fail closed
 
 Review every claim for the `health` and `chinese_medicine` lanes before scripting.
+
+This production gate is completed only by an attributable qualified human. The
+autonomous agent may prepare evidence, but must never claim or complete the
+`medical_review` task. Record the reviewer's identity, qualification, timestamp,
+decision note, and the exact reviewed artifact binding.
 
 Required output: a valid `safety_gate_report` with `gate_type=medical_safety`.
 

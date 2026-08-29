@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "project_id": "client-final-motivation-b-v2-20260829",
+  "retrieved_at": "2026-08-29T18:44:33.2075833+03:00",
+  "publish_gate": {
+    "status": "human_confirmation_required",
+    "reason": "The interview footage is copyrighted and no publication permission is stored in this workspace.",
+    "human_publish_confirmation_required": true
+  },
+  "assets": [
+    {
+      "role": "interview_source_excerpt",
+      "provider": "YouTube / Надежда Стрелец",
+      "source_page": "https://www.youtube.com/watch?v=kCJjNwW_v4s",
+      "local_path": "../client-final-motivation-b-20260829/assets/video/speaker-audio-source.mp4",
+      "source_timecode": "01:23:02.679-01:23:33.870",
+      "license": "Copyrighted; publication permission not verified",
+      "usage_basis": "Internal client preview and editorial evaluation only",
+      "retrieved_at": "2026-08-29T18:44:33.2075833+03:00",
+      "sha256": "DB69EA90DBBC3BB368845F0D8D14E7952E061949934689B910914B10A2BA26E4",
+      "bytes": 8437089,
+      "human_publish_confirmation_required": true
+    },
+    {
+      "role": "derived_visual_proxy",
+      "provider": "Local production derivative",
+      "derived_from_role": "interview_source_excerpt",
+      "local_path": "assets/video/speaker-v2-cfr.mp4",
+      "license": "Inherits interview source restrictions",
+      "usage_basis": "Internal client preview only",
+      "retrieved_at": "2026-08-29T18:44:33.2075833+03:00",
+      "sha256": "EB3A825DFCB5D70DA806999D62968721FB7FDE3EF80EE1EB4E1EB488E8D25088",
+      "bytes": 44424049,
+      "human_publish_confirmation_required": true
+    },
+    {
+      "role": "derived_speech_track",
+      "provider": "Local production derivative",
+      "derived_from_role": "interview_source_excerpt",
+      "local_path": "assets/audio/speech.m4a",
+      "license": "Inherits interview source restrictions",
+      "usage_basis": "Internal client preview only",
+      "retrieved_at": "2026-08-29T18:44:33.2075833+03:00",
+      "sha256": "0ABB835B3C9D9005A52FA234237168DA79AD184F5F56B9DBCB96CC9F56A5BC5E",
+      "bytes": 757392,
+      "human_publish_confirmation_required": true
+    },
+    {
+      "role": "music_source",
+      "provider": "Mixkit",
+      "title": "Complicated",
+      "artist": "Arulo",
+      "source_page": "https://mixkit.co/free-stock-music/trap/",
+      "direct_asset_url": "https://assets.mixkit.co/music/281/281.mp3",
+      "license": "Mixkit Stock Music Free License",
+      "license_page": "https://mixkit.co/license/#musicFree",
+      "usage_basis": "Licensed stock music for video use under the Mixkit Free Music License",
+      "retrieved_at": "2026-08-29T18:44:33.2075833+03:00",
+      "sha256": "F0EF745DCF71F9795F3D69126B3B112E2854083470A644A036AFE9639D3E126F",
+      "bytes": 3502542,
+      "human_publish_confirmation_required": false
+    },
+    {
+      "role": "derived_music_mix",
+      "provider": "Local production derivative",
+      "derived_from_role": "music_source",
+      "local_path": "assets/audio/dark-tension-bed-mix.m4a",
+      "processing": "31.2s excerpt; -17 LUFS source target; approximately -20 LUFS under speech; pause lifts; baked fixed EQ carve strength 0.30",
+      "license": "Mixkit Stock Music Free License",
+      "license_page": "https://mixkit.co/license/#musicFree",
+      "usage_basis": "Licensed stock music derivative for video use",
+      "retrieved_at": "2026-08-29T18:44:33.2075833+03:00",
+      "sha256": "5E9A80F0D4A2E6846EE4D89BBD0FCEBD1F1AFE8A1AD8F3D08CD95D5F7D43121F",
+      "bytes": 1037262,
+      "human_publish_confirmation_required": false
+    },
+    {
+      "role": "final_program_mix",
+      "provider": "Local production derivative",
+      "derived_from_roles": ["derived_speech_track", "derived_music_mix"],
+      "local_path": "assets/audio/final-mix.m4a",
+      "processing": "Speech and music program mix; baked duck and fixed carve 0.30; measured -14.1 LUFS integrated and -0.9 dBFS true peak",
+      "license": "Mixed rights: interview restrictions plus Mixkit Stock Music Free License",
+      "usage_basis": "Internal client preview only until interview rights are confirmed",
+      "retrieved_at": "2026-08-29T18:44:33.2075833+03:00",
+      "sha256": "7A13D05775D7E0191F468652316D5F6775A5EBDDDED78051D05BE8E1CC112B3C",
+      "bytes": 1072567,
+      "human_publish_confirmation_required": true
+    }
+  ]
+}

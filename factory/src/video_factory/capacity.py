@@ -1,9 +1,11 @@
 """Deterministic expected-yield and WIP planning for a daily video batch.
 
 The planner is deliberately a capacity screen, not a throughput promise. It
-uses expected attrition and explicit per-item review-time assumptions. Render
-capacity means one render per slot in each of exactly three planning waves; no
-claim is made about wall-clock completion without separate cycle-time data.
+uses expected attrition and explicit per-item review-time assumptions. Without
+cycle-time inputs, render capacity means one render per slot in each of exactly
+three planning waves. With a complete render cycle-time tuple, capacity is
+derived from the stated window and utilization; neither mode is a throughput
+guarantee.
 """
 
 from __future__ import annotations
@@ -182,14 +184,20 @@ def plan_daily_batch(
     minutes_per_candidate_review: float = 3.0,
     minutes_per_final_review: float = 2.0,
     approval_gate: str = DEFAULT_APPROVAL_GATE,
+    render_minutes_per_output: float | None = None,
+    render_window_minutes: float | None = None,
+    render_utilization: float | None = None,
 ) -> dict[str, Any]:
     """Plan one target batch across pods and exactly three WIP waves.
 
     ``pod_capacities`` are maximum final outputs per pod for this batch window.
-    They are not candidate-pool sizes. ``render_slots`` are concurrent slots and
-    the model assumes each slot completes one render in each of three waves.
-    Human minutes cover every required candidate review plus every target final
-    review. Attrition values are expected loss ratios, not guaranteed outcomes.
+    They are not candidate-pool sizes. ``render_slots`` are concurrent slots.
+    By default the conservative model assumes each slot completes one render in
+    each of three waves. To use measured cycle-time capacity, callers must
+    provide all of ``render_minutes_per_output``, ``render_window_minutes``, and
+    ``render_utilization``. Human minutes cover every required candidate review
+    plus every target final review. Attrition values and cycle-time inputs are
+    planning assumptions, not guaranteed outcomes.
     """
 
     if not _is_int(target) or not 1 <= target <= 15:
@@ -206,6 +214,35 @@ def plan_daily_batch(
     final_review_minutes = _validate_positive_number(
         minutes_per_final_review, "minutes_per_final_review"
     )
+    cycle_inputs = (
+        render_minutes_per_output,
+        render_window_minutes,
+        render_utilization,
+    )
+    if any(value is not None for value in cycle_inputs) and not all(
+        value is not None for value in cycle_inputs
+    ):
+        raise CapacityPlanningError(
+            "render_minutes_per_output, render_window_minutes, and "
+            "render_utilization must be provided together"
+        )
+    cycle_time_modeled = all(value is not None for value in cycle_inputs)
+    if cycle_time_modeled:
+        render_minutes = _validate_positive_number(
+            render_minutes_per_output, "render_minutes_per_output"
+        )
+        render_window = _validate_positive_number(
+            render_window_minutes, "render_window_minutes"
+        )
+        render_use = _validate_positive_number(
+            render_utilization, "render_utilization"
+        )
+        if render_use > 1:
+            raise CapacityPlanningError("render_utilization must be at most 1")
+    else:
+        render_minutes = None
+        render_window = None
+        render_use = None
     approval_gate = (
         approval_gate.strip()
         if isinstance(approval_gate, str) and approval_gate.strip()
@@ -260,16 +297,29 @@ def plan_daily_batch(
             }
         )
 
-    render_capacity = render_slots * WAVE_COUNT
+    if cycle_time_modeled:
+        render_capacity = math.floor(
+            render_slots * render_window * render_use / render_minutes
+        )
+        render_capacity_mode = "cycle_time_window"
+        render_shortfall_code = "render_throughput_shortfall"
+        render_shortfall_unit = "renders_in_window"
+        wave_render_capacity = _wave_targets(render_capacity)
+    else:
+        render_capacity = render_slots * WAVE_COUNT
+        render_capacity_mode = "conservative_wave_slots"
+        render_shortfall_code = "render_slot_shortfall"
+        render_shortfall_unit = "renders_across_three_waves"
+        wave_render_capacity = [render_slots] * WAVE_COUNT
     if render_capacity < target:
         warnings.append(
             {
-                "code": "render_slot_shortfall",
+                "code": render_shortfall_code,
                 "severity": "blocking",
                 "required": target,
                 "available": render_capacity,
                 "shortfall": target - render_capacity,
-                "unit": "renders_across_three_waves",
+                "unit": render_shortfall_unit,
             }
         )
 
@@ -309,6 +359,7 @@ def plan_daily_batch(
                 "required_approvals": wave_approvals[str(index)],
                 "render_slots_required": output_target,
                 "render_slots_available": render_slots,
+                "render_capacity_outputs_available": wave_render_capacity[index],
                 "pod_outputs": {
                     pod: pod_wave[pod][index] for pod in sorted(pod_wave)
                 },
@@ -332,8 +383,12 @@ def plan_daily_batch(
         "pod_allocation": pod_allocation,
         "waves": waves,
         "resources": {
+            "render_capacity_mode": render_capacity_mode,
             "render_slots_per_wave": render_slots,
             "render_capacity_across_three_waves": render_capacity,
+            "render_minutes_per_output": render_minutes,
+            "render_window_minutes": render_window,
+            "render_utilization": render_use,
             "human_review_minutes_available": human_review_minutes,
             "human_review_minutes_required": required_human_minutes,
         },
@@ -354,18 +409,25 @@ def plan_daily_batch(
                     "target_outputs * minutes_per_final_review)"
                 ),
                 "render_capacity_across_three_waves": (
-                    "render_slots_per_wave * 3"
+                    "floor(render_slots_per_wave * render_window_minutes * "
+                    "render_utilization / render_minutes_per_output)"
+                    if cycle_time_modeled
+                    else "render_slots_per_wave * 3"
                 ),
             },
         },
         "assumptions": {
-            "planning_model": "expected_yield_capacity_screen_not_throughput_guarantee",
+            "planning_model": (
+                "expected_yield_cycle_time_capacity_screen_not_throughput_guarantee"
+                if cycle_time_modeled
+                else "expected_yield_capacity_screen_not_throughput_guarantee"
+            ),
             "wave_count": WAVE_COUNT,
             "renders_per_slot_per_wave": 1,
             "minutes_per_candidate_review": candidate_review_minutes,
             "minutes_per_final_review": final_review_minutes,
             "pod_capacity_unit": "maximum_final_outputs_in_batch_window",
-            "cycle_time_modeled": False,
+            "cycle_time_modeled": cycle_time_modeled,
         },
         "bottleneck_warnings": warnings,
         "feasible": not blocking,

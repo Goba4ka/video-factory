@@ -21,11 +21,24 @@ from .validators import canonical_json, digest_text
 
 DEFAULT_ROLES = (
     "research",
+    "media_discovery",
     "rights",
     "script",
     "voice",
     "editor",
+    "bgm",
+    "audio_mix",
+    "compiler",
+    "preview_review",
     "render",
+    "qc_auto_evidence",
+    "caption_transcript",
+    "captions_analyzer",
+    "facts_analyzer",
+    "policy_analyzer",
+    "dedup_analyzer",
+    "visual_analyzer",
+    "qc_evidence_gate",
     "qc",
     "final_review",
     "publisher",
@@ -33,15 +46,29 @@ DEFAULT_ROLES = (
 
 ROLE_RESULT_CONTRACTS = {
     "research": "claim_ledger",
+    "media_discovery": "media_discovery_manifest",
     "sensitivity_review": "safety_gate_report",
     "privacy_review": "safety_gate_report",
     "medical_review": "safety_gate_report",
     "rights": "rights_manifest",
+    "media": "frozen_media_manifest",
     "script": "script_package",
     "voice": "voice_manifest",
     "source_audio": "source_audio_manifest",
     "editor": "shotlist",
+    "bgm": "bgm_manifest",
+    "audio_mix": "program_audio_manifest",
+    "compiler": "project_manifest",
+    "preview_review": "preview_approval",
     "render": "render_manifest",
+    "qc_auto_evidence": "qc_auto_evidence_manifest",
+    "caption_transcript": "caption_transcript_manifest",
+    "captions_analyzer": "qc_analyzer_report",
+    "facts_analyzer": "qc_analyzer_report",
+    "policy_analyzer": "qc_analyzer_report",
+    "dedup_analyzer": "qc_analyzer_report",
+    "visual_analyzer": "qc_analyzer_report",
+    "qc_evidence_gate": "qc_evidence_bundle",
     "qc": "qc_report",
     "publisher": "publish_manifest",
 }
@@ -372,25 +399,82 @@ def launch_approved(
         dependency: str | None = None
         tasks: list[dict[str, Any]] = []
         for position, role in enumerate(normalized_roles):
+            task_payload: dict[str, Any] = {
+                "job_id": job["id"],
+                "idea_id": job["idea_id"],
+                "idea_card": idea_card,
+                # Media bytes are never inferred from landing pages.  A
+                # reviewed input package may attach explicit local files;
+                # otherwise the media handler fails closed at this stage.
+                "media_inputs": (
+                    raw_idea.get("media_inputs")
+                    if isinstance(raw_idea, Mapping)
+                    else None
+                ),
+                "source_audio_selection": (
+                    raw_idea.get("source_audio_selection")
+                    if isinstance(raw_idea, Mapping)
+                    else None
+                ),
+                "source_audio_selections": (
+                    raw_idea.get("source_audio_selections")
+                    if isinstance(raw_idea, Mapping)
+                    else None
+                ),
+                "bgm_selection": (
+                    raw_idea.get("bgm_selection")
+                    if isinstance(raw_idea, Mapping)
+                    else None
+                ),
+                "batch_id": job["batch_id"],
+                "lane_id": pod,
+                "risk_profile": risk_profile,
+                "gate_policy_version": registry["registry_version"],
+                "structured_gate_required": role in required_gate_roles,
+                "required_result_contract": ROLE_RESULT_CONTRACTS.get(role),
+                "technical_profile": (
+                    "vertical_master"
+                    if role in {"qc_auto_evidence", "qc"}
+                    else None
+                ),
+                "specialized_review_role": specialized_review_role,
+                "human_gate": role in {
+                    "medical_review",
+                    "rights",
+                    "preview_review",
+                    "final_review",
+                },
+                "human_qualification_required": role == "medical_review",
+                "rights_checksum_bound": role == "rights",
+                "checksum_bound": role in {"preview_review", "final_review"},
+                "publish_requires_final_review": role == "publisher",
+            }
+            if role == "media_discovery":
+                visual_plan = (
+                    idea_card.get("visual_plan")
+                    if isinstance(idea_card, Mapping)
+                    else None
+                )
+                task_payload = {
+                    "job_id": job["id"],
+                    "lane_id": pod,
+                    "required_result_contract": "media_discovery_manifest",
+                    "query": (
+                        visual_plan.get("visual_world")
+                        if isinstance(visual_plan, Mapping)
+                        else None
+                    ),
+                    "orientation": "portrait",
+                    "size": "medium",
+                    "locale": "ru-RU",
+                    "page": 1,
+                    "per_page": 20,
+                }
             response = dispatcher.enqueue(
                 role=role,
                 pod=pod,
                 kind=f"{role}_job",
-                payload={
-                    "job_id": job["id"],
-                    "idea_id": job["idea_id"],
-                    "idea_card": idea_card,
-                    "batch_id": job["batch_id"],
-                    "lane_id": pod,
-                    "risk_profile": risk_profile,
-                    "gate_policy_version": registry["registry_version"],
-                    "structured_gate_required": role in required_gate_roles,
-                    "required_result_contract": ROLE_RESULT_CONTRACTS.get(role),
-                    "specialized_review_role": specialized_review_role,
-                    "human_gate": role == "final_review",
-                    "checksum_bound": role == "final_review",
-                    "publish_requires_final_review": role == "publisher",
-                },
+                payload=task_payload,
                 job_id=job["id"],
                 dependency_task_id=dependency,
                 priority=100 - position,

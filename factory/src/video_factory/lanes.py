@@ -101,9 +101,53 @@ def load_lane_registry(path: str | Path | None = None) -> dict[str, Any]:
         roles = _strings(lane.get("roles"), label=f"{label}.roles")
         if roles[-2:] != ["final_review", "publisher"]:
             raise ValidationError(f"{label}.roles must end with final_review,publisher")
-        for required in ("research", "rights", "qc"):
+        for required in (
+            "research", "media_discovery", "rights", "media", "editor",
+            "bgm", "audio_mix", "compiler", "qc",
+        ):
             if required not in roles:
                 raise ValidationError(f"{label}.roles must include {required}")
+        if not (
+            roles.index("media_discovery") < roles.index("rights") < roles.index("media")
+        ):
+            raise ValidationError(
+                f"{label}.roles must order media_discovery before rights before media"
+            )
+        if not (
+            roles.index("editor")
+            < roles.index("bgm")
+            < roles.index("audio_mix")
+            < roles.index("compiler")
+        ):
+            raise ValidationError(
+                f"{label}.roles must order editor,bgm,audio_mix,compiler"
+            )
+        qc_chain = [
+            "render",
+            "qc_auto_evidence",
+            "caption_transcript",
+            "captions_analyzer",
+            "facts_analyzer",
+            "policy_analyzer",
+            "dedup_analyzer",
+            "visual_analyzer",
+            "qc_evidence_gate",
+            "qc",
+            "final_review",
+            "publisher",
+        ]
+        positions = [roles.index(role) for role in qc_chain if role in roles]
+        missing_qc_roles = [role for role in qc_chain if role not in roles]
+        if missing_qc_roles:
+            raise ValidationError(
+                f"{label}.roles is missing QC roles: {', '.join(missing_qc_roles)}"
+            )
+        if positions != sorted(positions) or any(
+            right != left + 1 for left, right in zip(positions, positions[1:])
+        ):
+            raise ValidationError(
+                f"{label}.roles must contain the contiguous render-to-publisher QC chain"
+            )
         if lane_id == "motivation":
             if "source_audio" not in roles or "voice" in roles:
                 raise ValidationError(

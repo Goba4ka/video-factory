@@ -21,6 +21,9 @@
   допущениями.
 - Heartbeat headless workers, DLQ/rework, versioned artifacts, publish outbox и
   bounded performance feedback.
+- После рендера — обязательные checksum-bound проверки технического качества,
+  звука, субтитров, фактов, прав, политики, perceptual dedup и кадрирования;
+  отсутствующее или изменённое evidence блокирует финальный QC.
 - Контрольный набор из шести master MP4 и шести Telegram-копий; внешняя
   публикация удерживается rights/human gates.
 
@@ -41,8 +44,16 @@ python -m video_factory preflight pilots\moon_trees_preproduction `
 - `factory/design/` — архитектура, role prompts и Topic Packs.
 - `factory/contracts/` — межагентные JSON Schemas.
 - `factory/quality/` — измеримая планка качества референсов.
+- `factory/music/` — отдельные lane-aware музыкальные пулы; успешные ролики
+  дают только reference fingerprints, а production использует exact
+  лицензированный WAV с platform/territory/placement-проверкой.
+- `factory/design/MEDIA_PROVIDER_EXPANSION.md` — fail-closed план подключения
+  архивов, Commons и официальных press-kit источников поверх Pexels.
 - `factory/policies/` — права и publish gates.
-- `factory/analytics/` — feedback loop для роста просмотров.
+- `factory/analytics/` — feedback loop для роста просмотров; платформенные
+  метрики, окна 1/6/24/72/168 часов и решения `hold/iterate/scale/retire`
+  зафиксированы в
+  [REACH_OPERATING_MODEL_20260830.md](./factory/analytics/REACH_OPERATING_MODEL_20260830.md).
 - `pilots/moon_trees_preproduction/` — факты, ассеты, сценарий и shotlist пилота;
   производство пока намеренно не авторизовано.
 
@@ -53,3 +64,6 @@ rollback описаны в
 [SERVER_MIGRATION_GUIDE.md](./factory/deployment/SERVER_MIGRATION_GUIDE.md).
 Контрольные доказательства и оставшиеся host-level gates — в
 [V2_ACCEPTANCE_20260829.md](./factory/analysis/V2_ACCEPTANCE_20260829.md).
+Одноразовые входы, которые должен предоставить владелец для real production,
+собраны в
+[OWNER_INPUTS_TO_GO_LIVE.md](./factory/operations/OWNER_INPUTS_TO_GO_LIVE.md).

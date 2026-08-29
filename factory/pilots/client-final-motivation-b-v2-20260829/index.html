@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Сначала услышь другого — V2</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: OswaldLocal;
+        src: url("assets/fonts/Oswald-Variable.ttf") format("truetype");
+        font-weight: 200 700;
+        font-display: block;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+
+      html, body {
+        width: 1080px;
+        height: 1920px;
+        margin: 0;
+        overflow: hidden;
+        background: #050505;
+      }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        isolation: isolate;
+        background: #050505;
+      }
+
+      .clip { position: absolute; }
+
+      #speaker-video {
+        inset: 0;
+        display: block;
+        width: 1080px;
+        height: 1920px;
+        object-fit: cover;
+        background: #050505;
+      }
+
+      .caption-group {
+        left: 70px;
+        right: 70px;
+        top: 920px;
+        height: 250px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        pointer-events: none;
+      }
+
+      .caption-text {
+        display: inline-block;
+        max-width: 920px;
+        color: #e4e2df;
+        font-family: OswaldLocal, Arial, sans-serif;
+        font-size: 56px;
+        font-weight: 560;
+        line-height: 1.02;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+        text-wrap: balance;
+        -webkit-text-stroke: 2px rgba(0, 0, 0, 0.94);
+        paint-order: stroke fill;
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 1);
+        will-change: transform, opacity;
+      }
+
+      .caption-group.punch .caption-text {
+        color: #ffffff;
+        font-size: 62px;
+        font-weight: 650;
+        letter-spacing: 0.025em;
+      }
+
+      .caption-group.quiet .caption-text { color: #c8c5c1; }
+    </style>
+  </head>
+  <body>
+    <main id="root" data-hf-id="hf-v2-root" data-composition-id="motivation-client-b-v2" data-start="0" data-width="1080" data-height="1920" data-duration="31.2" data-fps="30">
+      <video id="speaker-video" class="clip" data-hf-id="hf-v2-video" src="assets/video/speaker-v2-cfr.mp4" data-start="0" data-duration="31.2" data-media-start="0" data-track-index="0" muted playsinline preload="auto"></video>
+
+      <div id="c01" class="clip caption-group punch" data-hf-id="hf-v2-c01" data-start="0.00" data-duration="0.37" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-9df7" class="caption-text">Строгий.</div></div>
+      <div id="c02" class="clip caption-group" data-hf-id="hf-v2-c02" data-start="0.38" data-duration="0.76" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-iit0" class="caption-text">Но строгий</div></div>
+      <div id="c03" class="clip caption-group" data-hf-id="hf-v2-c03" data-start="1.14" data-duration="0.46" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-1pd8" class="caption-text">педагог</div></div>
+      <div id="c04" class="clip caption-group" data-hf-id="hf-v2-c04" data-start="1.60" data-duration="1.02" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-q7og" class="caption-text">в профессии.</div></div>
+      <div id="c05" class="clip caption-group quiet" data-hf-id="hf-v2-c05" data-start="2.86" data-duration="0.52" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-27dq" class="caption-text">В жизни</div></div>
+      <div id="c06" class="clip caption-group punch" data-hf-id="hf-v2-c06" data-start="3.38" data-duration="0.62" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-e3jf" class="caption-text">я друг.</div></div>
+      <div id="c07" class="clip caption-group" data-hf-id="hf-v2-c07" data-start="5.32" data-duration="0.82" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-s48z" class="caption-text">Я первый человек,</div></div>
+      <div id="c08" class="clip caption-group" data-hf-id="hf-v2-c08" data-start="6.28" data-duration="0.72" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-qpiq" class="caption-text">кто их поймёт,</div></div>
+      <div id="c09" class="clip caption-group quiet" data-hf-id="hf-v2-c09" data-start="7.12" data-duration="0.46" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-nseq" class="caption-text">потому что я</div></div>
+      <div id="c10" class="clip caption-group punch" data-hf-id="hf-v2-c10" data-start="7.58" data-duration="0.92" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-2qz2" class="caption-text">их обожаю.</div></div>
+      <div id="c11" class="clip caption-group" data-hf-id="hf-v2-c11" data-start="9.18" data-duration="0.68" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-qko4" class="caption-text">Возлюби ближнего</div></div>
+      <div id="c12" class="clip caption-group" data-hf-id="hf-v2-c12" data-start="9.86" data-duration="0.82" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-dg1f" class="caption-text">своего,</div></div>
+      <div id="c13" class="clip caption-group quiet" data-hf-id="hf-v2-c13" data-start="10.88" data-duration="0.38" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-j30w" class="caption-text">как себя</div></div>
+      <div id="c14" class="clip caption-group" data-hf-id="hf-v2-c14" data-start="11.26" data-duration="0.34" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-53r6" class="caption-text">самого.</div></div>
+      <div id="c15" class="clip caption-group punch" data-hf-id="hf-v2-c15" data-start="11.96" data-duration="0.22" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-b4vk" class="caption-text">Себя</div></div>
+      <div id="c16" class="clip caption-group" data-hf-id="hf-v2-c16" data-start="12.18" data-duration="0.38" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-plk0" class="caption-text">сначала</div></div>
+      <div id="c17" class="clip caption-group punch" data-hf-id="hf-v2-c17" data-start="12.56" data-duration="0.68" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-t2v3" class="caption-text">полюби.</div></div>
+      <div id="c18" class="clip caption-group" data-hf-id="hf-v2-c18" data-start="13.50" data-duration="0.48" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-hedi" class="caption-text">Научись</div></div>
+      <div id="c19" class="clip caption-group" data-hf-id="hf-v2-c19" data-start="13.98" data-duration="0.80" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-7afd" class="caption-text">уважать себя.</div></div>
+      <div id="c20" class="clip caption-group" data-hf-id="hf-v2-c20" data-start="15.10" data-duration="0.52" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-mecx" class="caption-text">Ты сможешь</div></div>
+      <div id="c21" class="clip caption-group quiet" data-hf-id="hf-v2-c21" data-start="15.62" data-duration="0.64" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-jl68" class="caption-text">тогда уважать</div></div>
+      <div id="c22" class="clip caption-group punch" data-hf-id="hf-v2-c22" data-start="16.26" data-duration="0.84" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-cg8z" class="caption-text">другого человека.</div></div>
+      <div id="c23" class="clip caption-group quiet" data-hf-id="hf-v2-c23" data-start="17.52" data-duration="0.56" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-d6iu" class="caption-text">Это очень</div></div>
+      <div id="c24" class="clip caption-group" data-hf-id="hf-v2-c24" data-start="18.08" data-duration="1.44" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-ikob" class="caption-text">сложные вещи.</div></div>
+      <div id="c25" class="clip caption-group quiet" data-hf-id="hf-v2-c25" data-start="19.92" data-duration="0.84" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-4v3f" class="caption-text">Но в</div></div>
+      <div id="c26" class="clip caption-group" data-hf-id="hf-v2-c26" data-start="20.76" data-duration="0.82" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-rn31" class="caption-text">воспитании,</div></div>
+      <div id="c27" class="clip caption-group quiet" data-hf-id="hf-v2-c27" data-start="21.92" data-duration="0.86" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-g4t8" class="caption-text">когда тебя</div></div>
+      <div id="c28" class="clip caption-group" data-hf-id="hf-v2-c28" data-start="22.78" data-duration="0.70" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-3te7" class="caption-text">приучают</div></div>
+      <div id="c29" class="clip caption-group" data-hf-id="hf-v2-c29" data-start="23.48" data-duration="0.36" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-6caj" class="caption-text">к тому,</div></div>
+      <div id="c30" class="clip caption-group quiet" data-hf-id="hf-v2-c30" data-start="23.90" data-duration="0.42" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-og0g" class="caption-text">что тебя</div></div>
+      <div id="c31" class="clip caption-group punch" data-hf-id="hf-v2-c31" data-start="24.32" data-duration="1.34" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-c1zl" class="caption-text">всегда услышат,</div></div>
+      <div id="c32" class="clip caption-group quiet" data-hf-id="hf-v2-c32" data-start="26.38" data-duration="0.94" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-7pzs" class="caption-text">но ты обязан</div></div>
+      <div id="c33" class="clip caption-group" data-hf-id="hf-v2-c33" data-start="27.32" data-duration="0.86" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-1e29" class="caption-text">ещё услышать</div></div>
+      <div id="c34" class="clip caption-group punch" data-hf-id="hf-v2-c34" data-start="28.18" data-duration="0.92" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-yzkv" class="caption-text">другого.</div></div>
+      <div id="c35" class="clip caption-group quiet" data-hf-id="hf-v2-c35" data-start="29.10" data-duration="0.72" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-gymg" class="caption-text">Вот</div></div>
+      <div id="c36" class="clip caption-group" data-hf-id="hf-v2-c36" data-start="29.82" data-duration="0.54" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-26ee" class="caption-text">это очень</div></div>
+      <div id="c37" class="clip caption-group punch" data-hf-id="hf-v2-c37" data-start="30.36" data-duration="0.32" data-track-index="2" data-layout-allow-caption-zone=""><div data-hf-id="hf-f1sl" class="caption-text">важно.</div></div>
+
+      <audio id="final-audio" data-hf-id="hf-v2-audio" src="assets/audio/final-mix.m4a" data-start="0" data-duration="31.2" data-media-start="0" data-volume="1" data-audio-group="mix" preload="auto"></audio>
+    </main>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      document.querySelectorAll(".caption-group").forEach((group) => {
+        const text = group.querySelector(".caption-text");
+        const start = Number(group.dataset.start);
+        const duration = Number(group.dataset.duration);
+        const entry = Math.min(0.055, Math.max(0.035, duration * 0.16));
+
+        tl.fromTo(
+          text,
+          { opacity: 0, y: 10, scale: group.classList.contains("punch") ? 1.08 : 0.97 },
+          { opacity: 1, y: 0, scale: 1, duration: entry, ease: "power2.out", immediateRender: false },
+          start,
+        );
+      });
+
+      tl.seek(0);
+      window.__timelines["motivation-client-b-v2"] = tl;
+    </script>
+  </body>
+</html>

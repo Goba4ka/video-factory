@@ -1,7 +1,7 @@
 # Статус lane «История войн»
 
-Дата проверки: 2026-08-27  
-Статус: **готово к человеческому editorial review**
+Дата проверки: 2026-08-30
+Статус: **editorial pack ready; production не запущено**
 
 ## Созданный пакет
 
@@ -12,8 +12,6 @@
 - `SOURCE_POLICY.md` — иерархия источников, минимальная доказательность по типам утверждений, provenance, переводы, числа, пропаганда как источник, права и условия блокировки;
 - `SAFETY.md` — запрет пропаганды, героизации, дегуманизации, графики и современных dual-use инструкций; green/yellow/red review;
 - `candidate_pool.json` — 24 русскоязычные идеи с хуком, сообщением, периодом, визуальной гипотезой, риском, research notes и 50 starter sources.
-
-Общие `factory/contracts/`, `factory/src/`, CLI, схемы и чужие lane-папки не изменялись.
 
 ## Состав пула
 
@@ -51,8 +49,21 @@ Starter source означает только фактическую осущес
 
 ## Интеграционная заметка
 
-Миграция общей фабрики завершена 2026-08-27: `idea_card.schema.json`, `daily_batch.schema.json`, lane registry и auto role routing теперь включают `war_history`. Выбранный кандидат перед производством нормализуется в канонический IdeaCard, после чего обязательны claim ledger, sensitivity review и item-level rights manifest.
+Порядок production-задач определяет только
+`factory/lanes/registry.json`. Для `war_history` он равен:
+
+`research -> sensitivity_review -> media_discovery -> rights (human) -> media -> script -> voice -> editor -> bgm -> audio_mix -> compiler -> preview_review (human) -> render -> qc_auto_evidence -> caption_transcript -> captions_analyzer -> facts_analyzer -> policy_analyzer -> dedup_analyzer -> visual_analyzer -> qc_evidence_gate -> qc -> final_review (human) -> publisher`
+
+Discovery-результат не является разрешением. `rights` открывает media freeze
+только после атрибутированного человеческого одобрения точного SHA-256
+RightsManifest и полного списка `asset_id`. До подписанного preview рендер не
+запускается; после рендера обязателен весь evidence QC DAG и отдельный
+checksum-bound человеческий `final_review`.
 
 ## Следующий gate
 
-Человек-тематический редактор выбирает кандидатов из `shortlist`/`hold`. Для выбранной идеи исследователь открывает все starter sources, добавляет независимую академическую проверку там, где это отмечено в `research_notes`, строит claim ledger и запускает sensitivity, dual-use и rights review. Автоматической публикации пакет не разрешает.
+Человек-тематический редактор выбирает кандидатов из `shortlist`/`hold`.
+Для выбранной идеи исследователь открывает starter sources, добавляет
+независимую академическую проверку по `research_notes` и строит
+ClaimLedger. Дальше задача идёт только по цепочке реестра. Пакет не
+разрешает автономный rights/final review и автоматическую публикацию.

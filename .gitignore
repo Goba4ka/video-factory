@@ -46,6 +46,7 @@ factory/tools/whisper/
 **/tmp/
 **/.tmp/
 **/.cache/
+**/.qc-live*/
 **/.transcode-cache/
 **/snapshots/
 **/snapshots-*/

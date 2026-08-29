@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/media_discovery_manifest.schema.json",
+  "title": "MediaDiscoveryManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "lane",
+    "provider",
+    "generated_at",
+    "query",
+    "cache",
+    "rate_limit",
+    "candidates",
+    "decision"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 3},
+    "lane": {
+      "enum": [
+        "war_history",
+        "celebrity_news",
+        "motivation",
+        "chinese_medicine",
+        "health"
+      ]
+    },
+    "provider": {"const": "pexels"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "query": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "orientation",
+        "size",
+        "locale",
+        "page",
+        "per_page",
+        "minimum_width",
+        "minimum_height"
+      ],
+      "properties": {
+        "text": {"type": "string", "minLength": 2, "maxLength": 200},
+        "orientation": {"const": "portrait"},
+        "size": {"enum": ["small", "medium", "large"]},
+        "locale": {"type": "string", "pattern": "^[a-z]{2}-[A-Z]{2}$"},
+        "page": {"type": "integer", "minimum": 1},
+        "per_page": {"type": "integer", "minimum": 1, "maximum": 80},
+        "minimum_width": {"type": "integer", "minimum": 1},
+        "minimum_height": {"type": "integer", "minimum": 1}
+      }
+    },
+    "cache": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cache_key",
+        "hit",
+        "ttl_seconds",
+        "fetched_at",
+        "expires_at",
+        "payload_sha256"
+      ],
+      "properties": {
+        "cache_key": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "hit": {"type": "boolean"},
+        "ttl_seconds": {"type": "integer", "minimum": 1},
+        "fetched_at": {"type": "string", "format": "date-time"},
+        "expires_at": {"type": "string", "format": "date-time"},
+        "payload_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "rate_limit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_hourly_limit",
+        "local_requests_in_window",
+        "local_window_started_at",
+        "provider_limit",
+        "provider_remaining",
+        "provider_reset_at"
+      ],
+      "properties": {
+        "local_hourly_limit": {"type": "integer", "minimum": 1},
+        "local_requests_in_window": {"type": "integer", "minimum": 0},
+        "local_window_started_at": {"type": "string", "format": "date-time"},
+        "provider_limit": {"type": ["integer", "null"], "minimum": 0},
+        "provider_remaining": {"type": ["integer", "null"], "minimum": 0},
+        "provider_reset_at": {"type": ["string", "null"], "format": "date-time"}
+      }
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 80,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_id",
+          "provider_asset_id",
+          "media_type",
+          "duration_seconds",
+          "width",
+          "height",
+          "landing_url",
+          "thumbnail_url",
+          "selected_file",
+          "ledger"
+        ],
+        "properties": {
+          "asset_id": {"type": "string", "pattern": "^pexels_video_[0-9]+$"},
+          "provider_asset_id": {"type": "string", "pattern": "^[0-9]+$"},
+          "media_type": {"const": "video"},
+          "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+          "width": {"type": "integer", "minimum": 1},
+          "height": {"type": "integer", "minimum": 1},
+          "landing_url": {"type": "string", "format": "uri"},
+          "thumbnail_url": {"type": "string", "format": "uri"},
+          "selected_file": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "provider_file_id",
+              "download_url",
+              "content_type",
+              "quality",
+              "width",
+              "height",
+              "fps"
+            ],
+            "properties": {
+              "provider_file_id": {"type": "string", "minLength": 1},
+              "download_url": {"type": "string", "format": "uri"},
+              "content_type": {"const": "video/mp4"},
+              "quality": {"type": "string", "minLength": 1},
+              "width": {"type": "integer", "minimum": 1},
+              "height": {"type": "integer", "minimum": 1},
+              "fps": {"type": ["number", "null"], "exclusiveMinimum": 0}
+            }
+          },
+          "ledger": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source", "license", "attribution", "clearance"],
+            "properties": {
+              "source": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "provider",
+                  "provider_asset_id",
+                  "landing_url",
+                  "download_url",
+                  "creator_name",
+                  "creator_url",
+                  "retrieved_at"
+                ],
+                "properties": {
+                  "provider": {"const": "pexels"},
+                  "provider_asset_id": {"type": "string", "pattern": "^[0-9]+$"},
+                  "landing_url": {"type": "string", "format": "uri"},
+                  "download_url": {"type": "string", "format": "uri"},
+                  "creator_name": {"type": "string", "minLength": 1},
+                  "creator_url": {"type": "string", "format": "uri"},
+                  "retrieved_at": {"type": "string", "format": "date-time"}
+                }
+              },
+              "license": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "url",
+                  "commercial_use",
+                  "modification_allowed",
+                  "attribution_required_by_license",
+                  "api_linkback_required"
+                ],
+                "properties": {
+                  "name": {"const": "Pexels License"},
+                  "url": {"const": "https://www.pexels.com/license/"},
+                  "commercial_use": {"const": true},
+                  "modification_allowed": {"const": true},
+                  "attribution_required_by_license": {"const": false},
+                  "api_linkback_required": {"const": true}
+                }
+              },
+              "attribution": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["apply", "text", "source_url", "creator_url"],
+                "properties": {
+                  "apply": {"const": true},
+                  "text": {"type": "string", "minLength": 1},
+                  "source_url": {"type": "string", "format": "uri"},
+                  "creator_url": {"type": "string", "format": "uri"}
+                }
+              },
+              "clearance": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "rights_status",
+                  "model_release",
+                  "property_release",
+                  "requires_item_level_review",
+                  "review_reasons"
+                ],
+                "properties": {
+                  "rights_status": {"const": "human_review"},
+                  "model_release": {"const": "unknown"},
+                  "property_release": {"const": "unknown"},
+                  "requires_item_level_review": {"const": true},
+                  "review_reasons": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {"type": "string", "minLength": 1}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "discovery_passed",
+        "rights_cleared",
+        "needs_human_review",
+        "candidate_count",
+        "duplicates_removed"
+      ],
+      "properties": {
+        "discovery_passed": {"const": true},
+        "rights_cleared": {"const": false},
+        "needs_human_review": {"const": true},
+        "candidate_count": {"type": "integer", "minimum": 1},
+        "duplicates_removed": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

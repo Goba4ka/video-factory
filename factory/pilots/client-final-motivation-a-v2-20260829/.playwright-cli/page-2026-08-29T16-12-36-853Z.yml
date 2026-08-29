@@ -1,0 +1,182 @@
+- generic [ref=f2e1]:
+  - generic [ref=f2e7]:
+    - generic [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - img "Hyperframes" [ref=f2e10]
+        - generic [ref=f2e30]: "|"
+        - generic [ref=f2e31]: client-final-motivation-a-v2-20260829
+      - tablist "Studio view" [ref=f2e32]:
+        - tab "Storyboard" [ref=f2e33] [cursor=pointer]
+        - tab "Preview" [selected] [ref=f2e34] [cursor=pointer]
+      - generic [ref=f2e35]:
+        - button "Undo" [disabled] [ref=f2e37]
+        - button "Redo" [disabled] [ref=f2e41]
+        - link "Capture current frame" [ref=f2e45] [cursor=pointer]:
+          - /url: http://127.0.0.1:3005/api/projects/client-final-motivation-a-v2-20260829/thumbnail/index.html?t=1.164&format=png&output=source&v=1788019956772
+          - generic [ref=f2e48]: Capture
+        - button "Inspector" [pressed] [ref=f2e50] [cursor=pointer]
+        - button "Export" [ref=f2e55] [cursor=pointer]
+    - generic [ref=f2e57]:
+      - generic [ref=f2e58]:
+        - generic [ref=f2e59]:
+          - generic [ref=f2e61]:
+            - tablist "Sidebar panels" [ref=f2e62]:
+              - tab "Code" [ref=f2e64] [cursor=pointer]
+              - tab "Comps" [selected] [ref=f2e66] [cursor=pointer]
+              - tab "Assets" [ref=f2e68] [cursor=pointer]
+              - tab "Catalog" [ref=f2e70] [cursor=pointer]
+            - button "Hide sidebar" [ref=f2e71] [cursor=pointer]
+          - tabpanel [ref=f2e74]:
+            - generic [ref=f2e75]:
+              - button "Open composition captions-01" [ref=f2e76]:
+                - generic [ref=f2e78]:
+                  - generic [ref=f2e79]: captions-01
+                  - generic [ref=f2e81]: compositions/captions-01.html
+                - button "Add captions-01 to timeline at playhead" [ref=f2e82] [cursor=pointer]:
+                  - generic [ref=f2e83]: +
+                - button "Render captions-01" [ref=f2e85] [cursor=pointer]
+              - button "Open composition captions-02" [ref=f2e89]:
+                - generic [ref=f2e91]:
+                  - generic [ref=f2e92]: captions-02
+                  - generic [ref=f2e94]: compositions/captions-02.html
+                - button "Add captions-02 to timeline at playhead" [ref=f2e95] [cursor=pointer]:
+                  - generic [ref=f2e96]: +
+                - button "Render captions-02" [ref=f2e98] [cursor=pointer]
+              - button "Open composition captions-03" [ref=f2e102]:
+                - generic [ref=f2e104]:
+                  - generic [ref=f2e105]: captions-03
+                  - generic [ref=f2e107]: compositions/captions-03.html
+                - button "Add captions-03 to timeline at playhead" [ref=f2e108] [cursor=pointer]:
+                  - generic [ref=f2e109]: +
+                - button "Render captions-03" [ref=f2e111] [cursor=pointer]
+              - button "Open composition captions-04" [ref=f2e115]:
+                - generic [ref=f2e117]:
+                  - generic [ref=f2e118]: captions-04
+                  - generic [ref=f2e120]: compositions/captions-04.html
+                - button "Add captions-04 to timeline at playhead" [ref=f2e121] [cursor=pointer]:
+                  - generic [ref=f2e122]: +
+                - button "Render captions-04" [ref=f2e124] [cursor=pointer]
+              - button "Open composition index" [ref=f2e128]:
+                - generic [ref=f2e130]:
+                  - generic [ref=f2e131]: index
+                  - generic [ref=f2e133]: index.html
+                - button "Add index to timeline at playhead" [ref=f2e134] [cursor=pointer]:
+                  - generic [ref=f2e135]: +
+                - button "Render index" [ref=f2e137] [cursor=pointer]
+          - button "Lint" [ref=f2e142] [cursor=pointer]
+        - separator "Resize sidebar" [ref=f2e146]
+        - generic [ref=f2e150]:
+          - generic [ref=f2e151]:
+            - generic "Composition preview" [ref=f2e154]:
+              - iframe [ref=f2e160]:
+                - generic [ref=f3e1]: ПОСИДЕЛ ТАМ ПОЛГОДА
+            - generic "Composition canvas" [ref=f2e161]
+            - generic [ref=f2e162]:
+              - button "Toggle snap" [ref=f2e163] [cursor=pointer]
+              - generic [ref=f2e166]:
+                - button "Toggle grid" [ref=f2e167] [cursor=pointer]
+                - button "Grid options" [ref=f2e170] [cursor=pointer]
+          - generic [ref=f2e175]:
+            - button "00:01/00:29" [ref=f2e510] [cursor=pointer]
+            - button "Pause" [active] [ref=f2e511] [cursor=pointer]
+            - generic [ref=f2e183]:
+              - generic [ref=f2e184]:
+                - slider "Preview volume" [ref=f2e188] [cursor=pointer]: "100"
+                - button "Mute audio" [ref=f2e190] [cursor=pointer]
+              - button "Playback speed" [ref=f2e197] [cursor=pointer]: 1x
+              - button "Enable loop playback" [ref=f2e199] [cursor=pointer]
+              - button "Enter fullscreen" [ref=f2e206] [cursor=pointer]
+              - button "Shortcuts and tools" [ref=f2e214] [cursor=pointer]
+        - separator "Resize inspector panel" [ref=f2e218]
+        - generic [ref=f2e221]:
+          - generic [ref=f2e222]:
+            - button "Design" [pressed] [ref=f2e224] [cursor=pointer]
+            - button "Layers" [ref=f2e226] [cursor=pointer]
+            - button "Renders" [ref=f2e228] [cursor=pointer]
+            - button "Variables" [ref=f2e230] [cursor=pointer]
+          - generic [ref=f2e232]:
+            - generic [ref=f2e236]: Nothing selected
+            - generic [ref=f2e237]: Click any element on the canvas to edit it, or drag to select several.
+            - generic [ref=f2e238]:
+              - generic [ref=f2e239]:
+                - generic [ref=f2e240]:
+                  - generic [ref=f2e241]: ●
+                  - text: Record a gesture
+                - generic [ref=f2e242]: R
+              - generic [ref=f2e243]:
+                - generic [ref=f2e244]:
+                  - generic [ref=f2e245]: ✦
+                  - text: Describe a change to the agent
+                - generic [ref=f2e246]: ⌘K
+      - separator "Resize timeline (arrow keys)" [ref=f2e247]
+      - generic [ref=f2e251]:
+        - generic [ref=f2e254]:
+          - generic [ref=f2e255]:
+            - button "Selection tool" [pressed] [ref=f2e257] [cursor=pointer]
+            - button "Razor tool" [ref=f2e261] [cursor=pointer]
+            - button "Toggle timeline snapping" [pressed] [ref=f2e266] [cursor=pointer]
+            - button "Add keyframe at playhead" [disabled] [ref=f2e270]
+            - button "Auto-record manual edits as keyframes" [pressed] [ref=f2e274] [cursor=pointer]
+            - button "Split at playhead" [disabled] [ref=f2e279]
+            - button "Add beat at playhead" [disabled] [ref=f2e284]
+          - generic [ref=f2e287]:
+            - button "Hide thumbnails — labels only" [pressed] [ref=f2e289] [cursor=pointer]
+            - button "Fit" [ref=f2e293] [cursor=pointer]
+            - button "Zoom out" [ref=f2e295] [cursor=pointer]
+            - slider "Timeline zoom" [ref=f2e298] [cursor=pointer]: "35"
+            - button "Zoom in" [ref=f2e300] [cursor=pointer]
+            - generic "Timeline zoom level" [ref=f2e303]: Fit
+        - generic "Timeline" [ref=f2e304]:
+          - generic [ref=f2e306]:
+            - generic [ref=f2e309]:
+              - generic [ref=f2e382]: 00:00
+              - generic [ref=f2e385]: 00:05
+              - generic [ref=f2e388]: 00:10
+              - generic [ref=f2e391]: 00:15
+              - generic [ref=f2e394]: 00:20
+              - generic [ref=f2e397]: 00:25
+              - generic [ref=f2e400]: 00:30
+              - generic [ref=f2e403]: 00:35
+              - generic [ref=f2e406]: 00:40
+              - generic [ref=f2e409]: 00:45
+              - generic [ref=f2e412]: 00:50
+              - generic [ref=f2e415]: 00:55
+              - generic [ref=f2e418]: 01:00
+            - treegrid "Timeline tracks" [ref=f2e421]:
+              - rowgroup [ref=f2e422]:
+                - row [level=1] [ref=f2e423]:
+                  - rowheader [ref=f2e424]:
+                    - button "Hide track 1" [ref=f2e428] [cursor=pointer]
+                  - gridcell [ref=f2e431]:
+                    - button "Camera, 0.0 to 29.2 seconds" [ref=f2e432]:
+                      - generic: Camera
+              - rowgroup [ref=f2e436]:
+                - row [level=1] [ref=f2e437]:
+                  - rowheader [ref=f2e438]:
+                    - button "Hide track 2" [ref=f2e442] [cursor=pointer]
+                  - gridcell [ref=f2e445]:
+                    - button "Speaker Video, 0.0 to 29.2 seconds" [ref=f2e446]:
+                      - generic: Speaker Video
+              - rowgroup [ref=f2e450]:
+                - row [level=1] [ref=f2e451]:
+                  - rowheader [ref=f2e452]:
+                    - button "Hide track 3" [ref=f2e456] [cursor=pointer]
+                  - gridcell [ref=f2e459]:
+                    - button "Captions 01, 0.0 to 7.5 seconds" [ref=f2e460]:
+                      - generic: Captions 01
+                    - button "Captions 02, 7.5 to 14.1 seconds" [ref=f2e468]:
+                      - generic: Captions 02
+                    - button "Captions 03, 14.1 to 21.7 seconds" [ref=f2e475]:
+                      - generic: Captions 03
+                    - button "Captions 04, 21.7 to 29.2 seconds" [ref=f2e483]:
+                      - generic: Captions 04
+              - rowgroup [ref=f2e491]:
+                - row [level=1] [ref=f2e492]:
+                  - rowheader [ref=f2e493]:
+                    - button "Effects" [ref=f2e501] [cursor=pointer]: FX
+                  - gridcell [ref=f2e502]:
+                    - button "Final Mix, 0.0 to 29.2 seconds" [ref=f2e503]:
+                      - generic: Final Mix
+                      - generic [ref=f2e504]: waveform unavailable
+  - generic:
+    - tooltip "Pause"

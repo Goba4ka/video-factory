@@ -1,0 +1,36 @@
+[Unit]
+Description=Video Factory deterministic runtime worker (%i)
+Requires=video-factory-preflight.service
+After=video-factory-preflight.service network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=video-factory
+Group=video-factory
+UMask=0027
+EnvironmentFile=/etc/video-factory/runtime.env
+WorkingDirectory=/opt/video-factory/current
+ExecCondition=/opt/video-factory/current/.venv/bin/python /opt/video-factory/current/factory/tools/server_preflight.py --trusted-runtime-role %i --trusted-runtime-role-only
+ExecStart=/opt/video-factory/current/.venv/bin/video-factory worker --db ${VIDEO_FACTORY_DB} --worker %H-runtime-%i --role %i --handler-executable /opt/video-factory/current/.venv/bin/python --handler-arg=-m --handler-arg=video_factory.trusted_runtime_handler --handler-cwd ${VIDEO_FACTORY_WORKSPACE} --handler-timeout ${VIDEO_FACTORY_RUNTIME_HANDLER_TIMEOUT} --lease-seconds ${VIDEO_FACTORY_RUNTIME_WORKER_LEASE_SECONDS} --heartbeat-seconds ${VIDEO_FACTORY_RUNTIME_WORKER_HEARTBEAT_SECONDS} --poll-seconds ${VIDEO_FACTORY_WORKER_POLL_SECONDS} --resource-lock auto --terminal-on-handler-error
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=90s
+KillSignal=SIGTERM
+SuccessExitStatus=0
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=/var/lib/video-factory
+
+[Install]
+WantedBy=multi-user.target

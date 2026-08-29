@@ -2,1203 +2,679 @@
   "schema_version": "1.0.0",
   "lane": "motivation",
   "language": "ru",
-  "created_at": "2026-08-27T00:00:00+03:00",
+  "created_at": "2026-08-30",
   "target_duration_seconds": [
-    45,
-    75
+    40,
+    74
   ],
-  "candidate_count": 22,
+  "candidate_count": 20,
+  "reference_basis": [
+    "factory/analysis/motivation-refpack-20260828/metrics.json",
+    "factory/research/motivation-references-v3-audio/AUDIO_TRUTH_V3.md",
+    "factory/research/motivation-ru-source-packet-20260828.md",
+    "factory/research/motivation-web-source-packet-20260828.md",
+    "factory/research/russian-motivation-1/SOURCE.md",
+    "factory/research/russian-motivation-2/SOURCE.md"
+  ],
   "compatibility": {
-    "factory_import": "Объект содержит массив ideas; каждое предложение имеет непустые id, title, topic, hook, message и sources. Расширенные поля являются lane-local payload и не требуют изменения общей schema.",
-    "production_state": "Кандидаты требуют отдельного research pass, claim ledger и item-level rights review до сценария и рендера."
+    "current_dag_supported_formats": [
+      "licensed_single_ru",
+      "licensed_single_en_ru",
+      "licensed_multi_ru",
+      "licensed_multi_en_ru"
+    ],
+    "current_dag_blocked_formats": [
+      "text_photo_bgm"
+    ],
+    "selection_rule": "Ни один candidate не является production-approved. Single-speaker candidates требуют нового transcript/context pass и human rights clearance. Multi-speaker candidates допустимы в queue только как 2–6 отдельно rights/transcript-bound segments; EN сегменты дополнительно требуют exact bilingual human review.",
+    "audio_rule": "Только original source audio + separately licensed BGM; tts=false, Fish Audio=false, B-roll audio muted.",
+    "visual_rule": "Спикер заполняет canvas, виден минимум 70% речи; no side labels; русские word/phrase captions 1–4 слова синхронизированы по waveform."
   },
   "ideas": [
     {
-      "id": "motivation-trollope-watch-001",
-      "format_id": "archive_protocol",
-      "title": "Часы Энтони Троллопа: не дневная норма, а короткий измеримый блок",
-      "topic": "Рабочий протокол Энтони Троллопа по его автобиографии",
-      "hook": "На столе Троллопа лежали часы: каждые 15 минут он проверял не вдохновение, а объём черновика.",
-      "message": "Личный протокол Троллопа превращал неопределённую работу над романом в короткие наблюдаемые интервалы; полезная деталь здесь — обратная связь внутри сессии, а не копирование его темпа или режима.",
-      "concrete_story": "В автобиографии Троллоп описал утреннюю работу с часами перед собой, ориентир в 250 слов за четверть часа, недельный дневник страниц и короткое перечитывание вчерашнего текста перед продолжением. История строится на факсимильной логике записи, а не на подсчёте его книг как доказательстве метода.",
-      "behavioral_mechanic": {
-        "name": "короткий цикл действия и обратной связи",
-        "how_it_works": "Большая задача заменяется ближайшим измеримым действием; таймер сообщает о ходе сессии, не оценивая личность.",
-        "evidence_type": "личная документированная практика, не эксперимент"
+      "id": "motivation-hartmann-will-001",
+      "format_id": "licensed_single_ru",
+      "title": "Проверь не желание, а волю",
+      "topic": "Оскар Хартманн о моменте, когда желание проверяется действием",
+      "hook": "«Настало время проверить твою волю» — без редакционной озвучки и без лозунга сверху.",
+      "message": "Сильное желание становится проверяемым только в момент конкретного действия.",
+      "duration_seconds": 48,
+      "speaker_plan": {
+        "speakers": ["Оскар Хартманн"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
       },
-      "evidence_boundary": "Источник подтверждает режим самого Троллопа. Он не доказывает оптимальную скорость письма, ценность раннего подъёма или причинную связь между таймером и литературным успехом.",
-      "viewer_experiment": "Для одного черновика выбрать 15 минут и измерять только выполненные смысловые единицы. После сигнала решить: продолжить, изменить объём или остановиться; не сравнивать скорость с Троллопом.",
-      "why_nonbanal": "Известную историю о дисциплине разворачивает от культа количества к дизайну короткой обратной связи.",
-      "duration_seconds": 65,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Собственная съёмка нейтральных часов, бумаги и счётчика слов; оригинальная схема 15-минутного цикла; автобиография из Project Gutenberg используется как фактологический первоисточник, а не как готовый видеоряд.",
-        "beats": [
-          "макро часов и пустой страницы",
-          "250 слов как историческая деталь",
-          "недельная сетка без оценочных красных крестов",
-          "перечитывание вчерашнего абзаца",
-          "плашка: личная практика, не норма"
-        ],
-        "asset_rules": [
-          "Не использовать кадры экранизаций и современные портреты без лицензии.",
-          "Для скана книги проверить public-domain статус конкретного файла и территории публикации."
-        ]
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=3XKfP8gbd9k",
+        "exact_seed_window": "02:34.81–02:43.51",
+        "original_seed": "Вот если ты реально хочешь так сильно, тогда настало время проверить твою волю, дисциплину, твоё сердце, твои границы.",
+        "russian_translation": null,
+        "production_rule": "После разрешения получить master и расширить непрерывное окно до завершённой 40–48-секундной мысли; полный transcript сверить человеком."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.75,
+        "look": "dark monochrome, restrained brass accent",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=3XKfP8gbd9k"],
+      "rights_status": "permission_required",
+      "status": "research_ready_rights_blocked"
+    },
+    {
+      "id": "motivation-hartmann-today-002",
+      "format_id": "licensed_single_ru",
+      "title": "Что ты сделаешь сегодня",
+      "topic": "Оскар Хартманн: непрерывная дуга от проверки воли к действию сегодня",
+      "hook": "Не вопрос «как сильно ты хочешь», а что именно ты сделаешь сегодня.",
+      "message": "Желание получает форму только через действие в текущем дне.",
+      "duration_seconds": 45,
+      "speaker_plan": {
+        "speakers": ["Оскар Хартманн"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=3XKfP8gbd9k",
+        "exact_seed_window": "02:34.81–02:58.89",
+        "original_seed": "Непрерывный 24.08-секундный source window; дословно утверждён только подфрагмент 02:34.81–02:43.51.",
+        "russian_translation": null,
+        "production_rule": "Не использовать расширенное окно до полной human-checked расшифровки и письменного разрешения; добрать длительность только честным контекстом и музыкальным tail."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.75,
+        "look": "near-black, subtle grain, slow push-in",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=3XKfP8gbd9k"],
+      "rights_status": "permission_required",
+      "status": "transcript_review_required_rights_blocked"
+    },
+    {
+      "id": "motivation-rybakov-first-step-003",
+      "format_id": "licensed_single_ru",
+      "title": "Первый гвоздь",
+      "topic": "Игорь Рыбаков о первом измеримом шаге",
+      "hook": "«Абсолютно неважно, с чего начать. Начни с чего-то».",
+      "message": "Первый небольшой шаг снимает неопределённость лучше ожидания идеального старта.",
+      "duration_seconds": 44,
+      "speaker_plan": {
+        "speakers": ["Игорь Рыбаков"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=hLuKfB9_5OM",
+        "exact_seed_window": "01:26.11–01:32.74",
+        "original_seed": "Абсолютно неважно, с чего начать. Начни с чего-то. Забей первый гвоздь, поставь первый шаг — первую зарубку.",
+        "russian_translation": null,
+        "production_rule": "Запросить master/clearance; найти непрерывный законченный контекст 40–44 с и сверить transcript на слух."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.7,
+        "look": "dark neutral, one muted-red accent on ПЕРВЫЙ",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=hLuKfB9_5OM"],
+      "rights_status": "permission_required",
+      "status": "research_ready_rights_blocked"
+    },
+    {
+      "id": "motivation-hakamada-action-004",
+      "format_id": "licensed_single_ru",
+      "title": "Когда остаётся действовать",
+      "topic": "Ирина Хакамада о действии в точке неопределённости",
+      "hook": "Мысль начинается не с удачи, а с действия, когда прежний план больше не работает.",
+      "message": "В неопределённости человек может вернуть себе движение через конкретное действие; это личная позиция, не обещание удачи.",
+      "duration_seconds": 45,
+      "speaker_plan": {
+        "speakers": ["Ирина Хакамада"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=53grbEtBah8",
+        "exact_seed_window": "03:47.40–03:53.66",
+        "original_seed": "И если ты начинаешь думать, а потом делать всё от отчаяния, то тебе приходит удача.",
+        "russian_translation": null,
+        "production_rule": "Сохранить авторскую модальность и контекст; не превращать личную формулу в причинное обещание. Полное окно и права проверить заново."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.75,
+        "look": "low-saturation close-up, restrained pulse",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=53grbEtBah8"],
+      "rights_status": "permission_required",
+      "status": "research_ready_rights_blocked"
+    },
+    {
+      "id": "motivation-sitnikov-bricks-005",
+      "format_id": "licensed_single_ru",
+      "title": "Из чего строится поведение",
+      "topic": "Алексей Ситников о повторяющихся кирпичах поведения",
+      "hook": "Поведение строится не одним рывком, а тем, что повторяется незаметно.",
+      "message": "Повторяющиеся элементы среды и действия со временем становятся частью поведения; не обещаем гарантированного результата.",
+      "duration_seconds": 48,
+      "speaker_plan": {
+        "speakers": ["Алексей Ситников"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=siNx54lgTsQ",
+        "exact_seed_window": "09:02.13–09:11.52",
+        "original_seed": "Они становятся теми кирпичами, на которых строится весь фундамент вашего поведения, вашего мышления, ваших способностей, ваших возможностей.",
+        "russian_translation": null,
+        "production_rule": "Перед production проверить соседний контекст и убрать любые неподтверждённые психологические/нейробиологические claims."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.7,
+        "look": "dark studio, subtle paper/brick inserts only",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=siNx54lgTsQ"],
+      "rights_status": "permission_required",
+      "status": "research_ready_rights_blocked"
+    },
+    {
+      "id": "motivation-gandapas-internal-006",
+      "format_id": "licensed_single_ru",
+      "title": "Когда не нужно уговаривать",
+      "topic": "Радислав Гандапас о внутренней мотивации",
+      "hook": "Есть работа, к которой человека не нужно подталкивать извне.",
+      "message": "Интерес к самому делу может быть источником движения; это определение спикера, не диагноз зрителя.",
+      "duration_seconds": 42,
+      "speaker_plan": {
+        "speakers": ["Радислав Гандапас"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=tlgv9FbFNeM",
+        "exact_seed_window": "00:41.62–00:47.12",
+        "original_seed": "Мотивацию внутреннюю — когда человек так кайфует от того дела, которое ему предстоит, что его не нужно уговаривать.",
+        "russian_translation": null,
+        "production_rule": "Получить разрешение и выбрать законченный непрерывный контекст; не подменять речь редакционным нейрообъяснением."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.8,
+        "look": "clean dark vertical, minimal texture",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=tlgv9FbFNeM"],
+      "rights_status": "permission_required",
+      "status": "research_ready_rights_blocked"
+    },
+    {
+      "id": "motivation-batyrev-instrument-007",
+      "format_id": "licensed_single_ru",
+      "title": "Не мотивация, а способ",
+      "topic": "Максим Батырев о мотивации как инструменте цели",
+      "hook": "«Но это не мотивация. Это способ достижения тех целей…»",
+      "message": "Мотивационный ритуал имеет смысл только как инструмент конкретной цели, а не как самостоятельный образ успешности.",
+      "duration_seconds": 46,
+      "speaker_plan": {
+        "speakers": ["Максим Батырев"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=8yAfs91ZpIM",
+        "exact_seed_window": "01:29.74–01:37.96",
+        "original_seed": "Но это не мотивация. Это способ достижения тех целей, которые передо мной стоят. И у меня есть семейные цели.",
+        "russian_translation": null,
+        "production_rule": "Полный непрерывный контекст и права проверить; не удалять финальную оговорку о личных целях."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.75,
+        "look": "dark neutral, purposeful slow punch-in",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=8yAfs91ZpIM"],
+      "rights_status": "permission_required",
+      "status": "research_ready_rights_blocked"
+    },
+    {
+      "id": "motivation-khabib-twenty-two-years-008",
+      "format_id": "licensed_single_ru",
+      "title": "Двадцать два года вместе",
+      "topic": "Хабиб Нурмагомедов о долгой совместной работе",
+      "hook": "За коротким финалом — двадцать два года совместной тренировки.",
+      "message": "Сильный результат может быть финальным кадром долгой командной работы, а не одиночным героическим рывком.",
+      "duration_seconds": 44,
+      "speaker_plan": {
+        "speakers": ["Хабиб Нурмагомедов"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=fC7Z9U4LFSc",
+        "exact_seed_window": "02:57.98–03:03.10",
+        "original_seed": "Брат, всю жизнь, всю жизнь мы вместе тренируемся. Двадцать два года мы вместе пашем.",
+        "russian_translation": null,
+        "production_rule": "Нужны права UFC Eurasia и проверка вложенной музыки/трансляционных элементов; контекст не превращать в культ боли."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.7,
+        "look": "restrained monochrome sports atmosphere",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=fC7Z9U4LFSc"],
+      "rights_status": "permission_required",
+      "status": "research_ready_rights_blocked"
+    },
+    {
+      "id": "motivation-tsiskaridze-respect-009",
+      "format_id": "licensed_single_ru",
+      "title": "Строгость к делу, уважение к человеку",
+      "topic": "Николай Цискаридзе о самоуважении и способности слышать другого",
+      "hook": "Строгость к профессии не требует жестокости к человеку.",
+      "message": "Самоуважение и требовательность к делу могут сосуществовать с уважением к другому.",
+      "duration_seconds": 44,
+      "speaker_plan": {
+        "speakers": ["Николай Цискаридзе"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=kCJjNwW_v4s",
+        "exact_seed_window": "01:23:02.679–01:23:33.870",
+        "original_seed": "Себя сначала полюби, научись уважать себя. Ты сможешь тогда уважать другого человека.",
+        "russian_translation": null,
+        "production_rule": "Локальный 31.191-секундный window и VTT использовать только для research prototype; перед delivery нужен human transcript pass и clearance издателя."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.8,
+        "look": "clean close-up, dark warm monochrome",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=kCJjNwW_v4s"],
+      "rights_status": "permission_required",
+      "status": "local_research_asset_rights_blocked"
+    },
+    {
+      "id": "motivation-lebedev-mastery-010",
+      "format_id": "licensed_single_ru",
+      "title": "Полгода — ещё не мастерство",
+      "topic": "Артемий Лебедев о времени, необходимом для профессиональной глубины",
+      "hook": "Полгода может хватить на знакомство с работой — не на понимание всей профессии.",
+      "message": "Глубина формируется дольше первого ощущения уверенности; личная оценка спикера не становится универсальным сроком.",
+      "duration_seconds": 44,
+      "speaker_plan": {
+        "speakers": ["Артемий Лебедев"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=p4y-lqwOfwc",
+        "exact_seed_window": "00:31:33.760–00:32:04.920",
+        "original_seed": "Точный 31.160-секундный transcript берётся из локального source VTT и повторно проверяется на слух; краткий смысл — первое понимание примерно через год, глубокое мастерство через 5–10 лет.",
+        "russian_translation": null,
+        "production_rule": "Не выдавать сроки за научную норму. Локальный asset — research-only до письменного разрешения первичного publisher."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.75,
+        "look": "dark podcast close-up, minimal graphic years markers",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=p4y-lqwOfwc"],
+      "rights_status": "permission_required",
+      "status": "local_research_asset_transcript_review_rights_blocked"
+    },
+    {
+      "id": "motivation-goggins-least-motivated-011",
+      "format_id": "licensed_single_en_ru",
+      "title": "Когда мотивации меньше всего",
+      "topic": "David Goggins о способности действовать при низкой мотивации",
+      "hook": "Самая трудная версия себя нужна именно тогда, когда мотивации почти нет.",
+      "message": "Смысл не в постоянном эмоциональном подъёме, а в способности сохранять выбранное действие без него.",
+      "duration_seconds": 45,
+      "speaker_plan": {
+        "speakers": ["David Goggins"],
+        "source_language": "en",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=ngvOyccUzzY",
+        "exact_seed_window": "00:54:27–00:54:36",
+        "original_seed": "You have to learn to be your best self when you’re least motivated. And that’s the tricky part about all that.",
+        "russian_translation": "Нужно уметь быть лучшей версией себя именно тогда, когда мотивации меньше всего. В этом и вся сложность.",
+        "production_rule": "Получить master/permission от rightsholder, расширить только непрерывным контекстом и провести bilingual human review."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.8,
+        "look": "high-contrast monochrome, subtle grain",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=ngvOyccUzzY"],
+      "rights_status": "permission_required",
+      "status": "research_ready_translation_and_rights_blocked"
+    },
+    {
+      "id": "motivation-jocko-problems-012",
+      "format_id": "licensed_single_en_ru",
+      "title": "Неожиданные проблемы? Хорошо",
+      "topic": "Jocko Willink о проблеме как возможности найти решение",
+      "hook": "«Неожиданные проблемы? Хорошо» — затем не лозунг, а причина.",
+      "message": "Проблема оставляет возможность искать решение; это reframe, а не гарантия положительного исхода.",
+      "duration_seconds": 44,
+      "speaker_plan": {
+        "speakers": ["Jocko Willink"],
+        "source_language": "en",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=IdTMDpizis8",
+        "exact_seed_window": "00:01:14–00:01:22",
+        "original_seed": "Unexpected problems? Good. We have the opportunity to figure out a solution.",
+        "russian_translation": "Неожиданные проблемы? Хорошо. Значит, у нас есть возможность найти решение.",
+        "production_rule": "Нужен licensed master и полный контекст; не вырезать фразу GOOD отдельно от объяснения."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.8,
+        "look": "near-black close-up, restrained pulse",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=IdTMDpizis8"],
+      "rights_status": "permission_required",
+      "status": "research_ready_translation_and_rights_blocked"
+    },
+    {
+      "id": "motivation-jocko-still-breathing-013",
+      "format_id": "licensed_single_en_ru",
+      "title": "Ты всё ещё дышишь",
+      "topic": "Jocko Willink о минимальной точке, из которой можно продолжать",
+      "hook": "Если ты ещё можешь сказать «хорошо», значит история не закончена.",
+      "message": "Пока действие физически и безопасно возможно, остаётся пространство для следующего решения; не применять как совет игнорировать травму или здоровье.",
+      "duration_seconds": 45,
+      "speaker_plan": {
+        "speakers": ["Jocko Willink"],
+        "source_language": "en",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=IdTMDpizis8",
+        "exact_seed_window": "00:01:34–00:01:51",
+        "original_seed": "If you can say the word good, guess what it means? You’re still alive. It means you’re still breathing.",
+        "russian_translation": "Если ты ещё можешь сказать «хорошо», знаешь, что это значит? Ты жив. Ты всё ещё дышишь.",
+        "production_rule": "Human safety review обязателен; нельзя монтировать рядом с болью, травмой или медицинским призывом продолжать."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.75,
+        "look": "dark restrained, no injury footage",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=IdTMDpizis8"],
+      "rights_status": "permission_required",
+      "status": "safety_translation_and_rights_blocked"
+    },
+    {
+      "id": "motivation-jobs-limited-time-014",
+      "format_id": "licensed_single_en_ru",
+      "title": "Не живи чужой жизнью",
+      "topic": "Steve Jobs о конечности времени и чужих ожиданиях",
+      "hook": "Твоё время ограничено — но фраза остаётся в точном контексте речи.",
+      "message": "Ограниченность времени может быть поводом проверить, чьи ожидания определяют выбор; это не призыв к рискованному разрыву обязательств.",
+      "duration_seconds": 45,
+      "speaker_plan": {
+        "speakers": ["Steve Jobs"],
+        "source_language": "en",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=UF8uR6Z6KLc",
+        "exact_seed_window": "00:12:31–00:12:40",
+        "original_seed": "Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma.",
+        "russian_translation": "Твоё время ограничено — не трать его на чужую жизнь. Не попадай в ловушку догм.",
+        "production_rule": "Запросить rights у Stanford и master; сверить официальный transcript и bilingual translation на полном source window."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.75,
+        "look": "archival monochrome, clean large speaker crop",
+        "no_side_labels": true
       },
       "sources": [
-        "https://www.gutenberg.org/files/5978/5978-h/5978-h.htm"
+        "https://www.youtube.com/watch?v=UF8uR6Z6KLc",
+        "https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says"
       ],
-      "source_candidates": [
-        {
-          "url": "https://www.gutenberg.org/files/5978/5978-h/5978-h.htm",
-          "publisher": "Project Gutenberg",
-          "source_type": "primary",
-          "supports": "Текст автобиографии с описанием часов, 250 слов за 15 минут, дневника и перечитывания."
-        }
+      "rights_status": "permission_required",
+      "status": "research_ready_translation_and_rights_blocked"
+    },
+    {
+      "id": "motivation-mcraven-first-task-015",
+      "format_id": "licensed_single_en_ru",
+      "title": "Первая задача дня",
+      "topic": "William H. McRaven о маленьком завершённом действии утром",
+      "hook": "Одна завершённая задача не меняет жизнь магически — она только создаёт первый факт дня.",
+      "message": "Маленькое завершённое действие может стать первой точкой порядка; не выдаём личный совет за универсальный метод.",
+      "duration_seconds": 42,
+      "speaker_plan": {
+        "speakers": ["William H. McRaven"],
+        "source_language": "en",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=jflUvxQLkgs",
+        "exact_seed_window": "00:00:50–00:00:59",
+        "original_seed": "If you make your bed every morning, you will have accomplished the first task of the day.",
+        "russian_translation": "Если каждое утро заправлять кровать, первая задача дня уже будет выполнена.",
+        "production_rule": "Нужны permissions University of Texas и Longhorn Network; полный контекст и перевод проверяются человеком."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.75,
+        "look": "dark archival speech, minimal owned object insert",
+        "no_side_labels": true
+      },
+      "sources": ["https://www.youtube.com/watch?v=jflUvxQLkgs"],
+      "rights_status": "permission_required",
+      "status": "research_ready_translation_and_rights_blocked"
+    },
+    {
+      "id": "motivation-arnold-work-016",
+      "format_id": "licensed_single_en_ru",
+      "title": "Работай изо всех сил",
+      "topic": "Короткая фраза Arnold Schwarzenegger о работе",
+      "hook": "Сильная фраза слишком коротка, чтобы честно растянуть её в самостоятельный ролик.",
+      "message": "Кандидат сохранён как research seed, но не проходит production без более длинного непрерывного авторитетного контекста.",
+      "duration_seconds": 40,
+      "speaker_plan": {
+        "speakers": ["Arnold Schwarzenegger"],
+        "source_language": "en",
+        "delivery_caption_language": "ru",
+        "structure": "single_speaker_long_hold"
+      },
+      "source_audio_plan": {
+        "source_url": "https://www.youtube.com/watch?v=Kb7_E12FFLw",
+        "exact_seed_window": "00:05:14.470–00:05:17.410",
+        "original_seed": "The fourth rule is work your ass off.",
+        "russian_translation": "Четвёртое правило — работай изо всех сил.",
+        "production_rule": "Не повторять трёхсекундную фразу и не заполнять 40 секунд редакционным текстом. Нужны longer exact context и clearance всей цепочки Goalcast/Oak Productions/Arnold."
+      },
+      "visual_treatment": {
+        "preset": "single_speaker_long_hold",
+        "speaker_visible_share_min": 0.8,
+        "look": "not applicable until source window exists",
+        "no_side_labels": true
+      },
+      "sources": [
+        "https://www.youtube.com/watch?v=Kb7_E12FFLw",
+        "https://www.schwarzenegger.com/arnoldtv/these-are-arnold-schwarzeneggers-5-rules-for-success"
       ],
-      "risk": "green",
-      "risk_notes": "Удалить героизацию раннего подъёма и объёма произведений.",
+      "rights_status": "permission_required",
+      "status": "blocked_insufficient_authoritative_speech_and_rights"
+    },
+    {
+      "id": "motivation-montage-start-act-test-017",
+      "format_id": "licensed_multi_ru",
+      "title": "Начни — действуй — проверь себя",
+      "topic": "Русская трёхспикерная дуга: Рыбаков, Хакамада, Хартманн",
+      "hook": "Первый спикер запускает движение, второй переводит неопределённость в действие, третий завершает проверкой воли.",
+      "message": "Мотивация становится последовательностью: начать, не замереть в неопределённости, проверить решение действием.",
+      "duration_seconds": 58,
+      "speaker_plan": {
+        "speakers": ["Игорь Рыбаков", "Ирина Хакамада", "Оскар Хартманн"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "multi_speaker_fast_montage"
+      },
+      "source_audio_plan": {
+        "segments": [
+          {"source_url": "https://www.youtube.com/watch?v=hLuKfB9_5OM", "window": "01:26.11–01:32.74"},
+          {"source_url": "https://www.youtube.com/watch?v=53grbEtBah8", "window": "03:47.40–03:53.66"},
+          {"source_url": "https://www.youtube.com/watch?v=3XKfP8gbd9k", "window": "02:34.81–02:43.51"}
+        ],
+        "production_rule": "Допускать только после exact transcript/context pass, отдельного rights clearance и immutable source/extracted hashes всех трёх segments."
+      },
+      "visual_treatment": {
+        "preset": "multi_speaker_fast_montage",
+        "speaker_visible_share_min": 0.65,
+        "look": "dark unified grade, clean large crops",
+        "no_side_labels": true
+      },
+      "sources": [
+        "https://www.youtube.com/watch?v=hLuKfB9_5OM",
+        "https://www.youtube.com/watch?v=53grbEtBah8",
+        "https://www.youtube.com/watch?v=3XKfP8gbd9k"
+      ],
+      "rights_status": "permission_required_for_every_segment",
       "status": "candidate"
     },
     {
-      "id": "motivation-wright-data-002",
-      "format_id": "constraint_reframe",
-      "title": "Когда планер не полетел, братья Райт проверили не себя, а таблицу",
-      "topic": "Ветротруба братьев Райт и проверка аэродинамических данных",
-      "hook": "Их планер давал меньше подъёмной силы, чем обещали расчёты — поэтому они построили прибор для проверки самих расчётов.",
-      "message": "Несовпадение результата с ожиданием может быть сигналом проверить модель и измерение, а не поводом удваивать усилие по прежнему плану.",
-      "concrete_story": "После испытаний 1901 года Уилбур и Орвилл усомнились в использованных аэродинамических данных. Они сначала проверили гипотезу устройством на велосипеде, затем построили ветротрубу, испытали до 200 форм крыла предварительно и записали формальные данные почти для 50, прежде чем вернуться к полноразмерному планеру.",
-      "behavioral_mechanic": {
-        "name": "проверка предпосылки через дешёвый прототип",
-        "how_it_works": "Вместо дорогого повторения неудачного финального теста команда изолирует сомнительную переменную и получает более быструю обратную связь.",
-        "evidence_type": "музейно документированная инженерная история"
-      },
-      "evidence_boundary": "История показывает их процесс разработки, но не доказывает, что любое препятствие связано с неверной моделью или что прототип всегда дешевле полноценной попытки.",
-      "viewer_experiment": "Перед повтором одной застрявшей низкорисковой задачи выписать три предпосылки и придумать самый дешёвый тест для одной из них.",
-      "why_nonbanal": "Это не история 'они не сдавались', а история смены объекта усилий: с полёта на качество исходных данных.",
-      "duration_seconds": 70,
-      "visual_plan": {
-        "rights_feasibility": "yellow",
-        "approach": "Собственная мини-ветротруба из бумаги и вентилятора, оригинальные графики lift/drag без копирования музейного дизайна; архивные фотографии только после item-level rights review.",
-        "beats": [
-          "планер и расходящиеся расчёт/результат",
-          "велосипедное тестовое устройство",
-          "ряд бумажных профилей крыла",
-          "таблица наблюдений",
-          "новый планер как следствие данных"
-        ],
-        "asset_rules": [
-          "Smithsonian — фактологический источник; права на каждое изображение проверять отдельно.",
-          "Не использовать кадры художественных реконструкций."
-        ]
-      },
-      "sources": [
-        "https://airandspace.si.edu/explore/stories/researching-wright-way",
-        "https://airandspace.si.edu/stories/editorial/wright-brothers-made-history-kitty-hawk"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://airandspace.si.edu/explore/stories/researching-wright-way",
-          "publisher": "Smithsonian National Air and Space Museum",
-          "source_type": "official",
-          "supports": "Последовательность исследований, число предварительных и формальных тестов, инструменты измерения."
-        },
-        {
-          "url": "https://airandspace.si.edu/stories/editorial/wright-brothers-made-history-kitty-hawk",
-          "publisher": "Smithsonian National Air and Space Museum",
-          "source_type": "official",
-          "supports": "Несовпадение с расчётами, велосипедное устройство, две ветротрубы и решение построить ещё один планер."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Не сводить коллективную инженерную работу к врождённой гениальности.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-hubble-blank-003",
-      "format_id": "one_visual_argument",
-      "title": "Десять дней телескопа на почти пустой участок неба",
-      "topic": "Hubble Deep Field и защищённое время для неопределённого вопроса",
-      "hook": "Один из самых занятых телескопов направили туда, где почти ничего не было видно.",
-      "message": "Роберт Уильямс использовал часть директорского времени Hubble на заранее подготовленный, но рискованный длинный обзор пустого участка и сразу открыл данные сообществу.",
-      "concrete_story": "Уильямс распоряжался частью директорского discretionary time. Команда почти год выбирала тёмную область без ярких соседних объектов и делала тестовые экспозиции. Наблюдение сфокусировалось на крошечном пустом участке, а полученные данные сразу сделали доступными другим исследователям.",
-      "behavioral_mechanic": {
-        "name": "защищённый ресурс для высоконеопределённой гипотезы",
-        "how_it_works": "Небольшая заранее выделенная доля ресурса позволяет проверить вопрос, который трудно оценить обычным конкурсом краткосрочной отдачи.",
-        "evidence_type": "официальная история научной программы"
-      },
-      "evidence_boundary": "Deep Field не доказывает, что рискованные проекты чаще окупаются. Решение опиралось на тесты, команду и уникальный управленческий ресурс, а не на слепую веру.",
-      "viewer_experiment": "Выделить один короткий блок недели на вопрос с неясной отдачей и заранее определить дешёвый признак, по которому опыт стоит продолжить.",
-      "why_nonbanal": "Мотивация показана как управленческое распределение ограниченного ресурса, а не личная смелость в вакууме.",
+      "id": "motivation-montage-process-years-018",
+      "format_id": "licensed_multi_ru",
+      "title": "Не настроение, а годы процесса",
+      "topic": "Русская трёхспикерная дуга: Гандапас, Батырев, Лебедев",
+      "hook": "Сначала внутренний интерес, затем инструмент цели, в финале — реальная длина пути к мастерству.",
+      "message": "Мотивация не заменяет процесс: интерес запускает, цель направляет, глубина требует времени.",
       "duration_seconds": 60,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальная анимация масштаба участка и таймлайна подготовки; NASA media использовать только с проверкой credit line, сторонние STScI credits отправлять на rights review.",
-        "beats": [
-          "почти пустой чёрный кадр",
-          "маленькая доля директорского времени",
-          "год выбора поля и тестов",
-          "постепенное появление галактик",
-          "плашка: подготовленный риск, не ставка вслепую"
+      "speaker_plan": {
+        "speakers": ["Радислав Гандапас", "Максим Батырев", "Артемий Лебедев"],
+        "source_language": "ru",
+        "delivery_caption_language": "ru",
+        "structure": "multi_speaker_fast_montage"
+      },
+      "source_audio_plan": {
+        "segments": [
+          {"source_url": "https://www.youtube.com/watch?v=tlgv9FbFNeM", "window": "00:41.62–00:47.12"},
+          {"source_url": "https://www.youtube.com/watch?v=8yAfs91ZpIM", "window": "01:29.74–01:37.96"},
+          {"source_url": "https://www.youtube.com/watch?v=p4y-lqwOfwc", "window": "00:31:33.760–00:32:04.920"}
         ],
-        "asset_rules": [
-          "Сохранять NASA/STScI credit и проверять конкретный файл.",
-          "Не утверждать число галактик без сверки версии изображения и источника."
-        ]
+        "production_rule": "Допускать только после human transcript/context review каждого окна, отдельного rights clearance каждого rightsholder и проверки ordered PCM program."
+      },
+      "visual_treatment": {
+        "preset": "multi_speaker_fast_montage",
+        "speaker_visible_share_min": 0.7,
+        "look": "consistent dark-neutral grade",
+        "no_side_labels": true
       },
       "sources": [
-        "https://science.nasa.gov/mission/hubble/science/universe-uncovered/hubble-deep-fields/",
-        "https://science.nasa.gov/mission/hubble/observatory/science-operations/"
+        "https://www.youtube.com/watch?v=tlgv9FbFNeM",
+        "https://www.youtube.com/watch?v=8yAfs91ZpIM",
+        "https://www.youtube.com/watch?v=p4y-lqwOfwc"
       ],
-      "source_candidates": [
-        {
-          "url": "https://science.nasa.gov/mission/hubble/science/universe-uncovered/hubble-deep-fields/",
-          "publisher": "NASA Science",
-          "source_type": "official",
-          "supports": "Директорское время, подготовка, критерии выбора пустого поля и открытие данных."
-        },
-        {
-          "url": "https://science.nasa.gov/mission/hubble/observatory/science-operations/",
-          "publisher": "NASA Science",
-          "source_type": "official",
-          "supports": "Роль discretionary time в специальных и высокорисковых программах."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Не романтизировать риск и не обещать, что 'пустой' проект даст прорыв.",
+      "rights_status": "permission_required_for_every_segment",
       "status": "candidate"
     },
     {
-      "id": "motivation-apollo13-process-004",
-      "format_id": "myth_vs_process",
-      "title": "«Провал не вариант» не спас Apollo 13 — этой фразы там не было",
-      "topic": "Кинематографический лозунг и реальный процесс Apollo 13",
-      "hook": "Самая известная мотивационная фраза Apollo 13 — голливудская. Реальная работа была менее эффектной и полезнее.",
-      "message": "NASA указывает, что Gene Kranz не произносил знаменитую фразу во время миссии; возвращение экипажа обеспечили распределённые команды, симуляторы, новые процедуры, проверки и открытое обсуждение ошибок.",
-      "concrete_story": "После аварии не существовало готовой процедуры полного выключения командного модуля. Команда по шагам разработала её, а Кен Маттингли провёл часы в симуляторе, уточняя действия для возвращения. Отдельный материал NASA прямо называет две популярные реплики киношными версиями.",
-      "behavioral_mechanic": {
-        "name": "распределённое решение и внешняя проверка вместо лозунга",
-        "how_it_works": "Сложная задача дробится по ролям; процедуры проверяются в симуляторе, а новая информация открыто меняет план.",
-        "evidence_type": "официальная история миссии и oral-history контекст"
+      "id": "motivation-montage-discipline-solution-time-019",
+      "format_id": "licensed_multi_en_ru",
+      "title": "Когда мотивации нет: решение и время",
+      "topic": "Английская трёхспикерная дуга: Goggins, Jocko, Jobs",
+      "hook": "Три голоса продолжают одну мысль: действовать без мотивации, искать решение, помнить о времени.",
+      "message": "Не ждать идеального состояния, искать следующий ход и сверять его со своей жизнью.",
+      "duration_seconds": 62,
+      "speaker_plan": {
+        "speakers": ["David Goggins", "Jocko Willink", "Steve Jobs"],
+        "source_language": "en",
+        "delivery_caption_language": "ru",
+        "structure": "multi_speaker_fast_montage"
       },
-      "evidence_boundary": "Ролик не реконструирует всю причинную цепочку спасения и не переносит профессиональный аварийный протокол на бытовые риски. Формулировка о цитате должна повторять узкое утверждение NASA.",
-      "viewer_experiment": "Для безопасной сложной задачи заменить девиз списком из трёх ролей: кто предлагает, кто проверяет, кто фиксирует новое решение.",
-      "why_nonbanal": "Разоблачение не обесценивает команду, а возвращает внимание с героической реплики на инфраструктуру работы.",
-      "duration_seconds": 70,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальная схема командных ролей, таймлайн процедур и стилизованный симулятор; NASA public-domain candidates проверять по credit line.",
-        "beats": [
-          "известная фраза с маркировкой 'кино'",
-          "пустая ячейка 'готовая процедура'",
-          "параллельные рабочие команды",
-          "симулятор и правки",
-          "финал: процесс вместо плаката"
+      "source_audio_plan": {
+        "segments": [
+          {"source_url": "https://www.youtube.com/watch?v=ngvOyccUzzY", "window": "00:54:27–00:54:36", "russian_translation": "Нужно уметь быть лучшей версией себя именно тогда, когда мотивации меньше всего. В этом и вся сложность."},
+          {"source_url": "https://www.youtube.com/watch?v=IdTMDpizis8", "window": "00:01:14–00:01:22", "russian_translation": "Неожиданные проблемы? Хорошо. Значит, у нас есть возможность найти решение."},
+          {"source_url": "https://www.youtube.com/watch?v=UF8uR6Z6KLc", "window": "00:12:31–00:12:40", "russian_translation": "Твоё время ограничено — не трать его на чужую жизнь. Не попадай в ловушку догм."}
         ],
-        "asset_rules": [
-          "Не использовать кадры фильма Apollo 13.",
-          "Не воспроизводить длинные цитаты из стенограмм."
-        ]
+        "production_rule": "Допускать только после отдельных exact bilingual approvals и rights clearance всех трёх segments; каждый review связан с asset/range/original/RU transcript hashes."
+      },
+      "visual_treatment": {
+        "preset": "multi_speaker_fast_montage",
+        "speaker_visible_share_min": 0.65,
+        "look": "unified high-contrast monochrome",
+        "no_side_labels": true
       },
       "sources": [
-        "https://www.nasa.gov/wp-content/uploads/2015/05/april_lagniappe_2.pdf",
-        "https://www.nasa.gov/history/apollo-13-crew-returns-safely-to-earth/",
-        "https://www.nasa.gov/podcasts/small-steps-giant-leaps/small-steps-giant-leaps-episode-13-apollo-legacies-and-lessons-learned/"
+        "https://www.youtube.com/watch?v=ngvOyccUzzY",
+        "https://www.youtube.com/watch?v=IdTMDpizis8",
+        "https://www.youtube.com/watch?v=UF8uR6Z6KLc"
       ],
-      "source_candidates": [
-        {
-          "url": "https://www.nasa.gov/wp-content/uploads/2015/05/april_lagniappe_2.pdf",
-          "publisher": "NASA",
-          "source_type": "official",
-          "supports": "Официальное указание на голливудское происхождение известных формулировок."
-        },
-        {
-          "url": "https://www.nasa.gov/history/apollo-13-crew-returns-safely-to-earth/",
-          "publisher": "NASA History",
-          "source_type": "official",
-          "supports": "Работа команд и часы Маттингли в симуляторе над процедурами возвращения."
-        },
-        {
-          "url": "https://www.nasa.gov/podcasts/small-steps-giant-leaps/small-steps-giant-leaps-episode-13-apollo-legacies-and-lessons-learned/",
-          "publisher": "NASA",
-          "source_type": "official",
-          "supports": "Открытое обсуждение ошибок, доверие и командная культура в программе Apollo."
-        }
-      ],
-      "risk": "yellow",
-      "risk_notes": "Событие связано с угрозой жизни; без саспенс-эксплуатации и без длинных приписанных цитат.",
+      "rights_status": "permission_required_for_every_segment",
       "status": "candidate"
     },
     {
-      "id": "motivation-johnson-check-005",
-      "format_id": "verification_loop",
-      "title": "Почему Джон Гленн попросил Кэтрин Джонсон пересчитать компьютер",
-      "topic": "Независимая проверка расчётов Friendship 7",
-      "hook": "Перед орбитальным полётом быстрый электронный расчёт ещё раз прогнали через независимый человеческий путь.",
-      "message": "Кэтрин Джонсон вручную проверила те же траекторные уравнения, которые были заложены в электронные компьютеры; ценность истории — в независимом канале проверки при высокой цене ошибки.",
-      "concrete_story": "NASA описывает сеть IBM-компьютеров для миссии Friendship 7 и просьбу Джона Гленна, чтобы Джонсон вручную проверила те же числа на настольной вычислительной машине. Её работа была частью большой системы траекторных расчётов, а не магической интуицией одного человека.",
-      "behavioral_mechanic": {
-        "name": "независимый маршрут верификации",
-        "how_it_works": "Один и тот же критический результат получают разными средствами, чтобы не повторить скрытую ошибку одного канала.",
-        "evidence_type": "официальная биография и воспоминание участницы"
-      },
-      "evidence_boundary": "История не доказывает превосходство человека над компьютером и не описывает полный verification protocol миссии. Современные высокорисковые расчёты должны проверяться профильными процедурами.",
-      "viewer_experiment": "Для одной безопасной отправки проверить критическое поле вторым способом: адрес — по исходному документу, сумма — обратным сложением, дата — по календарю.",
-      "why_nonbanal": "Вместо банального сюжета о доверии к героине — конкретная архитектура независимой проверки.",
-      "duration_seconds": 60,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальная анимация двух параллельных вычислительных дорожек, собственная съёмка механического калькулятора; NASA portraits только после credit check.",
-        "beats": [
-          "траектория на экране компьютера",
-          "параллельная бумажная дорожка",
-          "сверка одинакового результата",
-          "карта распределённой команды",
-          "граница: не человек против машины"
-        ],
-        "asset_rules": [
-          "Не использовать кадры фильма Hidden Figures.",
-          "Не сводить вклад других вычислителей и инженеров к одному герою."
-        ]
-      },
-      "sources": [
-        "https://science.nasa.gov/people/katherine-johnson/",
-        "https://www.nasa.gov/people-of-nasa/katherine-g-johnson/"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://science.nasa.gov/people/katherine-johnson/",
-          "publisher": "NASA Science",
-          "source_type": "official",
-          "supports": "Личное описание перепроверки компьютерной траектории."
-        },
-        {
-          "url": "https://www.nasa.gov/people-of-nasa/katherine-g-johnson/",
-          "publisher": "NASA",
-          "source_type": "official",
-          "supports": "Контекст вычислительной сети и ручной проверки уравнений для Friendship 7."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Не использовать расовый и гендерный контекст как поверхностный эмоциональный декор; при включении — раскрыть точно и уважительно.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-hamilton-priority-006",
-      "format_id": "verification_loop",
-      "title": "Компьютер Apollo 11 не успевал всё — поэтому умел отбрасывать лишнее",
-      "topic": "Приоритетное планирование в программном обеспечении Apollo",
-      "hook": "Во время посадки компьютер перегрузился, но продолжил самые важные задачи — так его и спроектировали.",
-      "message": "Команда программного обеспечения под руководством Маргарет Гамильтон заложила приоритетное выполнение и восстановление: при перегрузке система сохраняла критические задачи, а низкоприоритетные могла отложить.",
-      "concrete_story": "За несколько минут до посадки Apollo 11 возникли программные тревоги. Официальные материалы NASA описывают priority scheduling, asynchronous processing и перезапуск важных задач при перегрузке. История позволяет показать, что устойчивость иногда строится не на выполнении всего, а на заранее определённом порядке отказа.",
-      "behavioral_mechanic": {
-        "name": "заранее заданная деградация по приоритетам",
-        "how_it_works": "При нехватке ресурса система сохраняет критическое и явно допускает задержку некритического, вместо хаотичной попытки сделать всё.",
-        "evidence_type": "официальная техническая история NASA"
-      },
-      "evidence_boundary": "Бытовой список приоритетов — редакционный перенос, а не доказанный психологический эффект. Технические детали и распределение авторства требуют проверки по истории Apollo Guidance Computer.",
-      "viewer_experiment": "Для одного насыщенного дня заранее пометить одну обязательную, одну желательную и одну отменяемую задачу; при перегрузке отменить только последнюю без самонаказания.",
-      "why_nonbanal": "Разговор о мотивации превращается в дизайн системы, которая честно знает, что не сможет выполнить всё.",
-      "duration_seconds": 65,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальная очередь задач с тремя уровнями приоритета, стилизованный DSKY без копирования защищённых макетов; NASA архивные материалы с item-level проверкой.",
-        "beats": [
-          "очередь переполняется",
-          "1201/1202 как исторический сигнал",
-          "критические задачи остаются",
-          "низкий приоритет выпадает",
-          "бытовой список с допустимой отменой"
-        ],
-        "asset_rules": [
-          "Не упрощать причинность до 'одна женщина спасла миссию'.",
-          "Не копировать кадры художественных фильмов и сериалов."
-        ]
-      },
-      "sources": [
-        "https://history.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11Hamilton.html",
-        "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11.1201-fm.html"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://history.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11Hamilton.html",
-          "publisher": "NASA History",
-          "source_type": "official",
-          "supports": "Роль команды Гамильтон, priority scheduling и пример работы ПО во время Apollo 11."
-        },
-        {
-          "url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11.1201-fm.html",
-          "publisher": "Apollo Lunar Surface Journal / NASA",
-          "source_type": "primary_official",
-          "supports": "Техническое объяснение перегрузки, приоритетного executive и перезапуска важных задач."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Техническую причинность и коллективное авторство подтвердить в claim ledger.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-spirit-reframe-007",
-      "format_id": "constraint_reframe",
-      "title": "Марсоход застрял — команда перестала считать движение единственной работой",
-      "topic": "Перенастройка миссии марсохода Spirit",
-      "hook": "Когда Spirit не удалось освободить из грунта, его попытались превратить из путешественника в стационарную лабораторию.",
-      "message": "После множества безуспешных попыток движения команда переформулировала миссию Spirit как stationary science platform; раньше неисправное колесо также случайно вскрыло интересный слой грунта.",
-      "concrete_story": "Spirit застрял в мягком грунте в 2009 году и потерял работоспособность ещё одного колеса. К январю 2010 года планировщики изменили задачу на стационарные измерения, включая наблюдение вращения Марса, хотя нужный наклон и связь в итоге сохранить не удалось. История заканчивается не победой, а честной попыткой извлечь ценность из оставшихся возможностей.",
-      "behavioral_mechanic": {
-        "name": "смена критерия прогресса после необратимого ограничения",
-        "how_it_works": "Команда отделяет исходную цель от доступных функций и формулирует новую задачу, которую ещё можно проверить.",
-        "evidence_type": "официальная история миссии"
-      },
-      "evidence_boundary": "Новая миссия не гарантировала успеха и не вернула связь. Случайное открытие от сломанного колеса нельзя выдавать за стратегию или аргумент против профилактики отказов.",
-      "viewer_experiment": "Для остановленного проекта перечислить оставшиеся ресурсы и сформулировать одну меньшую ценную задачу; отдельно разрешить себе закрыть проект, если такой задачи нет.",
-      "why_nonbanal": "Финал не 'никогда не сдавайся', а право изменить определение полезной работы и признать предел.",
-      "duration_seconds": 65,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "NASA/JPL public-domain candidates, оригинальная карта движения и превращение траектории в точку наблюдения; проверять credits для каждого файла.",
-        "beats": [
-          "движущаяся точка останавливается",
-          "неработающие колёса",
-          "список оставшихся датчиков",
-          "новая иконка стационарной платформы",
-          "честный финал без спасения"
-        ],
-        "asset_rules": [
-          "Не антропоморфизировать марсоход как страдающего героя.",
-          "Не выдавать художественную визуализацию за фото с поверхности."
-        ]
-      },
-      "sources": [
-        "https://science.nasa.gov/mission/mer-spirit/",
-        "https://www.jpl.nasa.gov/edu/resources/teachable-moment/mars-rover-mission-comes-to-an-end-but-science-legacy-live-on/"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://science.nasa.gov/mission/mer-spirit/",
-          "publisher": "NASA Science",
-          "source_type": "official",
-          "supports": "Застревание, команды восстановления, стационарная миссия и научная роль неисправного колеса."
-        },
-        {
-          "url": "https://www.jpl.nasa.gov/edu/resources/teachable-moment/mars-rover-mission-comes-to-an-end-but-science-legacy-live-on/",
-          "publisher": "NASA JPL Education",
-          "source_type": "official",
-          "supports": "Контекст испытаний команд и различие исходов Opportunity и Spirit."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Не превращать случайное открытие в обещание, что любой сбой полезен.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-nightingale-chart-008",
-      "format_id": "one_visual_argument",
-      "title": "Флоренс Найтингейл убеждала не пламенной речью, а площадью цветных секторов",
-      "topic": "Полярная диаграмма Найтингейл и санитарная реформа",
-      "hook": "Чтобы показать масштаб невидимой причины смертей, Найтингейл превратила месяцы в цветные площади.",
-      "message": "Статистическая кампания Найтингейл и Гарриет Мартино сделала сложные данные об армейской смертности читаемыми для широкой аудитории и политического обсуждения.",
-      "concrete_story": "Диаграмма разделяла смерти по причинам и месяцам, причём величину показывала площадь сектора. Публикация сопоставляла периоды до и после санитарных изменений. Ролик должен назвать совместную работу, исторический контекст и не сводить реформу к одному красивому графику.",
-      "behavioral_mechanic": {
-        "name": "видимая обратная связь для коллективного решения",
-        "how_it_works": "Абстрактные таблицы превращаются в сравнение, где различие можно увидеть и обсудить; это облегчает координацию, но не создаёт причинность само по себе.",
-        "evidence_type": "историко-научное исследование и национальный архив"
-      },
-      "evidence_boundary": "Диаграмма визуализировала данные и поддерживала кампанию, но не была единственной причиной реформ. Историки спорят о деталях причинности и атрибуции; сценарий должен избегать формулы 'один график спас тысячи'.",
-      "viewer_experiment": "Для одного проекта заменить общий процент готовности тремя наблюдаемыми категориями: сделано, проверяется, заблокировано — без прогноза успеха.",
-      "why_nonbanal": "Мотивация показана как способность сделать проблему общей и видимой, а не как харизма одиночки.",
-      "duration_seconds": 65,
-      "visual_plan": {
-        "rights_feasibility": "yellow",
-        "approach": "Перерисовать диаграмму по проверенным данным и с библиографической подписью; факсимиле использовать только при подтверждённом public domain конкретного файла.",
-        "beats": [
-          "нечитаемая таблица",
-          "сектора по месяцам",
-          "цветовые причины",
-          "сравнение двух периодов",
-          "плашка: график поддержал аргумент, не действовал один"
-        ],
-        "asset_rules": [
-          "Сохранять единицы, легенду и пропорциональные площади.",
-          "Не использовать музейные фотографии и сканы без item-level разрешения."
-        ]
-      },
-      "sources": [
-        "https://journal.sciencemuseum.ac.uk/article/nightingale-and-martineau/",
-        "https://www.nationalarchives.gov.uk/education/resources/florence-nightingale/"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://journal.sciencemuseum.ac.uk/article/nightingale-and-martineau/",
-          "publisher": "Science Museum Group Journal",
-          "source_type": "institutional_research",
-          "supports": "Совместная статистическая кампания, устройство диаграммы и исторический контекст."
-        },
-        {
-          "url": "https://www.nationalarchives.gov.uk/education/resources/florence-nightingale/",
-          "publisher": "The National Archives (UK)",
-          "source_type": "official",
-          "supports": "Архивный контекст статистической работы и реформ."
-        }
-      ],
-      "risk": "yellow",
-      "risk_notes": "История медицины и смертности; не давать современных медицинских советов и не преувеличивать причинность.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-alma-thomas-009",
-      "format_id": "archive_protocol",
-      "title": "Альма Томас нашла свой узнаваемый язык после завершения 38-летней карьеры учителя",
-      "topic": "Позднее развитие художественной практики Альмы Томас",
-      "hook": "Её фирменный живописный язык оформился не в начале пути, а после выхода на пенсию.",
-      "message": "Архив и Smithsonian показывают длинную траекторию: преподавание, учёба, групповые выставки, постепенный переход к абстракции и интенсивная работа после 1960 года.",
-      "concrete_story": "Томас училась живописи параллельно преподавательской карьере, двигалась к абстракции в 1950-е и после выхода на пенсию сосредоточилась на живописи. Её зрелый язык развивался через наблюдение света и сада, исследования цвета и подготовку новых работ к выставке, а не возник внезапно в старости.",
-      "behavioral_mechanic": {
-        "name": "длинная латентная практика и смена доступного времени",
-        "how_it_works": "Навык и материал накапливаются в разных жизненных режимах; новый этап становится возможен после изменения расписания и фокуса.",
-        "evidence_type": "музейная биография и оцифрованный архив"
-      },
-      "evidence_boundary": "Одна биография не доказывает, что 'начинать никогда не поздно' приведёт к признанию. Нельзя скрывать десятилетия учёбы и работы ради сюжета о мгновенном позднем успехе.",
-      "viewer_experiment": "Составить не возрастной дедлайн, а карту уже накопленных материалов и навыков; выбрать один маленький новый цикл работы без публичного обещания результата.",
-      "why_nonbanal": "Разрушает и миф раннего таланта, и упрощённый миф 'начала после пенсии', показывая непрерывность траектории.",
-      "duration_seconds": 60,
-      "visual_plan": {
-        "rights_feasibility": "yellow",
-        "approach": "Оригинальная временная шкала, собственная съёмка цветовых упражнений и сада; произведения Томас показывать только по item-level лицензии и с учётом авторского права.",
-        "beats": [
-          "длинная шкала преподавания и учёбы",
-          "переход к абстракции до пенсии",
-          "изменение доступного времени",
-          "мозаичный ритм через абстрактные собственные формы",
-          "граница: поздний этап, не мгновенный старт"
-        ],
-        "asset_rules": [
-          "Не имитировать конкретные картины и фирменную композицию генеративно.",
-          "Smithsonian страницы — фактологические источники, не автоматическая лицензия на работы."
-        ]
-      },
-      "sources": [
-        "https://americanart.si.edu/artist/alma-thomas-4778",
-        "https://www.aaa.si.edu/collections/alma-thomas-papers-9241/biographical-note"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://americanart.si.edu/artist/alma-thomas-4778",
-          "publisher": "Smithsonian American Art Museum",
-          "source_type": "official",
-          "supports": "Хронология практики, переход к абстракции, работа после пенсии и источники визуального языка."
-        },
-        {
-          "url": "https://www.aaa.si.edu/collections/alma-thomas-papers-9241/biographical-note",
-          "publisher": "Archives of American Art, Smithsonian Institution",
-          "source_type": "archive",
-          "supports": "Образование, преподавательская карьера и развитие практики после 1960 года."
-        }
-      ],
-      "risk": "yellow",
-      "risk_notes": "Избегать ageism, обещания позднего признания и нелицензированного показа искусства.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-darwin-sandwalk-010",
-      "format_id": "archive_protocol",
-      "title": "Пять кругов по одной дорожке: как Дарвин отделял размышление от стола",
-      "topic": "Sandwalk в Down House как документированный ритуал размышления",
-      "hook": "Дарвин считал круги не приложением, а камешками на дорожке длиной в четверть мили.",
-      "message": "English Heritage описывает Sandwalk как ежедневную 'thinking path': повторяемый маршрут, пять кругов в полдень и камешки для счёта создавали устойчивый контекст размышления.",
-      "concrete_story": "На территории Down House Дарвин проложил четвертьмильную дорожку и регулярно проходил её кругами. Семейные воспоминания связывают маршрут с размышлением, а камешки — со счётом кругов. Ролик показывает простую физическую границу между рабочими режимами, не приписывая прогулке научные открытия.",
-      "behavioral_mechanic": {
-        "name": "контекстный переход между режимами работы",
-        "how_it_works": "Одинаковое место и ограниченный маршрут отмечают смену деятельности и освобождают руки от основного инструмента; причинный когнитивный эффект здесь не измерялся.",
-        "evidence_type": "наследие дома и семейные воспоминания"
-      },
-      "evidence_boundary": "Источник подтверждает рутину, но не доказывает, что ходьба улучшала идеи или что пять кругов оптимальны. Фразу Ницше из популярного материала не использовать.",
-      "viewer_experiment": "Для одной недели назначить короткий нейтральный маршрут только для обдумывания одного вопроса; фиксировать после него лишь следующую проверяемую мысль.",
-      "why_nonbanal": "Фокус не на 'гении, который гулял', а на физическом интерфейсе переключения режима без приложений.",
+      "id": "motivation-montage-endurance-team-020",
+      "format_id": "licensed_multi_en_ru",
+      "title": "Не один рывок",
+      "topic": "Двуязычная дуга: Goggins, Jocko и Хабиб о действии и долгой совместной работе",
+      "hook": "Начать без мотивации, искать решение и помнить, что сильный финал строится годами вместе.",
+      "message": "Устойчивость — не одиночный героический кадр, а повторяемое действие и команда.",
       "duration_seconds": 55,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Собственная съёмка ног, гравия и пяти нейтральных камней; оригинальная карта петли; изображения Down House только после лицензии.",
-        "beats": [
-          "пять камней в ладони",
-          "петля четверть мили",
-          "один камень — один круг",
-          "возврат к столу с одной заметкой",
-          "плашка: ритуал героя, не научный рецепт"
+      "speaker_plan": {
+        "speakers": ["David Goggins", "Jocko Willink", "Хабиб Нурмагомедов"],
+        "source_language": "en+ru",
+        "delivery_caption_language": "ru",
+        "structure": "multi_speaker_fast_montage"
+      },
+      "source_audio_plan": {
+        "segments": [
+          {"source_url": "https://www.youtube.com/watch?v=ngvOyccUzzY", "window": "00:54:27–00:54:36", "russian_translation": "Нужно уметь быть лучшей версией себя именно тогда, когда мотивации меньше всего. В этом и вся сложность."},
+          {"source_url": "https://www.youtube.com/watch?v=IdTMDpizis8", "window": "00:01:14–00:01:22", "russian_translation": "Неожиданные проблемы? Хорошо. Значит, у нас есть возможность найти решение."},
+          {"source_url": "https://www.youtube.com/watch?v=fC7Z9U4LFSc", "window": "02:57.98–03:03.10", "russian_translation": null}
         ],
-        "asset_rules": [
-          "Не использовать drone footage частной территории без разрешения.",
-          "Не приписывать конкретную теорию конкретной прогулке."
-        ]
+        "production_rule": "Допускать только когда каждый источник имеет отдельное transcript/rights/safety решение, а английские segments — checksum-bound bilingual review."
+      },
+      "visual_treatment": {
+        "preset": "multi_speaker_fast_montage",
+        "speaker_visible_share_min": 0.65,
+        "look": "dark sports/interview grade without injury footage",
+        "no_side_labels": true
       },
       "sources": [
-        "https://production.english-heritage.org.uk/visit/places/home-of-charles-darwin-down-house/history/garden-highlights/",
-        "https://production.english-heritage.org.uk/visit/places/home-of-charles-darwin-down-house/history/darwin-family/"
+        "https://www.youtube.com/watch?v=ngvOyccUzzY",
+        "https://www.youtube.com/watch?v=IdTMDpizis8",
+        "https://www.youtube.com/watch?v=fC7Z9U4LFSc"
       ],
-      "source_candidates": [
-        {
-          "url": "https://production.english-heritage.org.uk/visit/places/home-of-charles-darwin-down-house/history/garden-highlights/",
-          "publisher": "English Heritage",
-          "source_type": "official",
-          "supports": "Длина дорожки, пять кругов, время, камни и семейное воспоминание."
-        },
-        {
-          "url": "https://production.english-heritage.org.uk/visit/places/home-of-charles-darwin-down-house/history/darwin-family/",
-          "publisher": "English Heritage",
-          "source_type": "official",
-          "supports": "Ежедневный маршрут и семейный контекст Sandwalk."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Не превращать прогулку в медицинский или когнитивный совет.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-norwood-backup-011",
-      "format_id": "constraint_reframe",
-      "title": "Экспериментальный запасной сканер стал главным глазом Landsat 1",
-      "topic": "Virginia Norwood и Multispectral Scanner",
-      "hook": "Её сканеру дали роль экспериментального дублёра и жёсткий лимит массы — первые данные поменяли роли приборов.",
-      "message": "Virginia Norwood спроектировала цифровой многоспектральный сканер в условиях скепсиса, ограниченной массы и трёхлетнего срока; после запуска качество MSS превзошло ожидавшуюся основную камеру.",
-      "concrete_story": "NASA описывает, как основным прибором считалась привычная телевизионная камера RBV, а MSS получил экспериментальный шанс и малую долю массы. Норвуд сократила исходный семиканальный замысел до четырёх каналов, собрала экспертизу разных подразделений и вместе с коллегами итеративно решала проблему колеблющегося зеркала. Архив Library of Congress хранит около 192 рабочих документов и прототип.",
-      "behavioral_mechanic": {
-        "name": "минимальная версия под жёстким ограничением и измеримый сравнительный тест",
-        "how_it_works": "Команда сохраняет критическую функцию, урезает масштаб, а спор между подходами решает данными после запуска.",
-        "evidence_type": "официальная история NASA и рабочий архив"
-      },
-      "evidence_boundary": "История не доказывает, что аутсайдерский проект всегда лучше основного. Успех зависел от большой команды, инженерной инфраструктуры и возможности лететь рядом с другим прибором.",
-      "viewer_experiment": "Сделать минимальную версию одной идеи, сохранив один главный измеримый результат; сравнить её с текущим способом, не объявляя победителя заранее.",
-      "why_nonbanal": "История не о вере в себя, а о том, как урезать амбицию, сохранить ядро и дождаться сравнительных данных.",
-      "duration_seconds": 70,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальная схема 7→4 каналов, колеблющееся зеркало и split-screen RBV/MSS; USGS public-domain media предпочесть, NASA/LOC credits проверить.",
-        "beats": [
-          "весовой лимит",
-          "семь каналов сокращаются до четырёх",
-          "зеркало и журнал итераций",
-          "два прибора на старте",
-          "первые данные меняют роли"
-        ],
-        "asset_rules": [
-          "Не использовать портреты с пометкой 'used with permission' без нового разрешения.",
-          "Архивные документы LOC проверять на ограничения воспроизведения."
-        ]
-      },
-      "sources": [
-        "https://science.nasa.gov/missions/landsat/virginia-t-norwood-the-mother-of-landsat/",
-        "https://findingaids.loc.gov/repositories/7/resources/399",
-        "https://www.usgs.gov/landsat-missions/news/bidding-farewell-virginia-norwood-mother-landsat"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://science.nasa.gov/missions/landsat/virginia-t-norwood-the-mother-of-landsat/",
-          "publisher": "NASA Science",
-          "source_type": "official",
-          "supports": "Скепсис, ограничения массы и времени, сокращение каналов, командная сборка и результат после запуска."
-        },
-        {
-          "url": "https://findingaids.loc.gov/repositories/7/resources/399",
-          "publisher": "Library of Congress",
-          "source_type": "archive",
-          "supports": "Рабочие документы, прототип и итеративная разработка зеркального механизма."
-        },
-        {
-          "url": "https://www.usgs.gov/landsat-missions/news/bidding-farewell-virginia-norwood-mother-landsat",
-          "publisher": "U.S. Geological Survey",
-          "source_type": "official",
-          "supports": "Контекст роли MSS и public-domain media candidate."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Соблюсти коллективное авторство и права на портреты.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-point-call-012",
-      "format_id": "verification_loop",
-      "title": "Почему машинист показывает пальцем на сигнал и называет его вслух",
-      "topic": "Японская практика pointing and calling",
-      "hook": "Жест, который со стороны выглядит театрально, превращает молчаливую проверку в видимое действие.",
-      "message": "Pointing and calling объединяет взгляд, жест и голос при проверке состояния; Railway Technical Research Institute исследует отдельные функции снижения ошибок и обучает их осознанному применению.",
-      "concrete_story": "Железнодорожные работники указывают на объект, называют его и проговаривают состояние. Японский RTRI описывает пять предполагаемых функций и экспериментальные задания для их проверки. Ролик показывает происхождение в safety-critical среде и не превращает цифру снижения ошибок из одного задания в универсальный процент.",
-      "behavioral_mechanic": {
-        "name": "мультимодальная фиксация критического шага",
-        "how_it_works": "Визуальная проверка получает внешний жест и голосовую метку, благодаря чему действие становится явным для самого работника и наблюдателя.",
-        "evidence_type": "профильный институт и экспериментальное исследование"
-      },
-      "evidence_boundary": "Результаты зависят от задачи и условий; практика не заменяет отраслевые процедуры. Нельзя обещать конкретное снижение бытовых ошибок или использовать её при управлении транспортом без обучения.",
-      "viewer_experiment": "В безопасной бытовой проверке один раз указать на адресата письма и назвать его перед отправкой; оценивать только факт пропущенной проверки, не когнитивные способности.",
-      "why_nonbanal": "Вместо 'будь внимательнее' даёт наблюдаемую форму внимания и честно сохраняет профессиональный контекст.",
-      "duration_seconds": 55,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Собственная постановочная съёмка нейтральной панели без железнодорожных логотипов, оригинальная схема взгляд→жест→голос; чужие train videos не использовать.",
-        "beats": [
-          "молчаливый взгляд",
-          "добавляется указание",
-          "добавляется голос",
-          "три канала на одной схеме",
-          "безопасный бытовой аналог"
-        ],
-        "asset_rules": [
-          "Не снимать в кабине и не имитировать реальные команды транспорта.",
-          "Не выносить '85%' в хук без воспроизведения точного дизайна исследования."
-        ]
-      },
-      "sources": [
-        "https://www.rtri.or.jp/rd/division/rd52/rd5210/rd52100104.html",
-        "https://www.sciencedirect.com/science/article/pii/S0169814112000728"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://www.rtri.or.jp/rd/division/rd52/rd5210/rd52100104.html",
-          "publisher": "Railway Technical Research Institute (Japan)",
-          "source_type": "official_research",
-          "supports": "Пять функций, экспериментальная проверка и обучающая система."
-        },
-        {
-          "url": "https://www.sciencedirect.com/science/article/pii/S0169814112000728",
-          "publisher": "International Journal of Industrial Ergonomics",
-          "source_type": "peer_reviewed",
-          "supports": "Экспериментальное исследование pointing and calling в task-switching paradigm."
-        }
-      ],
-      "risk": "yellow",
-      "risk_notes": "Safety-critical практика: только низкорисковый перенос и без универсальных процентов.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-keep-calm-013",
-      "format_id": "myth_vs_process",
-      "title": "Плакат Keep Calm почти не мотивировал Британию во время войны",
-      "topic": "История плаката Keep Calm and Carry On",
-      "hook": "Самый узнаваемый британский плакат стойкости почти не видела его предполагаемая военная аудитория.",
-      "message": "Imperial War Museums указывает, что плакат подготовили до войны, но официально не одобрили для массового размещения; нынешняя известность возникла намного позже.",
-      "concrete_story": "Дизайн был частью серии сообщений на случай войны и имел крупный тираж, но похожие плакаты плохо приняли, а Keep Calm почти не вывешивали. История отделяет ретроспективный культурный символ от реально действовавшего инструмента мотивации.",
-      "behavioral_mechanic": {
-        "name": "разрыв между созданным сообщением и фактическим воздействием",
-        "how_it_works": "Наличие красивого слогана и большого тиража не означает контакта с аудиторией или изменения поведения.",
-        "evidence_type": "официальная музейная история коммуникации"
-      },
-      "evidence_boundary": "Нельзя утверждать, что плакат не повлиял ни на одного человека; корректный вывод — он почти не был размещён и его современная известность не отражает военное распространение.",
-      "viewer_experiment": "Для одной собственной цели заменить красивый девиз наблюдаемым действием и заранее решить, как проверить, было ли оно выполнено.",
-      "why_nonbanal": "Критикует саму идею мотивационного плаката через историю его распространения, не высмеивая потребность людей в поддержке.",
-      "duration_seconds": 50,
-      "visual_plan": {
-        "rights_feasibility": "yellow",
-        "approach": "Оригинальная типографическая реконструкция только после проверки статуса дизайна и товарных знаков; безопаснее — абстрактные красные листы с метаданными тираж/размещение без точного копирования.",
-        "beats": [
-          "узнаваемый ритм плаката без полного копирования",
-          "тираж",
-          "почти пустая карта размещения",
-          "позднее возвращение символа",
-          "действие вместо лозунга"
-        ],
-        "asset_rules": [
-          "IWM изображения и точное воспроизведение плаката требуют rights review.",
-          "Не использовать современный мерч и логотипы магазинов."
-        ]
-      },
-      "sources": [
-        "https://www.iwm.org.uk/sites/default/files/press-release/press_release_-_keep_calm_and_carry_on_the_truth_behind_the_poster.pdf",
-        "https://shop.iwm.org.uk/products/keep-calm-and-carry-on-print-range"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://www.iwm.org.uk/sites/default/files/press-release/press_release_-_keep_calm_and_carry_on_the_truth_behind_the_poster.pdf",
-          "publisher": "Imperial War Museums",
-          "source_type": "official",
-          "supports": "Создание до войны, отсутствие официального одобрения для показа и позднее возрождение."
-        },
-        {
-          "url": "https://shop.iwm.org.uk/products/keep-calm-and-carry-on-print-range",
-          "publisher": "Imperial War Museums",
-          "source_type": "official",
-          "supports": "Контекст крупного тиража и почти полного отсутствия размещения."
-        }
-      ],
-      "risk": "yellow",
-      "risk_notes": "Военный контекст и возможные IP/trademark вопросы вокруг современного дизайна.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-habit-21days-014",
-      "format_id": "myth_vs_process",
-      "title": "Привычка не обязана появиться за 21 день — и один пропуск не обнуляет процесс",
-      "topic": "Полевое исследование формирования привычек Lally et al.",
-      "hook": "В одном из главных полевых исследований диапазон был не 21 день, а от 18 до 254 — и это ещё не универсальный таймер.",
-      "message": "В 12-недельном исследовании 96 добровольцев повторяли выбранное действие в стабильном контексте; скорость роста автоматичности сильно различалась, а один пропуск возможности не показал материального сброса процесса.",
-      "concrete_story": "Участники выбирали простое действие, связанное с едой, питьём или активностью, ежедневно отмечали выполнение и самооценку автоматичности. Модели подходили не всем участникам, а широкий диапазон отражал разные действия и людей. Более свежий систематический обзор также подчёркивает значительную вариативность.",
-      "behavioral_mechanic": {
-        "name": "повторение в стабильном контексте с постепенным насыщением",
-        "how_it_works": "Автоматичность в данных росла нелинейно и с разной скоростью; ранние повторения не превращаются в фиксированный дедлайн для каждого.",
-        "evidence_type": "продольное полевое самоотчётное исследование плюс систематический обзор"
-      },
-      "evidence_boundary": "Диапазон 18–254 относится к моделированию 95% индивидуального асимптотического уровня в конкретной выборке и не является сроком для любой привычки. Это не медицинский совет.",
-      "viewer_experiment": "Выбрать одно простое безопасное действие и один устойчивый контекст на неделю; отмечать только повторения и не обнулять счётчик после пропуска.",
-      "why_nonbanal": "Миф-баст не заменяет одну магическую цифру другой, а показывает вариативность, метод измерения и право на пропуск.",
-      "duration_seconds": 65,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальные точки 96 участников, асимптотические кривые без копирования журнальной фигуры, календарь с одним пропуском; библиографическая плашка.",
-        "beats": [
-          "21 перечёркивается как универсальная цифра",
-          "96 участников и 12 недель",
-          "разные кривые",
-          "один пустой день без сброса",
-          "граница диапазона"
-        ],
-        "asset_rules": [
-          "Не показывать 66 дней как новую норму.",
-          "Не давать советы по питанию, тренировкам или лечению."
-        ]
-      },
-      "sources": [
-        "https://doi.org/10.1002/ejsp.674",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11641623/"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://doi.org/10.1002/ejsp.674",
-          "publisher": "European Journal of Social Psychology",
-          "source_type": "peer_reviewed_primary",
-          "supports": "Дизайн, выборка, диапазон, нелинейная модель и результат одного пропуска."
-        },
-        {
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11641623/",
-          "publisher": "Healthcare / PubMed Central",
-          "source_type": "systematic_review",
-          "supports": "Более свежий обзор сроков и вариативности формирования привычек."
-        }
-      ],
-      "risk": "yellow",
-      "risk_notes": "Психология поведения и health-related sample; никаких персональных диагнозов и универсальных сроков.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-if-then-015",
-      "format_id": "mechanism_under_glass",
-      "title": "План «когда — тогда» точнее списка намерений",
-      "topic": "Implementation intentions",
-      "hook": "План меняется, когда в нём появляется не только действие, но и конкретный сигнал запуска.",
-      "message": "Implementation intention связывает заранее определённую ситуацию с конкретным ответом: не 'буду заниматься проектом', а 'когда закрою рабочий чат, открою файл и напишу заголовок'.",
-      "concrete_story": "Исследовательская программа Питера Голлвитцера рассматривает if-then plans как способ связать критическую ситуацию и целевое действие. Академические обзоры описывают эффекты в разных задачах и модераторы: план работает в контексте уже принятой цели и не заменяет желание или доступные ресурсы.",
-      "behavioral_mechanic": {
-        "name": "implementation intention",
-        "how_it_works": "Ситуационный сигнал заранее получает конкретный ответ, уменьшая число решений в момент старта.",
-        "evidence_type": "программа экспериментов и академические обзоры"
-      },
-      "evidence_boundary": "Нельзя обещать автоматическое действие 'ниже сознания' или одинаковый эффект. Сила исходной цели, качество сигнала, контекст и тип задачи меняют результат.",
-      "viewer_experiment": "Для одной низкорисковой задачи написать один план: 'Когда произойдёт наблюдаемый сигнал X, я сделаю минимальное действие Y'. Проверить одну неделю без наказания за пропуски.",
-      "why_nonbanal": "Не продаёт силу воли; показывает синтаксис плана, роль сигнала и условия, при которых перенос может не сработать.",
-      "duration_seconds": 55,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Собственная предметная сцена и оригинальная анимация IF→THEN; примеры только низкорисковые, без health behavior.",
-        "beats": [
-          "расплывчатое намерение",
-          "появляется конкретный сигнал",
-          "минимальное действие",
-          "одна неделя наблюдения",
-          "плашка: план поддерживает цель, не создаёт её"
-        ],
-        "asset_rules": [
-          "Не копировать фигуры и таблицы из статей.",
-          "Не использовать нейровизуалы и язык автоматического контроля мозга."
-        ]
-      },
-      "sources": [
-        "https://dccps.nci.nih.gov/BRP/constructs/implementation_intentions/goal_intent_attain.pdf",
-        "https://www.annualreviews.org/content/journals/10.1146/annurev-psych-021524-110536"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://dccps.nci.nih.gov/BRP/constructs/implementation_intentions/goal_intent_attain.pdf",
-          "publisher": "U.S. National Cancer Institute / authors",
-          "source_type": "academic_overview",
-          "supports": "Определение if-then plans, предполагаемый процесс и модераторы."
-        },
-        {
-          "url": "https://www.annualreviews.org/content/journals/10.1146/annurev-psych-021524-110536",
-          "publisher": "Annual Review of Psychology",
-          "source_type": "review",
-          "supports": "Современный обзор психологии планирования и границ if-then planning."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Избегать универсальных величин эффекта и медицинских примеров.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-temptation-bundle-016",
-      "format_id": "mechanism_under_glass",
-      "title": "Аудиокнига только в спортзале: что реально показал эксперимент temptation bundling",
-      "topic": "Temptation bundling в полевом эксперименте",
-      "hook": "Исследователи запирали увлекательные аудиокниги не метафорически: доступ к ним был привязан к посещению спортзала.",
-      "message": "В исходном эксперименте участники одной группы слушали выбранные аудиороманы только в спортзале; более крупное последующее исследование обнаружило более скромные и неоднородные эффекты простого обучения этой стратегии.",
-      "concrete_story": "Идея объединяет 'хочу' и 'надо' в одном контексте. Исходный эксперимент был небольшим и проверял навязанную связку; последующая полевая работа примерно в 15 раз крупнее проверяла, что происходит, когда людей лишь учат создавать такую связку, и нашла ограниченный эффект на посещения.",
-      "behavioral_mechanic": {
-        "name": "temptation bundling",
-        "how_it_works": "Немедленно привлекательное занятие становится доступно одновременно с отложенно полезной, но менее приятной задачей.",
-        "evidence_type": "рандомизированные полевые эксперименты"
-      },
-      "evidence_boundary": "Исследования касались посещения конкретных спортзалов и аудиоразвлечения. Они не доказывают долговременную привычку, результат тренировки или перенос на любую задачу; health outcome не обсуждается.",
-      "viewer_experiment": "Связать одну приятную безопасную вещь с одной короткой рутинной задачей на три повтора и наблюдать только факт старта, не эффективность и не здоровье.",
-      "why_nonbanal": "Показывает не только красивый эффект, но разницу между управляемой связкой и простым советом из более крупного исследования.",
-      "duration_seconds": 65,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Собственные наушники, нейтральная беговая дорожка или безопасный бытовой аналог, оригинальная диаграмма двух групп; без обложек книг и брендов.",
-        "beats": [
-          "закрытая иконка аудио",
-          "доступ появляется в одном месте",
-          "малый исходный эксперимент",
-          "более крупная проверка и меньший вывод",
-          "три бытовых повтора"
-        ],
-        "asset_rules": [
-          "Не показывать тренировку через боль и не давать fitness advice.",
-          "Не использовать название или обложку Hunger Games как визуальный крючок."
-        ]
-      },
-      "sources": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4381662/",
-        "https://faculty.wharton.upenn.edu/wp-content/uploads/2017/07/TemptationBundling.pdf"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4381662/",
-          "publisher": "Management Science / PubMed Central",
-          "source_type": "peer_reviewed_primary",
-          "supports": "Дизайн и результаты исходного полевого эксперимента."
-        },
-        {
-          "url": "https://faculty.wharton.upenn.edu/wp-content/uploads/2017/07/TemptationBundling.pdf",
-          "publisher": "University of Pennsylvania / authors",
-          "source_type": "peer_reviewed_author_copy",
-          "supports": "Более крупный эксперимент, различие между обучением и навязанной связкой, ограниченность эффекта."
-        }
-      ],
-      "risk": "yellow",
-      "risk_notes": "Health-related context; не обещать пользу тренировок или долгосрочное изменение поведения.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-fresh-start-017",
-      "format_id": "mechanism_under_glass",
-      "title": "Почему начало недели иногда работает как кнопка старта — и быстро перестаёт",
-      "topic": "Fresh start effect и временные ориентиры",
-      "hook": "Понедельник, день рождения или новый семестр не меняют человека — но могут временно отделить новую попытку от прошлой.",
-      "message": "Исследования temporal landmarks обнаруживали всплески поисков, посещений спортзала и постановки целей вокруг заметных временных границ; авторы связывают это с психологическим отделением от прежнего периода.",
-      "concrete_story": "Работа Dai, Milkman и Riis объединяла архивные данные и эксперименты вокруг календарных ориентиров. Последующие эксперименты проверяли, когда landmark воспринимается как новое начало. Ролик показывает краткий шанс на запуск, а не магическую силу даты.",
-      "behavioral_mechanic": {
-        "name": "fresh start effect",
-        "how_it_works": "Заметная граница времени может сделать прошлые несовершенства психологически более далёкими и облегчить начало новой попытки.",
-        "evidence_type": "архивные данные и эксперименты"
-      },
-      "evidence_boundary": "Эффект не означает устойчивого выполнения, не работает одинаково для всех и зависит от того, воспринимается ли дата как новое начало. Наблюдаемые пики не доказывают долгосрочный результат.",
-      "viewer_experiment": "Выбрать ближайшую личную границу времени и заранее назначить только первое действие после неё; отдельно поставить проверку через три дня, когда новизна исчезнет.",
-      "why_nonbanal": "Не советует ждать Нового года, а показывает, как использовать короткое окно и сразу проектировать продолжение.",
-      "duration_seconds": 55,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальный календарь, линия до/после и затухающий импульс; без праздничных stock-клише.",
-        "beats": [
-          "календарная граница",
-          "краткий пик старта",
-          "дистанция от прошлого периода",
-          "затухание новизны",
-          "проверка через три дня"
-        ],
-        "asset_rules": [
-          "Не строить графики с выдуманными числами.",
-          "Не связывать дату с изменением личности или мозга."
-        ]
-      },
-      "sources": [
-        "https://faculty.wharton.upenn.edu/wp-content/uploads/2014/06/Dai_Fresh_Start_2014_Mgmt_Sci.pdf",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4839284/"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://faculty.wharton.upenn.edu/wp-content/uploads/2014/06/Dai_Fresh_Start_2014_Mgmt_Sci.pdf",
-          "publisher": "Management Science / Wharton author copy",
-          "source_type": "peer_reviewed_primary",
-          "supports": "Архивные и экспериментальные данные по temporal landmarks."
-        },
-        {
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4839284/",
-          "publisher": "Organizational Behavior and Human Decision Processes / PubMed Central",
-          "source_type": "peer_reviewed_primary",
-          "supports": "Условие нового начала и психологическое отделение от прошлого периода."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Не обещать долговременный эффект и не оценивать прошлую версию зрителя.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-goal-gradient-018",
-      "format_id": "mechanism_under_glass",
-      "title": "Две кофейные карточки по десять штампов — почему заполненная на 20% двигалась быстрее",
-      "topic": "Endowed progress и goal-gradient в полевом исследовании",
-      "hook": "На одной карточке нужно было купить восемь кофе из восьми, на другой — восемь из десяти, но первые два штампа уже стояли.",
-      "message": "В полевом исследовании объективно одинаковое требование воспринималось по-разному: искусственно начатая карточка выглядела ближе к цели и заполнялась быстрее.",
-      "concrete_story": "Исследователи сравнили реальные loyalty cards: восемь покупок без начального прогресса и десять, где два штампа были подарены. Оставалось одинаково восемь действий, но рамка относительного прогресса различалась. Ролик показывает дизайн и одновременно этическую сторону такого приёма.",
-      "behavioral_mechanic": {
-        "name": "endowed progress effect",
-        "how_it_works": "Начальная отметка меняет воспринимаемую долю пути и может усиливать приближение к ясно заданному финишу.",
-        "evidence_type": "полевое исследование программы лояльности"
-      },
-      "evidence_boundary": "Это потребительский контекст и один тип повторяемого поведения. Эффект не доказывает, что визуальный прогресс улучшает качество работы или подходит для значимых жизненных целей.",
-      "viewer_experiment": "Для уже начатой задачи честно отметить реально сделанные подготовительные шаги, не добавляя фиктивных; наблюдать, меняется ли вероятность следующего действия.",
-      "why_nonbanal": "Показывает механику на двух почти одинаковых карточках и не превращает маркетинговый приём в универсальный лайфхак.",
-      "duration_seconds": 55,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Собственные безбрендовые карточки 0/8 и 2/10, покадровое заполнение, оригинальная шкала абсолютного и относительного прогресса.",
-        "beats": [
-          "две карточки",
-          "одинаковые восемь действий",
-          "разная доля старта",
-          "полевая проверка",
-          "этика: только реальный прошлый прогресс"
-        ],
-        "asset_rules": [
-          "Не использовать логотипы кафе и изображение фигуры из статьи.",
-          "Не придумывать величину ускорения без повторной сверки таблиц."
-        ]
-      },
-      "sources": [
-        "https://business.columbia.edu/sites/default/files-efs/pubfiles/1200/goalgradient.pdf"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://business.columbia.edu/sites/default/files-efs/pubfiles/1200/goalgradient.pdf",
-          "publisher": "Journal of Marketing Research / Columbia Business School",
-          "source_type": "peer_reviewed_author_copy",
-          "supports": "Полевой дизайн с двумя карточками и endowed progress."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Отдельно проговорить манипулятивный потенциал и не советовать фиктивный прогресс.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-progress-diaries-019",
-      "format_id": "mechanism_under_glass",
-      "title": "Почти 12 тысяч рабочих дневников: чаще всего внутреннее состояние менял маленький прогресс",
-      "topic": "Progress principle в исследовании творческой работы",
-      "hook": "Исследователи читали не годовые отчёты, а ежедневные записи — и искали события, после которых менялась работа.",
-      "message": "В дневниковом исследовании более 200 knowledge workers небольшие шаги в значимой работе часто совпадали с более позитивными эмоциями и внутренней мотивацией; помехи и откаты имели обратный эффект.",
-      "concrete_story": "Команды творческих проектов несколько лет заполняли электронные дневники, не зная точного исследовательского вопроса. Набралось около 12 тысяч записей. Анализ связывал события рабочего дня, эмоции, восприятие среды и мотивацию, а не просто спрашивал людей задним числом о 'секрете продуктивности'.",
-      "behavioral_mechanic": {
-        "name": "видимый прогресс в значимой работе",
-        "how_it_works": "Близкая обратная связь о реальном продвижении может поддерживать внутреннее рабочее состояние; смысл задачи и отсутствие препятствий остаются важными условиями.",
-        "evidence_type": "многолетнее дневниковое исследование организаций"
-      },
-      "evidence_boundary": "Дневниковые связи не доказывают универсальную причинность и относятся к сотрудникам конкретных творческих проектов. 'Маленькая победа' не должна маскировать бессмысленную или вредную работу.",
-      "viewer_experiment": "В конце трёх рабочих дней записать один проверяемый шаг по значимой задаче и одно препятствие; не считать часы и не оценивать себя.",
-      "why_nonbanal": "Смещает фокус с наград и аффирмаций на ежедневные следы работы, одновременно сохраняя контекст смысла и препятствий.",
-      "duration_seconds": 60,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальная стена анонимных дневниковых карточек, счётчик до 12 000 и две оси 'прогресс/помеха'; без копирования защищённых графиков.",
-        "beats": [
-          "одна дневниковая карточка",
-          "масштаб до 12 тысяч",
-          "маленький шаг",
-          "помеха",
-          "трёхдневный журнал без оценки личности"
-        ],
-        "asset_rules": [
-          "Не показывать выдуманные цитаты сотрудников.",
-          "Не превращать корреляции дневника в гарантированный прирост производительности."
-        ]
-      },
-      "sources": [
-        "https://www.library.hbs.edu/working-knowledge/getting-to-eureka-how-companies-can-promote-creativity",
-        "https://www.library.hbs.edu/working-knowledge/getting-down-to-the-business-of-creativity"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://www.library.hbs.edu/working-knowledge/getting-to-eureka-how-companies-can-promote-creativity",
-          "publisher": "Harvard Business School Working Knowledge",
-          "source_type": "institutional_research_summary",
-          "supports": "Выборка, дневники и связь небольшого прогресса с внутренней мотивацией."
-        },
-        {
-          "url": "https://www.library.hbs.edu/working-knowledge/getting-down-to-the-business-of-creativity",
-          "publisher": "Harvard Business School Working Knowledge",
-          "source_type": "institutional_research_summary",
-          "supports": "Метод ежедневных записей, масштаб корпуса и контекст творческих проектов."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "До сценария найти оригинальную академическую публикацию или книгу с методами; не обещать причинный эффект.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-self-compassion-020",
-      "format_id": "mechanism_under_glass",
-      "title": "После ошибки доброжелательность к себе не обязательно снижает усилие",
-      "topic": "Эксперименты Breines и Chen о self-compassion и self-improvement motivation",
-      "hook": "В одном эксперименте участники после трудного теста занимались дольше не после самокритики, а после короткой рамки самосострадания.",
-      "message": "Серия из четырёх экспериментов обнаружила, что self-compassion framing после личной слабости, проступка или неудачного теста сопровождался большей заявленной готовностью исправляться и, в одном случае, большим временем подготовки.",
-      "concrete_story": "Авторы сравнивали короткие письменные инструкции self-compassion с self-esteem, позитивным отвлечением или отсутствием инструкции. В эксперименте с трудным словарным тестом измеряли последующее время учёбы. Ролик должен показать конкретную манипуляцию и не пересказывать её как терапию.",
-      "behavioral_mechanic": {
-        "name": "self-compassion после ошибки",
-        "how_it_works": "Принятие ошибки без глобальной оценки себя может уменьшить необходимость защищать самооценку и оставить место для следующего действия; это интерпретация исследовательской программы.",
-        "evidence_type": "четыре лабораторных эксперимента и академический обзор"
-      },
-      "evidence_boundary": "Выборки и задачи ограничены, многие исходы — намерения и самоотчёты. Это не психотерапия, не лечение и не совет при депрессии, травме или клинических состояниях. Сострадание к себе не отменяет ответственность перед другими.",
-      "viewer_experiment": "После одной обычной ошибки записать факт без ярлыка личности, признать, что ошибки бывают, и назвать один исправимый следующий шаг. Не применять к кризису или ситуации, требующей специалиста.",
-      "why_nonbanal": "Опровергает страх, что без самобичевания исчезнет мотивация, но не обещает эмоционального исцеления.",
-      "duration_seconds": 65,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальная сцена трудного теста, три нейтральные письменные инструкции и таймер подготовки; без терапевтической эстетики и нейровизуалов.",
-        "beats": [
-          "ошибка в тесте",
-          "три разные рамки ответа",
-          "время следующей подготовки",
-          "разница факт/ярлык",
-          "крупная плашка: не терапия"
-        ],
-        "asset_rules": [
-          "Не изображать психическое расстройство или кризис.",
-          "Не использовать успокаивающую музыку как обещание лечения."
-        ]
-      },
-      "sources": [
-        "https://pubmed.ncbi.nlm.nih.gov/22645164/",
-        "https://doi.org/10.1146/annurev-psych-032420-031047"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://pubmed.ncbi.nlm.nih.gov/22645164/",
-          "publisher": "Personality and Social Psychology Bulletin / PubMed",
-          "source_type": "peer_reviewed_primary",
-          "supports": "Четыре эксперимента, сравнения и измеренные outcomes."
-        },
-        {
-          "url": "https://doi.org/10.1146/annurev-psych-032420-031047",
-          "publisher": "Annual Review of Psychology",
-          "source_type": "review",
-          "supports": "Более широкий обзор self-compassion research и мотивационной рамки."
-        }
-      ],
-      "risk": "yellow",
-      "risk_notes": "Психологическая тема: обязательная проверка формулировок, никаких диагнозов и терапевтических обещаний.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-ikea-effect-021",
-      "format_id": "mechanism_under_glass",
-      "title": "Почему черновик, который ты собрал сам, легко переоценить",
-      "topic": "IKEA effect и граница успешного завершения",
-      "hook": "Люди выше оценивали собранные своими руками коробки и оригами — но эффект исчезал, когда работу не удавалось закончить или её разрушали.",
-      "message": "В серии экспериментов труд повышал оценку собственного результата только при успешном завершении; авторы также показали, что создатели могли переоценивать качество по сравнению со сторонним взглядом.",
-      "concrete_story": "Участники собирали коробки IKEA, складывали оригами и строили Lego, после чего оценивали результаты. Исследователи отдельно проверяли незавершённые и разрушенные работы. Механизм интересен одновременно как способ вовлечения и как предупреждение о предвзятости автора.",
-      "behavioral_mechanic": {
-        "name": "IKEA effect",
-        "how_it_works": "Вложенный труд и завершение могут повысить субъективную ценность созданного объекта, но эта ценность не равна внешнему качеству.",
-        "evidence_type": "серия лабораторных экспериментов"
-      },
-      "evidence_boundary": "Исследования оценивали конкретные физические объекты и willingness to pay. Они не доказывают рост мотивации к долгим проектам и не оправдывают искусственное усложнение работы.",
-      "viewer_experiment": "После завершения одного черновика отделить две оценки: 'сколько усилий вложено' и 'насколько результат понятен другому человеку'; попросить один конкретный внешний отзыв.",
-      "why_nonbanal": "Не романтизирует handmade effort, а показывает двусторонний механизм: участие поддерживает ценность и одновременно искажает оценку качества.",
-      "duration_seconds": 60,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Собственные безбрендовые коробка, оригами и конструктор; две шкалы 'усилие' и 'внешняя ясность'; слово IKEA использовать только как название эффекта.",
-        "beats": [
-          "сборка простого объекта",
-          "рост собственной оценки",
-          "незавершённая версия",
-          "внешний наблюдатель",
-          "две отдельные шкалы"
-        ],
-        "asset_rules": [
-          "Не использовать логотип IKEA и фирменную упаковку.",
-          "Не копировать экспериментальные стимулы и журнальные изображения."
-        ]
-      },
-      "sources": [
-        "https://dash.harvard.edu/bitstreams/7312037d-2473-6bd4-e053-0100007fdf3b/download",
-        "https://www.sciencedirect.com/science/article/pii/S1057740811000829"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://dash.harvard.edu/bitstreams/7312037d-2473-6bd4-e053-0100007fdf3b/download",
-          "publisher": "Harvard DASH / Journal of Consumer Psychology",
-          "source_type": "peer_reviewed_author_copy",
-          "supports": "Полный текст, дизайн исследований и boundary condition завершения."
-        },
-        {
-          "url": "https://www.sciencedirect.com/science/article/pii/S1057740811000829",
-          "publisher": "Journal of Consumer Psychology",
-          "source_type": "peer_reviewed_primary",
-          "supports": "Аннотация, четыре исследования и вывод о незавершении/разрушении."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Название эффекта использует бренд; визуально бренд не эксплуатировать.",
-      "status": "candidate"
-    },
-    {
-      "id": "motivation-attention-residue-022",
-      "format_id": "mechanism_under_glass",
-      "title": "Почему новая задача начинается с кусочка старой",
-      "topic": "Attention residue при переключении между незавершёнными задачами",
-      "hook": "После переключения часть внимания может оставаться в незавершённой задаче — особенно когда на неё давит время.",
-      "message": "В двух экспериментах Sophie Leroy участникам было труднее полностью перейти к следующей задаче после незавершённой предыдущей; остаточное внимание связывалось с худшим выполнением новой задачи.",
-      "concrete_story": "Исследование специально меняло завершённость и временное давление первой задачи, затем измеряло мысли о ней и выполнение второй. Ролик строится не на общем лозунге 'многозадачность вредна', а на узком моменте перехода между двумя работами.",
-      "behavioral_mechanic": {
-        "name": "attention residue",
-        "how_it_works": "Когнитивная часть незавершённой работы продолжает занимать внимание после формального переключения и может мешать включению в следующую задачу.",
-        "evidence_type": "два лабораторных эксперимента"
-      },
-      "evidence_boundary": "Исследование не доказывает, что любое переключение вредно или что заметка полностью устраняет эффект. Предложение оставить точку возврата — редакционная гипотеза для безопасной проверки.",
-      "viewer_experiment": "Перед одним неизбежным переключением записать состояние задачи и конкретный следующий шаг; после перехода отметить, сколько раз мысленно вернулись к старой задаче. Сравнить с одним переходом без заметки.",
-      "why_nonbanal": "Из общих разговоров о фокусе выделяет конкретную микросцену — закрытие незавершённой задачи перед обязательным переходом.",
-      "duration_seconds": 55,
-      "visual_plan": {
-        "rights_feasibility": "green",
-        "approach": "Оригинальная split-screen анимация задачи A и B, визуальный 'остаток' как незакрытая карточка, собственная заметка точки возврата.",
-        "beats": [
-          "задача A не закончена",
-          "резкий переход к B",
-          "карточка A остаётся полупрозрачной",
-          "измерение мыслей и результата",
-          "A/B тест с точкой возврата"
-        ],
-        "asset_rules": [
-          "Не изображать мозг, нейроны или проценты потерянной продуктивности.",
-          "Ясно назвать заметку редакционным экспериментом, не результатом статьи."
-        ]
-      },
-      "sources": [
-        "https://doi.org/10.1016/j.obhdp.2009.04.002",
-        "https://citeseerx.ist.psu.edu/document?doi=29661f8f20c854e55ce91ac8c247a95034bd68ee&repid=rep1&type=pdf"
-      ],
-      "source_candidates": [
-        {
-          "url": "https://doi.org/10.1016/j.obhdp.2009.04.002",
-          "publisher": "Organizational Behavior and Human Decision Processes",
-          "source_type": "peer_reviewed_primary",
-          "supports": "Аннотация, экспериментальная манипуляция и связь attention residue с выполнением следующей задачи."
-        },
-        {
-          "url": "https://citeseerx.ist.psu.edu/document?doi=29661f8f20c854e55ce91ac8c247a95034bd68ee&repid=rep1&type=pdf",
-          "publisher": "Author manuscript via CiteSeerX",
-          "source_type": "author_manuscript",
-          "supports": "Методы и полный контекст; финальный сценарий сверить с опубликованной версией."
-        }
-      ],
-      "risk": "green",
-      "risk_notes": "Не диагностировать расстройства внимания и не обещать продуктивность от заметки.",
+      "rights_status": "permission_required_for_every_segment",
       "status": "candidate"
     }
   ]

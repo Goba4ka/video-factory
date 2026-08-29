@@ -1,0 +1,23 @@
+{
+  "tested_at": "2026-08-29",
+  "player_url": "http://127.0.0.1:3005/",
+  "composition_id": "client-final-celeb-v2-20260829",
+  "observed_after_seconds": 6.5,
+  "play_control": "Pause",
+  "unmute_control": "Mute",
+  "audio": {
+    "paused": false,
+    "current_time": 6.46,
+    "duration": 25.99,
+    "muted": false
+  },
+  "active_video": {
+    "id": "s09",
+    "current_time": 1.83,
+    "paused": false
+  },
+  "document_ready_state": "complete",
+  "console_errors": [],
+  "page_errors": [],
+  "result": "pass"
+}

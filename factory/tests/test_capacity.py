@@ -76,6 +76,55 @@ class CapacityPlannerTestCase(unittest.TestCase):
             )
         with self.assertRaises(CapacityPlanningError):
             self.plan(10, expected_attrition={"idea_review": 1.0})
+        with self.assertRaises(CapacityPlanningError):
+            self.plan(10, render_minutes_per_output=8)
+        with self.assertRaises(CapacityPlanningError):
+            self.plan(
+                10,
+                render_minutes_per_output=8,
+                render_window_minutes=240,
+                render_utilization=1.01,
+            )
+
+    def test_complete_cycle_time_tuple_models_one_slot_capacity(self) -> None:
+        plan = self.plan(
+            15,
+            render_slots=1,
+            render_minutes_per_output=8,
+            render_window_minutes=360,
+            render_utilization=0.5,
+        )
+        self.assertTrue(plan["feasible"])
+        self.assertTrue(plan["assumptions"]["cycle_time_modeled"])
+        self.assertEqual(plan["resources"]["render_capacity_mode"], "cycle_time_window")
+        self.assertEqual(plan["resources"]["render_capacity_across_three_waves"], 22)
+        self.assertEqual(
+            [wave["render_capacity_outputs_available"] for wave in plan["waves"]],
+            [8, 7, 7],
+        )
+        self.assertIn(
+            "render_window_minutes",
+            plan["expected_yield_model"]["formulas"][
+                "render_capacity_across_three_waves"
+            ],
+        )
+
+    def test_cycle_time_shortfall_is_distinct_from_legacy_slot_shortfall(self) -> None:
+        plan = self.plan(
+            15,
+            render_slots=1,
+            render_minutes_per_output=10,
+            render_window_minutes=60,
+            render_utilization=0.5,
+        )
+        self.assertFalse(plan["feasible"])
+        warning = next(
+            item
+            for item in plan["bottleneck_warnings"]
+            if item["code"] == "render_throughput_shortfall"
+        )
+        self.assertEqual(warning["available"], 3)
+        self.assertEqual(warning["unit"], "renders_in_window")
 
     def test_insufficient_resources_are_reported_not_hidden(self) -> None:
         pod_targets = {
@@ -134,4 +183,3 @@ class CapacityPlannerTestCase(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

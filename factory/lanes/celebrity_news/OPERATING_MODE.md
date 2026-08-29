@@ -31,12 +31,15 @@ ARMED_WAITING_FOR_START
 RESEARCHING_SLATE
   -- 3–5 проверенных тем --> WAITING_FOR_TOPIC_YES_NO
 WAITING_FOR_TOPIC_YES_NO
-  -- 2–3 одобрены --> AUTONOMOUS_PRODUCTION
+  -- 2–3 одобрены --> REGISTRY_PRODUCTION
   -- меньше 2 одобрены --> RESEARCHING_REPLACEMENTS
   -- все отклонены --> ARMED_WAITING_FOR_START
-AUTONOMOUS_PRODUCTION
-  -- MP4 + artifacts + QC готовы --> REVIEW_MP4_READY
+REGISTRY_PRODUCTION
+  -- rights / preview / final decision нужен --> WAITING_FOR_HUMAN_GATE
+  -- MP4 + evidence QC + human final review готовы --> REVIEW_MP4_READY
   -- hard gate не пройден --> BLOCKED_WITH_REPORT
+WAITING_FOR_HUMAN_GATE
+  -- атрибутированное решение --> REGISTRY_PRODUCTION
 REVIEW_MP4_READY | BLOCKED_WITH_REPORT
   --> ARMED_WAITING_FOR_START
 ```
@@ -60,19 +63,23 @@ REVIEW_MP4_READY | BLOCKED_WITH_REPORT
 
 `Red` не предлагается к производству. `Yellow` может попасть в slate только с ясно названным человеческим gate. Не скачивать производственные ассеты и не начинать композицию до ответов пользователя.
 
-## Фаза 2: автономное производство 2–3 одобренных роликов
+## Фаза 2: управляемое производство 2–3 одобренных роликов
 
-После получения 2–3 `да` не запрашивать микрорешения, которые можно безопасно принять по тематическому пакету. На каждую одобренную тему:
+После получения 2–3 `да` не запрашивать микрорешения, которые можно
+безопасно принять по тематическому пакету. Однако это `да` не заменяет
+атрибутированные человеческие решения `rights`, `preview_review` и
+`final_review`; на них queue останавливается.
 
-1. создать проверяемый source registry и claim ledger;
-2. написать сценарий на 60–80 секунд и shotlist;
-3. пройти safety и rights preflight до загрузки/монтажа;
-4. заморозить только разрешённые ассеты с лицензиями и SHA-256;
-5. создать captions из финального сценария;
-6. собрать и проверить HyperFrames-композицию;
-7. отрендерить локальный контрольный MP4;
-8. выполнить технический, редакционный, safety и rights QC;
-9. сохранить manifest, отчёты и checksums.
+Канонический порядок берётся только из `factory/lanes/registry.json`:
+
+`research -> privacy_review -> media_discovery -> rights (human) -> media -> script -> voice -> editor -> bgm -> audio_mix -> compiler -> preview_review (human) -> render -> qc_auto_evidence -> caption_transcript -> captions_analyzer -> facts_analyzer -> policy_analyzer -> dedup_analyzer -> visual_analyzer -> qc_evidence_gate -> qc -> final_review (human) -> publisher`
+
+Роли нельзя менять местами или выкидывать из-за наличия готового MP4.
+Discovery не даёт прав; media freeze требует human-approved RightsManifest с точным
+SHA-256 и всеми `asset_id`. Музыка замораживается отдельно; `audio_mix` создаёт
+единственную program mix, а compiler передаёт её в HyperFrames с беззвучным B-roll.
+Рендер начинается только после checksum-bound preview approval; после него весь evidence
+QC DAG обязан связывать один и тот же render SHA-256.
 
 Автономность не разрешает обход hard gate. Если тема больше не подтверждается, источник изменился, права не очищены или риск нельзя снять безопасной заменой, конкретный ролик получает `blocked` с причиной; вместо него нельзя самовольно производить не одобренную пользователем тему.
 
@@ -134,13 +141,27 @@ factory/runs/YYYY-MM-DD/celebrity_news/
   <topic-slug>/
     source_registry.json
     claim_ledger.json
-    rights_ledger.json
+    media_discovery_manifest.json
+    rights_manifest.json
+    rights_human_approval.json
+    frozen_media_manifest.json
     SCRIPT.md
     shotlist.json
     captions.srt
+    voice_manifest.json
+    voice_rights_approval.json
+    bgm_manifest.json
+    program_audio_manifest.json
     hyperframes/
+    render_project_manifest.json
+    preview_approval.json
     render_manifest.json
+    qc_auto_evidence_manifest.json
+    caption_transcript_manifest.json
+    qc_analyzer_reports/
+    qc_evidence_bundle.json
     qc_report.json
+    final_review.json
     checksums.sha256
     review.mp4
 ```
@@ -157,6 +178,8 @@ factory/runs/YYYY-MM-DD/celebrity_news/
 - каждый timeline-ассет присутствует в rights ledger и render manifest;
 - отсутствуют placeholder, watermark, нелицензированная музыка, синтетическое лицо/голос знаменитости и неразрешённые приватные данные;
 - проверены звук, пики, чёрные/битые кадры, safe margins, орфография и финальный кадр;
+- combined auto evidence, word transcript, captions/facts/policy/dedup/visual
+  analyzer reports и immutable evidence bundle прошли на том же render SHA-256;
 - SHA-256 контрольного MP4 и всех финальных артефактов сохранён.
 
 Контрольный MP4 является локальным review-артефактом, а не разрешением на публикацию.

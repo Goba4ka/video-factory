@@ -12,9 +12,15 @@ from typing import Any, Sequence, TextIO
 from .analytics import AnalyticsStore, PRODUCTION_STAGES
 from .capacity import plan_daily_batch
 from .artifact_store import ArtifactStore
+from .chat_audit import audit_chat_topology
 from .contracts import CONTRACT_FILES, load_and_validate_chain, validate_artifact
 from .daily import DEFAULT_ROLES, launch_approved, prepare_day
 from .dedup import DedupThresholds, evaluate_candidate
+from .dedup_corpus import (
+    CORPUS_APPROVAL_CONFIRMATION,
+    create_corpus_approval,
+    update_dedup_corpus,
+)
 from .derived_cache import DerivedCache
 from .errors import FactoryError, ValidationError
 from .fish_audio import (
@@ -43,6 +49,7 @@ from .outbox import HUMAN_CONFIRMATION, OUTBOX_STATUSES, PLATFORMS, PublishOutbo
 from .preflight import run_preflight
 from .quality_score import evaluate_quality
 from .queue import Dispatcher
+from .throughput_acceptance import evaluate_throughput_acceptance
 from .runtime import (
     PROFILE_NAMES,
     apply_runtime_plan,
@@ -160,6 +167,37 @@ def build_parser() -> argparse.ArgumentParser:
     )
     capacity_parser.add_argument("input", help="Capacity planner input JSON")
     capacity_parser.add_argument("--export", help="Atomically export the result to JSON")
+
+    throughput_parser = subparsers.add_parser(
+        "throughput-acceptance",
+        help="Verify a real 10-15 master batch from read-only production evidence",
+    )
+    throughput_parser.add_argument("--target", type=int, required=True)
+    throughput_parser.add_argument("--deadline-hours", type=float, required=True)
+    throughput_parser.add_argument("--batch-id")
+    throughput_parser.add_argument(
+        "--registry",
+        default="factory/lanes/registry.json",
+        help="Lane registry JSON",
+    )
+    throughput_parser.add_argument(
+        "--safety-margin",
+        type=float,
+        default=0.20,
+        help="Reserved deadline fraction (default: 0.20)",
+    )
+    throughput_parser.add_argument("--gpu-heavy-slots", type=int, default=1)
+    throughput_parser.add_argument(
+        "--evidence-root",
+        action="append",
+        dest="evidence_roots",
+        help=(
+            "Allowed root for master/evidence files; repeatable "
+            "(default: database directory)"
+        ),
+    )
+    throughput_parser.add_argument("--as-of", help="Deterministic ISO-8601 audit time")
+    _add_common_options(throughput_parser)
 
     performance_parser = subparsers.add_parser(
         "evaluate-performance",
@@ -420,6 +458,46 @@ def build_parser() -> argparse.ArgumentParser:
     )
     freeze_parser.add_argument("--export", help="Atomically export the result to JSON")
 
+    corpus_approve_parser = subparsers.add_parser(
+        "dedup-corpus-approve",
+        help="Bind explicit human corpus approval to one exact RenderManifest and master",
+    )
+    corpus_approve_parser.add_argument("--render-manifest", required=True)
+    corpus_approve_parser.add_argument("--master", required=True)
+    corpus_approve_parser.add_argument("--output", required=True)
+    corpus_approve_parser.add_argument("--approved-by", required=True)
+    corpus_approve_parser.add_argument("--approval-note", required=True)
+    corpus_approve_parser.add_argument(
+        "--human-confirm",
+        required=True,
+        help=f"Must equal {CORPUS_APPROVAL_CONFIRMATION}",
+    )
+    corpus_approve_parser.add_argument(
+        "--export", help="Atomically export the result to JSON"
+    )
+
+    corpus_update_parser = subparsers.add_parser(
+        "dedup-corpus-update",
+        help="Atomically fingerprint approved masters and update the dedup corpus",
+    )
+    corpus_update_parser.add_argument("--snapshot", required=True)
+    corpus_update_parser.add_argument(
+        "--approval",
+        action="append",
+        required=True,
+        dest="approvals",
+        help="Checksum-bound DedupCorpusApproval JSON; may be repeated",
+    )
+    corpus_update_parser.add_argument(
+        "--sample-interval-seconds", type=float, default=1.0
+    )
+    corpus_update_parser.add_argument(
+        "--lock-timeout-seconds", type=float, default=30.0
+    )
+    corpus_update_parser.add_argument(
+        "--export", help="Atomically export the result to JSON"
+    )
+
     next_parser = subparsers.add_parser("next", help="Advance a job by exactly one transition")
     next_parser.add_argument("target", help="Job ID or idea ID")
     next_parser.add_argument("--idempotency-key", required=True)
@@ -573,7 +651,8 @@ def build_parser() -> argparse.ArgumentParser:
     _add_common_options(limit_parser)
 
     simulate_parser = subparsers.add_parser(
-        "simulate-day", help="Run an in-process 10-15 video queue simulation"
+        "simulate-day",
+        help="Simulate 10-15 queue chains without providers, renders, human approvals, or publishing",
     )
     simulate_parser.add_argument("--target", type=int, default=15)
     simulate_parser.add_argument(
@@ -640,6 +719,26 @@ def build_parser() -> argparse.ArgumentParser:
     )
     lanes_parser.add_argument("--minimum-candidates", type=int, default=20)
     lanes_parser.add_argument("--export", help="Atomically export the result to JSON")
+
+    chat_audit_parser = subparsers.add_parser(
+        "chat-audit",
+        help="Read-only verification of the five registered Codex chat rollouts",
+    )
+    chat_audit_parser.add_argument(
+        "--registry",
+        default="factory/lanes/registry.json",
+        help="Lane registry JSON",
+    )
+    chat_audit_parser.add_argument(
+        "--session-index",
+        required=True,
+        help="Explicit Codex session_index.jsonl evidence path",
+    )
+    chat_audit_parser.add_argument(
+        "--sessions-root",
+        required=True,
+        help="Explicit root containing rollout-*.jsonl evidence",
+    )
 
     runtime_parser = subparsers.add_parser(
         "optimize-runtime",
@@ -773,6 +872,18 @@ def _run(args: argparse.Namespace) -> dict[str, Any]:
     if command in {"plan-day", "план-дня"}:
         payload = load_json_file(args.input)
         return plan_daily_batch(**payload)
+    if command == "throughput-acceptance":
+        return evaluate_throughput_acceptance(
+            db_path=args.db,
+            target=args.target,
+            deadline_hours=args.deadline_hours,
+            batch_id=args.batch_id,
+            registry_path=args.registry,
+            safety_margin=args.safety_margin,
+            gpu_heavy_slots=args.gpu_heavy_slots,
+            allowed_evidence_roots=args.evidence_roots,
+            as_of=args.as_of,
+        )
     if command in {"evaluate-performance", "метрики"}:
         cohort_payload = load_json_file(args.cohort)
         cohort = cohort_payload.get("snapshots") if isinstance(cohort_payload, dict) else None
@@ -931,11 +1042,33 @@ def _run(args: argparse.Namespace) -> dict[str, Any]:
         if args.roles.strip().lower() != "auto":
             roles = [item.strip() for item in args.roles.split(",") if item.strip()]
         return launch_approved(db_path=args.db, batch_id=args.batch_id, roles=roles)
+    if command == "dedup-corpus-approve":
+        return create_corpus_approval(
+            args.render_manifest,
+            args.master,
+            args.output,
+            approved_by=args.approved_by,
+            approval_note=args.approval_note,
+            human_confirm=args.human_confirm,
+        )
+    if command == "dedup-corpus-update":
+        return update_dedup_corpus(
+            args.snapshot,
+            args.approvals,
+            sample_interval_seconds=args.sample_interval_seconds,
+            lock_timeout_seconds=args.lock_timeout_seconds,
+        )
     if command == "lanes":
         # Loading first gives malformed registries a precise fail-closed error.
         load_lane_registry(args.registry)
         return validate_lane_packages(
             registry_path=args.registry, minimum_candidates=args.minimum_candidates
+        )
+    if command == "chat-audit":
+        return audit_chat_topology(
+            registry_path=args.registry,
+            session_index=args.session_index,
+            sessions_root=args.sessions_root,
         )
     if command == "optimize-runtime":
         plan = build_runtime_plan(
@@ -1334,9 +1467,13 @@ def main(
     args._event_stream = err
     try:
         result = _run(args)
-        if args.export:
-            Factory.export_json(result, Path(args.export))
-        if args.command == "worker" and result.get("ok") is not True:
+        export_path = getattr(args, "export", None)
+        if export_path:
+            Factory.export_json(result, Path(export_path))
+        if (
+            args.command in {"worker", "throughput-acceptance", "chat-audit"}
+            and result.get("ok") is not True
+        ):
             print(json.dumps(result, ensure_ascii=False, sort_keys=True), file=err)
             return 3
         print(json.dumps(result, ensure_ascii=False, sort_keys=True), file=out)

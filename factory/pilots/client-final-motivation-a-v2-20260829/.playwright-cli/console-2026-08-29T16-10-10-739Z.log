@@ -1,0 +1,12 @@
+[     820ms] [INFO] %c[HyperFrames]%c Anonymous studio usage analytics enabled. Disable: localStorage.setItem('hyperframes-studio:telemetryDisabled','1') (then reload). color:#7c3aed;font-weight:bold color:inherit @ http://localhost:3027/assets/index-F-PUkOVc.js:48
+[     890ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/files/index.html?optional=1:0
+[     890ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/files/index.html:0
+[     891ms] [WARNING] [studio] Couldn't load composition source map from index.html: Error: HTTP 404
+    at http://localhost:3027/assets/index-F-PUkOVc.js:338:33638 @ http://localhost:3027/assets/index-F-PUkOVc.js:337
+[     895ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/renders:0
+[     895ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829:0
+[     902ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/selection:0
+[     903ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/gsap-animations/index.html:0
+[     904ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/lint:0
+[    1024ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/preview?__hf_shader_capture_scale=1&__hf_shader_loading=player:0
+[    1024ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/preview?__hf_shader_capture_scale=1&__hf_shader_loading=player:0

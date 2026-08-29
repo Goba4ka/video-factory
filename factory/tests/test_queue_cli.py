@@ -101,6 +101,14 @@ class QueueCliTestCase(unittest.TestCase):
         )
         self.assertEqual(code, 0)
         self.assertEqual(simulation["completed_videos"], 10)
+        self.assertTrue(simulation["simulation_only"])
+        self.assertFalse(simulation["production_ready"])
+        self.assertEqual(simulation["capacity_claim"], "queue_wip_mechanics_only")
+        self.assertEqual(simulation["real_provider_calls"], 0)
+        self.assertFalse(simulation["real_media_artifacts_created"])
+        self.assertEqual(simulation["real_renders_created"], 0)
+        self.assertEqual(simulation["real_publications"], 0)
+        self.assertEqual(simulation["human_gate_roles_simulated"], [])
         self.assertFalse(simulation["background_processes_started"])
 
 

@@ -1,0 +1,23 @@
+{"id":"bgm_001","type":"bgm","path":"assets/audio/final-mix.m4a","source":"existing","description":"final mix","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_002","type":"bgm","path":"assets/audio/music-bed-ducked.m4a","source":"existing","description":"music bed ducked","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_003","type":"bgm","path":"assets/audio/music-bed-leveled.m4a","source":"existing","description":"music bed leveled","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_004","type":"bgm","path":"assets/audio/speaker-leveled-v2.m4a","source":"existing","description":"speaker leveled v2","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_005","type":"bgm","path":"assets/audio/speaker-leveled.m4a","source":"existing","description":"speaker leveled","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_006","type":"bgm","path":"assets/audio/speaker-original.m4a","source":"existing","description":"speaker original","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_007","type":"bgm","path":"assets/audio/the-mountain-phonk-496450.mp3","source":"existing","description":"the mountain phonk 496450","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_008","type":"bgm","path":"assets/audit/duck-a.m4a","source":"existing","description":"duck a","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_009","type":"bgm","path":"assets/audit/duck-b.m4a","source":"existing","description":"duck b","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_010","type":"bgm","path":"assets/audit/duck-c.m4a","source":"existing","description":"duck c","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_011","type":"bgm","path":"assets/audit/mix-qc.wav","source":"existing","description":"mix qc","provenance":{"provider":"local","adopted":true}}
+{"id":"image_001","type":"image","path":"assets/audit/proxy-frames/at-0.4.png","source":"existing","description":"at 0.4","provenance":{"provider":"local","adopted":true}}
+{"id":"image_002","type":"image","path":"assets/audit/proxy-frames/at-15.0.png","source":"existing","description":"at 15.0","provenance":{"provider":"local","adopted":true}}
+{"id":"image_003","type":"image","path":"assets/audit/proxy-frames/at-2.0.png","source":"existing","description":"at 2.0","provenance":{"provider":"local","adopted":true}}
+{"id":"image_004","type":"image","path":"assets/audit/proxy-frames/at-28.2.png","source":"existing","description":"at 28.2","provenance":{"provider":"local","adopted":true}}
+{"id":"image_005","type":"image","path":"assets/audit/proxy-frames/at-5.4.png","source":"existing","description":"at 5.4","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_012","type":"bgm","path":"assets/audit/speaker-asr.wav","source":"existing","description":"speaker asr","provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_013","type":"bgm","path":"assets/audit/speaker-test.m4a","source":"existing","description":"speaker test","provenance":{"provider":"local","adopted":true}}
+{"id":"video_001","type":"video","path":"assets/audit/speaker-v1-source.mp4","source":"existing","description":"speaker v1 source","provenance":{"provider":"local","adopted":true}}
+{"id":"image_006","type":"image","path":"assets/audit/waveforms/first.png","source":"existing","description":"first","provenance":{"provider":"local","adopted":true}}
+{"id":"image_007","type":"image","path":"assets/audit/waveforms/last.png","source":"existing","description":"last","provenance":{"provider":"local","adopted":true}}
+{"id":"image_008","type":"image","path":"assets/audit/waveforms/middle.png","source":"existing","description":"middle","provenance":{"provider":"local","adopted":true}}
+{"id":"video_002","type":"video","path":"assets/video/speaker-cfr-baked.mp4","source":"existing","description":"speaker cfr baked","provenance":{"provider":"local","adopted":true}}

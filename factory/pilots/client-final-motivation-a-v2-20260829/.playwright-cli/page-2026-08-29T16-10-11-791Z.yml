@@ -1,0 +1,102 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - img "Hyperframes" [ref=e6]
+      - generic [ref=e26]: "|"
+      - generic [ref=e27]: client-final-motivation-a-v2-20260829
+    - tablist "Studio view" [ref=e28]:
+      - tab "Storyboard" [ref=e29] [cursor=pointer]
+      - tab "Preview" [selected] [ref=e30] [cursor=pointer]
+    - generic [ref=e31]:
+      - button "Undo" [disabled] [ref=e33]
+      - button "Redo" [disabled] [ref=e37]
+      - link "Capture current frame" [ref=e41] [cursor=pointer]:
+        - /url: http://localhost:3027/api/projects/client-final-motivation-a-v2-20260829/thumbnail/index.html?t=0.000&format=png&output=source&v=1788019811569
+        - generic [ref=e44]: Capture
+      - button "Inspector" [pressed] [ref=e46] [cursor=pointer]
+      - button "Export" [ref=e51] [cursor=pointer]
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e57]:
+          - tablist "Sidebar panels" [ref=e58]:
+            - tab "Code" [ref=e60] [cursor=pointer]
+            - tab "Comps" [selected] [ref=e62] [cursor=pointer]
+            - tab "Assets" [ref=e64] [cursor=pointer]
+            - tab "Catalog" [ref=e66] [cursor=pointer]
+          - button "Hide sidebar" [ref=e67] [cursor=pointer]
+        - tabpanel [ref=e70]:
+          - paragraph [ref=e72]: No compositions found
+        - button "Lint" [ref=e74] [cursor=pointer]
+      - separator "Resize sidebar" [ref=e78]
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - generic "Composition preview" [ref=e86]
+          - generic "Composition canvas" [ref=e90]
+          - generic [ref=e91]:
+            - button "Toggle snap" [ref=e92] [cursor=pointer]
+            - generic [ref=e95]:
+              - button "Toggle grid" [ref=e96] [cursor=pointer]
+              - button "Grid options" [ref=e99] [cursor=pointer]
+        - generic [ref=e104]:
+          - button "00:00/00:00" [ref=e106] [cursor=pointer]
+          - generic [ref=e107]:
+            - button "Play" [disabled]
+          - generic [ref=e108]:
+            - generic [ref=e109]:
+              - generic [ref=e110]:
+                - slider "Preview volume" [disabled]: "100"
+              - generic [ref=e113]:
+                - button "Mute audio" [disabled]
+            - button "Playback speed" [ref=e116] [cursor=pointer]: 1x
+            - button "Enable loop playback" [ref=e118] [cursor=pointer]
+            - button "Enter fullscreen" [ref=e125] [cursor=pointer]
+            - button "Shortcuts and tools" [ref=e133] [cursor=pointer]
+      - separator "Resize inspector panel" [ref=e137]
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - button "Design" [pressed] [ref=e143] [cursor=pointer]
+          - button "Layers" [ref=e145] [cursor=pointer]
+          - button "Renders" [ref=e147] [cursor=pointer]
+          - button "Variables" [ref=e149] [cursor=pointer]
+        - generic [ref=e151]:
+          - generic [ref=e155]: Nothing selected
+          - generic [ref=e156]: Click any element on the canvas to edit it, or drag to select several.
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - generic [ref=e159]:
+                - generic [ref=e160]: ●
+                - text: Record a gesture
+              - generic [ref=e161]: R
+            - generic [ref=e162]:
+              - generic [ref=e163]:
+                - generic [ref=e164]: ✦
+                - text: Describe a change to the agent
+              - generic [ref=e165]: ⌘K
+    - separator "Resize timeline (arrow keys)" [ref=e166]
+    - generic [ref=e170]:
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - button "Selection tool" [pressed] [ref=e176] [cursor=pointer]
+          - button "Razor tool" [ref=e180] [cursor=pointer]
+          - button "Toggle timeline snapping" [pressed] [ref=e185] [cursor=pointer]
+          - button "Add keyframe at playhead" [disabled] [ref=e189]
+          - button "Auto-record manual edits as keyframes" [pressed] [ref=e193] [cursor=pointer]
+          - button "Split at playhead" [disabled] [ref=e198]
+          - button "Add beat at playhead" [disabled] [ref=e203]
+        - generic [ref=e206]:
+          - button "Hide thumbnails — labels only" [pressed] [ref=e208] [cursor=pointer]
+          - button "Fit" [ref=e212] [cursor=pointer]
+          - button "Zoom out" [ref=e214] [cursor=pointer]
+          - slider "Timeline zoom" [ref=e217] [cursor=pointer]: "46"
+          - button "Zoom in" [ref=e219] [cursor=pointer]
+          - generic "Timeline zoom level" [ref=e222]: Fit
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - generic [ref=e225]: 00:00
+          - generic [ref=e228]: 00:10
+          - generic [ref=e231]: 00:20
+          - generic [ref=e234]: 00:30
+          - generic [ref=e237]: 00:40
+          - generic [ref=e240]: 00:50
+        - generic [ref=e243]: Drop media here or describe your video to start

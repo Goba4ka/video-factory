@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "registry_version": "2026-08-29.1",
+  "registry_version": "2026-08-30.1",
   "production_contract": {
     "daily_min": 10,
     "daily_target": 15,
@@ -27,16 +27,30 @@
       "roles": [
         "research",
         "sensitivity_review",
+        "media_discovery",
         "rights",
+        "media",
         "script",
         "voice",
         "editor",
+        "bgm",
+        "audio_mix",
+        "compiler",
+        "preview_review",
         "render",
+        "qc_auto_evidence",
+        "caption_transcript",
+        "captions_analyzer",
+        "facts_analyzer",
+        "policy_analyzer",
+        "dedup_analyzer",
+        "visual_analyzer",
+        "qc_evidence_gate",
         "qc",
         "final_review",
         "publisher"
       ],
-      "required_gate_roles": ["sensitivity_review", "rights", "qc", "final_review"]
+      "required_gate_roles": ["sensitivity_review", "rights", "preview_review", "qc", "final_review"]
     },
     {
       "id": "celebrity_news",
@@ -49,16 +63,30 @@
       "roles": [
         "research",
         "privacy_review",
+        "media_discovery",
         "rights",
+        "media",
         "script",
         "voice",
         "editor",
+        "bgm",
+        "audio_mix",
+        "compiler",
+        "preview_review",
         "render",
+        "qc_auto_evidence",
+        "caption_transcript",
+        "captions_analyzer",
+        "facts_analyzer",
+        "policy_analyzer",
+        "dedup_analyzer",
+        "visual_analyzer",
+        "qc_evidence_gate",
         "qc",
         "final_review",
         "publisher"
       ],
-      "required_gate_roles": ["privacy_review", "rights", "qc", "final_review"]
+      "required_gate_roles": ["privacy_review", "rights", "preview_review", "qc", "final_review"]
     },
     {
       "id": "motivation",
@@ -70,16 +98,30 @@
       "risk_profile": "editorial_standard",
       "roles": [
         "research",
+        "media_discovery",
         "rights",
+        "media",
         "script",
         "source_audio",
         "editor",
+        "bgm",
+        "audio_mix",
+        "compiler",
+        "preview_review",
         "render",
+        "qc_auto_evidence",
+        "caption_transcript",
+        "captions_analyzer",
+        "facts_analyzer",
+        "policy_analyzer",
+        "dedup_analyzer",
+        "visual_analyzer",
+        "qc_evidence_gate",
         "qc",
         "final_review",
         "publisher"
       ],
-      "required_gate_roles": ["rights", "qc", "final_review"]
+      "required_gate_roles": ["rights", "preview_review", "qc", "final_review"]
     },
     {
       "id": "chinese_medicine",
@@ -92,16 +134,30 @@
       "roles": [
         "research",
         "medical_review",
+        "media_discovery",
         "rights",
+        "media",
         "script",
         "voice",
         "editor",
+        "bgm",
+        "audio_mix",
+        "compiler",
+        "preview_review",
         "render",
+        "qc_auto_evidence",
+        "caption_transcript",
+        "captions_analyzer",
+        "facts_analyzer",
+        "policy_analyzer",
+        "dedup_analyzer",
+        "visual_analyzer",
+        "qc_evidence_gate",
         "qc",
         "final_review",
         "publisher"
       ],
-      "required_gate_roles": ["medical_review", "rights", "qc", "final_review"]
+      "required_gate_roles": ["medical_review", "rights", "preview_review", "qc", "final_review"]
     },
     {
       "id": "health",
@@ -114,16 +170,30 @@
       "roles": [
         "research",
         "medical_review",
+        "media_discovery",
         "rights",
+        "media",
         "script",
         "voice",
         "editor",
+        "bgm",
+        "audio_mix",
+        "compiler",
+        "preview_review",
         "render",
+        "qc_auto_evidence",
+        "caption_transcript",
+        "captions_analyzer",
+        "facts_analyzer",
+        "policy_analyzer",
+        "dedup_analyzer",
+        "visual_analyzer",
+        "qc_evidence_gate",
         "qc",
         "final_review",
         "publisher"
       ],
-      "required_gate_roles": ["medical_review", "rights", "qc", "final_review"]
+      "required_gate_roles": ["medical_review", "rights", "preview_review", "qc", "final_review"]
     }
   ]
 }

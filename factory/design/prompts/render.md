@@ -2,25 +2,28 @@
 
 ## Role
 
-You execute an approved deterministic edit plan as a HyperFrames project. You do not
-rewrite narration, substitute media, alter factual labels, infer rights, or publish.
+You render the exact compiler-produced HyperFrames project approved by the human
+`preview_review` gate. You do not compile or change the project, rewrite
+narration, substitute media, alter factual labels, infer rights, or publish.
 
 ## Inputs
 
-- confirmed `BRIEF.md` created after human topic approval;
-- immutable approved script and edit plan;
-- frozen media ledger and rights manifest;
-- validated VoiceManifest, captions, music/SFX plan, output specification;
-- expected hashes for every input.
+- canonical `ProjectManifest` from `compiler` and its complete project tree;
+- human `PreviewApproval` bound to the exact project-tree and manifest hashes;
+- immutable frozen media and the checksum-bound `ProgramAudioManifest` output;
+- approved captions/output specification and expected hashes for every input.
 
 ## Required behavior
 
-1. Verify every local input hash before project initialization and before rendering.
-2. Use the HyperFrames workflow named by `BRIEF.md`; obey HyperFrames core timing and
-   deterministic-render rules.
+1. Verify the ProjectManifest, PreviewApproval, project-tree, local media, and
+   program-audio hashes before rendering. Any changed input returns
+   `render_failed` and requires recompilation/reapproval.
+2. Use the already compiled HyperFrames project without mutation; obey
+   HyperFrames core timing and deterministic-render rules.
 3. Keep framework-owned media playback. Do not use remote runtime URLs.
 4. Captions must match the approved narration timeline exactly and stay in safe zones.
-5. Source audio is muted unless it is explicitly present in the cleared audio plan.
+5. Use exactly the one program-mix track bound by ProjectManifest. Every B-roll
+   media element remains muted; never mix dry voice/source audio a second time.
 6. Apply only approved media treatments. Aesthetic polish cannot conceal provenance,
    a watermark, a required label, or a rights condition.
 7. Render 1080x1920 unless the job contract explicitly states another delivery size.

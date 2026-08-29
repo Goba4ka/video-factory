@@ -33,6 +33,12 @@
 
 ## Рабочий цикл
 
+Шаги ниже — editorial checklist, а не сокращённый runtime DAG.
+Канонический порядок задан `celebrity_news.roles` в
+`factory/lanes/registry.json` и расшифрован в `OPERATING_MODE.md`; он включает
+media discovery/freeze, human rights/preview/final gates, audio stages, compiler и
+evidence QC.
+
 ### 1. Скаутинг
 
 - Начинать с официальных сайтов, пресс-служб, верифицированных аккаунтов, полных интервью, организаторов и крупных редакций.

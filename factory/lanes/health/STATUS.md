@@ -2,7 +2,7 @@
 
 **Статус:** линия настроена и ожидает ключевую команду `начинаем`; производство не запущено. Идеи остаются кандидатами и не считаются одобренными к публикации без research, ответа пользователя и медицинского review.
 
-**Дата проверки:** 2026-08-27  
+**Дата проверки:** 2026-08-30
 **Рабочая область:** только `factory/lanes/health/`
 
 ## Создано
@@ -12,7 +12,9 @@
 - `SOURCE_POLICY.md` — иерархия Tier 1–4, актуальность, юрисдикция, claim ledger и правила конфликтов интересов.
 - `MEDICAL_SAFETY.md` — разрешённая зона, жёсткие запреты, risk triage, правила срочных тем, комментариев и уязвимых групп.
 - `candidate_pool.json` — 26 русскоязычных идей для вертикальных роликов 60–80 секунд.
-- `OPERATING_MODE.md` — постоянный триггер `начинаем`, slate 3–5 тем, подтверждение `да`/`нет`, автономное производство 2–3 контрольных MP4, структура run-артефактов, fail-closed гейты и запрет внешней публикации без отдельного разрешения.
+- `OPERATING_MODE.md` — постоянный триггер `начинаем`, slate 3–5 тем,
+  `да`/`нет`, registry-controlled производство 2–3 MP4, полный набор run-артефактов,
+  fail-closed human gates и запрет внешней публикации.
 
 ## Пул идей
 
@@ -51,7 +53,14 @@
 - Триггер нового цикла: точная пользовательская команда `начинаем`.
 - До триггера исследование slate и производство не выполняются.
 - После триггера сначала показывается slate из 3–5 перепроверенных тем с источниками, риском и границей совета.
-- Производство 2–3 роликов начинается только после ответов пользователя `да`/`нет` и утверждения минимум двух тем.
-- Выход цикла: контрольные MP4 и полный комплект research/script/captions/media/rights/render/QC/checksum в `factory/runs/YYYY-MM-DD/health/<run_id>/`.
+- Производство 2–3 роликов начинается после `да`/`нет` на минимум две
+  темы, но останавливается на human medical/rights/preview/final gates.
+- Выход цикла: контрольные MP4 и полный комплект discovery/medical/rights/media/
+  script/voice/BGM/program-mix/project/preview/render/evidence-QC/final-review/checksum в
+  `factory/runs/YYYY-MM-DD/health/<run_id>/`.
 - Внешняя публикация всегда требует отдельного явного разрешения.
 - Полный контракт: `OPERATING_MODE.md`.
+
+Канонический DAG:
+
+`research -> medical_review (qualified human) -> media_discovery -> rights (human) -> media -> script -> voice -> editor -> bgm -> audio_mix -> compiler -> preview_review (human) -> render -> qc_auto_evidence -> caption_transcript -> captions_analyzer -> facts_analyzer -> policy_analyzer -> dedup_analyzer -> visual_analyzer -> qc_evidence_gate -> qc -> final_review (human) -> publisher`

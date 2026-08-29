@@ -1,8 +1,9 @@
-"""Trusted JSON-stdio handler for job-bound Fish Audio narration.
+"""Trusted JSON-stdio handler for job- and profile-bound Fish narration.
 
 The handler deliberately refuses to synthesize speech until a job-specific
-``voice_rights_approval`` artifact exists.  Credentials are loaded inside the
-Fish Audio client and never enter the queue task or handler result.
+``voice_rights_approval`` artifact and a human-approved golden voice profile
+both exist.  Credentials are loaded inside the Fish Audio client and never
+enter the queue task or handler result.
 """
 
 from __future__ import annotations
@@ -18,6 +19,7 @@ from .contracts import validate_artifact
 from .errors import FactoryError, ValidationError
 from .fish_audio import DEFAULT_MODEL, FishTTSRequest, generate_tts
 from .validators import canonical_json, require_nonempty_string
+from .voice_profile_gate import load_approved_voice_profile
 
 
 _SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$")
@@ -120,6 +122,28 @@ def handle_task(task: Mapping[str, Any]) -> dict[str, Any]:
     if script["job_id"] != job_id or script["lane_id"] != lane:
         raise ValidationError("script_package is not bound to this voice task")
     approval = _approval(task, job_id, approval_root)
+    expected_profile_id = payload.get("voice_profile_id")
+    if expected_profile_id is not None and not isinstance(expected_profile_id, str):
+        raise ValidationError("payload.voice_profile_id must be a string")
+    profile = load_approved_voice_profile(
+        reference_id=approval["reference_id"],
+        lane_id=lane,
+        language=script["language"],
+        expected_profile_id=expected_profile_id,
+    )
+    if approval["reference_id"] != profile.approval["reference_id"]:
+        raise ValidationError("job voice approval reference_id does not match voice profile")
+    if approval["voice_rights_status"] != profile.approval["rights_status"]:
+        raise ValidationError(
+            "job voice approval rights status does not match voice profile"
+        )
+    expected_basis = (
+        "voice_owner_confirmation"
+        if profile.approval["rights_status"] == "approved_owned_voice"
+        else "commercial_license"
+    )
+    if approval["basis"] != expected_basis:
+        raise ValidationError("job voice approval basis does not match voice profile")
 
     retry_reason = payload.get("retry_reason")
     defect_reference = payload.get("defect_reference")
@@ -158,9 +182,15 @@ def handle_task(task: Mapping[str, Any]) -> dict[str, Any]:
     validate_artifact("voice_manifest", manifest)
     if manifest["job_id"] != job_id:
         raise ValidationError("Fish Audio voice manifest is not job-bound")
+    if manifest["reference_id"] != profile.approval["reference_id"]:
+        raise ValidationError("Fish Audio voice manifest reference_id changed")
+    if manifest["voice_rights_status"] != profile.approval["rights_status"]:
+        raise ValidationError("Fish Audio voice manifest rights status changed")
     return {
         "artifact": manifest,
         "voice_rights_approval": approval,
+        "voice_profile_approval": profile.approval,
+        "voice_profile_binding": profile.binding,
         "output_path": str(active_output.resolve()),
         "voice_execution": {
             "provider": "fish_audio",

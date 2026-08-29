@@ -1,234 +1,346 @@
 {
   "schema_version": "1.0.0",
   "lane_id": "motivation",
-  "title_ru": "Мотивация без культа успеха",
+  "title_ru": "Мотивация: живой спикер, точная мысль, тёмный монтаж",
   "language": "ru",
+  "reference_evidence": {
+    "visual_metrics": "factory/analysis/motivation-refpack-20260828/metrics.json",
+    "audio_and_caption_audit": "factory/research/motivation-references-v3-audio/AUDIO_TRUTH_V3.md",
+    "measured_reference_duration_seconds": [
+      39.934,
+      73.8
+    ],
+    "measured_reference_median_duration_seconds": 51.267,
+    "observed_pacing_families": [
+      {
+        "id": "speaker_led_long_hold",
+        "scene_cuts_at_0_15": [
+          2,
+          3
+        ],
+        "estimated_seconds_per_shot": [
+          13.31,
+          14.58
+        ]
+      },
+      {
+        "id": "fast_montage",
+        "scene_cuts_at_0_15": [
+          11,
+          26
+        ],
+        "estimated_seconds_per_shot": [
+          2.67,
+          3.68
+        ]
+      }
+    ],
+    "interpretation_rule": "Метрики описывают стиль и ритм, но не дают прав копировать кадры, речь, музыку или монтаж референсов."
+  },
   "content_contract": {
     "canvas": "9:16",
+    "master_resolution": "1080x1920",
     "duration_seconds": [
-      45,
-      75
-    ],
-    "target_narration_words": [
-      105,
-      170
+      40,
+      74
     ],
     "one_video_one_idea": true,
-    "editorial_promise": "Показать не лозунг, а конкретное действие, ограничение или устройство среды, которое помогло человеку или команде продолжить работу.",
-    "viewer_payoff": "Зритель получает проверяемую историю, понятный поведенческий механизм и один низкорисковый способ испытать его без обещаний результата."
+    "authoritative_speech": "original_source_audio",
+    "tts": false,
+    "fish_audio": false,
+    "voice_cloning": false,
+    "source_language_rule": "Русскоязычный спикер по умолчанию. Англоязычный спикер допустим только с дословно сверенным оригиналом и точным русским переводом редакции; экранные субтитры остаются русскими.",
+    "editorial_promise": "Одна завершённая мысль реального спикера без выдуманной озвучки, фальшивой цитаты и нарезки, меняющей смысл.",
+    "viewer_payoff": "Узнаваемая жизненная мысль, эмоциональный поворот и короткая финальная формула без обещания гарантированного успеха."
   },
-  "audience": {
-    "primary": "Русскоязычные зрители 18–44 лет, уставшие от лозунгов, культа занятости и универсальных рецептов успеха.",
-    "knowledge_level": "general",
-    "needs": [
-      "начать неприятную или неопределённую задачу",
-      "вернуться после ошибки без самоунижения",
-      "сделать прогресс видимым",
-      "перестроить среду вместо героизации силы воли",
-      "отделить вдохновляющий миф от документированной практики"
+  "production_formats": [
+    {
+      "id": "licensed_single_ru",
+      "name": "Один русскоязычный спикер",
+      "automation_status": "supported_by_current_dag_after_rights_clearance",
+      "duration_seconds": [
+        40,
+        59
+      ],
+      "source_audio": "Один непрерывный лицензированный фрагмент речи одного спикера; допустимы удаления пауз без перестановки слов и изменения смысла.",
+      "visual_structure": "Спикер остаётся главным изображением; B-roll только коротко усиливает конкретную реплику."
+    },
+    {
+      "id": "licensed_single_en_ru",
+      "name": "Один англоязычный спикер с точным русским переводом",
+      "automation_status": "supported_by_current_dag_after_rights_and_translation_review",
+      "duration_seconds": [
+        40,
+        59
+      ],
+      "source_audio": "Оригинальная английская речь без дубляжа и без TTS; полный исходный transcript и русский перевод привязаны к одному source window.",
+      "visual_structure": "Спикер остаётся главным изображением; на экране только русский перевод короткими word/phrase cues."
+    },
+    {
+      "id": "licensed_multi_ru",
+      "name": "Монтаж нескольких русскоязычных спикеров",
+      "automation_status": "supported_after_per_segment_rights_and_transcript_review",
+      "duration_seconds": [
+        44,
+        74
+      ],
+      "source_audio": "2–6 сегментов SourceAudioManifest 1.1; каждый имеет собственные asset/range/source hash/transcript/rights evidence/extracted WAV bindings.",
+      "visual_structure": "Каждый активный спикер остаётся крупным; смена спикера не меняе принадлежность реплики."
+    },
+    {
+      "id": "licensed_multi_en_ru",
+      "name": "Монтаж нескольких англоязычных спикеров с русским переводом",
+      "automation_status": "supported_after_per_segment_rights_and_bilingual_review",
+      "duration_seconds": [
+        44,
+        74
+      ],
+      "source_audio": "2–6 сегментов SourceAudioManifest 1.1; каждый EN сегмент хранит original transcript, точный RU delivery transcript и exact checksum-bound bilingual human approval.",
+      "visual_structure": "Оригинальная английская речь остаётся в звуке; на экране только проверенные русские cues."
+    },
+    {
+      "id": "text_photo_bgm",
+      "name": "Текст и фотографии под музыку",
+      "automation_status": "disabled_not_supported_by_current_dag",
+      "duration_seconds": [
+        40,
+        59
+      ],
+      "block_reason": "Текущий motivation DAG требует непустые source_audio transcript и original speech; music-only ролик не может честно пройти этот контракт.",
+      "enable_when": "Появится отдельный rights-bound music_only contract и QC-профиль без фиктивной речи."
+    }
+  ],
+  "pacing_presets": {
+    "single_speaker_long_hold": {
+      "eligible_formats": [
+        "licensed_single_ru",
+        "licensed_single_en_ru"
+      ],
+      "duration_seconds": [
+        40,
+        59
+      ],
+      "semantic_shots": [
+        3,
+        8
+      ],
+      "average_anchor_hold_seconds": [
+        7,
+        15
+      ],
+      "speaker_visible_share_min": 0.7,
+      "broll_share_max": 0.25,
+      "cut_rule": "Резать по смысловым поворотам и дыханию, а не каждые 1–2 секунды. Не прятать говорящего под сплошным B-roll."
+    },
+    "multi_speaker_fast_montage": {
+      "eligible_formats": [
+        "licensed_multi_ru",
+        "licensed_multi_en_ru"
+      ],
+      "duration_seconds": [
+        44,
+        74
+      ],
+      "semantic_shots": [
+        12,
+        27
+      ],
+      "average_shot_seconds": [
+        2.6,
+        3.8
+      ],
+      "speaker_visible_share_min": 0.65,
+      "speaker_count": [
+        2,
+        6
+      ],
+      "cut_rule": "Каждый новый спикер продолжает одну мысль; hard cut попадает на смысловой акцент, J/L-cut не меняет принадлежность реплики; порядок должен совпадать с checksum-bound SourceAudio segments."
+    }
+  },
+  "visual_contract": {
+    "speaker_is_primary": true,
+    "source_video_fill_canvas": true,
+    "inset_or_sidebar_layout": false,
+    "side_labels": false,
+    "persistent_nameplates": false,
+    "speaker_crop": {
+      "preferred": "clean_close_or_medium_close",
+      "source_layer_canvas_fill_min": 0.9,
+      "face_height_ratio_target": [
+        0.28,
+        0.48
+      ],
+      "eyes_y_ratio_target": [
+        0.34,
+        0.46
+      ],
+      "never_crop": [
+        "eyes",
+        "mouth",
+        "active_interlocutor_needed_to_understand_the_exchange"
+      ],
+      "two_person_rule": "Использовать раздельные крупные reframes или честный two-up, где оба лица читаемы; не оставлять пол-головы второго собеседника у края."
+    },
+    "look": {
+      "mood": "dark_depressive_motivational",
+      "palette": [
+        "near_black",
+        "soft monochrome",
+        "muted brass accent",
+        "restrained dark red accent"
+      ],
+      "allowed": [
+        "subtle monochrome grade",
+        "fine film grain",
+        "soft vignette",
+        "restrained scanline or texture only when it does not reduce face clarity"
+      ],
+      "forbidden": [
+        "cheap glitch spam",
+        "oversharpening",
+        "crushed faces",
+        "decorative side copy",
+        "random success-luxury B-roll unrelated to speech"
+      ]
+    }
+  },
+  "caption_contract": {
+    "language": "ru",
+    "content": "verbatim Russian speech or exact Russian editorial translation",
+    "cue_words": [
+      1,
+      4
     ],
-    "not_promised": [
-      "богатство, карьера или известность",
-      "универсальный успех",
-      "излечение, диагностика или психотерапевтический эффект",
-      "одинаковый результат для всех"
+    "default_cue_seconds": [
+      0.48,
+      0.95
+    ],
+    "strong_single_word_seconds": [
+      0.3,
+      0.6
+    ],
+    "short_phrase_seconds": [
+      0.7,
+      1.25
+    ],
+    "onset_lead_ms": [
+      40,
+      70
+    ],
+    "phoneme_tail_ms": [
+      70,
+      120
+    ],
+    "max_lines": 2,
+    "ideal_characters_per_line": [
+      11,
+      16
+    ],
+    "hard_characters_per_line": 20,
+    "accent_words_per_cue_max": 1,
+    "placement": "centered lower-safe area, repositioned only to avoid the active face or hands",
+    "forbidden": [
+      "sentence cards over continuous speech",
+      "unsynced auto-captions",
+      "continuous karaoke fill",
+      "side captions",
+      "English captions in the delivery version"
     ]
   },
-  "editorial_thesis": "Мотивация — не черта характера и не моральная ценность. Для редакции это наблюдаемая связка: контекст, следующее действие, обратная связь и предел применимости. Историческая фигура не доказывает механизм, а исследование не превращается в персональную гарантию.",
-  "content_pillars": [
-    {
-      "id": "documented_practice",
-      "name": "Документированная практика",
-      "description": "Дневники, рабочие журналы, протоколы и материальные следы показывают, как именно шла работа.",
-      "target_share": 0.3
-    },
-    {
-      "id": "behavioral_mechanism",
-      "name": "Поведенческий механизм",
-      "description": "Один эксперимент или полевая проверка разбираются вместе с выборкой, границей вывода и честным применением.",
-      "target_share": 0.3
-    },
-    {
-      "id": "constraint_reframe",
-      "name": "Перенастройка после ограничения",
-      "description": "История о том, как цель, инструмент или роль были изменены после сбоя, а не преодолены одной силой воли.",
-      "target_share": 0.25
-    },
-    {
-      "id": "motivation_myth",
-      "name": "Миф против процесса",
-      "description": "Знакомый лозунг или цифра проверяются по первоисточнику; вместо них показывается реальный процесс.",
-      "target_share": 0.15
-    }
-  ],
-  "repeatable_formats": [
-    {
-      "id": "archive_protocol",
-      "name": "Архивный протокол",
-      "duration_seconds": [
-        55,
-        75
-      ],
-      "hook": "Не цитата героя, а предмет или запись, по которой можно восстановить его способ работы.",
-      "beats": [
-        "предмет или документ в первом кадре",
-        "конкретное препятствие",
-        "повторяемое действие с измеримой деталью",
-        "что эта деталь позволяла делать",
-        "граница: это личная практика, не доказательство универсального эффекта",
-        "маленький тест для зрителя"
+  "audio_contract": {
+    "speech": "original source audio only",
+    "broll_audio": "muted",
+    "bgm": "separately licensed dark instrumental bed with receipt and required attribution",
+    "mood_and_tempo": {
+      "mood": "dark, restrained, emotionally rising, not triumphant stock epic",
+      "bpm": [
+        70,
+        100
       ]
     },
-    {
-      "id": "mechanism_under_glass",
-      "name": "Механика под стеклом",
-      "duration_seconds": [
-        50,
-        70
-      ],
-      "hook": "Обычный совет превращается в проверяемую схему из реального эксперимента.",
-      "beats": [
-        "бытовая проблема без обвинения зрителя",
-        "как был устроен эксперимент",
-        "наблюдаемый результат без раздутых процентов",
-        "возможный механизм",
-        "ограничение выборки или переноса",
-        "безопасный способ проверить на одной задаче"
-      ]
-    },
-    {
-      "id": "myth_vs_process",
-      "name": "Миф против процесса",
-      "duration_seconds": [
-        45,
-        65
-      ],
-      "hook": "Знакомая фраза или цифра оказывается неточной — и реальная история полезнее лозунга.",
-      "beats": [
-        "узнаваемый миф",
-        "проверка по первоисточнику",
-        "что происходило на самом деле",
-        "какой процесс миф скрывает",
-        "точная финальная формулировка без морализаторства"
-      ]
-    },
-    {
-      "id": "constraint_reframe",
-      "name": "Перенастройка",
-      "duration_seconds": [
-        55,
-        75
-      ],
-      "hook": "Цель стала недоступна, поэтому изменили не интенсивность, а саму задачу.",
-      "beats": [
-        "исходная цель",
-        "сбой или ограничение",
-        "момент отказа от старого плана",
-        "новая функция доступных ресурсов",
-        "конкретный результат",
-        "вывод о смене масштаба или критерия прогресса"
-      ]
-    },
-    {
-      "id": "verification_loop",
-      "name": "Вторая проверка",
-      "duration_seconds": [
-        50,
-        70
-      ],
-      "hook": "Решающим действием стало не ускорение, а независимая проверка или приоритетный список.",
-      "beats": [
-        "ставка и цена ошибки",
-        "где возникла неопределённость",
-        "отдельный канал проверки",
-        "какую ошибку или перегрузку он ловит",
-        "как применить принцип в низкорисковой бытовой задаче",
-        "граница применимости"
-      ]
-    },
-    {
-      "id": "one_visual_argument",
-      "name": "Один визуальный аргумент",
-      "duration_seconds": [
-        45,
-        65
-      ],
-      "hook": "Одна диаграмма, шкала или прототип сделал невидимый прогресс видимым.",
-      "beats": [
-        "непонятная проблема",
-        "появление визуальной модели",
-        "как читать один ключевой элемент",
-        "какое решение стало возможным",
-        "что визуал не доказывает",
-        "перенос: показать следующий шаг, а не рисовать победу"
-      ]
-    }
-  ],
+    "dialog_lufs_i": [
+      -16,
+      -14
+    ],
+    "bed_pre_duck_lufs_i": [
+      -24,
+      -22
+    ],
+    "duck_depth_db": [
+      3,
+      6
+    ],
+    "duck_attack_ms": [
+      25,
+      45
+    ],
+    "duck_release_ms": [
+      350,
+      450
+    ],
+    "master_lufs_i_target": -14,
+    "master_true_peak_dbtp_max": -1,
+    "rights_rule": "Музыка из референса не копируется без отдельного разрешения. Production-safe bed проходит bgm_manifest, rights receipt и human rights approval."
+  },
+  "translation_and_quote_contract": {
+    "russian_source": "Субтитры повторяют слышимую речь; стилистическая правка не маскируется как дословная цитата.",
+    "english_source": "Хранить original transcript, точный русский перевод редакции, source timecodes, human bilingual review и hashes обеих версий.",
+    "edit_rule": "Нельзя переставлять слова, склеивать разные предложения в новую цитату, удалять отрицание или оговорку, менять адресата и причинный смысл.",
+    "timing_rule": "Финальные cue boundaries проверяются по waveform и человеческим прослушиванием, не только ASR."
+  },
+  "rights_contract": {
+    "allowed_speech_bases": [
+      "owned_recording_with_talent_release",
+      "commissioned_recording_with_commercial_derivative_rights",
+      "commercial_license_confirmed",
+      "written_permission_for_exact_excerpt_and_platforms",
+      "creative_commons_commercial_derivatives_verified_item_level"
+    ],
+    "research_only_not_a_license": [
+      "official YouTube, TikTok or Instagram upload",
+      "public availability",
+      "verified account",
+      "press or event page without reuse terms",
+      "user-supplied reference MP4"
+    ],
+    "hard_blockers": [
+      "platform_download_without_permission",
+      "unknown_speech_rightsholder",
+      "missing_commercial_derivative_rights",
+      "unverified_music_rights",
+      "quote_or_translation_not_exact",
+      "missing_likeness_or_talent_release_when_required"
+    ],
+    "human_approval": "Exact RightsManifest SHA-256 and every speech, video, B-roll, music, font and graphic asset_id must be approved before media freeze."
+  },
   "required_candidate_fields": [
     "id",
     "format_id",
     "title",
     "topic",
     "hook",
-    "concrete_story",
-    "behavioral_mechanic",
-    "evidence_boundary",
-    "viewer_experiment",
-    "visual_plan",
+    "message",
+    "duration_seconds",
+    "speaker_plan",
+    "source_audio_plan",
+    "visual_treatment",
     "sources",
-    "risk",
+    "rights_status",
     "status"
   ],
-  "claim_rules": [
-    "Личная история подтверждает только действия конкретного человека или команды; она не доказывает эффективность метода для всех.",
-    "Поведенческий механизм получает научное название только при наличии рецензируемого источника или академического обзора.",
-    "Число, дата, цитата, причинная связь и формулировка 'впервые' заносятся в будущий claim ledger отдельно.",
-    "Корреляция, самоотчёт, лабораторный результат и полевой эксперимент называются своими именами.",
-    "Если источник описывает медицину, психическое здоровье, инвалидность, травму или смерть, ролик проходит усиленный human review."
-  ],
-  "forbidden_patterns": [
-    "фальшивые, переведённые без сверки или составные цитаты",
-    "псевдонаучные объяснения через дофамин, нейропластичность, гормоны или 'рептильный мозг' без прямого профильного источника",
-    "обещания богатства, известности, карьеры, продуктивности или неизбежного результата",
-    "стыд, сравнение зрителя с героем и формулы 'если он смог, то и ты обязан'",
-    "токсичная продуктивность: героизация недосыпа, боли, работы без выходных и игнорирования здоровья",
-    "диагностика лени, прокрастинации, СДВГ, депрессии, выгорания или других состояний",
-    "inspiration porn и эксплуатация инвалидности, болезни, бедности, войны или утраты",
-    "generic CTA: 'встань и делай', 'сохрани, чтобы не забыть', 'подпишись ради успеха'"
+  "selection_rules": [
+    "Выбирать в автоматическое производство только форматы с automation_status supported_by_current_dag_after_rights_clearance, supported_by_current_dag_after_rights_and_translation_review, supported_after_per_segment_rights_and_transcript_review либо supported_after_per_segment_rights_and_bilingual_review.",
+    "Кандидат со статусом disabled_not_supported_by_current_dag не ставится в production queue; multi-source кандидат допускается только с 2–6 отдельными rights/transcript bindings.",
+    "До clearance источник служит только исследовательской зацепкой; скачивание, извлечение речи, монтаж и публикация запрещены.",
+    "При одинаковой силе мысли приоритет у русскоязычного спикера, clean 1080p close-up, чистой речи и простых документируемых прав.",
+    "Никаких обещаний миллионных просмотров: качество и гипотезы удержания измеряются, охват проверяется только реальными публикационными метриками после человеческого разрешения."
   ],
   "source_policy_ref": "SOURCE_POLICY.md",
   "safety_policy_ref": "SAFETY.md",
   "editorial_playbook_ref": "EDITORIAL_PLAYBOOK.md",
   "operating_mode_ref": "OPERATING_MODE.json",
-  "visual_rights_strategy": {
-    "default": [
-      "собственная предметная съёмка без брендов и частных данных",
-      "оригинальная типографика, диаграммы и простая 2D-анимация",
-      "public-domain материалы государственных учреждений только после item-level проверки",
-      "CC BY/CC0 и лицензированный stock с сохранённым доказательством лицензии"
-    ],
-    "never_assume": [
-      "страница музея разрешает использовать изображение",
-      "Wikimedia автоматически означает свободные права без проверки файла",
-      "доступность ролика на платформе означает право скачать и перемонтировать",
-      "кадр из фильма допустим как иллюстрация исторического события"
-    ]
-  },
-  "candidate_scoring": {
-    "source_quality": 0.22,
-    "specificity": 0.18,
-    "mechanism_clarity": 0.16,
-    "visualability": 0.14,
-    "rights_feasibility": 0.14,
-    "novelty": 0.1,
-    "safety": 0.06,
-    "hard_blockers": [
-      "unsupported_quote",
-      "causal_overclaim",
-      "red_rights",
-      "success_guarantee",
-      "shaming",
-      "medical_or_mental_health_advice"
-    ]
+  "formats": {
+    "factory_import": "Объект candidate_pool.json содержит массив ideas; lane-local поля сохраняют speaker, transcript, translation, pacing и rights state.",
+    "production_state": "Все найденные публичные speech sources остаются research-only до отдельного human rights clearance."
   }
 }

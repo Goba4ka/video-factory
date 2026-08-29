@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Motivation A V2</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      width: 1080px;
+      height: 1920px;
+      margin: 0;
+      overflow: hidden;
+      background: #050505;
+    }
+    body { font-family: Oswald, sans-serif; }
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: #050505;
+    }
+    #camera {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      transform-origin: 50% 44%;
+      will-change: transform;
+    }
+    #speaker-video {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+    .caption-scene {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      z-index: 3;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div data-hf-id="hf-pzw6" id="root" data-composition-id="client-motivation-a-v2" data-width="1080" data-height="1920" data-duration="29.18" data-fps="30">
+    <div data-hf-id="hf-kwiw" id="camera">
+      <video data-hf-id="hf-2u2r" id="speaker-video" class="clip" src="assets/video/speaker-cfr-baked-final.mp4" data-start="0" data-duration="29.18" data-track-index="0" preload="auto" muted playsinline></video>
+    </div>
+
+    <div data-hf-id="hf-hu3j" id="caption-scene-01" class="clip caption-scene" data-composition-id="captions-01" data-composition-src="compositions/captions-01.html" data-start="0" data-duration="7.46" data-track-index="2" data-width="1080" data-height="1920"></div>
+    <div data-hf-id="hf-mo9c" id="caption-scene-02" class="clip caption-scene" data-composition-id="captions-02" data-composition-src="compositions/captions-02.html" data-start="7.46" data-duration="6.66" data-track-index="2" data-width="1080" data-height="1920"></div>
+    <div data-hf-id="hf-mf5j" id="caption-scene-03" class="clip caption-scene" data-composition-id="captions-03" data-composition-src="compositions/captions-03.html" data-start="14.12" data-duration="7.60" data-track-index="2" data-width="1080" data-height="1920"></div>
+    <div data-hf-id="hf-mrme" id="caption-scene-04" class="clip caption-scene" data-composition-id="captions-04" data-composition-src="compositions/captions-04.html" data-start="21.72" data-duration="7.46" data-track-index="2" data-width="1080" data-height="1920"></div>
+
+    <audio data-hf-id="hf-f58v" id="final-mix" src="assets/audio/final-mix.m4a" data-start="0" data-duration="29.18" data-track-index="10" data-volume="1" preload="auto"></audio>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#camera", { scale: 1.000, xPercent: 0.0, yPercent: 0.0 }, 0.00)
+      .set("#camera", { scale: 1.026, xPercent: -0.6, yPercent: -0.2 }, 1.36)
+      .set("#camera", { scale: 1.000, xPercent: 0.0, yPercent: 0.0 }, 3.74)
+      .set("#camera", { scale: 1.018, xPercent: -0.4, yPercent: 0.0 }, 5.16)
+      .set("#camera", { scale: 1.042, xPercent: -1.1, yPercent: -0.3 }, 7.46)
+      .set("#camera", { scale: 1.010, xPercent: -0.2, yPercent: 0.0 }, 9.40)
+      .set("#camera", { scale: 1.050, xPercent: -1.3, yPercent: -0.5 }, 10.34)
+      .set("#camera", { scale: 1.016, xPercent: -0.4, yPercent: 0.0 }, 12.12)
+      .set("#camera", { scale: 1.046, xPercent: -1.0, yPercent: -0.3 }, 14.12)
+      .set("#camera", { scale: 1.008, xPercent: -0.2, yPercent: 0.0 }, 16.54)
+      .set("#camera", { scale: 1.040, xPercent: -1.2, yPercent: -0.2 }, 17.88)
+      .set("#camera", { scale: 1.012, xPercent: -0.3, yPercent: 0.0 }, 20.56)
+      .set("#camera", { scale: 1.044, xPercent: -1.1, yPercent: -0.4 }, 21.72)
+      .set("#camera", { scale: 1.010, xPercent: -0.2, yPercent: 0.0 }, 23.90)
+      .set("#camera", { scale: 1.050, xPercent: -1.2, yPercent: -0.3 }, 25.16)
+      .set("#camera", { scale: 1.018, xPercent: -0.4, yPercent: 0.0 }, 26.60)
+      .set("#camera", { scale: 1.054, xPercent: -1.4, yPercent: -0.5 }, 27.68)
+      .set("#camera", { scale: 1.026, xPercent: -0.6, yPercent: -0.2 }, 28.44);
+    window.__timelines["client-motivation-a-v2"] = tl;
+  </script>
+</body>
+</html>

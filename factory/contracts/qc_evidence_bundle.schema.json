@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/qc_evidence_bundle.schema.json",
+  "title": "QCEvidenceBundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "job_id", "lane_id", "render_id", "render_sha256",
+    "reports", "contact_sheet", "decision", "created_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "lane_id": {
+      "enum": ["war_history", "celebrity_news", "motivation", "chinese_medicine", "health"]
+    },
+    "render_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "render_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reports": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category", "artifact_sha256", "evidence"],
+        "properties": {
+          "category": {
+            "enum": ["technical", "audio", "captions", "facts", "rights", "dedup", "policy", "visual"]
+          },
+          "artifact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "evidence": {"$ref": "#/$defs/descriptor"}
+        }
+      }
+    },
+    "contact_sheet": {"$ref": "#/$defs/descriptor"},
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["passed", "needs_human_review", "blocking_categories"],
+      "properties": {
+        "passed": {"type": "boolean"},
+        "needs_human_review": {"type": "boolean"},
+        "blocking_categories": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["technical", "audio", "captions", "facts", "rights", "dedup", "policy", "visual"]
+          }
+        }
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "descriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

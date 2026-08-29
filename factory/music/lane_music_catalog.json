@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "video-factory-lane-music",
+  "catalog_version": "2026-08-30.1",
+  "generated_at": "2026-08-30T12:00:00Z",
+  "reference_fingerprint_policy": {
+    "refresh_cadence": "nightly",
+    "sources": [
+      "tiktok_creative_center_trends",
+      "tiktok_creative_center_top_ads",
+      "manual_verified_reels_and_shorts_observation"
+    ],
+    "required_success_evidence": true,
+    "audio_reuse_prohibited": true,
+    "reference_is_license_evidence": false
+  },
+  "lanes": {
+    "war_history": {
+      "name_ru": "История войн",
+      "selection_policy": "Сдержанная документальная напряжённость; музыка поддерживает факт и масштаб, но не героизирует насилие.",
+      "archetypes": [
+        {
+          "archetype_id": "war_archival_suspense",
+          "name_ru": "Архивное напряжение",
+          "mood": ["restrained", "tense", "documentary", "somber"],
+          "bpm_range": {"min": 68, "max": 86},
+          "energy_curve": {"shape": "low_burn_reveal", "sections": ["cold_open_hit", "restrained_context", "rising_reveal", "unresolved_tail"]},
+          "vocal_policy": "instrumental_only",
+          "instrumentation": {"preferred": ["low_strings", "muted_piano", "subtle_ticking", "distant_percussion"], "forbidden": ["triumphal_brass", "marching_anthem", "choir_glorification"]},
+          "cut_accent_behavior": {"cut_grid": "half_time_with_sparse_offbeat_hits", "accent_targets": ["hook_fact", "map_change", "causal_turn", "final_consequence"], "max_stinger_rate_seconds": 8},
+          "platform_notes": {"tiktok": "Узнаваемый низкий удар в первые 0.8 секунды; затем оставить место русской речи.", "instagram_reels": "Чистый cinematic bed без трейлерного пафоса; смысловой подъём к reveal.", "youtube_shorts": "Удерживать документальную нейтральность и читаемую причинно-следственную дугу."}
+        },
+        {
+          "archetype_id": "war_strategic_momentum",
+          "name_ru": "Стратегический импульс",
+          "mood": ["focused", "urgent", "analytical", "controlled"],
+          "bpm_range": {"min": 92, "max": 112},
+          "energy_curve": {"shape": "steady_pulse_then_stop", "sections": ["immediate_pulse", "layered_plan", "peak_decision", "hard_stop"]},
+          "vocal_policy": "instrumental_only",
+          "instrumentation": {"preferred": ["dry_percussion", "low_synth_pulse", "short_strings", "muted_impacts"], "forbidden": ["victory_fanfare", "national_anthem_imitation", "weapon_sound_rhythm"]},
+          "cut_accent_behavior": {"cut_grid": "quarter_note_or_two_beat", "accent_targets": ["opening_question", "timeline_step", "tactical_reversal", "outcome"], "max_stinger_rate_seconds": 5},
+          "platform_notes": {"tiktok": "Пульс должен помогать быстрым картам и архивным сменам без маскировки голоса.", "instagram_reels": "Минимум тяжёлых impacts; монтажные акценты привязаны к поворотам истории.", "youtube_shorts": "Ровная энергия для объяснения, без ощущения игрового трейлера."}
+        }
+      ]
+    },
+    "celebrity_news": {
+      "name_ru": "Новости про знаменитостей",
+      "selection_policy": "Современный social-pop bed: быстрый hook, лёгкая интрига и чистое место под русскую озвучку; без дешёвой таблоидной драматизации.",
+      "archetypes": [
+        {
+          "archetype_id": "celeb_glossy_intrigue",
+          "name_ru": "Глянцевая интрига",
+          "mood": ["glossy", "curious", "playful", "polished"],
+          "bpm_range": {"min": 98, "max": 116},
+          "energy_curve": {"shape": "hook_dip_reveal", "sections": ["signature_hook", "speech_space", "detail_lift", "clean_button"]},
+          "vocal_policy": "instrumental_only",
+          "instrumentation": {"preferred": ["clean_bass", "plucked_synth", "finger_snap", "soft_glitch"], "forbidden": ["melodramatic_strings", "comedy_circus", "recognizable_unlicensed_song_alike"]},
+          "cut_accent_behavior": {"cut_grid": "on_beat_with_two_beat_breaths", "accent_targets": ["name_reveal", "receipt_or_quote", "context_switch", "payoff"], "max_stinger_rate_seconds": 4},
+          "platform_notes": {"tiktok": "Distinct 0–1 second motif and small beat gaps around names and quotes.", "instagram_reels": "Fashion-editorial polish; avoid meme-SFX clutter.", "youtube_shorts": "Sustain clarity through a slightly longer factual middle."}
+        },
+        {
+          "archetype_id": "celeb_breaking_social_pulse",
+          "name_ru": "Срочный social pulse",
+          "mood": ["current", "energetic", "intriguing", "light_tension"],
+          "bpm_range": {"min": 118, "max": 134},
+          "energy_curve": {"shape": "fast_front_loaded", "sections": ["three_hit_hook", "moving_body", "micro_break", "final_tag"]},
+          "vocal_policy": "instrumental_only",
+          "instrumentation": {"preferred": ["tight_electronic_drums", "short_bass", "muted_clap", "micro_riser"], "forbidden": ["alarm_siren", "doom_drone", "busy_lead_vocal"]},
+          "cut_accent_behavior": {"cut_grid": "beat_or_half_bar", "accent_targets": ["first_frame", "new_visual", "contradiction", "closing_question"], "max_stinger_rate_seconds": 3},
+          "platform_notes": {"tiktok": "Фронтальная энергия без непрерывного шума; hook не должен звучать как фейковая тревога.", "instagram_reels": "Сохранить премиальную чистоту и короткие micro-pauses.", "youtube_shorts": "Не ускорять факты музыкой; пульс подчинён narration."}
+        }
+      ]
+    },
+    "motivation": {
+      "name_ru": "Мотивация",
+      "selection_policy": "Тёмный, немного депрессивный, но собранный bed под реальную речь спикера; без Fish/TTS, лирики и псевдоэпического пафоса.",
+      "archetypes": [
+        {
+          "archetype_id": "motivation_dark_pressure_build",
+          "name_ru": "Тёмное нарастание",
+          "mood": ["dark", "determined", "introspective", "pressurized"],
+          "bpm_range": {"min": 78, "max": 98},
+          "energy_curve": {"shape": "slow_build_to_conviction", "sections": ["sub_bass_hook", "sparse_confession", "layered_resolve", "held_final_note"]},
+          "vocal_policy": "instrumental_only",
+          "instrumentation": {"preferred": ["dark_piano", "low_pad", "sub_bass_pulse", "restrained_cinematic_drums"], "forbidden": ["bright_corporate_chords", "festival_drop", "lead_vocal", "triumphal_brass"]},
+          "cut_accent_behavior": {"cut_grid": "half_time_with_phrase_accents", "accent_targets": ["speaker_first_word", "key_confession", "thesis", "final_phrase"], "max_stinger_rate_seconds": 7},
+          "platform_notes": {"tiktok": "Сильная атмосфера с первого кадра; не перекрывать естественный голос спикера.", "instagram_reels": "Кинематографичный, но неброский низ; минималистичные акценты на фразах.", "youtube_shorts": "Держать постепенный рост на 40–70 секунд без петлевой монотонности."}
+        },
+        {
+          "archetype_id": "motivation_sparse_resolve",
+          "name_ru": "Редкое внутреннее разрешение",
+          "mood": ["melancholic", "honest", "hopeful", "minimal"],
+          "bpm_range": {"min": 62, "max": 80},
+          "energy_curve": {"shape": "sparse_then_warm", "sections": ["lonely_note", "voice_led_space", "subtle_harmonic_open", "quiet_resolve"]},
+          "vocal_policy": "wordless_texture_only",
+          "instrumentation": {"preferred": ["felt_piano", "soft_ambient_pad", "bowed_texture", "very_light_sub"], "forbidden": ["spoken_sample", "lyrical_vocal", "lofi_vinyl_cliche", "motivational_trailer_hit"]},
+          "cut_accent_behavior": {"cut_grid": "free_phrase_led", "accent_targets": ["pause", "realization", "emotional_turn", "last_word"], "max_stinger_rate_seconds": 10},
+          "platform_notes": {"tiktok": "Первый звук должен создавать эмоциональный вопрос, а не рекламный джингл.", "instagram_reels": "Оставить много воздуха и естественные паузы спикера.", "youtube_shorts": "Подходит для одной цельной мысли; не использовать для агрессивной нарезки."}
+        }
+      ]
+    },
+    "chinese_medicine": {
+      "name_ru": "Китайская медицина",
+      "selection_policy": "Спокойная доказательная подача; музыка не создаёт ложный авторитет и не использует этнический клише-код без сюжетного основания.",
+      "archetypes": [
+        {
+          "archetype_id": "tcm_calm_evidence",
+          "name_ru": "Спокойное объяснение",
+          "mood": ["calm", "neutral", "careful", "grounded"],
+          "bpm_range": {"min": 72, "max": 90},
+          "energy_curve": {"shape": "stable_explainer", "sections": ["soft_hook", "steady_context", "evidence_lift", "cautious_close"]},
+          "vocal_policy": "instrumental_only",
+          "instrumentation": {"preferred": ["soft_marimba", "warm_pad", "muted_pluck", "light_brush_percussion"], "forbidden": ["gong_cliche", "bamboo_flute_cliche", "pentatonic_stereotype", "mystical_drone"]},
+          "cut_accent_behavior": {"cut_grid": "two_beat_gentle", "accent_targets": ["practice_name", "evidence_boundary", "risk_note", "safe_takeaway"], "max_stinger_rate_seconds": 7},
+          "platform_notes": {"tiktok": "Небольшой clean hook; safety qualifier должен оставаться слышимым.", "instagram_reels": "Wellness-визуал без мистической звуковой экзотизации.", "youtube_shorts": "Ровная основа для различения традиции, данных и ограничений."}
+        },
+        {
+          "archetype_id": "tcm_reflective_organic",
+          "name_ru": "Рефлексивная органика",
+          "mood": ["reflective", "organic", "soft", "measured"],
+          "bpm_range": {"min": 60, "max": 78},
+          "energy_curve": {"shape": "breathing_arc", "sections": ["single_texture", "open_space", "gentle_peak", "neutral_release"]},
+          "vocal_policy": "wordless_texture_only",
+          "instrumentation": {"preferred": ["felt_keys", "soft_mallet", "natural_room_texture", "low_warm_drone"], "forbidden": ["gong_cliche", "bamboo_flute_cliche", "spa_chime_loop", "ceremonial_imitation"]},
+          "cut_accent_behavior": {"cut_grid": "phrase_led_with_long_breaths", "accent_targets": ["human_story", "mechanism_boundary", "uncertainty", "closing_context"], "max_stinger_rate_seconds": 10},
+          "platform_notes": {"tiktok": "Не путать спокойствие с отсутствием hook; первый тон должен быть различим.", "instagram_reels": "Органическая текстура только как настроение, не как доказательство эффективности.", "youtube_shorts": "Подходит для объяснительного кейса с осторожным выводом."}
+        }
+      ]
+    },
+    "health": {
+      "name_ru": "Здоровье",
+      "selection_policy": "Чистый современный bed для понятного health-explainer; уверенный, но не тревожный и не обещающий лечение.",
+      "archetypes": [
+        {
+          "archetype_id": "health_clean_explainer",
+          "name_ru": "Чистый эксплейнер",
+          "mood": ["clear", "modern", "reassuring", "credible"],
+          "bpm_range": {"min": 88, "max": 108},
+          "energy_curve": {"shape": "steady_with_fact_lifts", "sections": ["clean_hook", "stable_explanation", "fact_accent", "practical_close"]},
+          "vocal_policy": "instrumental_only",
+          "instrumentation": {"preferred": ["clean_pluck", "soft_electronic_kick", "warm_bass", "light_keys"], "forbidden": ["hospital_alarm", "heartbeat_fear_cue", "corporate_ukulele", "miracle_reveal_chime"]},
+          "cut_accent_behavior": {"cut_grid": "on_beat_with_fact_pauses", "accent_targets": ["hook_problem", "evidence", "instruction", "safety_note"], "max_stinger_rate_seconds": 5},
+          "platform_notes": {"tiktok": "Быстрый clean start; речь и оговорки важнее beat density.", "instagram_reels": "Современная wellness-эстетика без инфомаркетингового блеска.", "youtube_shorts": "Стабильный темп для практической инструкции и ограничений."}
+        },
+        {
+          "archetype_id": "health_gentle_forward_motion",
+          "name_ru": "Мягкое движение вперёд",
+          "mood": ["optimistic", "gentle", "active", "supportive"],
+          "bpm_range": {"min": 104, "max": 122},
+          "energy_curve": {"shape": "light_forward_arc", "sections": ["positive_hook", "moving_steps", "small_peak", "confident_release"]},
+          "vocal_policy": "instrumental_only",
+          "instrumentation": {"preferred": ["muted_guitar_texture", "light_percussion", "round_bass", "short_synth_pluck"], "forbidden": ["sales_jingle", "cheer_clap_wall", "dramatic_diagnosis_hit", "lead_vocal"]},
+          "cut_accent_behavior": {"cut_grid": "beat_or_two_beat", "accent_targets": ["first_action", "step_change", "benefit_with_caveat", "close"], "max_stinger_rate_seconds": 4},
+          "platform_notes": {"tiktok": "Движение с первого действия, без fitness-ad агрессии.", "instagram_reels": "Светлый, премиальный и ненавязчивый bed.", "youtube_shorts": "Ровная энергия для пошаговой структуры."}
+        }
+      ]
+    }
+  },
+  "track_slots": [
+    {"slot_id": "war_archival_cross_01", "lane_id": "war_history", "archetype_id": "war_archival_suspense", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:war_history:war_archival_suspense"},
+    {"slot_id": "war_archival_tiktok_01", "lane_id": "war_history", "archetype_id": "war_archival_suspense", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:war_history:war_archival_suspense"},
+    {"slot_id": "war_momentum_cross_01", "lane_id": "war_history", "archetype_id": "war_strategic_momentum", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:war_history:war_strategic_momentum"},
+    {"slot_id": "war_momentum_tiktok_01", "lane_id": "war_history", "archetype_id": "war_strategic_momentum", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:war_history:war_strategic_momentum"},
+    {"slot_id": "celeb_gloss_cross_01", "lane_id": "celebrity_news", "archetype_id": "celeb_glossy_intrigue", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:celebrity_news:celeb_glossy_intrigue"},
+    {"slot_id": "celeb_gloss_tiktok_01", "lane_id": "celebrity_news", "archetype_id": "celeb_glossy_intrigue", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:celebrity_news:celeb_glossy_intrigue"},
+    {"slot_id": "celeb_pulse_cross_01", "lane_id": "celebrity_news", "archetype_id": "celeb_breaking_social_pulse", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:celebrity_news:celeb_breaking_social_pulse"},
+    {"slot_id": "celeb_pulse_tiktok_01", "lane_id": "celebrity_news", "archetype_id": "celeb_breaking_social_pulse", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:celebrity_news:celeb_breaking_social_pulse"},
+    {"slot_id": "motivation_dark_cross_01", "lane_id": "motivation", "archetype_id": "motivation_dark_pressure_build", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:motivation:motivation_dark_pressure_build"},
+    {"slot_id": "motivation_dark_tiktok_01", "lane_id": "motivation", "archetype_id": "motivation_dark_pressure_build", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:motivation:motivation_dark_pressure_build"},
+    {"slot_id": "motivation_sparse_cross_01", "lane_id": "motivation", "archetype_id": "motivation_sparse_resolve", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:motivation:motivation_sparse_resolve"},
+    {"slot_id": "motivation_sparse_tiktok_01", "lane_id": "motivation", "archetype_id": "motivation_sparse_resolve", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:motivation:motivation_sparse_resolve"},
+    {"slot_id": "tcm_evidence_cross_01", "lane_id": "chinese_medicine", "archetype_id": "tcm_calm_evidence", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:chinese_medicine:tcm_calm_evidence"},
+    {"slot_id": "tcm_evidence_tiktok_01", "lane_id": "chinese_medicine", "archetype_id": "tcm_calm_evidence", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:chinese_medicine:tcm_calm_evidence"},
+    {"slot_id": "tcm_organic_cross_01", "lane_id": "chinese_medicine", "archetype_id": "tcm_reflective_organic", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:chinese_medicine:tcm_reflective_organic"},
+    {"slot_id": "tcm_organic_tiktok_01", "lane_id": "chinese_medicine", "archetype_id": "tcm_reflective_organic", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:chinese_medicine:tcm_reflective_organic"},
+    {"slot_id": "health_clean_cross_01", "lane_id": "health", "archetype_id": "health_clean_explainer", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:health:health_clean_explainer"},
+    {"slot_id": "health_clean_tiktok_01", "lane_id": "health", "archetype_id": "health_clean_explainer", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:health:health_clean_explainer"},
+    {"slot_id": "health_motion_cross_01", "lane_id": "health", "archetype_id": "health_gentle_forward_motion", "status": "pending_reference", "target_platform_scope": ["tiktok", "instagram_reels", "youtube_shorts"], "target_territories": ["worldwide"], "target_placements": ["organic_feed"], "license_requirement": "independent_cross_platform_commercial_license", "reference_fingerprint_slot": "nightly:health:health_gentle_forward_motion"},
+    {"slot_id": "health_motion_tiktok_01", "lane_id": "health", "archetype_id": "health_gentle_forward_motion", "status": "pending_reference", "target_platform_scope": ["tiktok"], "target_territories": ["RU"], "target_placements": ["organic_feed"], "license_requirement": "tiktok_cml_exact_scope", "reference_fingerprint_slot": "nightly:health:health_gentle_forward_motion"}
+  ],
+  "tracks": [],
+  "reference_fingerprints": []
+}

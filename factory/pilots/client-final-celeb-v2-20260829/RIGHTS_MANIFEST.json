@@ -1,0 +1,163 @@
+{
+  "project_id": "client-final-celeb-v2-20260829",
+  "retrieved_at": "2026-08-29",
+  "status": "preview_only_pending_voice_rights_confirmation",
+  "facts": [
+    {
+      "title": "VK Добро и Авито проведут благотворительную звёздную барахолку",
+      "publisher": "VK Company",
+      "url": "https://vk.company.ru/ru/press/releases/12389/",
+      "usage_basis": "Facts independently paraphrased; no press-release text reproduced verbatim."
+    },
+    {
+      "title": "VK Добро и Авито собрали более 4,5 млн рублей за три года",
+      "publisher": "VK Company",
+      "url": "https://vk.company.ru/ru/press/releases/12396/",
+      "usage_basis": "Facts independently paraphrased; no press-release text reproduced verbatim."
+    }
+  ],
+  "assets": [
+    {
+      "file": "assets/images/basta-vkfest.jpg",
+      "type": "image",
+      "subject": "Баста",
+      "author": "Okras",
+      "provider": "Wikimedia Commons",
+      "source_page": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B0%D1%81%D1%82%D0%B0_%D0%BD%D0%B0_VK_Fest_2022.jpg",
+      "direct_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D0%91%D0%B0%D1%81%D1%82%D0%B0%20%D0%BD%D0%B0%20VK%20Fest%202022.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "usage_basis": "Licensed reuse with creator attribution, license notice, modification notice, and ShareAlike compliance.",
+      "sha256": "9DE02764D36C20C4520E554923CE2743A78B2EFB9C1150085E9D72FAF72EC8CA"
+    },
+    {
+      "file": "assets/images/egor-kreed-vkfest-cropped.jpg",
+      "type": "image",
+      "subject": "Егор Крид",
+      "author": "Okras",
+      "provider": "Wikimedia Commons",
+      "source_page": "https://commons.wikimedia.org/wiki/File:%D0%95%D0%B3%D0%BE%D1%80_%D0%9A%D1%80%D0%B8%D0%B4_%D0%BD%D0%B0_VK_Fest_2022_(cropped).jpg",
+      "direct_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D0%95%D0%B3%D0%BE%D1%80%20%D0%9A%D1%80%D0%B8%D0%B4%20%D0%BD%D0%B0%20VK%20Fest%202022%20%28cropped%29.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "usage_basis": "Licensed reuse with creator attribution, license notice, modification notice, and ShareAlike compliance.",
+      "sha256": "4F058D8B0740D2F155DE3C2CC571F59951FB5EF723627FB2C47F58FE2DDC194A"
+    },
+    {
+      "file": "assets/images/sergey-burunov-cropped.jpg",
+      "type": "image",
+      "subject": "Сергей Бурунов",
+      "author": "Alexander Mysyakin / Sport24",
+      "provider": "Wikimedia Commons",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Sergey_Burunov_by_Alexander_Mysyakin_(cropped).jpg",
+      "direct_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sergey%20Burunov%20by%20Alexander%20Mysyakin%20%28cropped%29.jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "usage_basis": "Licensed reuse with creator attribution, license notice, modification notice, and ShareAlike compliance.",
+      "sha256": "0FA2694A507FC7BCE7CE4067CBAFDF9FB7F97C93576458E3EFA8BB31711DCDAA"
+    },
+    {
+      "file": "assets/images/ekaterina-volkova-cropped.jpg",
+      "type": "image",
+      "subject": "Екатерина Волкова",
+      "author": "Erokhin",
+      "provider": "Wikimedia Commons",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ekaterina_Volkova_(cropped).jpg",
+      "direct_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ekaterina%20Volkova%20%28cropped%29.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "usage_basis": "Licensed reuse with creator attribution, license notice, modification notice, and ShareAlike compliance.",
+      "sha256": "9F7BCA357EB38B7FE248FF4E1D18A52B6AC70C5147445DB058B19175D5083B62"
+    },
+    {
+      "file": "assets/video/shopping-rack-source.mp4",
+      "type": "video",
+      "author": "Ron Lach",
+      "provider": "Pexels",
+      "source_page": "https://www.pexels.com/video/women-choosing-clothes-on-a-rack-8386978/",
+      "direct_url": "https://videos.pexels.com/video-files/8386978/8386978-uhd_2160_4096_25fps.mp4",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "usage_basis": "Free use and modification under the Pexels License; no endorsement implied.",
+      "sha256": "8111FA3BA1F302A04AEB13EA80925F24BF2A75CEDF9861CC5CF33CACD336CE18"
+    },
+    {
+      "file": "assets/video/dress-photo-source.mp4",
+      "type": "video",
+      "author": "Liza Summer",
+      "provider": "Pexels",
+      "source_page": "https://www.pexels.com/video/woman-taking-picture-of-dress-on-the-rack-6335702/",
+      "direct_url": "https://videos.pexels.com/video-files/6335702/6335702-uhd_2160_3840_24fps.mp4",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "usage_basis": "Free use and modification under the Pexels License; no endorsement implied.",
+      "sha256": "FE9D33816138A6AAD644B194B889C129D8224536CB02F9C1AADFEBBF4D21D21B"
+    },
+    {
+      "file": "assets/video/watch-source.mp4",
+      "type": "video",
+      "author": "Tima Miroshnichenko",
+      "provider": "Pexels",
+      "source_page": "https://www.pexels.com/video/close-up-of-a-wristwatch-8322201/",
+      "direct_url": "https://videos.pexels.com/video-files/8322201/8322201-uhd_2160_4096_25fps.mp4",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "usage_basis": "Free use and modification under the Pexels License; no endorsement implied.",
+      "sha256": "7850F6353DD7A5E82D7F5A64A16E584D0C8F171D5D7A99FC5218208F2DC1A915"
+    },
+    {
+      "file": "assets/video/donation-source.mp4",
+      "type": "video",
+      "author": "Julia M Cameron",
+      "provider": "Pexels",
+      "source_page": "https://www.pexels.com/video/volunteers-organizing-clothes-for-donation-6893839/",
+      "direct_url": "https://videos.pexels.com/video-files/6893839/6893839-uhd_3840_2160_25fps.mp4",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "usage_basis": "Free use and modification under the Pexels License; no endorsement implied.",
+      "sha256": "24846E45063863F86D6268CF9557210379CB03BCC6FCAC30499CBFA5EF039127"
+    },
+    {
+      "file": "assets/audio/minimal-techno-01-source.mp3",
+      "type": "music",
+      "title": "Minimal Techno 01",
+      "author": "Alejandro Magaña (A. M.)",
+      "provider": "Mixkit",
+      "source_page": "https://mixkit.co/free-stock-music/techno/",
+      "direct_url": "https://assets.mixkit.co/music/162/162.mp3",
+      "license": "Mixkit Stock Music Free License",
+      "license_url": "https://mixkit.co/license/#musicFree",
+      "usage_basis": "Use in an edited social video permitted under the Mixkit Free License; source file is not redistributed standalone.",
+      "sha256": "BA1C747E0E1ADE47D474F3407985C74CAC4671BF3E21805C25C2F8545AC74C2A"
+    },
+    {
+      "file": "assets/audio/voice-fish-v1.wav",
+      "type": "synthetic_voice",
+      "provider": "Fish Audio",
+      "reference_id": "0c4c5574a38740639e4e6b5a796292bc",
+      "reference_name": "Профессиональный Мужской Голос",
+      "model": "s2.1-pro-free",
+      "source_page": "https://fish.audio/m/0c4c5574a38740639e4e6b5a796292bc/",
+      "usage_basis": "Generated through the user's Fish Audio account. Commercial/publishing rights require the user's confirmation for the selected public voice.",
+      "rights_status": "user_confirmation_required",
+      "sha256": "93B7D9BFBBB6279488BD94CBAF94FE7F6B240EB8FF191F2E0F3557AE84B06342"
+    },
+    {
+      "file": "assets/audio/final-mix.wav",
+      "type": "derived_audio_master",
+      "provider": "local FFmpeg mix",
+      "derived_from": [
+        "assets/audio/voice-fish-v1.wav",
+        "assets/audio/minimal-techno-01-source.mp3"
+      ],
+      "processing": "Voice EQ/compression, music gain, sidechain ducking, limiter, integrated loudness target -14 LUFS.",
+      "sha256": "0F51168F886834DC61BD2BF9D66E9481F59556E5C77625089C8AC0E5A79D1647"
+    }
+  ],
+  "publication_requirements": [
+    "Obtain and record confirmation that the selected Fish Audio public voice may be used commercially before delivery or publication.",
+    "Include the Wikimedia author and CC BY-SA license attributions in the post description or end-card metadata, and comply with ShareAlike requirements for adapted material.",
+    "Do not imply that any depicted person endorses the charity, marketplace, or the final video.",
+    "Re-run file hashes if any source asset is replaced."
+  ]
+}

@@ -10,8 +10,14 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
 
+[project.optional-dependencies]
+visual-qc = ["opencv-python-headless==4.10.0.84"]
+caption-observer = ["faster-whisper==1.2.1"]
+
 [project.scripts]
 video-factory = "video_factory.cli:main"
+video-factory-face-observer = "video_factory.face_observer:main"
+caption-observer = "video_factory.caption_observer:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

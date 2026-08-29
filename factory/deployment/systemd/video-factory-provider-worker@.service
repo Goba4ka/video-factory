@@ -1,0 +1,50 @@
+[Unit]
+Description=Video Factory managed provider worker (%i)
+Requires=video-factory-preflight.service
+After=video-factory-preflight.service network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=video-factory
+Group=video-factory
+UMask=0077
+EnvironmentFile=/etc/video-factory/runtime.env
+LoadCredential=pexels_api_key:/etc/video-factory/secrets/pexels_api_key
+Environment=PEXELS_API_KEY_FILE=%d/pexels_api_key
+WorkingDirectory=/opt/video-factory/current
+ExecCondition=/opt/video-factory/current/.venv/bin/python /opt/video-factory/current/factory/tools/server_preflight.py --provider-role %i --provider-role-only
+ExecStart=/opt/video-factory/current/.venv/bin/video-factory worker --db ${VIDEO_FACTORY_DB} --worker %H-provider-%i --role %i --handler-executable /opt/video-factory/current/.venv/bin/python --handler-arg=-m --handler-arg=video_factory.pexels_discovery --handler-cwd ${VIDEO_FACTORY_WORKSPACE} --handler-timeout ${VIDEO_FACTORY_PROVIDER_HANDLER_TIMEOUT} --lease-seconds ${VIDEO_FACTORY_WORKER_LEASE_SECONDS} --heartbeat-seconds ${VIDEO_FACTORY_WORKER_HEARTBEAT_SECONDS} --poll-seconds ${VIDEO_FACTORY_WORKER_POLL_SECONDS} --resource-lock none --terminal-on-handler-error
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=45s
+KillSignal=SIGTERM
+SuccessExitStatus=0
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectClock=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+RestrictNamespaces=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+SystemCallArchitectures=native
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+# The queue directory is the narrow durable writer scope required for SQLite
+# DB/WAL/SHM lifecycle.  The provider cannot write masters, rights, voice,
+# review bundles, or any other runtime subtree.
+ReadWritePaths=/var/lib/video-factory/queue /var/lib/video-factory/discovery
+
+[Install]
+WantedBy=multi-user.target

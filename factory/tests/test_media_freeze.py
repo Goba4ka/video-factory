@@ -19,6 +19,7 @@ from video_factory.cli import main  # noqa: E402
 from video_factory.media_freeze import (  # noqa: E402
     MediaFreezeError,
     freeze_approved_media,
+    freeze_explicit_media,
 )
 
 
@@ -238,6 +239,65 @@ class MediaFreezeTestCase(unittest.TestCase):
             freeze_approved_media(
                 self.manifest, self.root / "two", allow_private_hosts=True
             )
+
+    def test_explicit_download_is_exactly_bound_to_passed_rights_manifest(self) -> None:
+        approved_url = f"{self.base_url}/media.mp4"
+        self.write_manifest(approved_url)
+        rights = json.loads(self.manifest.read_text(encoding="utf-8"))
+        result = freeze_explicit_media(
+            rights,
+            [{"asset_id": "AST-001", "download_url": approved_url}],
+            self.root / "explicit-ok",
+            job_id="job-explicit-001",
+            allowed_local_roots=[self.root],
+            max_bytes=1024,
+            allow_private_hosts=True,
+        )
+        self.assertEqual(
+            result["artifact"]["assets"][0]["source"]["kind"],
+            "direct_download",
+        )
+        self.assertEqual(
+            result["artifact"]["assets"][0]["source"]["input"], approved_url
+        )
+
+        before = MockMediaHandler.get_requests
+        with self.assertRaisesRegex(MediaFreezeError, "does not match RightsManifest"):
+            freeze_explicit_media(
+                rights,
+                [
+                    {
+                        "asset_id": "AST-001",
+                        "download_url": f"{self.base_url}/big.mp4",
+                    }
+                ],
+                self.root / "explicit-mismatch",
+                job_id="job-explicit-002",
+                allowed_local_roots=[self.root],
+                allow_private_hosts=True,
+            )
+        self.assertEqual(MockMediaHandler.get_requests, before)
+
+        for field, value, expected in (
+            ("rights_status", "human_review", "rights_status must be approved"),
+            ("license_receipt", None, "license_receipt"),
+            ("model_release", "unknown", "model_release"),
+            ("property_release", "required", "property_release"),
+        ):
+            with self.subTest(field=field):
+                blocked = json.loads(json.dumps(rights))
+                blocked["assets"][0][field] = value
+                before = MockMediaHandler.get_requests
+                with self.assertRaisesRegex(MediaFreezeError, expected):
+                    freeze_explicit_media(
+                        blocked,
+                        [{"asset_id": "AST-001", "download_url": approved_url}],
+                        self.root / f"explicit-blocked-{field}",
+                        job_id=f"job-explicit-{field}",
+                        allowed_local_roots=[self.root],
+                        allow_private_hosts=True,
+                    )
+                self.assertEqual(MockMediaHandler.get_requests, before)
 
     def test_size_limit_removes_partial_file_and_does_not_write_ledger(self) -> None:
         self.write_manifest(f"{self.base_url}/big.mp4")

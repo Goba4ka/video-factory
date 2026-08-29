@@ -5,25 +5,12 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema_version",
-    "job_id",
-    "lane",
-    "audio_asset_id",
-    "source_video_uri_or_path",
-    "source_in_seconds",
-    "source_out_seconds",
-    "speaker_name",
-    "transcript",
-    "rights_status",
-    "rights_evidence",
-    "original_audio_only",
-    "tts",
-    "extracted_audio_path",
-    "checksums",
-    "created_at"
+    "schema_version", "job_id", "lane", "audio_asset_id", "transcript",
+    "rights_status", "original_audio_only", "tts", "extracted_audio_path",
+    "checksums", "created_at"
   ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
+    "schema_version": {"enum": ["1.0.0", "1.1.0"]},
     "job_id": {"type": "string", "minLength": 6, "maxLength": 128},
     "lane": {"const": "motivation"},
     "audio_asset_id": {"type": "string", "minLength": 3, "maxLength": 128},
@@ -36,26 +23,151 @@
       "enum": ["consent_confirmed", "commercial_license_confirmed", "internal_prototype"]
     },
     "rights_evidence": {"type": ["string", "null"], "maxLength": 4096},
+    "segment_count": {"type": "integer", "minimum": 2, "maximum": 6},
+    "segments": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 6,
+      "items": {"$ref": "#/$defs/segment"}
+    },
     "original_audio_only": {"const": true},
     "tts": {"const": false},
     "extracted_audio_path": {"type": "string", "minLength": 1, "maxLength": 4096},
     "checksums": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source_video_sha256", "extracted_audio_sha256", "transcript_sha256"],
       "properties": {
         "source_video_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
         "extracted_audio_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-        "transcript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        "transcript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "segment_bindings_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
       }
     },
     "created_at": {"type": "string", "format": "date-time"}
   },
+  "$defs": {
+    "segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "index", "asset_id", "source_video_uri_or_path", "source_in_seconds",
+        "source_out_seconds", "program_in_seconds", "program_out_seconds",
+        "speaker_name", "source_language", "original_transcript", "transcript",
+        "bilingual_review", "rights_status", "rights_evidence", "extracted_audio_path",
+        "checksums"
+      ],
+      "properties": {
+        "index": {"type": "integer", "minimum": 0, "maximum": 5},
+        "asset_id": {"type": "string", "minLength": 3, "maxLength": 128},
+        "source_video_uri_or_path": {"type": "string", "minLength": 1, "maxLength": 4096},
+        "source_in_seconds": {"type": "number", "minimum": 0},
+        "source_out_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "program_in_seconds": {"type": "number", "minimum": 0},
+        "program_out_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "speaker_name": {"type": "string", "minLength": 1, "maxLength": 256},
+        "source_language": {"enum": ["ru", "en"]},
+        "original_transcript": {"type": "string", "minLength": 1, "maxLength": 6000},
+        "transcript": {"type": "string", "minLength": 1, "maxLength": 6000},
+        "bilingual_review": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/bilingual_review"}
+          ]
+        },
+        "rights_status": {
+          "enum": ["consent_confirmed", "commercial_license_confirmed", "internal_prototype"]
+        },
+        "rights_evidence": {"type": ["string", "null"], "maxLength": 4096},
+        "extracted_audio_path": {"type": "string", "minLength": 1, "maxLength": 4096},
+        "checksums": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_video_sha256", "extracted_audio_sha256", "original_transcript_sha256",
+            "transcript_sha256", "bilingual_review_sha256"
+          ],
+          "properties": {
+            "source_video_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "extracted_audio_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "original_transcript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "transcript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "bilingual_review_sha256": {
+              "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"rights_status": {"const": "internal_prototype"}}},
+          "then": {"properties": {"rights_evidence": {"type": ["string", "null"]}}},
+          "else": {"properties": {"rights_evidence": {"type": "string", "minLength": 1}}}
+        }
+      ]
+    },
+    "bilingual_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approved", "approved_by", "approved_at", "asset_id", "source_in_seconds",
+        "source_out_seconds", "original_transcript_sha256", "russian_transcript_sha256",
+        "review_notes"
+      ],
+      "properties": {
+        "approved": {"const": true},
+        "approved_by": {"type": "string", "minLength": 1, "maxLength": 256},
+        "approved_at": {"type": "string", "format": "date-time"},
+        "asset_id": {"type": "string", "minLength": 3, "maxLength": 128},
+        "source_in_seconds": {"type": "number", "minimum": 0},
+        "source_out_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "original_transcript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "russian_transcript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "review_notes": {"type": "string", "minLength": 1, "maxLength": 2000}
+      }
+    }
+  },
   "allOf": [
     {
+      "if": {"properties": {"schema_version": {"const": "1.0.0"}}},
+      "then": {
+        "required": [
+          "source_video_uri_or_path", "source_in_seconds", "source_out_seconds",
+          "speaker_name", "rights_evidence"
+        ],
+        "not": {"anyOf": [{"required": ["segments"]}, {"required": ["segment_count"]}]},
+        "properties": {
+          "checksums": {
+            "required": ["source_video_sha256", "extracted_audio_sha256", "transcript_sha256"],
+            "not": {"required": ["segment_bindings_sha256"]}
+          }
+        }
+      },
+      "else": {
+        "required": ["segments", "segment_count"],
+        "not": {
+          "anyOf": [
+            {"required": ["source_video_uri_or_path"]},
+            {"required": ["source_in_seconds"]},
+            {"required": ["source_out_seconds"]},
+            {"required": ["speaker_name"]},
+            {"required": ["rights_evidence"]}
+          ]
+        },
+        "properties": {
+          "checksums": {
+            "required": ["extracted_audio_sha256", "transcript_sha256", "segment_bindings_sha256"],
+            "not": {"required": ["source_video_sha256"]}
+          }
+        }
+      }
+    },
+    {
       "if": {"properties": {"rights_status": {"const": "internal_prototype"}}},
-      "then": {"properties": {"rights_evidence": {"type": ["string", "null"]}}},
-      "else": {"properties": {"rights_evidence": {"type": "string", "minLength": 1}}}
+      "then": {},
+      "else": {
+        "if": {"properties": {"schema_version": {"const": "1.0.0"}}},
+        "then": {"properties": {"rights_evidence": {"type": "string", "minLength": 1}}}
+      }
     }
   ]
 }

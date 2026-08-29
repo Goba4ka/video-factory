@@ -19,8 +19,6 @@ ROLE_CONTRACTS = {
     "research": "claim_ledger",
     "privacy_review": "safety_gate_report",
     "sensitivity_review": "safety_gate_report",
-    "medical_review": "safety_gate_report",
-    "rights": "rights_manifest",
     "script": "script_package",
     "editor": "shotlist",
 }
@@ -28,8 +26,6 @@ ROLE_PROMPT_FILES = {
     "research": "research.md",
     "privacy_review": "privacy_review.md",
     "sensitivity_review": "sensitivity_review.md",
-    "medical_review": "medical_review.md",
-    "rights": "rights.md",
     "script": "script.md",
     "editor": "editor.md",
 }

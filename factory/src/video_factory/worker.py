@@ -790,7 +790,16 @@ def install_shutdown_handlers(stop_event: threading.Event) -> Callable[[], None]
 def default_resource_lock_path(role: str) -> Path | None:
     """Serialize roles that contend for the same GPU/decode-heavy host slot."""
 
-    if role not in {"render", "qc"}:
+    if role not in {
+        "bgm",
+        "audio_mix",
+        "render",
+        "qc_auto_evidence",
+        "caption_transcript",
+        "dedup_analyzer",
+        "visual_analyzer",
+        "qc",
+    }:
         return None
     root = Path(
         os.environ.get(

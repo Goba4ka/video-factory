@@ -1,0 +1,33 @@
+[Unit]
+Description=Materialize immutable Video Factory final-review handoffs
+Requires=video-factory-preflight.service
+After=video-factory-preflight.service
+
+[Service]
+Type=oneshot
+User=video-factory
+Group=video-factory
+UMask=0027
+EnvironmentFile=/etc/video-factory/runtime.env
+WorkingDirectory=/opt/video-factory/current
+ExecStart=/opt/video-factory/current/.venv/bin/python -m video_factory.review_release_reconciler
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectClock=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+RestrictNamespaces=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+SystemCallArchitectures=native
+RestrictAddressFamilies=AF_UNIX
+ReadWritePaths=/var/lib/video-factory/review_outbox

@@ -1,0 +1,1114 @@
+{
+  "engine": "faster-whisper",
+  "model": "small",
+  "language": "ru",
+  "language_probability": 1.0,
+  "duration": 29.355,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.88,
+      "text": "если ты посидел там полгода, считай, что ты не работал. Ты ничего не понял. У людей первое понимание начинает брежить через год.",
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.2,
+          "word": "если",
+          "probability": 0.63447
+        },
+        {
+          "start": 0.2,
+          "end": 0.32,
+          "word": "ты",
+          "probability": 0.98722
+        },
+        {
+          "start": 0.32,
+          "end": 0.72,
+          "word": "посидел",
+          "probability": 0.93105
+        },
+        {
+          "start": 0.72,
+          "end": 0.88,
+          "word": "там",
+          "probability": 0.86428
+        },
+        {
+          "start": 0.88,
+          "end": 1.36,
+          "word": "полгода,",
+          "probability": 0.96509
+        },
+        {
+          "start": 1.7,
+          "end": 1.88,
+          "word": "считай,",
+          "probability": 0.7964
+        },
+        {
+          "start": 1.9,
+          "end": 1.98,
+          "word": "что",
+          "probability": 0.99607
+        },
+        {
+          "start": 1.98,
+          "end": 2.08,
+          "word": "ты",
+          "probability": 0.97265
+        },
+        {
+          "start": 2.08,
+          "end": 2.16,
+          "word": "не",
+          "probability": 0.99392
+        },
+        {
+          "start": 2.16,
+          "end": 2.54,
+          "word": "работал.",
+          "probability": 0.9901
+        },
+        {
+          "start": 2.66,
+          "end": 2.66,
+          "word": "Ты",
+          "probability": 0.92699
+        },
+        {
+          "start": 2.66,
+          "end": 2.86,
+          "word": "ничего",
+          "probability": 0.97768
+        },
+        {
+          "start": 2.86,
+          "end": 3.0,
+          "word": "не",
+          "probability": 0.96726
+        },
+        {
+          "start": 3.0,
+          "end": 3.26,
+          "word": "понял.",
+          "probability": 0.99472
+        },
+        {
+          "start": 3.74,
+          "end": 3.92,
+          "word": "У",
+          "probability": 0.97642
+        },
+        {
+          "start": 3.92,
+          "end": 4.08,
+          "word": "людей",
+          "probability": 0.99938
+        },
+        {
+          "start": 4.08,
+          "end": 4.66,
+          "word": "первое",
+          "probability": 0.9934
+        },
+        {
+          "start": 4.66,
+          "end": 5.36,
+          "word": "понимание",
+          "probability": 0.99742
+        },
+        {
+          "start": 5.36,
+          "end": 5.86,
+          "word": "начинает",
+          "probability": 0.95064
+        },
+        {
+          "start": 5.86,
+          "end": 6.38,
+          "word": "брежить",
+          "probability": 0.49005
+        },
+        {
+          "start": 6.38,
+          "end": 6.6,
+          "word": "через",
+          "probability": 0.99455
+        },
+        {
+          "start": 6.6,
+          "end": 6.88,
+          "word": "год.",
+          "probability": 0.99884
+        }
+      ]
+    },
+    {
+      "start": 7.46,
+      "end": 11.18,
+      "text": "Вот год — это минимальный срок, когда вообще человек должен типа, блин, вот оно как все",
+      "words": [
+        {
+          "start": 7.46,
+          "end": 7.56,
+          "word": "Вот",
+          "probability": 0.72457
+        },
+        {
+          "start": 7.56,
+          "end": 7.74,
+          "word": "год",
+          "probability": 0.97149
+        },
+        {
+          "start": 7.74,
+          "end": 7.88,
+          "word": "—",
+          "probability": 0.39484
+        },
+        {
+          "start": 7.88,
+          "end": 7.92,
+          "word": "это",
+          "probability": 0.99163
+        },
+        {
+          "start": 7.92,
+          "end": 8.46,
+          "word": "минимальный",
+          "probability": 0.99687
+        },
+        {
+          "start": 8.46,
+          "end": 8.72,
+          "word": "срок,",
+          "probability": 0.99712
+        },
+        {
+          "start": 8.82,
+          "end": 8.96,
+          "word": "когда",
+          "probability": 0.99801
+        },
+        {
+          "start": 8.96,
+          "end": 9.22,
+          "word": "вообще",
+          "probability": 0.89152
+        },
+        {
+          "start": 9.22,
+          "end": 9.4,
+          "word": "человек",
+          "probability": 0.94648
+        },
+        {
+          "start": 9.4,
+          "end": 9.54,
+          "word": "должен",
+          "probability": 0.99603
+        },
+        {
+          "start": 9.54,
+          "end": 9.86,
+          "word": "типа,",
+          "probability": 0.50888
+        },
+        {
+          "start": 10.12,
+          "end": 10.28,
+          "word": "блин,",
+          "probability": 0.81347
+        },
+        {
+          "start": 10.34,
+          "end": 10.62,
+          "word": "вот",
+          "probability": 0.99188
+        },
+        {
+          "start": 10.62,
+          "end": 10.74,
+          "word": "оно",
+          "probability": 0.95152
+        },
+        {
+          "start": 10.74,
+          "end": 10.9,
+          "word": "как",
+          "probability": 0.85209
+        },
+        {
+          "start": 10.9,
+          "end": 11.18,
+          "word": "все",
+          "probability": 0.62036
+        }
+      ]
+    },
+    {
+      "start": 11.18,
+      "end": 17.44,
+      "text": "устроено, вот что хотелось, вот как можно жить, как можно работать, как можно задачи решать. Это занимает год.",
+      "words": [
+        {
+          "start": 11.18,
+          "end": 12.04,
+          "word": "устроено,",
+          "probability": 0.95617
+        },
+        {
+          "start": 12.12,
+          "end": 12.3,
+          "word": "вот",
+          "probability": 0.99388
+        },
+        {
+          "start": 12.3,
+          "end": 12.44,
+          "word": "что",
+          "probability": 0.60415
+        },
+        {
+          "start": 12.44,
+          "end": 12.86,
+          "word": "хотелось,",
+          "probability": 0.9954
+        },
+        {
+          "start": 12.9,
+          "end": 13.0,
+          "word": "вот",
+          "probability": 0.99655
+        },
+        {
+          "start": 13.0,
+          "end": 13.16,
+          "word": "как",
+          "probability": 0.98021
+        },
+        {
+          "start": 13.16,
+          "end": 13.46,
+          "word": "можно",
+          "probability": 0.99775
+        },
+        {
+          "start": 13.46,
+          "end": 13.92,
+          "word": "жить,",
+          "probability": 0.92537
+        },
+        {
+          "start": 14.12,
+          "end": 14.16,
+          "word": "как",
+          "probability": 0.99728
+        },
+        {
+          "start": 14.16,
+          "end": 14.42,
+          "word": "можно",
+          "probability": 0.99901
+        },
+        {
+          "start": 14.42,
+          "end": 14.78,
+          "word": "работать,",
+          "probability": 0.99844
+        },
+        {
+          "start": 14.98,
+          "end": 15.02,
+          "word": "как",
+          "probability": 0.99806
+        },
+        {
+          "start": 15.02,
+          "end": 15.32,
+          "word": "можно",
+          "probability": 0.99863
+        },
+        {
+          "start": 15.32,
+          "end": 16.04,
+          "word": "задачи",
+          "probability": 0.80616
+        },
+        {
+          "start": 16.04,
+          "end": 16.38,
+          "word": "решать.",
+          "probability": 0.99814
+        },
+        {
+          "start": 16.54,
+          "end": 16.72,
+          "word": "Это",
+          "probability": 0.99118
+        },
+        {
+          "start": 16.72,
+          "end": 17.2,
+          "word": "занимает",
+          "probability": 0.98589
+        },
+        {
+          "start": 17.2,
+          "end": 17.44,
+          "word": "год.",
+          "probability": 0.99895
+        }
+      ]
+    },
+    {
+      "start": 17.88,
+      "end": 24.78,
+      "text": "Даже для чуваков, которые действительно прошаренные, опытные, хорошие. А там уже такой сок начинает, там лет через пять,",
+      "words": [
+        {
+          "start": 17.88,
+          "end": 18.22,
+          "word": "Даже",
+          "probability": 0.99621
+        },
+        {
+          "start": 18.22,
+          "end": 18.5,
+          "word": "для",
+          "probability": 0.99762
+        },
+        {
+          "start": 18.5,
+          "end": 18.88,
+          "word": "чуваков,",
+          "probability": 0.9866
+        },
+        {
+          "start": 18.98,
+          "end": 19.2,
+          "word": "которые",
+          "probability": 0.96854
+        },
+        {
+          "start": 19.2,
+          "end": 19.54,
+          "word": "действительно",
+          "probability": 0.91978
+        },
+        {
+          "start": 19.54,
+          "end": 20.24,
+          "word": "прошаренные,",
+          "probability": 0.77605
+        },
+        {
+          "start": 20.56,
+          "end": 20.88,
+          "word": "опытные,",
+          "probability": 0.99801
+        },
+        {
+          "start": 21.0,
+          "end": 21.4,
+          "word": "хорошие.",
+          "probability": 0.99189
+        },
+        {
+          "start": 21.72,
+          "end": 21.86,
+          "word": "А",
+          "probability": 0.95965
+        },
+        {
+          "start": 21.86,
+          "end": 22.3,
+          "word": "там",
+          "probability": 0.9665
+        },
+        {
+          "start": 22.3,
+          "end": 22.62,
+          "word": "уже",
+          "probability": 0.83045
+        },
+        {
+          "start": 22.62,
+          "end": 22.94,
+          "word": "такой",
+          "probability": 0.9655
+        },
+        {
+          "start": 22.94,
+          "end": 23.22,
+          "word": "сок",
+          "probability": 0.98773
+        },
+        {
+          "start": 23.22,
+          "end": 23.8,
+          "word": "начинает,",
+          "probability": 0.95802
+        },
+        {
+          "start": 23.9,
+          "end": 24.14,
+          "word": "там",
+          "probability": 0.86946
+        },
+        {
+          "start": 24.14,
+          "end": 24.32,
+          "word": "лет",
+          "probability": 0.91638
+        },
+        {
+          "start": 24.32,
+          "end": 24.52,
+          "word": "через",
+          "probability": 0.82696
+        },
+        {
+          "start": 24.52,
+          "end": 24.78,
+          "word": "пять,",
+          "probability": 0.7106
+        }
+      ]
+    },
+    {
+      "start": 25.16,
+      "end": 29.04,
+      "text": "через десять, вот тогда уже прямо человек такой понимает, зачем он вообще все это делал.",
+      "words": [
+        {
+          "start": 25.16,
+          "end": 25.58,
+          "word": "через",
+          "probability": 0.70601
+        },
+        {
+          "start": 25.58,
+          "end": 25.92,
+          "word": "десять,",
+          "probability": 0.96205
+        },
+        {
+          "start": 26.0,
+          "end": 26.06,
+          "word": "вот",
+          "probability": 0.93725
+        },
+        {
+          "start": 26.06,
+          "end": 26.2,
+          "word": "тогда",
+          "probability": 0.94256
+        },
+        {
+          "start": 26.2,
+          "end": 26.38,
+          "word": "уже",
+          "probability": 0.96773
+        },
+        {
+          "start": 26.38,
+          "end": 26.6,
+          "word": "прямо",
+          "probability": 0.52343
+        },
+        {
+          "start": 26.6,
+          "end": 26.8,
+          "word": "человек",
+          "probability": 0.96907
+        },
+        {
+          "start": 26.8,
+          "end": 27.06,
+          "word": "такой",
+          "probability": 0.42818
+        },
+        {
+          "start": 27.06,
+          "end": 27.62,
+          "word": "понимает,",
+          "probability": 0.91703
+        },
+        {
+          "start": 27.68,
+          "end": 28.0,
+          "word": "зачем",
+          "probability": 0.99244
+        },
+        {
+          "start": 28.0,
+          "end": 28.24,
+          "word": "он",
+          "probability": 0.99396
+        },
+        {
+          "start": 28.24,
+          "end": 28.44,
+          "word": "вообще",
+          "probability": 0.99568
+        },
+        {
+          "start": 28.44,
+          "end": 28.58,
+          "word": "все",
+          "probability": 0.68012
+        },
+        {
+          "start": 28.58,
+          "end": 28.72,
+          "word": "это",
+          "probability": 0.99688
+        },
+        {
+          "start": 28.72,
+          "end": 29.04,
+          "word": "делал.",
+          "probability": 0.99211
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "start": 0.0,
+      "end": 0.2,
+      "word": "если",
+      "probability": 0.63447
+    },
+    {
+      "start": 0.2,
+      "end": 0.32,
+      "word": "ты",
+      "probability": 0.98722
+    },
+    {
+      "start": 0.32,
+      "end": 0.72,
+      "word": "посидел",
+      "probability": 0.93105
+    },
+    {
+      "start": 0.72,
+      "end": 0.88,
+      "word": "там",
+      "probability": 0.86428
+    },
+    {
+      "start": 0.88,
+      "end": 1.36,
+      "word": "полгода,",
+      "probability": 0.96509
+    },
+    {
+      "start": 1.7,
+      "end": 1.88,
+      "word": "считай,",
+      "probability": 0.7964
+    },
+    {
+      "start": 1.9,
+      "end": 1.98,
+      "word": "что",
+      "probability": 0.99607
+    },
+    {
+      "start": 1.98,
+      "end": 2.08,
+      "word": "ты",
+      "probability": 0.97265
+    },
+    {
+      "start": 2.08,
+      "end": 2.16,
+      "word": "не",
+      "probability": 0.99392
+    },
+    {
+      "start": 2.16,
+      "end": 2.54,
+      "word": "работал.",
+      "probability": 0.9901
+    },
+    {
+      "start": 2.66,
+      "end": 2.66,
+      "word": "Ты",
+      "probability": 0.92699
+    },
+    {
+      "start": 2.66,
+      "end": 2.86,
+      "word": "ничего",
+      "probability": 0.97768
+    },
+    {
+      "start": 2.86,
+      "end": 3.0,
+      "word": "не",
+      "probability": 0.96726
+    },
+    {
+      "start": 3.0,
+      "end": 3.26,
+      "word": "понял.",
+      "probability": 0.99472
+    },
+    {
+      "start": 3.74,
+      "end": 3.92,
+      "word": "У",
+      "probability": 0.97642
+    },
+    {
+      "start": 3.92,
+      "end": 4.08,
+      "word": "людей",
+      "probability": 0.99938
+    },
+    {
+      "start": 4.08,
+      "end": 4.66,
+      "word": "первое",
+      "probability": 0.9934
+    },
+    {
+      "start": 4.66,
+      "end": 5.36,
+      "word": "понимание",
+      "probability": 0.99742
+    },
+    {
+      "start": 5.36,
+      "end": 5.86,
+      "word": "начинает",
+      "probability": 0.95064
+    },
+    {
+      "start": 5.86,
+      "end": 6.38,
+      "word": "брежить",
+      "probability": 0.49005
+    },
+    {
+      "start": 6.38,
+      "end": 6.6,
+      "word": "через",
+      "probability": 0.99455
+    },
+    {
+      "start": 6.6,
+      "end": 6.88,
+      "word": "год.",
+      "probability": 0.99884
+    },
+    {
+      "start": 7.46,
+      "end": 7.56,
+      "word": "Вот",
+      "probability": 0.72457
+    },
+    {
+      "start": 7.56,
+      "end": 7.74,
+      "word": "год",
+      "probability": 0.97149
+    },
+    {
+      "start": 7.74,
+      "end": 7.88,
+      "word": "—",
+      "probability": 0.39484
+    },
+    {
+      "start": 7.88,
+      "end": 7.92,
+      "word": "это",
+      "probability": 0.99163
+    },
+    {
+      "start": 7.92,
+      "end": 8.46,
+      "word": "минимальный",
+      "probability": 0.99687
+    },
+    {
+      "start": 8.46,
+      "end": 8.72,
+      "word": "срок,",
+      "probability": 0.99712
+    },
+    {
+      "start": 8.82,
+      "end": 8.96,
+      "word": "когда",
+      "probability": 0.99801
+    },
+    {
+      "start": 8.96,
+      "end": 9.22,
+      "word": "вообще",
+      "probability": 0.89152
+    },
+    {
+      "start": 9.22,
+      "end": 9.4,
+      "word": "человек",
+      "probability": 0.94648
+    },
+    {
+      "start": 9.4,
+      "end": 9.54,
+      "word": "должен",
+      "probability": 0.99603
+    },
+    {
+      "start": 9.54,
+      "end": 9.86,
+      "word": "типа,",
+      "probability": 0.50888
+    },
+    {
+      "start": 10.12,
+      "end": 10.28,
+      "word": "блин,",
+      "probability": 0.81347
+    },
+    {
+      "start": 10.34,
+      "end": 10.62,
+      "word": "вот",
+      "probability": 0.99188
+    },
+    {
+      "start": 10.62,
+      "end": 10.74,
+      "word": "оно",
+      "probability": 0.95152
+    },
+    {
+      "start": 10.74,
+      "end": 10.9,
+      "word": "как",
+      "probability": 0.85209
+    },
+    {
+      "start": 10.9,
+      "end": 11.18,
+      "word": "все",
+      "probability": 0.62036
+    },
+    {
+      "start": 11.18,
+      "end": 12.04,
+      "word": "устроено,",
+      "probability": 0.95617
+    },
+    {
+      "start": 12.12,
+      "end": 12.3,
+      "word": "вот",
+      "probability": 0.99388
+    },
+    {
+      "start": 12.3,
+      "end": 12.44,
+      "word": "что",
+      "probability": 0.60415
+    },
+    {
+      "start": 12.44,
+      "end": 12.86,
+      "word": "хотелось,",
+      "probability": 0.9954
+    },
+    {
+      "start": 12.9,
+      "end": 13.0,
+      "word": "вот",
+      "probability": 0.99655
+    },
+    {
+      "start": 13.0,
+      "end": 13.16,
+      "word": "как",
+      "probability": 0.98021
+    },
+    {
+      "start": 13.16,
+      "end": 13.46,
+      "word": "можно",
+      "probability": 0.99775
+    },
+    {
+      "start": 13.46,
+      "end": 13.92,
+      "word": "жить,",
+      "probability": 0.92537
+    },
+    {
+      "start": 14.12,
+      "end": 14.16,
+      "word": "как",
+      "probability": 0.99728
+    },
+    {
+      "start": 14.16,
+      "end": 14.42,
+      "word": "можно",
+      "probability": 0.99901
+    },
+    {
+      "start": 14.42,
+      "end": 14.78,
+      "word": "работать,",
+      "probability": 0.99844
+    },
+    {
+      "start": 14.98,
+      "end": 15.02,
+      "word": "как",
+      "probability": 0.99806
+    },
+    {
+      "start": 15.02,
+      "end": 15.32,
+      "word": "можно",
+      "probability": 0.99863
+    },
+    {
+      "start": 15.32,
+      "end": 16.04,
+      "word": "задачи",
+      "probability": 0.80616
+    },
+    {
+      "start": 16.04,
+      "end": 16.38,
+      "word": "решать.",
+      "probability": 0.99814
+    },
+    {
+      "start": 16.54,
+      "end": 16.72,
+      "word": "Это",
+      "probability": 0.99118
+    },
+    {
+      "start": 16.72,
+      "end": 17.2,
+      "word": "занимает",
+      "probability": 0.98589
+    },
+    {
+      "start": 17.2,
+      "end": 17.44,
+      "word": "год.",
+      "probability": 0.99895
+    },
+    {
+      "start": 17.88,
+      "end": 18.22,
+      "word": "Даже",
+      "probability": 0.99621
+    },
+    {
+      "start": 18.22,
+      "end": 18.5,
+      "word": "для",
+      "probability": 0.99762
+    },
+    {
+      "start": 18.5,
+      "end": 18.88,
+      "word": "чуваков,",
+      "probability": 0.9866
+    },
+    {
+      "start": 18.98,
+      "end": 19.2,
+      "word": "которые",
+      "probability": 0.96854
+    },
+    {
+      "start": 19.2,
+      "end": 19.54,
+      "word": "действительно",
+      "probability": 0.91978
+    },
+    {
+      "start": 19.54,
+      "end": 20.24,
+      "word": "прошаренные,",
+      "probability": 0.77605
+    },
+    {
+      "start": 20.56,
+      "end": 20.88,
+      "word": "опытные,",
+      "probability": 0.99801
+    },
+    {
+      "start": 21.0,
+      "end": 21.4,
+      "word": "хорошие.",
+      "probability": 0.99189
+    },
+    {
+      "start": 21.72,
+      "end": 21.86,
+      "word": "А",
+      "probability": 0.95965
+    },
+    {
+      "start": 21.86,
+      "end": 22.3,
+      "word": "там",
+      "probability": 0.9665
+    },
+    {
+      "start": 22.3,
+      "end": 22.62,
+      "word": "уже",
+      "probability": 0.83045
+    },
+    {
+      "start": 22.62,
+      "end": 22.94,
+      "word": "такой",
+      "probability": 0.9655
+    },
+    {
+      "start": 22.94,
+      "end": 23.22,
+      "word": "сок",
+      "probability": 0.98773
+    },
+    {
+      "start": 23.22,
+      "end": 23.8,
+      "word": "начинает,",
+      "probability": 0.95802
+    },
+    {
+      "start": 23.9,
+      "end": 24.14,
+      "word": "там",
+      "probability": 0.86946
+    },
+    {
+      "start": 24.14,
+      "end": 24.32,
+      "word": "лет",
+      "probability": 0.91638
+    },
+    {
+      "start": 24.32,
+      "end": 24.52,
+      "word": "через",
+      "probability": 0.82696
+    },
+    {
+      "start": 24.52,
+      "end": 24.78,
+      "word": "пять,",
+      "probability": 0.7106
+    },
+    {
+      "start": 25.16,
+      "end": 25.58,
+      "word": "через",
+      "probability": 0.70601
+    },
+    {
+      "start": 25.58,
+      "end": 25.92,
+      "word": "десять,",
+      "probability": 0.96205
+    },
+    {
+      "start": 26.0,
+      "end": 26.06,
+      "word": "вот",
+      "probability": 0.93725
+    },
+    {
+      "start": 26.06,
+      "end": 26.2,
+      "word": "тогда",
+      "probability": 0.94256
+    },
+    {
+      "start": 26.2,
+      "end": 26.38,
+      "word": "уже",
+      "probability": 0.96773
+    },
+    {
+      "start": 26.38,
+      "end": 26.6,
+      "word": "прямо",
+      "probability": 0.52343
+    },
+    {
+      "start": 26.6,
+      "end": 26.8,
+      "word": "человек",
+      "probability": 0.96907
+    },
+    {
+      "start": 26.8,
+      "end": 27.06,
+      "word": "такой",
+      "probability": 0.42818
+    },
+    {
+      "start": 27.06,
+      "end": 27.62,
+      "word": "понимает,",
+      "probability": 0.91703
+    },
+    {
+      "start": 27.68,
+      "end": 28.0,
+      "word": "зачем",
+      "probability": 0.99244
+    },
+    {
+      "start": 28.0,
+      "end": 28.24,
+      "word": "он",
+      "probability": 0.99396
+    },
+    {
+      "start": 28.24,
+      "end": 28.44,
+      "word": "вообще",
+      "probability": 0.99568
+    },
+    {
+      "start": 28.44,
+      "end": 28.58,
+      "word": "все",
+      "probability": 0.68012
+    },
+    {
+      "start": 28.58,
+      "end": 28.72,
+      "word": "это",
+      "probability": 0.99688
+    },
+    {
+      "start": 28.72,
+      "end": 29.04,
+      "word": "делал.",
+      "probability": 0.99211
+    }
+  ]
+}

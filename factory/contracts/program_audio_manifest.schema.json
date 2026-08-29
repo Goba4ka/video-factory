@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/program_audio_manifest.schema.json",
+  "title": "ProgramAudioManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "job_id", "idea_id", "lane_id", "source_authority",
+    "bgm", "mix", "immutable_output_path", "output_sha256", "output_bytes",
+    "audio", "created_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "idea_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "lane_id": {
+      "enum": ["war_history", "celebrity_news", "motivation", "chinese_medicine", "health"]
+    },
+    "source_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract", "manifest_sha256", "audio_sha256", "authority", "tts"],
+      "properties": {
+        "contract": {"enum": ["voice_manifest", "source_audio_manifest"]},
+        "manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "audio_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "authority": {"const": "spoken_content_and_timing"},
+        "tts": {"type": "boolean"}
+      }
+    },
+    "bgm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id", "manifest_sha256", "audio_sha256", "license_evidence_sha256",
+        "human_approval_sha256"
+      ],
+      "properties": {
+        "asset_id": {"type": "string", "minLength": 3, "maxLength": 128},
+        "manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "audio_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "license_evidence_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "human_approval_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "mix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "engine", "ffmpeg_version", "recipe_version", "filtergraph_sha256",
+        "loudness_target_lufs", "true_peak_max_dbtp", "lra_target_lu",
+        "mix_profile_id", "bgm_preduck_gain_db", "sidechain_threshold_dbfs",
+        "sidechain_ratio", "sidechain_attack_ms", "sidechain_release_ms",
+        "sidechain_ducking", "broll_audio_muted", "deterministic"
+      ],
+      "properties": {
+        "engine": {"const": "ffmpeg"},
+        "ffmpeg_version": {"type": "string", "minLength": 1, "maxLength": 512},
+        "recipe_version": {"const": "program-mix-1.0.0"},
+        "filtergraph_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "loudness_target_lufs": {"const": -15},
+        "true_peak_max_dbtp": {"const": -1},
+        "lra_target_lu": {"const": 7},
+        "mix_profile_id": {"const": "speech-forward-audible-bgm-v1"},
+        "bgm_preduck_gain_db": {"const": -9},
+        "sidechain_threshold_dbfs": {"const": -34},
+        "sidechain_ratio": {"const": 10},
+        "sidechain_attack_ms": {"const": 15},
+        "sidechain_release_ms": {"const": 350},
+        "sidechain_ducking": {"const": true},
+        "broll_audio_muted": {"const": true},
+        "deterministic": {"const": true}
+      }
+    },
+    "immutable_output_path": {"type": "string", "minLength": 1, "maxLength": 4096},
+    "output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "output_bytes": {"type": "integer", "minimum": 44},
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sample_rate_hz", "channels", "sample_width_bits", "frames",
+        "duration_seconds", "integrated_loudness_lufs", "loudness_range_lu",
+        "true_peak_dbtp"
+      ],
+      "properties": {
+        "sample_rate_hz": {"const": 48000},
+        "channels": {"const": 2},
+        "sample_width_bits": {"const": 16},
+        "frames": {"type": "integer", "minimum": 1},
+        "duration_seconds": {"type": "number", "minimum": 15, "maximum": 180},
+        "integrated_loudness_lufs": {"type": "number", "minimum": -15.5, "maximum": -14.5},
+        "loudness_range_lu": {"type": "number", "minimum": 0, "maximum": 20},
+        "true_peak_dbtp": {"type": "number", "maximum": -0.9}
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

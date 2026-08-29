@@ -1,0 +1,68 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "307cfd8146104fadf6c24001d2771a06be71f2827e7014f68d2356524b24b6c7",
+    "report_path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\.cache\\qc-v4-celebrity\\objects\\media-qc\\30\\307cfd8146104fadf6c24001d2771a06be71f2827e7014f68d2356524b24b6c7.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 7.343,
+  "failures": [
+    {
+      "code": "delivery_size",
+      "message": "7807587 bytes exceeds hard Telegram cap 2849000"
+    }
+  ],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 25.989,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 25.99,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\audio-preview-v4-20260830\\celebrity-v4-telegram-preview.mp4",
+    "size_bytes": 7807587,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 25.966992,
+      "fps": 30.0,
+      "height": 1280,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 720
+    }
+  },
+  "ok": false,
+  "profile": {
+    "name": "motivation_v3_telegram",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -14.85,
+      "lra_lu": 2.2,
+      "threshold_lufs": -24.85,
+      "true_peak_dbtp": -2.1
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\audio-preview-v4-20260830\\celebrity-v4-telegram-preview.mp4",
+  "status": "final_technical_fail",
+  "technical_pass": false,
+  "warnings": []
+}

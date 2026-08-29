@@ -41,6 +41,30 @@ class EditorialHandlerTests(unittest.TestCase):
                 "rules",
             )
 
+    def test_rejects_autonomous_medical_review(self) -> None:
+        with self.assertRaisesRegex(ValidationError, "not autonomous"):
+            build_editorial_prompt(
+                {
+                    "id": "task_123456",
+                    "role": "medical_review",
+                    "payload": {"required_result_contract": "safety_gate_report"},
+                    "upstream_results": [],
+                },
+                "rules",
+            )
+
+    def test_rejects_autonomous_rights_review(self) -> None:
+        with self.assertRaisesRegex(ValidationError, "not autonomous"):
+            build_editorial_prompt(
+                {
+                    "id": "task_123456",
+                    "role": "rights",
+                    "payload": {"required_result_contract": "rights_manifest"},
+                    "upstream_results": [],
+                },
+                "rules",
+            )
+
     def test_rejects_role_contract_mismatch(self) -> None:
         with self.assertRaisesRegex(ValidationError, "required_result_contract"):
             build_editorial_prompt(

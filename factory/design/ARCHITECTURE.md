@@ -1,10 +1,22 @@
 # Editorial Video Factory Architecture
 
-> **Current deployment (2026-08-29):** the canonical topology is the five-lane registry in `factory/lanes/registry.json`: `war_history`, `celebrity_news`, `motivation`, `chinese_medicine`, and `health`, allocated 2–3 outputs per lane for 10–15 per day. Release now fails closed on lane-specific freshness, visual provenance, originality, rights, and final human approval. The three-cell examples below document the earlier prototype and are retained only as migration context. Runtime role chains must come from the registry.
+> **Current control-plane topology (2026-08-30):** the canonical topology and
+> exact task order are the five-lane registry in
+> `factory/lanes/registry.json`: `war_history`, `celebrity_news`, `motivation`,
+> `chinese_medicine`, and `health`, allocated 2–3 outputs per lane for 10–15 per
+> day. No prose document, prompt, or schema inventory may shorten or reorder the
+> registry DAG. Production remains review-first and fails closed on the
+> lane-specific review, human rights approval, preview approval, evidence QC,
+> human final review, and publication authorization.
 
 ## 1. Objective and boundaries
 
-The factory prepares 10–15 short-form videos per working day across independent topic lanes. It automates discovery, evidence collection, rights review, scripting, edit planning, caption planning, rendering hand-off, and QC reporting.
+The factory prepares 10–15 short-form videos per working day across independent
+topic lanes. It automates discovery, evidence collection, rights-audit
+preparation, scripting, edit planning, caption planning, audio/program
+compilation, rendering, and QC evidence production. Attributable humans retain
+the topic, medical (where configured), rights, preview, final-review, and
+publication decisions described below.
 
 It does **not** publish autonomously. Topic selection and final pre-publication
 approval are permanent human gates. Script approval is human during calibration
@@ -23,43 +35,47 @@ Calling a topic agent “trained” must not imply fine-tuning unless a versione
 
 ## 2. Operating model
 
-### 2.1 Topic cells
+### 2.1 Topic lanes
 
-Run three independent editorial cells, initially mapped to:
-
-1. `space_technology`
-2. `nature_animals`
-3. `people_culture`
-
-Each cell uses the same role prompts and state contract, but loads its own topic pack. A cell owns its queue, daily target, rejected-topic memory, source allowlist, and performance history. Cells may work concurrently without sharing unverified claims or uncleared assets.
+Run five independent editorial lanes. Each lane uses the shared task contracts,
+loads its own topic pack, and owns its queue pod, daily target, rejected-topic
+memory, source policy, and performance history. Lanes may work concurrently
+without sharing unverified claims, human approvals, or uncleared assets.
 
 Recommended daily allocation:
 
-| Cell | Base target | Stretch target |
+| Lane | Base target | Stretch target |
 |---|---:|---:|
-| Space & technology | 3 | 5 |
-| Nature & animals | 3 | 5 |
-| People & culture | 4 | 5 |
+| War history | 2 | 3 |
+| Celebrity news | 2 | 3 |
+| Motivation | 2 | 3 |
+| Chinese medicine | 2 | 3 |
+| Health | 2 | 3 |
 | **Total** | **10** | **15** |
 
 Allocation should be rebalanced weekly using acceptance rate, rights-clearance rate, editing time, retention, and correction rate—not raw view count alone.
 
 ### 2.2 Roles
 
-| Role | Responsibility | May change job state to | Must not do |
+The registry is authoritative for order. Brackets below mean the registry
+selects one lane-specific role, not that a worker may choose or skip a task:
+
+`research -> [sensitivity_review/privacy_review/medical_review/none] -> media_discovery -> rights -> media -> script -> [voice/source_audio] -> editor -> bgm -> audio_mix -> compiler -> preview_review -> render -> qc_auto_evidence -> caption_transcript -> captions_analyzer -> facts_analyzer -> policy_analyzer -> dedup_analyzer -> visual_analyzer -> qc_evidence_gate -> qc -> final_review -> publisher`
+
+| Role/group | Responsibility | Gate/authority boundary | Must not do |
 |---|---|---|---|
-| Orchestrator | Creates batch IDs, assigns topic packs, enforces WIP limits, validates schemas, routes failures | Any routing state permitted by the transition table | Invent facts, waive a gate, approve publication |
-| Scout | Finds timely, visual, sourceable topic candidates | `scouted` | Write a final script or claim that a public clip is reusable |
-| Human topic editor | Selects candidates and sets priority | `topic_approved`, `topic_rejected` | Approve from headline only when evidence links are missing |
-| Research agent | Builds a claim ledger from primary and independent sources | `researched`, `research_blocked` | Add unsupported facts to make a story stronger |
-| Rights agent | Audits every proposed asset and records license/permission obligations | `rights_cleared`, `rights_blocked` | Treat public availability, attribution, or “fair use” as automatic permission |
-| Script agent | Produces evidence-linked script variants using supported claim IDs only | `script_drafted` | Research new facts inside the script or remove uncertainty labels |
-| Script gate | Automatically validates calibrated green-lane scripts; otherwise routes to a human editor | `script_approved`, `script_rework` | Approve unsupported claims or waive calibration/risk rules |
-| Editor agent | Produces EDL, asset map, captions, audio plan, and render specification | `edit_planned`, `edit_blocked` | Use an asset not in the cleared manifest or publish |
-| Render worker | Executes the approved deterministic edit specification | `rendered`, `render_failed` | Substitute assets or rewrite narration silently |
-| QC agent | Runs technical, factual, rights, caption, and brand checks | `qc_passed`, `qc_failed` | Waive errors or grant publication approval |
-| Human publisher | Reviews the actual final render and destination metadata | `publish_approved`, `publish_rejected` | Delegate final approval to an unattended agent |
-| Publisher connector | Publishes only an approved immutable render checksum | `published`, `publish_failed` | Schedule or publish without a matching human approval record |
+| Orchestrator and topic editor | Creates the daily slate, records explicit topic decisions, builds the exact registry dependency chain, enforces WIP and routes rework | Human topic selection precedes the registry DAG | Invent facts, shorten the DAG, waive a gate, or approve publication |
+| `research` + lane review | Builds the claim ledger and applies sensitivity/privacy/medical policy | `medical_review` is an attributable qualified-human gate; other reviews fail closed on uncertainty | Add unsupported facts or silently soften risk |
+| `media_discovery` | Produces candidate media and provenance evidence | Discovery output is not permission | Treat a URL or provider result as a rights decision |
+| `rights` | Produces and reviews the item-level RightsManifest | Only an attributable human may complete the exact manifest-SHA and asset-list approval | Treat public availability, attribution, or fair use as automatic permission |
+| `media` | Freezes only approved asset bytes and evidence | Must bind the approved RightsManifest | Substitute, download, or edit a blocked asset |
+| `script` + `voice`/`source_audio` + `editor` | Produces evidence-linked copy, authoritative speech timing, captions, shotlist, and edit plan | Motivation uses source speech only; narrated lanes use the bounded voice contract | Research new facts, use TTS for motivation, or introduce uncleared media |
+| `bgm` + `audio_mix` | Freezes licensed music and creates the checksum-bound program mix | BGM rights and receipt bytes remain bound; B-roll audio stays muted | Download unknown music or replace authoritative speech |
+| `compiler` + `preview_review` | Compiles the deterministic HyperFrames project and binds its immutable preview | Only the human preview decision opens render | Render a changed or unapproved project tree |
+| `render` | Executes the approved deterministic project | Output binds the exact project and program mix | Substitute assets or rewrite narration silently |
+| Evidence producers + `qc_evidence_gate` + `qc` | Runs combined technical/audio/rights evidence, transcript, five semantic analyzers, immutable evidence bundle, and final FULL QC | Every artifact binds the same render SHA; missing/stale evidence blocks | Self-certify missing evidence or grant publication approval |
+| `final_review` | Reviews the actual render and destination metadata | Attributable checksum-bound human decision | Delegate final approval to an unattended worker |
+| `publisher` | Materializes or executes an explicitly authorized publish action | Remains human-controlled and destination-bound | Schedule or publish without the matching approval record |
 
 ## 3. Canonical job contract
 
@@ -101,41 +117,35 @@ Required invariants:
 ## 4. State machine
 
 ```mermaid
-stateDiagram-v2
-    [*] --> queued
-    queued --> scouted: scout candidate
-    scouted --> topic_approved: human topic gate
-    scouted --> topic_rejected: human reject
-    topic_approved --> researched: evidence passes
-    topic_approved --> research_blocked: insufficient evidence
-    researched --> rights_cleared: usable asset set exists
-    researched --> rights_blocked: assets unavailable or restricted
-    rights_cleared --> script_drafted: evidence-linked variants
-    script_drafted --> script_approved: calibrated green auto-gate or human gate
-    script_drafted --> script_rework: validation or human revision
-    script_rework --> script_drafted
-    script_approved --> edit_planned: EDL and captions valid
-    edit_planned --> rendered: deterministic render succeeds
-    edit_planned --> edit_blocked: missing asset or invalid spec
-    rendered --> qc_passed: automated and editorial QC pass
-    rendered --> qc_failed: any blocking defect
-    qc_failed --> edit_planned: edit-only defect
-    qc_failed --> researched: factual defect
-    qc_failed --> rights_blocked: rights defect
-    qc_passed --> publish_approved: human reviews final render
-    qc_passed --> publish_rejected: human rejects
-    publish_rejected --> edit_planned
-    publish_approved --> published: publisher connector
-    publish_approved --> publish_failed: connector failure
-    publish_failed --> publish_approved: same immutable artifact retry
-    published --> [*]
+flowchart TD
+    T[Human topic approval] --> R[research]
+    R --> S[lane review when configured]
+    S --> MD[media_discovery]
+    MD --> HR[human rights approval]
+    HR --> M[media freeze]
+    M --> SC[script]
+    SC --> SP[voice or source_audio]
+    SP --> E[editor]
+    E --> B[bgm]
+    B --> AM[audio_mix]
+    AM --> C[compiler]
+    C --> PR[human preview_review]
+    PR --> RE[render]
+    RE --> AE[qc_auto_evidence]
+    AE --> CT[caption_transcript]
+    CT --> AN[five semantic analyzers]
+    AN --> EG[qc_evidence_gate]
+    EG --> QC[qc]
+    QC --> FR[human final_review]
+    FR --> P[human-controlled publisher]
 ```
 
-Only the human topic editor can create `topic_approved`. `script_approved` may
-be created automatically only for a calibrated green-lane cell with a complete
-claim ledger, cleared rights, no forbidden-claim hit, and a clean schema/rubric
-validation; all other scripts require a human editor. Only the human publisher
-can create `publish_approved`.
+Every box corresponds to one or more ordered registry tasks; task state is
+durable (`queued`, `leased`, `completed`, `failed`, or `dead`) rather than a
+second prose-only job state machine. Only the human topic editor may approve a
+topic. A qualified human completes `medical_review`; an attributable human
+completes `rights`, `preview_review`, and `final_review`. Publication is never
+inferred from an earlier topic, script, preview, or QC decision.
 
 Blocked jobs are not silently discarded. The orchestrator records a reason code, stops downstream work, and either routes to a fallback topic/asset or presents the blockage to a human.
 
@@ -171,8 +181,12 @@ Blocked jobs are not silently discarded. The orchestrator records a reason code,
 - Every planned asset is `approved`, `approved_with_conditions`, or removed.
 - License/permission, owner, territory, platforms, commercial use, edit rights, duration, expiry, attribution, and proof location are recorded.
 - Public availability is not evidence of permission.
+- A passing RightsManifest is checksum-bound to an attributable human approval
+  that enumerates every reviewed asset. Autonomous agents may research terms,
+  but they cannot complete the production `rights` gate.
 - No watermark removal, access-control bypass, deceptive provenance, staged-rescue content, or private/sensitive personal data.
 - Minors, victims, medical contexts, private individuals, sacred/culturally sensitive material, and user-generated footage receive elevated review.
+- Medical-lane safety approval is never delegated to the autonomous Codex worker. A passing `medical_review` records the human reviewer's identity, qualification, timestamp, and approval note; absence of any field blocks downstream work.
 
 ### G4 — Script approval
 
@@ -194,9 +208,23 @@ Blocked jobs are not silently discarded. The orchestrator records a reason code,
 - Minimal edits to third-party footage do not satisfy originality. The approved
   script and EDL must identify the new analysis, explanation, comparison, or
   storyline contributed by the factory.
+- Background music must be a separate immutable WAV whose bytes, source asset,
+  local license receipt, exact RightsManifest, and attributable human approval
+  are all bound by SHA-256. Missing or changed evidence blocks compilation.
+- Spoken content and timing remain authoritative from `VoiceManifest` or
+  `SourceAudioManifest`. `ProgramAudioManifest` may mix and normalize that audio
+  but may not replace its identity or silently substitute a different take.
+- The reproducible mix profile is recorded in the manifest. The baseline is
+  audible speech-forward BGM at -9 dB before speech-keyed sidechain ducking,
+  followed by two-pass normalization to -15 LUFS / -1 dBTP. HyperFrames uses
+  exactly one checksum-bound program-mix track and mutes all B-roll audio.
 
 ### G6 — QC
 
+- Render проходит последовательный evidence DAG: combined technical/audio/rights
+  scan, word-level transcript, captions/facts/policy/dedup/visual analyzers,
+  immutable evidence bundle и повторный FULL master scan. Ни один producer не
+  может сам выдать финальный `qc_passed`.
 - Technical: duration, aspect, codec, loudness, peak, black frames, duplicate frames, caption overflow, missing audio.
 - Editorial: opening promise delivered, pacing, no dangling context, correct pronunciation and captions.
 - Factual: claim-to-script diff and on-screen-number check.
@@ -228,9 +256,9 @@ The scout should maintain 2.0–2.5 viable candidates for every desired publicat
 | Lane | WIP limit | Service target per job |
 |---|---:|---:|
 | Human topic review | 20 per wave | 10–15 min per batch |
-| Research | 9 total / 3 per cell | 20–35 min |
-| Rights review | 9 total / 3 per cell | 15–30 min |
-| Script drafting | 6 total / 2 per cell | 10–20 min |
+| Research | 9 total / lane limits from runtime configuration | 20–35 min |
+| Human rights review | 9 total / lane limits from runtime configuration | 15–30 min |
+| Script drafting | 6 total / lane limits from runtime configuration | 10–20 min |
 | Human script review | 8 per batch | 15–25 min per batch |
 | Edit planning/render | 6 total | 20–40 min |
 | QC | 6 total | 8–15 min |
@@ -245,17 +273,23 @@ WIP is counted per job, not per agent process. Scaling agent count without WIP l
 - If research is blocked, replace the topic; do not weaken the evidence gate.
 - If script approval becomes the bottleneck, reduce variants from three to two before increasing daily output.
 - If QC failure exceeds 10%, pause the affected template and run root-cause review.
-- Maintain two evergreen, fully researched fallback jobs per cell; their current claims and rights must be revalidated before use.
+- Maintain two evergreen, fully researched fallback jobs per lane; their current claims and rights must be revalidated before use.
 
 ## 7. Scheduling and orchestration rules
 
-1. Orchestrator creates a daily slate and pins `topic_pack` versions.
-2. Scout agents may run concurrently by cell.
-3. After G1, research and preliminary rights discovery run concurrently, but the script cannot start until both required states pass.
-4. Script agents receive immutable claim ledgers and topic packs.
-5. Editor agents receive only the human-approved script and cleared asset manifest.
-6. Failures route backward to the earliest owning role; downstream agents never patch upstream truth silently.
-7. Every prompt execution records model/version, prompt version, tool calls, input artifact hashes, output hash, latency, and token/cost metrics.
+1. The orchestrator creates a daily slate, pins `topic_pack` and registry
+   versions, and records the human topic decision.
+2. Separate lanes may run concurrently, but every accepted job receives exactly
+   the dependency order from its registry `roles` array.
+3. A role becomes eligible only after its immediate registry predecessor has a
+   schema-valid, checksum-bound passing result. Human gates remain queued until
+   the attributable decision is supplied.
+4. Motivation selects `source_audio`; all other lanes select `voice`. No prompt
+   may switch this branch.
+5. Failures route backward to the earliest owning role; downstream workers never
+   patch upstream truth or reuse a stale approval silently.
+6. Every prompt execution records model/version, prompt version, tool calls,
+   input artifact hashes, output hash, latency, and token/cost metrics.
 
 ## 8. Metrics
 

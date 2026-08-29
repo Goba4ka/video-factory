@@ -80,9 +80,13 @@ items for every new server render:
 - full-bleed source media must be at least 720p and preferably 1080p. Lower
   resolution archive is framed, treated as archive, or replaced; 648x480 is not
   enlarged edge-to-edge;
-- the music bed stays approximately 8-12 LU below intelligible speech during
-  voiced sections. A measured 18-29 LU gap is considered inaudible music, not a
-  successful mix;
+- every licensed music bed is first frozen at `-14 ±0.5 LUFS` with true peak
+  `<= -1.4 dBTP`; the mix then applies a recorded `-9 dB` pre-duck gain, so the
+  nominal bed lands near `-23 LUFS` before speech-keyed ducking instead of
+  depending on the source file's arbitrary mastering level;
+- during voiced sections the music remains approximately 8-12 LU below
+  intelligible speech. A measured 18-29 LU gap is considered inaudible music,
+  not a successful mix;
 - cuts in the first six seconds must carry continuous visual or speaker motion;
   a static opening longer than 0.35 seconds needs a deliberate story reason;
 - commercial music, speech clips, fonts, and imagery require item-level rights

@@ -44,8 +44,8 @@
     },
     {
       "step": 4,
-      "id": "autonomous_production",
-      "action": "После решений пользователя автономно произвести 2–3 одобренных ролика до контрольных MP4.",
+      "id": "registry_production",
+      "action": "После решений пользователя провести 2–3 одобренных ролика по точному motivation.roles из factory/lanes/registry.json. Останавливать queue для атрибутированных human rights, preview и final-review решений.",
       "required_skill_entrypoints": [
         "hyperframes",
         "hyperframes-core",
@@ -57,14 +57,15 @@
         "hyperframes-animation",
         "hyperframes-keyframes"
       ],
-      "note": "Перед любым видео-действием использовать обязательный HyperFrames entry point; медиа разрешать и замораживать через media-use workflow."
+      "note": "Перед любым видео-действием использовать обязательный HyperFrames entry point; media-use готовит discovery/freeze evidence, но не заменяет human rights approval. Мотивация использует только source_audio и никогда voice/TTS."
     },
     {
       "step": 5,
       "id": "control_delivery",
-      "action": "Провести технический и редакционный QC, сформировать checksums и отдать только локальные контрольные MP4 и сопроводительные артефакты."
+      "action": "После рендера собрать combined auto evidence, word transcript, captions/facts/policy/dedup/visual reports, immutable evidence bundle и final QC на одном render SHA-256. Отдавать контрольный MP4 только через checksum-bound human final_review; это не разрешает публикацию."
     }
   ],
+  "canonical_registry_chain": "research -> media_discovery -> rights (human) -> media -> script -> source_audio -> editor -> bgm -> audio_mix -> compiler -> preview_review (human) -> render -> qc_auto_evidence -> caption_transcript -> captions_analyzer -> facts_analyzer -> policy_analyzer -> dedup_analyzer -> visual_analyzer -> qc_evidence_gate -> qc -> final_review (human) -> publisher",
   "production_quantity": {
     "minimum_control_mp4": 2,
     "maximum_control_mp4": 3,
@@ -75,12 +76,24 @@
     "selection.json",
     "research_notes.md",
     "claim_ledger.json",
+    "media_discovery_manifest.json",
+    "rights_manifest.json",
+    "rights_human_approval.json",
+    "frozen_media_manifest.json",
     "script.md",
     "captions.json",
-    "rights_ledger.json",
-    "frozen_media_manifest.json",
+    "source_audio_manifest.json",
+    "bgm_manifest.json",
+    "program_audio_manifest.json",
+    "render_project_manifest.json",
+    "preview_approval.json",
     "render_manifest.json",
+    "qc_auto_evidence_manifest.json",
+    "caption_transcript_manifest.json",
+    "qc_analyzer_reports",
+    "qc_evidence_bundle.json",
     "qc_report.json",
+    "final_review.json",
     "checksums.sha256",
     "control MP4 files"
   ],
@@ -102,6 +115,7 @@
       "local_asset_hash",
       "timeline_usage"
     ],
+    "human_approval_required": "Exact canonical RightsManifest SHA-256, attributable reviewer identity/timestamp/note, and the complete reviewed asset_id list.",
     "block_on": [
       "ambiguous_license",
       "missing_creator",
@@ -130,12 +144,15 @@
     "external_social_publish": false,
     "external_social_schedule": false,
     "external_upload": false,
-    "required_to_enable": "Отдельное явное разрешение пользователя после просмотра контрольных MP4 и QC."
+    "required_to_enable": "Отдельное явное checksum-bound разрешение авторизованного человека на точный MP4 и destination metadata после QC и final_review."
   },
   "state_transitions": [
     "armed_waiting_for_start -> slate_waiting_for_user_decisions",
-    "slate_waiting_for_user_decisions -> production_in_progress",
-    "production_in_progress -> control_mp4_ready",
+    "slate_waiting_for_user_decisions -> registry_production_in_progress",
+    "registry_production_in_progress -> waiting_for_human_rights_or_preview_gate",
+    "waiting_for_human_rights_or_preview_gate -> registry_production_in_progress",
+    "registry_production_in_progress -> waiting_for_human_final_review",
+    "waiting_for_human_final_review -> control_mp4_ready",
     "control_mp4_ready -> publication_waiting_for_explicit_permission"
   ]
 }

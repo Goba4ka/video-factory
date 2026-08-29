@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "selection_policy": {
+    "automatic_fallback_allowed": false,
+    "eligible_state": "approved",
+    "golden_sample_sha256_required": true,
+    "human_quality_approval_required": true,
+    "job_bound_rights_approval_required": true,
+    "maximum_fish_generations_per_video": 2
+  },
+  "profiles": [
+    {
+      "profile_id": "fish-003532fff0f4425cac625dd4fdd90c7b",
+      "provider": "fish_audio",
+      "reference_id": "003532fff0f4425cac625dd4fdd90c7b",
+      "provider_title": "yurist test 1",
+      "languages": [
+        "ru"
+      ],
+      "state": "rejected",
+      "eligible_lanes": [],
+      "rights_status": "unverified",
+      "golden_sample_sha256": null,
+      "quality_review": {
+        "decision": "rejected",
+        "reviewed_by": "owner",
+        "reviewed_at": "2026-08-30T00:00:00Z",
+        "reason_code": "voice_character_not_approved",
+        "note": "Владелец отклонил тембр после клиентского celebrity preview; повторное автоматическое использование запрещено."
+      }
+    }
+  ]
+}

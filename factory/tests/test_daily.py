@@ -225,6 +225,8 @@ class DailyPipelineTests(unittest.TestCase):
             item for item in chain["tasks"] if item["role"] == "medical_review"
         )
         self.assertTrue(medical_task["payload"]["structured_gate_required"])
+        self.assertTrue(medical_task["payload"]["human_gate"])
+        self.assertTrue(medical_task["payload"]["human_qualification_required"])
 
     def test_all_five_lanes_launch_their_independent_specialist_chains(self) -> None:
         ideas_file = self.root / "five-lanes.json"
@@ -245,20 +247,41 @@ class DailyPipelineTests(unittest.TestCase):
             Factory(self.db).approve(job["id"])
         launched = launch_approved(db_path=self.db, batch_id=started["batch_id"])
         self.assertEqual(launched["chains_created"], 5)
-        self.assertEqual(launched["tasks_created_or_replayed"], 49)
+        self.assertEqual(launched["tasks_created_or_replayed"], 119)
         self.assertIsNone(launched["roles"])
         self.assertIn("sensitivity_review", launched["roles_by_lane"]["war_history"])
         self.assertIn("privacy_review", launched["roles_by_lane"]["celebrity_news"])
         self.assertNotIn("medical_review", launched["roles_by_lane"]["motivation"])
         motivation_roles = launched["roles_by_lane"]["motivation"]
+        self.assertEqual(
+            motivation_roles[
+                motivation_roles.index("research") + 1
+            ],
+            "media_discovery",
+        )
         self.assertIn("source_audio", motivation_roles)
         self.assertNotIn("voice", motivation_roles)
+        self.assertEqual(
+            motivation_roles[motivation_roles.index("rights") + 1], "media"
+        )
+        self.assertLess(
+            motivation_roles.index("media"), motivation_roles.index("source_audio")
+        )
         motivation_chain = next(
             chain for chain in launched["chains"] if chain["lane_id"] == "motivation"
         )
+        media_task = next(
+            task for task in motivation_chain["tasks"] if task["role"] == "media"
+        )
+        self.assertEqual(
+            media_task["payload"]["required_result_contract"],
+            "frozen_media_manifest",
+        )
+        self.assertIsNone(media_task["payload"]["media_inputs"])
         source_audio_task = next(
             task for task in motivation_chain["tasks"] if task["role"] == "source_audio"
         )
+        self.assertIsNone(source_audio_task["payload"]["source_audio_selection"])
         self.assertEqual(
             source_audio_task["payload"]["required_result_contract"],
             "source_audio_manifest",
@@ -273,9 +296,148 @@ class DailyPipelineTests(unittest.TestCase):
         ):
             self.assertIn("voice", launched["roles_by_lane"][lane_id])
             self.assertNotIn("source_audio", launched["roles_by_lane"][lane_id])
+        for lane_id, roles in launched["roles_by_lane"].items():
+            self.assertEqual(
+                roles[roles.index("editor") : roles.index("render") + 1],
+                [
+                    "editor",
+                    "bgm",
+                    "audio_mix",
+                    "compiler",
+                    "preview_review",
+                    "render",
+                ],
+                lane_id,
+            )
+            self.assertEqual(
+                roles[roles.index("render") : roles.index("qc") + 1],
+                [
+                    "render",
+                    "qc_auto_evidence",
+                    "caption_transcript",
+                    "captions_analyzer",
+                    "facts_analyzer",
+                    "policy_analyzer",
+                    "dedup_analyzer",
+                    "visual_analyzer",
+                    "qc_evidence_gate",
+                    "qc",
+                ],
+                lane_id,
+            )
+            lane_chain = next(
+                item for item in launched["chains"] if item["lane_id"] == lane_id
+            )
+            compiler_task = next(
+                task for task in lane_chain["tasks"] if task["role"] == "compiler"
+            )
+            preview_task = next(
+                task
+                for task in lane_chain["tasks"]
+                if task["role"] == "preview_review"
+            )
+            self.assertEqual(
+                compiler_task["payload"]["required_result_contract"],
+                "project_manifest",
+            )
+            roles = launched["roles_by_lane"][lane_id]
+            self.assertLess(roles.index("editor"), roles.index("bgm"))
+            self.assertLess(roles.index("bgm"), roles.index("audio_mix"))
+            self.assertLess(roles.index("audio_mix"), roles.index("compiler"))
+            self.assertEqual(
+                preview_task["payload"]["required_result_contract"],
+                "preview_approval",
+            )
+            self.assertTrue(preview_task["payload"]["human_gate"])
+            self.assertTrue(preview_task["payload"]["checksum_bound"])
+            self.assertTrue(preview_task["payload"]["structured_gate_required"])
         for chain in launched["chains"]:
             self.assertEqual(chain["roles"][-2:], ["final_review", "publisher"])
+            rights_task = next(
+                task for task in chain["tasks"] if task["role"] == "rights"
+            )
+            self.assertTrue(rights_task["payload"]["human_gate"])
+            self.assertTrue(rights_task["payload"]["rights_checksum_bound"])
+            discovery_task = next(
+                task for task in chain["tasks"] if task["role"] == "media_discovery"
+            )
+            self.assertEqual(
+                set(discovery_task["payload"]),
+                {
+                    "job_id",
+                    "lane_id",
+                    "required_result_contract",
+                    "query",
+                    "orientation",
+                    "size",
+                    "locale",
+                    "page",
+                    "per_page",
+                },
+            )
+            self.assertEqual(discovery_task["payload"]["orientation"], "portrait")
+            qc_task = next(task for task in chain["tasks"] if task["role"] == "qc")
+            self.assertEqual(qc_task["payload"]["technical_profile"], "vertical_master")
+            auto_qc_task = next(
+                task for task in chain["tasks"] if task["role"] == "qc_auto_evidence"
+            )
+            self.assertEqual(
+                auto_qc_task["payload"]["technical_profile"], "vertical_master"
+            )
             self.assertTrue(chain["tasks"][-1]["payload"]["publish_requires_final_review"])
+
+    def test_launch_propagates_multisource_selection_without_prejoining(self) -> None:
+        selections = [
+            {
+                "asset_id": "speaker_a",
+                "source_in_seconds": 1,
+                "source_out_seconds": 4,
+                "speaker_name": "Спикер А",
+                "source_language": "ru",
+                "original_transcript": "Первая мысль.",
+                "transcript": "Первая мысль.",
+                "bilingual_review": None,
+            },
+            {
+                "asset_id": "speaker_b",
+                "source_in_seconds": 6,
+                "source_out_seconds": 9,
+                "speaker_name": "Спикер Б",
+                "source_language": "ru",
+                "original_transcript": "Вторая мысль.",
+                "transcript": "Вторая мысль.",
+                "bilingual_review": None,
+            },
+        ]
+        ideas_file = self.root / "motivation-multisource.json"
+        import json
+
+        ideas_file.write_text(
+            json.dumps(
+                {
+                    "ideas": [
+                        {
+                            "id": "motivation_multi_001",
+                            "title": "Motivation multi",
+                            "topic": "motivation",
+                            "source_audio_selections": selections,
+                        }
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+        started = Factory(self.db).start(ideas_file, batch_size=1)
+        Factory(self.db).approve(started["jobs"][0]["id"])
+        launched = launch_approved(db_path=self.db, batch_id=started["batch_id"])
+        source_task = next(
+            task
+            for task in launched["chains"][0]["tasks"]
+            if task["role"] == "source_audio"
+        )
+        self.assertIsNone(source_task["payload"]["source_audio_selection"])
+        self.assertEqual(source_task["payload"]["source_audio_selections"], selections)
 
     def test_invalid_target_is_rejected(self) -> None:
         with self.assertRaisesRegex(ValidationError, "10 to 15"):

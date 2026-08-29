@@ -11,14 +11,15 @@
 | Очередь, leases, heartbeat, DLQ, backup | READY | Можно переносить и запускать на одном writer-хосте |
 | `research` → `editor` | READY | Семь schema-bound Codex-ролей запускаются headless |
 | Fish Audio `voice` | READY | Job-bound approval, секрет вне очереди, не более двух генераций |
-| Motivation `source_audio` | BLOCKED | Нужен отдельный rights-bound handler исходной речи |
-| Media discovery/freeze | BLOCKED | CLI есть, queue-stage и asset selection ещё не завершены |
-| Shotlist → HyperFrames project → render | BLOCKED | Wrapper пока рендерит только уже собранный project |
-| Semantic + technical QC | PARTIAL | Технический FFmpeg QC есть, смысловой visual gate не завершён |
-| Outbox/publish | HUMAN ONLY | Публикация намеренно не автономна |
+| Motivation `source_audio` | PARTIAL | Rights-bound handler, byte/hash gate и trusted runtime unit готовы; реальный acceptance job ещё нужен |
+| Media discovery/freeze | PARTIAL | Pexels discovery и explicit freeze handlers/units готовы; live credential, rights-cleared media E2E и provider soak ещё не приняты |
+| Licensed BGM / program mix | PARTIAL | Immutable WAV, license-receipt/human-approval SHA binding, deterministic ducking and loudness gate are implemented; a live rights-cleared asset and Linux FFmpeg acceptance job are still required |
+| Shotlist → HyperFrames project → render | PARTIAL | Compiler, checksum-bound preview gate и render handler подключены; реальный NVENC/WebGL acceptance render ещё не принят |
+| Semantic + technical QC | PARTIAL | Восемь checksum-bound analyzer reports, evidence gate, повторный FULL QC и trusted units готовы; реальные observer executables/GPU E2E ещё не приняты |
+| Review outbox/publish | HUMAN ONLY | Timer создаёт только immutable `pending_human_review` bundle/event; `final_review` и публикация остаются действиями человека |
 
-**Не переключайте production writer на сервер**, пока все строки `BLOCKED` не
-закрыты одним реальным acceptance job: утверждённая идея → локальные media
+**Не переключайте production writer на сервер**, пока незакрытые acceptance-
+условия строк `PARTIAL` не подтверждены реальным прогоном: утверждённая идея → media
 hashes → звук → shotlist → 1080×1920 MP4 → QC → pending approval. До этого
 сервер допустим для shadow-очереди, ресёрча, сценариев и controlled voice jobs.
 
@@ -65,6 +66,223 @@ schema-bound handler только JSON по stdin/stdout. `final_review` и `pub
 не являются автономными ролями; публикация остаётся отдельным человеческим
 гейтом.
 
+## Самый короткий безопасный bootstrap
+
+После передачи **уже проверенного** release и wheel на Ubuntu ручные шаги
+создания пользователей, каталогов, venv, установки units и первичного preflight
+сведены к одному скрипту. По умолчанию он работает только как dry-run. Скрипт:
+
+- принимает лишь абсолютный release, который является прямым нессылочным
+  потомком `/opt/video-factory/releases`; весь исполняемый release обязан быть
+  `root`-owned, без symlink, named/default ACL и group/world write;
+- сверяет обязательные SHA-256 application wheel и отдельного полного manifest
+  wheelhouse. Wheelhouse обязателен, плоский, содержит только wheels, не имеет
+  лишних файлов и ставится offline через `--no-index --only-binary=:all:`;
+- записывает в venv binding двух входных digest. Существующий неполный,
+  изменяемый или привязанный к другим bytes venv отклоняется, а не исполняется
+  от root;
+- сериализует apply через host lock и отклоняет active/activating systemd jobs,
+  а также enabled/linked `video-factory-*` units;
+- без `--activate` идемпотентно создаёт только пользователей, нессылочные
+  runtime-каталоги, exact-bound release venv и отсутствующий несекретный
+  `runtime.env`; `current` и systemd units при этом не меняются;
+- не читает и не создаёт secrets, не скачивает модели/media, не включает workers
+  или timers и не запускает `final_review`/`publisher`;
+- сохраняет существующий `/etc/video-factory/runtime.env` byte-for-byte. Его
+  замена возможна только с `--replace-runtime-env`, перед ней создаётся root-only
+  recovery copy;
+- с `--activate` сначала проверяет candidate через временный symlink и чистое
+  `env -i`, затем одной rollback-защищённой транзакцией синхронизирует только
+  жёсткий allowlist units, runtime config и `current`. Post-commit verify/preflight
+  при любой ошибке автоматически восстанавливает прежние bytes, mode/UID/GID,
+  отсутствовавшие unit-файлы и прежнюю цель/отсутствие `current`.
+
+На уже работающем host сначала остановите все `video-factory-*.service` и
+`video-factory-*.timer`, **disable** их и дождитесь завершения leases. Bootstrap
+fail-closed откажется менять даже venv, пока обнаруживает активный/переходный
+unit, незавершённый systemd job, enabled/linked unit или второй bootstrap.
+
+Manifest wheelhouse создаётся в доверенном staging-каталоге и сам входит в
+signed inventory. В нём должна быть ровно одна строка `sha256sum` на каждый
+wheel и ни одного неописанного файла:
+
+```bash
+cd /secure/staging/wheelhouse
+sha256sum -- *.whl | LC_ALL=C sort >../wheelhouse.sha256
+sha256sum ../wheelhouse.sha256
+```
+
+Сначала посмотреть stage-план без `sudo` и без изменений:
+
+```bash
+bash /opt/video-factory/releases/20260830T010000Z/factory/tools/bootstrap_ubuntu_server.sh \
+  --release /opt/video-factory/releases/20260830T010000Z \
+  --wheel /secure/staging/video_factory_control-0.7.0-py3-none-any.whl \
+  --wheel-sha256 SHA256_FROM_SIGNED_INVENTORY \
+  --wheelhouse /secure/staging/wheelhouse \
+  --wheelhouse-manifest /secure/staging/wheelhouse.sha256 \
+  --wheelhouse-manifest-sha256 MANIFEST_SHA256_FROM_SIGNED_INVENTORY
+```
+
+После проверки вывода выполните безопасный stage той же командой с `--apply`.
+Он установит отсутствующий template `runtime.env`, но не запустит preflight и не
+переключит код:
+
+```bash
+sudo bash /opt/video-factory/releases/20260830T010000Z/factory/tools/bootstrap_ubuntu_server.sh \
+  --release /opt/video-factory/releases/20260830T010000Z \
+  --wheel /secure/staging/video_factory_control-0.7.0-py3-none-any.whl \
+  --wheel-sha256 SHA256_FROM_SIGNED_INVENTORY \
+  --wheelhouse /secure/staging/wheelhouse \
+  --wheelhouse-manifest /secure/staging/wheelhouse.sha256 \
+  --wheelhouse-manifest-sha256 MANIFEST_SHA256_FROM_SIGNED_INVENTORY \
+  --apply
+```
+
+Теперь отдельно разместите checksum-pinned caption/YuNet models, непустой
+human-approved dedup corpus, pinned toolchain и Codex auth; отредактируйте
+`/etc/video-factory/runtime.env`. Только после этого сначала dry-run, затем
+activation apply с теми же digest и дополнительными флагами:
+
+```bash
+sudo bash /opt/video-factory/releases/20260830T010000Z/factory/tools/bootstrap_ubuntu_server.sh \
+  --release /opt/video-factory/releases/20260830T010000Z \
+  --wheel /secure/staging/video_factory_control-0.7.0-py3-none-any.whl \
+  --wheel-sha256 SHA256_FROM_SIGNED_INVENTORY \
+  --wheelhouse /secure/staging/wheelhouse \
+  --wheelhouse-manifest /secure/staging/wheelhouse.sha256 \
+  --wheelhouse-manifest-sha256 MANIFEST_SHA256_FROM_SIGNED_INVENTORY \
+  --activate --require-gpu --apply
+```
+
+Candidate preflight обязан пройти **до** изменения production config/units/current.
+Если он не прошёл, остаётся только root-only diagnostic report. Если отказ
+произошёл уже во время commit/postflight, скрипт автоматически откатывает весь
+bootstrap-managed state и делает повторный `daemon-reload`. Даже успешный
+bootstrap не включает сервисы; их запускают вручную только после всей
+приёмочной матрицы ниже.
+
+### Recovery и code rollback bootstrap
+
+При activation путь recovery snapshot печатается **до commit** и имеет вид
+`/etc/video-factory/bootstrap-backups/<UTC>-<pid>.<random>`. В нём находятся
+candidate/committed preflight reports, `current.state`, `runtime-env.state`,
+точная предыдущая конфигурация, unit state/tombstones и прежние unit bytes.
+Нормальный отказ откатывается автоматически. Ручное восстановление нужно только
+после сообщения `automatic rollback was incomplete` или для намеренного
+последующего code rollback:
+
+1. Остановите перечисленные worker/timer instances и проверьте отсутствие
+   активных leases. Не включайте Windows writer параллельно.
+2. Прочитайте `current.state`. Значение `absent` означает удалить только exact
+   `/opt/video-factory/current`; иначе разрешите путь через `realpath -e` и
+   убедитесь, что его родитель — ровно `/opt/video-factory/releases`.
+3. Для каждого имени из `unit-state/` восстановите сохранённый файл при
+   `present MODE UID GID`; при `absent` удалите только одноимённый exact target.
+   Аналогично обработайте `runtime-env.state`.
+4. Атомарно восстановите `current`, выполните `systemctl daemon-reload`,
+   `systemd-analyze verify` и preflight старого release. Не включайте units,
+   пока все три действия не успешны.
+
+Пример безопасного переключения symlink после ручной проверки exact path:
+
+```bash
+snapshot=/etc/video-factory/bootstrap-backups/UTC-PID.RANDOM
+previous=$(sudo cat "$snapshot/current.state")
+test "$previous" != absent
+previous=$(realpath -e -- "$previous")
+test "$(dirname -- "$previous")" = /opt/video-factory/releases
+sudo ln -s -- "$previous" /opt/video-factory/.current.rollback.$$
+sudo mv -Tf -- /opt/video-factory/.current.rollback.$$ /opt/video-factory/current
+sudo systemctl daemon-reload
+sudo systemd-analyze verify /etc/systemd/system/video-factory-*.service \
+  /etc/systemd/system/video-factory-*.timer
+sudo -u video-factory -H env -i \
+  HOME=/var/lib/video-factory USER=video-factory LOGNAME=video-factory \
+  PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+  LANG=C.UTF-8 LC_ALL=C.UTF-8 \
+  /opt/video-factory/current/.venv/bin/python \
+  /opt/video-factory/current/factory/tools/server_preflight.py \
+  --runtime-env /etc/video-factory/runtime.env --require-gpu
+```
+
+Code rollback не удаляет новый release и **не** откатывает SQLite. Bootstrap не
+меняет production DB, поэтому аварийное восстановление данных остаётся отдельной
+процедурой через online backup после остановки writers и фиксации RPO.
+
+### Обязательная live-приёмка bootstrap на Ubuntu
+
+Локальные тесты проверяют логику плана, fail-closed гейты и rollback,
+но не заменяют приёмку на целевой Ubuntu 24.04. Перед любым
+production enable выполните команды ниже с теми же проверенными путями и
+digest, которые войдут в change record:
+
+```bash
+release=/opt/video-factory/releases/20260830T010000Z
+wheel=/secure/staging/video_factory_control-0.7.0-py3-none-any.whl
+wheel_sha256=SHA256_FROM_SIGNED_INVENTORY
+wheelhouse=/secure/staging/wheelhouse
+wheelhouse_manifest=/secure/staging/wheelhouse.sha256
+wheelhouse_manifest_sha256=MANIFEST_SHA256_FROM_SIGNED_INVENTORY
+bootstrap="$release/factory/tools/bootstrap_ubuntu_server.sh"
+
+sudo bash -n "$bootstrap"
+test "$(sha256sum -- "$wheel" | awk '{print $1}')" = "$wheel_sha256"
+test "$(sha256sum -- "$wheelhouse_manifest" | awk '{print $1}')" = \
+  "$wheelhouse_manifest_sha256"
+sudo find "$release" -xdev \
+  \( -path "$release/.venv" -prune \) -o \
+  \( -type l -o ! -uid 0 -o -perm /022 \) -print
+sudo getfacl -Rcp -- "$release" | \
+  grep -E '^(default:)?(user|group):[^:]+' && exit 1 || true
+
+common=(
+  --release "$release"
+  --wheel "$wheel"
+  --wheel-sha256 "$wheel_sha256"
+  --wheelhouse "$wheelhouse"
+  --wheelhouse-manifest "$wheelhouse_manifest"
+  --wheelhouse-manifest-sha256 "$wheelhouse_manifest_sha256"
+)
+
+sudo systemctl list-units --all \
+  --state=active,activating,reloading,deactivating \
+  'video-factory-*.service' 'video-factory-*.timer'
+sudo systemctl list-jobs --no-legend | grep video-factory && exit 1 || true
+sudo systemctl list-unit-files --no-legend \
+  'video-factory-*.service' 'video-factory-*.timer' | \
+  awk '$2 ~ /^(enabled|enabled-runtime|linked|linked-runtime|alias)$/ {bad=1} END {exit bad}'
+
+bash "$bootstrap" "${common[@]}"
+sudo bash "$bootstrap" "${common[@]}" --apply
+# Здесь оператор завершает models/corpus/toolchain/auth/runtime.env.
+bash "$bootstrap" "${common[@]}" --activate --require-gpu
+sudo bash "$bootstrap" "${common[@]}" --activate --require-gpu --apply
+
+test "$(realpath -e /opt/video-factory/current)" = "$release"
+sudo systemd-analyze verify /etc/systemd/system/video-factory-*.service \
+  /etc/systemd/system/video-factory-*.timer
+sudo systemctl list-unit-files --no-legend \
+  'video-factory-*.service' 'video-factory-*.timer' | \
+  awk '$2 ~ /^(enabled|enabled-runtime|linked|linked-runtime|alias)$/ {bad=1} END {exit bad}'
+sudo -u video-factory -H env -i \
+  HOME=/var/lib/video-factory USER=video-factory LOGNAME=video-factory \
+  PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+  LANG=C.UTF-8 LC_ALL=C.UTF-8 \
+  "$release/.venv/bin/python" \
+  "$release/factory/tools/server_preflight.py" \
+  --runtime-env /etc/video-factory/runtime.env --require-gpu
+```
+
+Вывод `find` и первого `grep` должен быть пустым; оба запроса
+systemd не должны найти active, transitional, queued, enabled или linked
+unit. В acceptance log сохраните dry-run/stage/activation output,
+оба preflight JSON, recovery snapshot path, `systemd-analyze verify` и SHA-256
+фактического wheel/manifest. Отдельно повторите candidate- и
+post-commit-failure drills на неproduction release: первый не меняет
+production state, второй byte-for-byte восстанавливает прежние
+config/units/current и оставляет все units disabled.
+
 ## Рекомендуемая топология V2
 
 ```mermaid
@@ -72,8 +290,9 @@ flowchart LR
     C["5 producer chats"] --> Q["SQLite queue + audit\nlocal NVMe"]
     Q --> L["7 allowlisted editorial roles\nCodex exec + JSON Schema"]
     Q --> V["Fish voice worker\njob-bound approval"]
-    Q -. "P0: compiler" .-> R["HyperFrames render\n1 GPU lock"]
-    R -. "P0: semantic gate" .-> F["FAST + FULL QC"]
+    Q --> R["rights-bound media + audio\nHyperFrames render · 1 GPU lock"]
+    R --> E["8-category immutable evidence"]
+    E -. "P0: live observers/GPU acceptance" .-> F["Repeated FULL QC"]
     F --> A["immutable artifacts\nmasters + manifests"]
     A --> H["human final review + checksum approval"]
     H --> P["manual publisher handoff"]
@@ -122,20 +341,37 @@ SQLite-базы.
 2. Создайте отдельного пользователя без shell-admin прав:
 
 ```bash
-sudo useradd --system --create-home --home-dir /var/lib/video-factory \
+sudo groupadd --system video-factory
+sudo groupadd --system video-factory-backup
+sudo useradd --system --gid video-factory --create-home \
+  --home-dir /var/lib/video-factory \
   --shell /usr/sbin/nologin video-factory
-sudo useradd --system --no-create-home --shell /usr/sbin/nologin \
-  video-factory-backup
+sudo useradd --system --gid video-factory-backup --no-create-home \
+  --home-dir /nonexistent --shell /usr/sbin/nologin video-factory-backup
 sudo usermod --append --groups video-factory video-factory-backup
-sudo install -d -o video-factory -g video-factory \
-  /opt/video-factory/releases /var/lib/video-factory \
-  /srv/video-factory/artifacts /etc/video-factory
+sudo install -d -m 0755 -o root -g root \
+  /opt/video-factory /opt/video-factory/releases
+sudo install -d -m 0750 -o root -g video-factory /etc/video-factory
+sudo install -d -m 0750 -o video-factory -g video-factory \
+  /var/lib/video-factory \
+  /srv/video-factory /srv/video-factory/artifacts \
+  /srv/video-factory/artifacts/dedup
 sudo install -d -m 0750 -o video-factory -g video-factory \
   /var/lib/video-factory/agent_outputs \
   /var/lib/video-factory/cache \
   /var/lib/video-factory/codex_workspace \
+  /var/lib/video-factory/discovery \
+  /var/lib/video-factory/frozen_media \
+  /var/lib/video-factory/hyperframes_projects \
+  /var/lib/video-factory/media_inputs \
   /var/lib/video-factory/metrics \
+  /var/lib/video-factory/qc_cache \
+  /var/lib/video-factory/qc_evidence \
+  /var/lib/video-factory/queue \
+  /var/lib/video-factory/renders \
+  /var/lib/video-factory/review_outbox \
   /var/lib/video-factory/scratch \
+  /var/lib/video-factory/source_audio \
   /var/lib/video-factory/voice_approvals \
   /var/lib/video-factory/voices
 sudo install -d -m 0750 -o video-factory-backup -g video-factory-backup \
@@ -145,9 +381,14 @@ sudo install -d -m 0750 -o video-factory-backup -g video-factory-backup \
 Основная и Fish usage SQLite-базы должны создаваться с группой `video-factory`
 и режимом не строже `0640`, чтобы отдельный backup-пользователь мог читать их
 через supplementary group, но не мог изменять рабочее состояние.
+Основная база и её WAL/SHM лежат только в
+`/var/lib/video-factory/queue/`. Provider unit получает write-доступ к этому
+каталогу и `/var/lib/video-factory/discovery/`, но не к renders, rights, voices
+или review outbox.
 
 3. Установите Python 3.11/3.12, Node 22, FFmpeg/ffprobe, Chromium dependencies,
-   `rsync`, `flock`, `sqlite3`, `jq`, кириллические шрифты и утилиты NVIDIA.
+   `rsync`, `flock`, пакет `acl` (`getfacl`), `sqlite3`, `jq`, кириллические
+   шрифты и утилиты NVIDIA.
 4. Если используется Docker, установите Docker Engine и NVIDIA Container
    Toolkit по официальной документации. Для первого cutover bare-metal systemd
    проще и лучше соответствует текущему CLI/runtime.
@@ -174,19 +415,11 @@ robocopy factory C:\VideoFactoryTransfer\factory /MIR `
 лежит в новом каталоге `releases/<timestamp>`; symlink `current` меняется
 атомарно только после тестов.
 
-```bash
-release_id=$(date -u +%Y%m%dT%H%M%SZ)
-release=/opt/video-factory/releases/$release_id
-# Распакуйте проверенный архив именно в $release, не в current.
-python3 -m venv "$release/.venv"
-"$release/.venv/bin/pip" install --upgrade pip
-"$release/.venv/bin/pip" install "$release/factory"
-"$release/.venv/bin/pip" install -r "$release/factory/deployment/requirements-dev.lock"
-chmod +x "$release/factory/tools/"*.sh
-"$release/.venv/bin/python" -m pytest "$release/factory/tests" -q
-ln -sfn "$release" /opt/video-factory/current.next
-mv -Tf /opt/video-factory/current.next /opt/video-factory/current
-```
+Распакуйте проверенный архив в новый root-owned каталог, а не в `current`.
+Нормализуйте executable bits **до** signed inventory; bootstrap после проверки
+release уже не делает `chmod` его кода. Затем используйте двухфазные команды
+`stage`/`activate` выше. Не создавайте venv вручную и не запускайте online
+`pip install`: иначе binding application wheel + полного wheelhouse не доказан.
 
 У каждого release свой venv; обычный code rollback меняет только `current` и
 не откатывает живые БД. Базу восстанавливают только при подтверждённом
@@ -209,6 +442,95 @@ sudo -u video-factory \
 плавающий `npm install`, глобальный Codex или `npx --yes` в production.
 Preflight требует ровно Codex CLI `0.151.0`, а worker задаёт модель явно:
 `VIDEO_FACTORY_CODEX_MODEL=gpt-5.4`.
+
+До первого runtime preflight установите bundled
+[`caption-observer`](./CAPTION_OBSERVER.md) с заранее размещённой
+checksum-pinned multilingual Faster-Whisper моделью. Он принимает JSON по stdin,
+возвращает русский word-level transcript и никогда не загружает модель во время
+job. Face observer
+уже входит в wheel как console script
+`/opt/video-factory/current/.venv/bin/video-factory-face-observer`: он принимает
+тот же JSON как через stdin, так и единственным абсолютным путём к `request.json`,
+не использует сеть и отвечает checksum-bound измерениями каждого PGM-кадра.
+Исполняемые файлы должны быть не symlink и запускаться без shell-интерполяции.
+
+Для production используйте `VIDEO_FACTORY_FACE_ENGINE=yunet` и заранее положите
+одобренный `face_detection_yunet_2023mar.onnx` в постоянный read-only каталог.
+Сохраните рядом provenance и MIT-license evidence из официального OpenCV Zoo;
+сам ONNX не добавляйте в Git. Во время job адаптер ничего не скачивает и требует
+точный SHA-256 модели:
+
+- commit-pinned model: `https://raw.githubusercontent.com/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/face_detection_yunet/face_detection_yunet_2023mar.onnx`;
+- commit-pinned MIT license: `https://raw.githubusercontent.com/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/face_detection_yunet/LICENSE`;
+- SHA-256 проверенных байтов модели: `8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4`.
+
+Скачивание выполняйте в отдельном staging-шаге, затем снова вычислите digest и
+сравните его с приведённым значением до `sudo install`.
+
+```bash
+sudo install -d -m 0755 -o root -g root /srv/video-factory/models
+sudo install -m 0444 -o root -g root /secure/staging/face_detection_yunet_2023mar.onnx \
+  /srv/video-factory/models/face_detection_yunet_2023mar.onnx
+sha256sum /srv/video-factory/models/face_detection_yunet_2023mar.onnx
+sudo -u video-factory \
+  /opt/video-factory/current/.venv/bin/video-factory-face-observer \
+  /absolute/path/to/fixture-request.json >/tmp/face-observer-smoke.json
+```
+
+Запишите полученный digest в `VIDEO_FACTORY_FACE_MODEL_SHA256`, а путь — в
+`VIDEO_FACTORY_FACE_MODEL_PATH`. `haar` допускается только как явно выбранный
+smoke/fallback backend; автоматического downgrade с YuNet нет. Неверный hash,
+отсутствующий OpenCV/model, битый или stale кадр завершают запрос с кодом `2` и
+без JSON-артефакта. При одном найденном лице `speaker=true` означает
+однозначного визуального кандидата; при нескольких лицах адаптер никого не
+угадывает. Для реального active-speaker attribution нужен отдельно принятый
+audio-visual model adapter.
+
+Также перенесите непустой schema-valid
+`/srv/video-factory/artifacts/dedup/corpus.json`, построенный только из ранее
+одобренных masters. Отсутствующий observer или corpus намеренно останавливает
+preflight и не заменяется фиктивным `pass`.
+
+Corpus не редактируется вручную. После финального просмотра конкретного master
+человек сначала создаёт отдельное approval, привязанное к точным байтам
+`RenderManifest` и MP4 (это **не** publish approval и не завершает
+`final_review`):
+
+```bash
+sudo install -d -m 0750 -o video-factory -g video-factory \
+  /srv/video-factory/artifacts/dedup/approvals
+
+sudo -u video-factory /opt/video-factory/current/.venv/bin/video-factory \
+  dedup-corpus-approve \
+  --render-manifest /var/lib/video-factory/renders/JOB_ID/render_manifest.json \
+  --master /var/lib/video-factory/renders/JOB_ID/final.mp4 \
+  --output /srv/video-factory/artifacts/dedup/approvals/JOB_ID.json \
+  --approved-by OPERATOR_ID \
+  --approval-note 'Final master reviewed; include in originality corpus.' \
+  --human-confirm INCLUDE_EXACT_MASTER_IN_DEDUP_CORPUS
+```
+
+Затем updater пробует реальные audio/video streams через ffprobe, декодирует
+кадры тем же FFmpeg-путём и считает тот же `dhash-64-v1`, что и
+`dedup_analyzer`. Несколько approvals объединяются одной транзакцией через
+повторяемый `--approval`; ошибка любого входа оставляет предыдущий corpus без
+изменений:
+
+```bash
+sudo -u video-factory /opt/video-factory/current/.venv/bin/video-factory \
+  dedup-corpus-update \
+  --snapshot /srv/video-factory/artifacts/dedup/corpus.json \
+  --approval /srv/video-factory/artifacts/dedup/approvals/JOB_ID.json
+
+sudo -u video-factory /opt/video-factory/current/.venv/bin/video-factory \
+  validate-artifact dedup_corpus_snapshot \
+  /srv/video-factory/artifacts/dedup/corpus.json
+```
+
+Первый запуск разрешён только минимум с одним явным approval и сразу создаёт
+непустой corpus. Повтор того же approval byte-stable; новая версия тех же
+`job_id + render_id` детерминированно заменяет запись, сохраняя её
+`comparison_id`. Approval JSON храните вместе с immutable review evidence.
 
 `VIDEO_FACTORY_CODEX_WORKSPACE` указывает на отдельный пустой runtime-каталог,
 а не на release. Все необходимые входы уже передаются как ограниченный JSON.
@@ -285,6 +607,19 @@ sudoedit /etc/video-factory/secrets/fish_api_key
 Не передавайте ключ аргументом CLI, не кладите его в `.env`, manifest, backup
 артефактов или JSON-логи.
 
+Pexels discovery использует такой же secret-file контур:
+
+```bash
+sudo install -m 0400 -o root -g root /dev/null \
+  /etc/video-factory/secrets/pexels_api_key
+sudoedit /etc/video-factory/secrets/pexels_api_key
+```
+
+`video-factory-provider-worker@media_discovery.service` подключает его через
+`LoadCredential` и передаёт обработчику только путь `PEXELS_API_KEY_FILE`.
+Raw `PEXELS_API_KEY` в `runtime.env` запрещён preflight. Результаты поиска —
+только кандидаты: item-level rights review и точная фиксация байтов обязательны.
+
 Каждая разрешённая кастомная озвучка дополнительно требует job-bound файла
 `/var/lib/video-factory/voice_approvals/<job_id>.json`, соответствующего
 `voice_rights_approval.schema.json`. Approval создаётся до первого платного
@@ -295,10 +630,13 @@ sudoedit /etc/video-factory/secrets/fish_api_key
 ## Конфигурация runtime
 
 Установите [server.env.example](./server.env.example) как root-owned
-несекретную конфигурацию и поправьте только пути/лимиты:
+несекретную конфигурацию. Лимиты можно поправить; `VIDEO_FACTORY_RUNTIME_ROOT`,
+`VIDEO_FACTORY_DB`, `VIDEO_FACTORY_REVIEW_OUTBOX_ROOT` и
+`VIDEO_FACTORY_PEXELS_CACHE_ROOT` закреплены sandbox-путями systemd и меняются
+только вместе с units и preflight:
 
 ```bash
-sudo install -m 0644 -o root -g root \
+sudo install -m 0640 -o root -g video-factory \
   factory/deployment/server.env.example /etc/video-factory/runtime.env
 sudoedit /etc/video-factory/runtime.env
 ```
@@ -323,9 +661,11 @@ set +a
   --role render --max-leased 1 --db "$VIDEO_FACTORY_DB"
 ```
 
-На одном GPU authoritative render запускается только через
+Для разового acceptance-render можно использовать
 `factory/tools/render_hyperframes.sh`; wrapper использует общий `flock` и не
-даёт двум чатам одновременно занять GPU.
+даёт двум чатам одновременно занять GPU. В штатной очереди authoritative render
+запускает `video-factory-runtime-worker@render.service` только после
+checksum-bound human preview approval.
 
 ```bash
 factory/tools/render_hyperframes.sh \
@@ -341,21 +681,32 @@ heartbeat-ом. Для render всё равно запускается ровн�
 
 ## Граница автоматизации V2
 
-На сервер переносятся инструменты reproducible render, FAST/FULL technical QC,
-frozen media, Fish-лимит, SQLite/WAL queue, fenced heartbeat workers,
+На сервер переносятся queue handlers для frozen media, source-audio,
+HyperFrames compiler, checksum-approved render и fail-closed semantic/technical
+QC, а также Fish-лимит, SQLite/WAL queue, fenced heartbeat workers,
 DLQ/rework lifecycle, artifact invalidation, metrics collector и audit trail.
-Это ещё не означает, что все инструменты связаны queue handlers. Codex автономно
-обрабатывает только allowlist ролей `research`, `privacy_review`,
-`sensitivity_review`, `medical_review`, `rights`, `script`, `editor`. Каждый ответ
+Codex автономно обрабатывает только allowlist ролей `research`, `privacy_review`,
+`sensitivity_review`, `script`, `editor`. `medical_review` и `rights` намеренно
+не имеют автономных workers: положительное medical-решение вводит
+атрибутированный квалифицированный проверяющий, а rights-решение человек
+привязывает к точному SHA-256 RightsManifest и полному списку просмотренных
+asset IDs через human-gated queue completion. Каждый автономный ответ
 проверяется JSON Schema и доменной валидацией; недостаток данных обязан закрыть
 гейт, а не угадываться.
+
+Детерминированные роли `media`, `source_audio`, `compiler`, `render`,
+`qc_auto_evidence`, `caption_transcript`, пять analyzer-ролей,
+`qc_evidence_gate` и `qc` запускаются другим template и доверенным локальным
+dispatcher. Тяжёлые media-QC роли
+делят один advisory GPU-heavy lock, который берётся **до** claim. Dispatcher
+физически не содержит `preview_review`, `final_review` или `publisher`.
 
 `final_review` и `publisher` намеренно отсутствуют в allowlist и не должны
 запускаться как instances systemd template. Финальный просмотр, проверка прав,
 checksum approval и фактическая отправка остаются действиями человека. Поэтому
-V2 означает unattended редакционную подготовку и controlled voice, но до
-закрытия P0-строк таблицы выше не означает unattended MP4 production и никогда
-не означает автономную публикацию.
+V2 означает unattended редакционную подготовку и controlled runtime до ручных
+preview/final-review гейтов, но до реальных acceptance jobs на целевом GPU не
+означает принятый production MP4 E2E и никогда не означает автономную публикацию.
 
 ## Перенос state без повреждения
 
@@ -364,7 +715,8 @@ V2 означает unattended редакционную подготовку и 
    копию живого файла без WAL.
 3. Сформируйте SHA-256 inventory для базы, masters, frozen media, rights
    evidence, scripts, sources и manifests.
-4. Перенесите backup в `/var/lib/video-factory`, artifacts — в
+4. Перенесите backup основной БД как
+   `/var/lib/video-factory/queue/factory.sqlite3`, artifacts — в
    `/srv/video-factory/artifacts` через `rsync --checksum`.
 5. Не переносите `.write-lock`, `render.lock`, tmp, frames cache и
    `node_modules`.
@@ -433,11 +785,14 @@ render failure, backup failure, GPU OOM и истёкший lease.
 ## Systemd
 
 В `factory/deployment/systemd/` лежат units для production preflight,
-allowlisted editorial workers, metrics, lease recovery и daily backup.
-Установите их, проверьте и сначала запустите preflight:
+allowlisted editorial workers, deterministic runtime workers, metrics, lease
+recovery и daily backup.
+Bootstrap устанавливает только встроенный точный allowlist и до/после commit
+выполняет verify. Не копируйте wildcard вручную: лишний `video-factory-*.service`
+из release не должен попасть в `/etc/systemd/system`. После успешного bootstrap
+повторно проверьте установленные units и сначала запустите preflight:
 
 ```bash
-sudo install -m 0644 factory/deployment/systemd/*.{service,timer} /etc/systemd/system/
 sudo systemd-analyze verify /etc/systemd/system/video-factory-*.service \
   /etc/systemd/system/video-factory-*.timer
 sudo systemctl daemon-reload
@@ -446,30 +801,57 @@ sudo systemctl status --no-pager video-factory-preflight.service
 ```
 
 Только после `active (exited)` включите сервисные timers, семь разрешённых
-editorial instances и controlled voice worker:
+editorial instances, тринадцать deterministic runtime instances и controlled voice
+worker:
 
 ```bash
 sudo systemctl enable --now \
   video-factory-recover.timer \
   video-factory-backup.timer \
-  video-factory-metrics.timer
+  video-factory-metrics.timer \
+  video-factory-review-release.timer
 
 sudo systemctl enable --now \
   video-factory-worker@research.service \
   video-factory-worker@privacy_review.service \
   video-factory-worker@sensitivity_review.service \
-  video-factory-worker@medical_review.service \
-  video-factory-worker@rights.service \
   video-factory-worker@script.service \
   video-factory-worker@editor.service
 
 sudo systemctl enable --now video-factory-voice.service
+
+sudo systemctl enable --now \
+  video-factory-provider-worker@media_discovery.service
+
+sudo systemctl enable --now \
+  video-factory-runtime-worker@media.service \
+  video-factory-runtime-worker@source_audio.service \
+  video-factory-runtime-worker@compiler.service \
+  video-factory-runtime-worker@render.service \
+  video-factory-runtime-worker@qc_auto_evidence.service \
+  video-factory-runtime-worker@caption_transcript.service \
+  video-factory-runtime-worker@captions_analyzer.service \
+  video-factory-runtime-worker@facts_analyzer.service \
+  video-factory-runtime-worker@policy_analyzer.service \
+  video-factory-runtime-worker@dedup_analyzer.service \
+  video-factory-runtime-worker@visual_analyzer.service \
+  video-factory-runtime-worker@qc_evidence_gate.service \
+  video-factory-runtime-worker@qc.service
 ```
 
 Template перед start выполняет fail-closed role check, после чего запускает
 реальный heartbeat worker с доверенным `video_factory.editorial_handler`.
 Попытка запустить `video-factory-worker@final_review.service` или
 `video-factory-worker@publisher.service` отклоняется `ExecCondition`.
+Runtime template аналогично принимает только роли из показанного выше списка;
+`preview_review`, `final_review` и `publisher`
+отклоняются до запуска worker.
+Provider template принимает только `media_discovery`; он не может выполнять
+`rights`, `final_review` или `publisher`.
+`video-factory-review-release.timer` только материализует immutable
+`pending_human_review` bundle/event после успешного QC. Он работает без сети,
+не завершает задачу `final_review`, не создаёт publish outbox и ничего не
+отправляет наружу.
 `video-factory-metrics.timer` раз в минуту идемпотентно материализует завершённые
 queue attempts и атомарно обновляет:
 
@@ -482,8 +864,10 @@ queue attempts и атомарно обновляет:
 
 ```bash
 systemctl list-units 'video-factory-worker@*'
+systemctl list-units 'video-factory-runtime-worker@*'
 systemctl list-timers 'video-factory-*'
 journalctl -u 'video-factory-worker@*.service' --since -1h --no-pager
+journalctl -u 'video-factory-runtime-worker@*.service' --since -1h --no-pager
 journalctl -u video-factory-voice.service --since -1h --no-pager
 journalctl -u video-factory-metrics.service --since -1h --no-pager
 ```
@@ -510,8 +894,10 @@ Code rollback не восстанавливает старую БД. Восст�
 аварийная процедура после остановки writers, фиксации RPO и сохранения копии
 повреждённого состояния для расследования.
 
-Rollback: остановить server workers, подтвердить отсутствие активных leases,
-вернуть symlink на прошлый release и восстановить последнюю консистентную базу.
+Code rollback: остановить и disable server workers, подтвердить отсутствие
+активных leases, восстановить snapshot units/config/current и не менять БД.
+Последнюю консистентную базу восстанавливают только при отдельно подтверждённом
+повреждении или несовместимой data migration с зафиксированным RPO.
 Windows enqueue можно включить только после остановки серверного writer.
 
 ## Когда переходить на несколько серверов
@@ -525,12 +911,16 @@ versioning. SQLite не растягивается по сети, Redis не д�
 
 - [ ] Новый Fish key создан, старый отозван; voice license/reference подтверждены.
 - [ ] Codex login status и отдельный API budget/spend alerts проверены.
-- [ ] Wheel/sdist smoke загрузил все 16 canonical schemas.
+- [ ] Wheel/sdist smoke загрузил все canonical schemas из `CONTRACT_FILES`.
 - [ ] `server_preflight.py --require-gpu` вернул `ok=true`.
 - [ ] SQLite integrity=`ok`, journal=`wal`, база находится на локальном NVMe.
 - [ ] Code/assets/state inventory перенесён с SHA-256 без Windows absolute paths.
 - [ ] Семь editorial workers и voice worker прошли shadow jobs.
-- [ ] P0 handlers `media/source_audio/compiler/render/semantic-qc/outbox bridge` готовы.
+- [x] Handlers `media/source_audio/compiler/render`, восемь категорий QC evidence,
+  строгий evidence gate, повторный semantic QC и outbox bridge собраны и покрыты
+  fail-closed control-plane тестами.
+- [ ] Caption/face observer executables и corpus snapshot установлены и приняты
+  live-прогоном на реальном русском master.
 - [ ] Health E2E создал реальный 1080×1920 MP4 без ручных промежуточных файлов.
 - [ ] Motivation E2E создал MP4 с лицензированной исходной речью без Fish TTS.
 - [ ] Смешанная партия 5, затем shadow 15/30 завершились без DLQ drift.

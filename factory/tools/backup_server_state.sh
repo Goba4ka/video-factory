@@ -19,7 +19,7 @@ backup_root=$(realpath -m -- "$1")
   echo "refusing to use filesystem root as backup root" >&2
   exit 64
 }
-factory_db=${VIDEO_FACTORY_DB:-/var/lib/video-factory/factory-v3.sqlite3}
+factory_db=${VIDEO_FACTORY_DB:-/var/lib/video-factory/queue/factory.sqlite3}
 fish_db=${FISH_USAGE_DB:-/var/lib/video-factory/fish_audio_usage.sqlite3}
 stamp=$(date -u +%Y%m%dT%H%M%SZ)
 target="$backup_root/$stamp"

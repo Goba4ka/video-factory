@@ -1,0 +1,10 @@
+{
+  "duration": 29.18,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#c01 span", "bySec": 0.12 },
+    { "kind": "before", "a": "#c01 span", "b": "#c32 span" },
+    { "kind": "staysInFrame", "selector": "#c20" },
+    { "kind": "staysInFrame", "selector": "#c23" },
+    { "kind": "staysInFrame", "selector": "#c30" }
+  ]
+}

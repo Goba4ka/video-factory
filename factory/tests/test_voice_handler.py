@@ -1,14 +1,83 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import tempfile
 import unittest
+import wave
 from pathlib import Path
 from unittest import mock
 
 from video_factory.errors import ValidationError
 from video_factory.voice_handler import handle_task
+
+
+def write_profile_catalog(root: Path) -> tuple[Path, dict]:
+    golden_dir = root / "golden_samples"
+    golden_dir.mkdir(parents=True, exist_ok=True)
+    golden = golden_dir / "voice-owned-001.wav"
+    with wave.open(str(golden), "wb") as writer:
+        writer.setnchannels(1)
+        writer.setsampwidth(2)
+        writer.setframerate(44100)
+        writer.writeframes(b"\x00\x00" * 4410)
+    golden_bytes = golden.read_bytes()
+    profile = {
+        "schema_version": "1.0.0",
+        "profile_id": "fish-voice-owned-001",
+        "provider": "fish_audio",
+        "reference_id": "voice-owned-001",
+        "provider_title": "Approved Russian narrator",
+        "state": "approved",
+        "languages": ["ru"],
+        "eligible_lanes": [
+            "war_history",
+            "celebrity_news",
+            "chinese_medicine",
+            "health",
+        ],
+        "rights_status": "approved_owned_voice",
+        "rights_review": {
+            "decision": "approved",
+            "basis": "voice_owner_confirmation",
+            "evidence": "Owner signed commercial voice-use approval.",
+            "reviewed_by": "rights_owner",
+            "reviewed_at": "2026-08-29T09:00:00Z",
+        },
+        "golden_sample": {
+            "path": "golden_samples/voice-owned-001.wav",
+            "sha256": hashlib.sha256(golden_bytes).hexdigest(),
+            "size_bytes": len(golden_bytes),
+            "immutable": True,
+        },
+        "quality_review": {
+            "decision": "approved",
+            "reviewed_by": "creative_owner",
+            "reviewed_at": "2026-08-29T09:30:00Z",
+            "timbre_approved": True,
+            "diction_approved": True,
+            "pacing_approved": True,
+            "emotional_range_approved": True,
+            "russian_pronunciation_approved": True,
+            "note": "Voice matches the approved Russian editorial character.",
+        },
+    }
+    catalog = {
+        "schema_version": "1.0.0",
+        "selection_policy": {
+            "automatic_fallback_allowed": False,
+            "eligible_state": "approved",
+            "golden_sample_sha256_required": True,
+            "human_quality_approval_required": True,
+            "job_bound_rights_approval_required": True,
+            "maximum_fish_generations_per_video": 2,
+        },
+        "profiles": [profile],
+    }
+    catalog_path = root / "catalog.json"
+    catalog_path.write_text(json.dumps(catalog), encoding="utf-8")
+    return catalog_path, profile
 
 
 def script_package() -> dict:
@@ -111,6 +180,7 @@ class VoiceHandlerTests(unittest.TestCase):
     def test_generates_queue_compatible_result_without_duplicate_hook(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
+            catalog_path, profile = write_profile_catalog(root)
             manifest_path = root / "voice.voice.json"
             manifest = {
                 "schema_version": "1.0.0",
@@ -160,7 +230,13 @@ class VoiceHandlerTests(unittest.TestCase):
                 }
 
             with mock.patch.dict(
-                os.environ, {"VIDEO_FACTORY_RUNTIME_ROOT": str(root)}, clear=False
+                os.environ,
+                {
+                    "VIDEO_FACTORY_RUNTIME_ROOT": str(root),
+                    "VIDEO_FACTORY_VOICE_PROFILE_CATALOG": str(catalog_path),
+                    "VIDEO_FACTORY_VOICE_PROFILE_ROOT": str(root),
+                },
+                clear=False,
             ), mock.patch(
                 "video_factory.voice_handler.generate_tts", side_effect=fake_generate
             ):
@@ -168,6 +244,18 @@ class VoiceHandlerTests(unittest.TestCase):
 
         self.assertEqual(result["artifact"], manifest)
         self.assertEqual(result["voice_rights_approval"], approval())
+        self.assertEqual(result["voice_profile_approval"], profile)
+        self.assertEqual(
+            result["voice_profile_binding"]["reference_id"], "voice-owned-001"
+        )
+        self.assertEqual(
+            result["voice_profile_binding"]["golden_sample_sha256"],
+            profile["golden_sample"]["sha256"],
+        )
+        self.assertRegex(
+            result["voice_profile_binding"]["profile_approval_sha256"],
+            r"^[a-f0-9]{64}$",
+        )
         spoken = captured["request"].text
         self.assertEqual(spoken.count("Первый русский сегмент."), 1)
         self.assertNotIn("Хук не должен звучать дважды", spoken)
@@ -185,6 +273,67 @@ class VoiceHandlerTests(unittest.TestCase):
     def test_rejects_motivation_lane(self) -> None:
         with self.assertRaisesRegex(ValidationError, "source_audio"):
             handle_task(task(lane="motivation"))
+
+    def test_fails_closed_without_approved_profile_before_fish_call(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            missing = root / "missing-catalog.json"
+            with mock.patch.dict(
+                os.environ,
+                {
+                    "VIDEO_FACTORY_RUNTIME_ROOT": str(root),
+                    "VIDEO_FACTORY_VOICE_PROFILE_CATALOG": str(missing),
+                },
+                clear=False,
+            ), mock.patch("video_factory.voice_handler.generate_tts") as generate:
+                with self.assertRaisesRegex(ValidationError, "catalog is missing"):
+                    handle_task(task())
+            generate.assert_not_called()
+
+    def test_rejected_reference_never_falls_back_before_fish_call(self) -> None:
+        body = task()
+        rejected = "003532fff0f4425cac625dd4fdd90c7b"
+        body["payload"]["voice_rights_approval"]["reference_id"] = rejected
+        repository_catalog = (
+            Path(__file__).resolve().parents[1] / "voice_profiles" / "catalog.json"
+        )
+        with tempfile.TemporaryDirectory() as temporary, mock.patch.dict(
+            os.environ,
+            {
+                "VIDEO_FACTORY_RUNTIME_ROOT": temporary,
+                "VIDEO_FACTORY_VOICE_PROFILE_CATALOG": str(repository_catalog),
+            },
+            clear=False,
+        ), mock.patch("video_factory.voice_handler.generate_tts") as generate:
+            with self.assertRaisesRegex(
+                ValidationError, "rejected.*automatic fallback is forbidden"
+            ):
+                handle_task(body)
+        generate.assert_not_called()
+
+    def test_job_rights_status_must_match_profile_before_fish_call(self) -> None:
+        body = task()
+        body["payload"]["voice_rights_approval"].update(
+            {
+                "voice_rights_status": "approved_licensed_voice",
+                "basis": "commercial_license",
+            }
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            catalog_path, _ = write_profile_catalog(root)
+            with mock.patch.dict(
+                os.environ,
+                {
+                    "VIDEO_FACTORY_RUNTIME_ROOT": str(root),
+                    "VIDEO_FACTORY_VOICE_PROFILE_CATALOG": str(catalog_path),
+                    "VIDEO_FACTORY_VOICE_PROFILE_ROOT": str(root),
+                },
+                clear=False,
+            ), mock.patch("video_factory.voice_handler.generate_tts") as generate:
+                with self.assertRaisesRegex(ValidationError, "rights status"):
+                    handle_task(body)
+            generate.assert_not_called()
 
 
 if __name__ == "__main__":

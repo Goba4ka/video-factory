@@ -96,6 +96,11 @@ Lane выпускает русскоязычные вертикальные ро
 
 ## Редакционный конвейер
 
+Это содержательный editorial checklist, а не runtime-порядок задач.
+Канонический production DAG задан `health.roles` в
+`factory/lanes/registry.json` и расшифрован в `OPERATING_MODE.md`; он включает
+human medical/rights/preview/final gates, audio stages, compiler и evidence QC.
+
 1. **Scout:** выбирает идею из `candidate_pool.json`, проверяет отсутствие дубля и свежесть источника.
 2. **Research:** формирует claim ledger: точный тезис, источник, популяция, тип доказательств, ограничения, дата проверки.
 3. **Script:** пишет только по ledger. Новые факты в сценарии запрещены.

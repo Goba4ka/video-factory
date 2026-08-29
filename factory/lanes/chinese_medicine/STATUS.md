@@ -1,6 +1,6 @@
 # STATUS — lane «Китайская медицина»
 
-Дата: 2026-08-27  
+Дата: 2026-08-30
 Статус: **ARMED / WAITING — research/editorial pack ready; production starts only on «начинаем»**
 
 ## Создано
@@ -10,8 +10,6 @@
 - `SOURCE_POLICY.md` — fail-closed иерархия источников, минимальный source bundle, актуальность, конфликты, правила для процедур/трав/диагностики и базовый реестр.
 - `MEDICAL_SAFETY.md` — матрица риска, запрет диагнозов/доз/отмены лечения, уязвимые группы, риски процедур и продуктов, красные флаги со срочной маршрутизацией.
 - `candidate_pool.json` — 26 русскоязычных идей для вертикальных роликов 60–80 секунд.
-
-Все материалы находятся только в `factory/lanes/chinese_medicine/`. Общие schemas, CLI, runtime и другие lane-папки не изменялись.
 
 ## Состав candidate pool
 
@@ -49,4 +47,12 @@
 
 `candidate_pool.json` — исследовательский пул, а не медицински одобренные сценарии. Перед производством выбранная идея должна получить отдельные IdeaCard/ClaimLedger, обновлённый source bundle, проверку прав на каждый ассет, профильное медицинское review, human semantic approval и стандартные publish gates фабрики.
 
-Постоянный протокол запуска зафиксирован в `PRODUCTION_MODE.md`. Триггер — точная пользовательская команда «начинаем»: сначала slate из 3–5 перепроверенных тем, затем только после пользовательских `да`/`нет` автономное производство 2–3 контрольных MP4 через обязательные HyperFrames/media workflows. Внешняя публикация без отдельного явного разрешения запрещена.
+Постоянный протокол запуска зафиксирован в `PRODUCTION_MODE.md`. Триггер — точная
+пользовательская команда «начинаем»: сначала slate из 3–5 перепроверенных тем,
+затем только после `да`/`нет` registry-controlled производство 2–3 роликов.
+Канонический DAG:
+
+`research -> medical_review (qualified human) -> media_discovery -> rights (human) -> media -> script -> voice -> editor -> bgm -> audio_mix -> compiler -> preview_review (human) -> render -> qc_auto_evidence -> caption_transcript -> captions_analyzer -> facts_analyzer -> policy_analyzer -> dedup_analyzer -> visual_analyzer -> qc_evidence_gate -> qc -> final_review (human) -> publisher`
+
+Внешняя публикация без отдельного checksum-bound явного разрешения
+запрещена.
