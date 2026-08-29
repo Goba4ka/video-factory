@@ -1,0 +1,28 @@
+<template>
+  <div data-composition-id="scene-arnold" data-width="1080" data-height="1920" data-duration="5.4" class="scene">
+    <style>
+      @font-face { font-family:"Arial Narrow"; src:local("Arial Narrow"); }
+      [data-composition-id="scene-arnold"] { position:absolute; inset:0; overflow:hidden; background:#000; color:#f2efe8; font-family:"Arial Narrow",Arial,sans-serif; }
+      [data-composition-id="scene-arnold"] .camera { position:absolute; inset:0; transform-origin:40% 36%; }
+      [data-composition-id="scene-arnold"] video { width:100%; height:100%; object-fit:cover; object-position:40% center; }
+      [data-composition-id="scene-arnold"] .matte { position:absolute; left:0; right:0; top:1360px; bottom:0; background:#000; }
+      [data-composition-id="scene-arnold"] .rule { position:absolute; left:0; right:0; top:0; height:6px; background:#b5222a; }
+      [data-composition-id="scene-arnold"] .meta { position:absolute; top:92px; left:62px; font-size:25px; font-weight:800; letter-spacing:4px; }
+      [data-composition-id="scene-arnold"] .counter { position:absolute; top:92px; right:62px; font-size:25px; font-weight:800; color:#b5222a; letter-spacing:4px; }
+      [data-composition-id="scene-arnold"] .caption { position:absolute; left:58px; right:58px; bottom:245px; text-align:center; font-size:82px; line-height:1.02; font-weight:900; letter-spacing:-1.5px; text-transform:uppercase; }
+      [data-composition-id="scene-arnold"] .red { color:#b5222a; }
+    </style>
+    <div id="arnold-camera" class="camera"><video id="arnold-video" src="assets/clips/arnold.mp4" data-start="0" data-duration="5.4" data-track-index="0" data-color-grading='{"adjust":{"contrast":0.18,"blacks":-0.10,"highlights":-0.10},"details":{"grain":0.20,"vignette":0.30}}' muted playsinline></video></div>
+    <audio id="arnold-audio" src="assets/clips/arnold.mp4" data-start="0" data-duration="5.4" data-track-index="12"></audio>
+    <div class="matte"></div><div class="rule"></div><div class="meta">ARNOLD SCHWARZENEGGER</div><div class="counter">03</div>
+    <div id="arnold-caption-1" class="caption clip" data-start="0" data-duration="1.35" data-track-index="3"><span>ПРОСТО </span><span class="red">ПОМНИ:</span></div>
+    <div id="arnold-caption-2" class="caption clip" data-start="1.35" data-duration="2.4" data-track-index="3"><span>ПО ЛЕСТНИЦЕ </span><span class="red">УСПЕХА</span><span> НЕ ПОДНЯТЬСЯ</span></div>
+    <div id="arnold-caption-3" class="caption clip" data-start="3.75" data-duration="1.65" data-track-index="3"><span>С </span><span class="red">РУКАМИ В КАРМАНАХ.</span></div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#arnold-camera", { scale: 1.03, xPercent: 0 }, { scale: 1.08, xPercent: -1.0, duration: 5.4, ease: "none" }, 0);
+      window.__timelines["scene-arnold"] = tl;
+    </script>
+  </div>
+</template>

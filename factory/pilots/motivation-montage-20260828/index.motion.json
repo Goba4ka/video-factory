@@ -1,0 +1,9 @@
+{
+  "duration": 29.458333,
+  "maxStaticSec": 2,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#global-chrome", "bySec": 0.5 },
+    { "kind": "staysInFrame", "selector": "#global-chrome" },
+    { "kind": "keepsMoving", "withinSelector": "#motivation-montage-20260828" }
+  ]
+}

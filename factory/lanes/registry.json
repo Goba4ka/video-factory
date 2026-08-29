@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "2026-08-29.1",
+  "production_contract": {
+    "daily_min": 10,
+    "daily_target": 15,
+    "daily_max": 15,
+    "aspect": "9:16",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_sample_rate_hz": 48000,
+    "integrated_loudness_lufs": -15,
+    "true_peak_max_dbtp": -1,
+    "human_publish_gate": true
+  },
+  "lanes": [
+    {
+      "id": "war_history",
+      "title_ru": "История войн",
+      "enabled": true,
+      "package_dir": "war_history",
+      "chat_id": "01a04d82-0422-7100-aed1-cf202744cee8",
+      "daily": {"min": 2, "target": 3, "max": 3},
+      "risk_profile": "war_sensitivity",
+      "roles": [
+        "research",
+        "sensitivity_review",
+        "rights",
+        "script",
+        "voice",
+        "editor",
+        "render",
+        "qc",
+        "final_review",
+        "publisher"
+      ],
+      "required_gate_roles": ["sensitivity_review", "rights", "qc", "final_review"]
+    },
+    {
+      "id": "celebrity_news",
+      "title_ru": "Новости про звёзд",
+      "enabled": true,
+      "package_dir": "celebrity_news",
+      "chat_id": "01a04d82-2d2e-7213-9fb0-c9cffe6b63a6",
+      "daily": {"min": 2, "target": 3, "max": 3},
+      "risk_profile": "privacy_defamation",
+      "roles": [
+        "research",
+        "privacy_review",
+        "rights",
+        "script",
+        "voice",
+        "editor",
+        "render",
+        "qc",
+        "final_review",
+        "publisher"
+      ],
+      "required_gate_roles": ["privacy_review", "rights", "qc", "final_review"]
+    },
+    {
+      "id": "motivation",
+      "title_ru": "Мотивация",
+      "enabled": true,
+      "package_dir": "motivation",
+      "chat_id": "01a04d82-4b0a-72f0-a0be-e0e998844148",
+      "daily": {"min": 2, "target": 3, "max": 3},
+      "risk_profile": "editorial_standard",
+      "roles": [
+        "research",
+        "rights",
+        "script",
+        "source_audio",
+        "editor",
+        "render",
+        "qc",
+        "final_review",
+        "publisher"
+      ],
+      "required_gate_roles": ["rights", "qc", "final_review"]
+    },
+    {
+      "id": "chinese_medicine",
+      "title_ru": "Китайская медицина",
+      "enabled": true,
+      "package_dir": "chinese_medicine",
+      "chat_id": "01a04d82-6b31-7442-8012-eda94e698a2f",
+      "daily": {"min": 2, "target": 3, "max": 3},
+      "risk_profile": "medical_safety",
+      "roles": [
+        "research",
+        "medical_review",
+        "rights",
+        "script",
+        "voice",
+        "editor",
+        "render",
+        "qc",
+        "final_review",
+        "publisher"
+      ],
+      "required_gate_roles": ["medical_review", "rights", "qc", "final_review"]
+    },
+    {
+      "id": "health",
+      "title_ru": "Здоровье",
+      "enabled": true,
+      "package_dir": "health",
+      "chat_id": "01a04d82-8bc4-7240-a7c5-0d1acf0fd89f",
+      "daily": {"min": 2, "target": 3, "max": 3},
+      "risk_profile": "medical_safety",
+      "roles": [
+        "research",
+        "medical_review",
+        "rights",
+        "script",
+        "voice",
+        "editor",
+        "render",
+        "qc",
+        "final_review",
+        "publisher"
+      ],
+      "required_gate_roles": ["medical_review", "rights", "qc", "final_review"]
+    }
+  ]
+}

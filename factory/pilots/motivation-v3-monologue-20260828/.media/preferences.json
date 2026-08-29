@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "telegram",
+      "confirmed_in": [
+        "motivation-v3-monologue-20260828"
+      ],
+      "updated_at": "2026-08-28T15:43:20.820Z"
+    },
+    "aspect": {
+      "value": "1080x1920",
+      "confirmed_in": [
+        "motivation-v3-monologue-20260828"
+      ],
+      "updated_at": "2026-08-28T15:43:20.924Z"
+    },
+    "language": {
+      "value": "ru",
+      "confirmed_in": [
+        "motivation-v3-monologue-20260828"
+      ],
+      "updated_at": "2026-08-28T15:43:21.012Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "motivation-v3-monologue-20260828"
+      ],
+      "updated_at": "2026-08-28T15:43:21.103Z"
+    },
+    "storyboard": {
+      "value": "no",
+      "confirmed_in": [
+        "motivation-v3-monologue-20260828"
+      ],
+      "updated_at": "2026-08-28T15:43:21.212Z"
+    },
+    "style_preset.general-video": {
+      "value": "shadow-cut-monologue",
+      "confirmed_in": [
+        "motivation-v3-monologue-20260828"
+      ],
+      "updated_at": "2026-08-28T15:43:21.320Z"
+    }
+  },
+  "sightings": {}
+}

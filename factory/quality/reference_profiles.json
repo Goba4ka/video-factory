@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "defaults": {
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration_seconds": {"min": 60, "max": 80},
+    "hook_deadline_seconds": {"target": 1.5, "max": 3.0},
+    "caption_lines_max": 2,
+    "caption_safe_center_y_percent": {"min": 45, "max": 60},
+    "integrated_lufs": {"min": -16, "max": -14},
+    "true_peak_dbtp_max": -1.0,
+    "hard_requirements": [
+      "claim_ledger_passed",
+      "rights_manifest_passed",
+      "no_foreign_watermark",
+      "no_black_or_frozen_tail",
+      "captions_complete",
+      "human_editor_approved"
+    ]
+  },
+  "profiles": {
+    "human_contrast_fast": {
+      "reference": "IMG_5042.MP4",
+      "script_words": {"min": 165, "max": 190},
+      "voice_words_per_minute": {"min": 140, "max": 160},
+      "shot_count": {"min": 22, "max": 32},
+      "median_shot_seconds": {"min": 1.8, "max": 3.2},
+      "caption_events": {"min": 50, "max": 70},
+      "caption_words": {"min": 2, "max": 5},
+      "accent_caption_ratio": {"min": 0.1, "max": 0.25}
+    },
+    "wonder_mystery_slow": {
+      "reference": "IMG_5043.MP4",
+      "script_words": {"min": 115, "max": 145},
+      "voice_words_per_minute": {"min": 95, "max": 120},
+      "shot_count": {"min": 7, "max": 14},
+      "median_shot_seconds": {"min": 5.0, "max": 11.5},
+      "caption_events": {"min": 38, "max": 55},
+      "caption_words": {"min": 3, "max": 7},
+      "accent_caption_ratio": {"min": 0.0, "max": 0.15}
+    }
+  }
+}

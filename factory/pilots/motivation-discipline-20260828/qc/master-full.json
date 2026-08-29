@@ -1,0 +1,77 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "b220a0fec3be59c1031da9e736274f3b42c90e8f1414bdcd41ceeb4119307ea4",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\b2\\b220a0fec3be59c1031da9e736274f3b42c90e8f1414bdcd41ceeb4119307ea4.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 6.859,
+  "failures": [
+    {
+      "code": "black_frame_run",
+      "message": "black run is at least 0.10s"
+    },
+    {
+      "code": "freeze_run",
+      "message": "unmarked freeze is at least 1.50s"
+    }
+  ],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 26.6,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 26.6,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-discipline-20260828\\renders\\motivation-discipline-master.mp4",
+    "size_bytes": 23160089,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 26.6,
+      "fps": 30.0,
+      "height": 1920,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 1080
+    }
+  },
+  "ok": false,
+  "profile": {
+    "name": "motivation_v3_master",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [
+      0.433333,
+      0.833333
+    ],
+    "decode_passed": true,
+    "freeze_durations_seconds": [
+      1.76667
+    ],
+    "loudness": {
+      "integrated_lufs": -14.91,
+      "lra_lu": 4.9,
+      "threshold_lufs": -25.36,
+      "true_peak_dbtp": -1.93
+    },
+    "max_black_seconds": 0.833333,
+    "max_freeze_seconds": 1.76667,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-discipline-20260828\\renders\\motivation-discipline-master.mp4",
+  "status": "final_technical_fail",
+  "technical_pass": false,
+  "warnings": []
+}

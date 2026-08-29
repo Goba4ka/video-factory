@@ -1,0 +1,43 @@
+[Script Info]
+Title: Motivation Montage 20260828
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Arial Narrow,94,&HE8EFF2,&HE8EFF2,&H000000,&H78000000,-1,0,0,0,100,100,-2,0,1,5,2,2,54,54,300,1
+Style: Meta,Arial Narrow,24,&H90EFF2,&H90EFF2,&H000000,&H00000000,-1,0,0,0,100,100,4,0,1,2,0,7,60,60,150,1
+Style: Counter,Arial Narrow,24,&H2A22B5,&H2A22B5,&H000000,&H00000000,-1,0,0,0,100,100,4,0,1,2,0,9,60,60,150,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.12,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ПОПРОБУЙ {\c&H2A22B5&}СНОВА
+Dialogue: 0,0:00:01.12,0:00:02.48,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ЕЩЁ {\c&H2A22B5&}РАЗ
+Dialogue: 0,0:00:02.48,0:00:04.00,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}И ЕЩЁ {\c&H2A22B5&}РАЗ
+Dialogue: 0,0:00:04.00,0:00:05.34,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ВЕСЬ {\c&H2A22B5&}ОТВЕТ
+Dialogue: 0,0:00:05.34,0:00:06.82,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}У {\c&H2A22B5&}ИЗБРАННОГО
+Dialogue: 0,0:00:06.82,0:00:08.14,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)\c&H2A22B5&}ДЕЙСТВУЮ
+Dialogue: 0,0:00:08.14,0:00:09.15,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}НЕ {\c&H2A22B5&}СДАЮСЬ
+Dialogue: 0,0:00:09.15,0:00:11.30,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}Я НИКОГДА НЕ {\c&H2A22B5&}БУДУ
+Dialogue: 0,0:00:11.30,0:00:13.90,Caption,,0,0,0,,{\fs78\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ПРОФЕССИОНАЛЬНЫМ\NСПОРТСМЕНОМ
+Dialogue: 0,0:00:13.90,0:00:15.50,Caption,,0,0,0,,{\fs86\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}НО ВСЁ РАВНО\N{\c&H2A22B5&}СТАРАЮСЬ
+Dialogue: 0,0:00:15.50,0:00:17.23,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ПОЧТИ НИЧЕГО
+Dialogue: 0,0:00:17.23,0:00:19.15,Caption,,0,0,0,,{\fs82\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}НЕ ПОЛУЧИТСЯ — НО\N{\c&H2A22B5&}СТАРАЮСЬ
+Dialogue: 0,0:00:19.15,0:00:21.00,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)\c&H2A22B5&}СНОВА {\c&HE8EFF2&}И СНОВА
+Dialogue: 0,0:00:21.00,0:00:23.06,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ТВОЙ МОЗГ {\c&H2A22B5&}СКАЖЕТ
+Dialogue: 0,0:00:23.06,0:00:24.62,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}МЫ {\c&H2A22B5&}НАЙДЁМ
+Dialogue: 0,0:00:24.62,0:00:25.96,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)\c&H2A22B5&}СПОСОБ
+Dialogue: 0,0:00:25.96,0:00:27.46,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}МЫ НАЙДЁМ
+Dialogue: 0,0:00:27.46,0:00:28.67,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)\c&H2A22B5&}ВЫХОД
+Dialogue: 0,0:00:28.67,0:00:29.46,Caption,,0,0,0,,{\fs82\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}НЕ {\c&H2A22B5&}ОСТАНАВЛИВАЙСЯ
+Dialogue: 1,0:00:00.00,0:00:04.00,Meta,,0,0,0,,DAVID GOGGINS
+Dialogue: 1,0:00:04.00,0:00:09.15,Meta,,0,0,0,,АРСЕН МАРКАРЯН
+Dialogue: 1,0:00:09.15,0:00:19.15,Meta,,0,0,0,,АРХИВНАЯ РЕЧЬ
+Dialogue: 1,0:00:19.15,0:00:29.46,Meta,,0,0,0,,DAVID GOGGINS
+Dialogue: 1,0:00:00.00,0:00:04.00,Counter,,0,0,0,,01
+Dialogue: 1,0:00:04.00,0:00:09.15,Counter,,0,0,0,,02
+Dialogue: 1,0:00:09.15,0:00:19.15,Counter,,0,0,0,,03
+Dialogue: 1,0:00:19.15,0:00:29.46,Counter,,0,0,0,,04

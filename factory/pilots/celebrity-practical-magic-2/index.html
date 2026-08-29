@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Проверенные новости о звёздах — Practical Magic 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        margin: 0;
+        overflow: hidden;
+        background: #090a0e;
+        color: #f2e9da;
+        font-family: "IBM Plex Mono", monospace;
+      }
+
+      #celebrity-practical-magic-2 {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #090a0e;
+      }
+
+      .clip,
+      .scene-host {
+        position: absolute;
+        inset: 0;
+      }
+
+      .scene-host {
+        z-index: 1;
+      }
+
+      #caption-host {
+        z-index: 40;
+        pointer-events: none;
+      }
+
+      #global-chrome {
+        z-index: 60;
+        pointer-events: none;
+      }
+
+      .chrome-label {
+        position: absolute;
+        right: 72px;
+        bottom: 92px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: #d9deff;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .verified-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #e4a853;
+        box-shadow: 0 0 18px rgba(228, 168, 83, 0.56);
+        will-change: opacity;
+      }
+
+      .progress-track {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        bottom: 58px;
+        height: 4px;
+        background: rgba(217, 222, 255, 0.2);
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        width: 100%;
+        height: 100%;
+        background: #e4a853;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        will-change: transform;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="celebrity-practical-magic-2"
+      data-composition-id="celebrity-practical-magic-2"
+      data-duration="57.2"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+      data-has-audio="true"
+    >
+      <div
+        id="scene-host-01"
+        class="clip scene-host"
+        data-composition-id="scene-01-hook"
+        data-composition-src="compositions/scene-01-hook.html"
+        data-start="0"
+        data-duration="7.731837"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-host-02"
+        class="clip scene-host"
+        data-composition-id="scene-02-premiere"
+        data-composition-src="compositions/scene-02-premiere.html"
+        data-start="7.731837"
+        data-duration="5.279683"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-host-03"
+        class="clip scene-host"
+        data-composition-id="scene-03-official"
+        data-composition-src="compositions/scene-03-official.html"
+        data-start="13.01152"
+        data-duration="6.831429"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-host-04"
+        class="clip scene-host"
+        data-composition-id="scene-04-curse"
+        data-composition-src="compositions/scene-04-curse.html"
+        data-start="19.842949"
+        data-duration="4.467619"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-host-05"
+        class="clip scene-host"
+        data-composition-id="scene-05-authorship"
+        data-composition-src="compositions/scene-05-authorship.html"
+        data-start="24.310568"
+        data-duration="6.165397"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-host-06"
+        class="clip scene-host"
+        data-composition-id="scene-06-cast"
+        data-composition-src="compositions/scene-06-cast.html"
+        data-start="30.475965"
+        data-duration="5.320227"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-host-07"
+        class="clip scene-host"
+        data-composition-id="scene-07-release"
+        data-composition-src="compositions/scene-07-release.html"
+        data-start="35.796192"
+        data-duration="8.571927"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-host-08"
+        class="clip scene-host"
+        data-composition-id="scene-08-question"
+        data-composition-src="compositions/scene-08-question.html"
+        data-start="44.368119"
+        data-duration="6.778776"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-host-09"
+        class="clip scene-host"
+        data-composition-id="scene-09-cta"
+        data-composition-src="compositions/scene-09-cta.html"
+        data-start="51.146895"
+        data-duration="6.053105"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <div
+        id="caption-host"
+        class="clip"
+        data-composition-id="caption-editorial-emphasis"
+        data-composition-src="compositions/components/caption-editorial-emphasis.html"
+        data-start="0"
+        data-duration="57.2"
+        data-track-index="40"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <div id="global-chrome" class="clip" data-start="0" data-duration="57.2" data-track-index="60">
+        <div class="chrome-label">
+          <span class="verified-dot" id="verified-dot"></span>
+          <span>проверено · entertainment</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+
+      <audio
+        id="voice"
+        src="assets/audio/voice.wav"
+        data-start="0"
+        data-duration="56.981229"
+        data-track-index="100"
+        data-volume="1"
+      ></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(
+        "#progress-fill",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 57.2, ease: "none" },
+        0,
+      );
+      tl.fromTo(
+        "#verified-dot",
+        { opacity: 0.35 },
+        { opacity: 1, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 103 },
+        0,
+      );
+      window.__timelines["celebrity-practical-magic-2"] = tl;
+    </script>
+  </body>
+</html>

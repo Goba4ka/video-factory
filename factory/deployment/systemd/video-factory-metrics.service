@@ -1,0 +1,24 @@
+[Unit]
+Description=Collect Video Factory queue and production metrics
+After=local-fs.target video-factory-preflight.service
+Requires=video-factory-preflight.service
+
+[Service]
+Type=oneshot
+User=video-factory
+Group=video-factory
+UMask=0027
+EnvironmentFile=/etc/video-factory/runtime.env
+WorkingDirectory=/opt/video-factory/current
+ExecStart=/opt/video-factory/current/factory/tools/collect_server_metrics.sh
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+ReadWritePaths=/var/lib/video-factory
+

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Режиссёр и книга</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      .authorship-panel {
+        position: absolute;
+        top: 310px;
+        left: 72px;
+        z-index: 6;
+        width: 900px;
+        padding: 42px 44px 50px;
+        background: rgba(9, 10, 14, 0.9);
+        border-top: 4px solid var(--amber);
+      }
+      .authorship-role {
+        font-size: 28px;
+        color: var(--moon);
+      }
+      .authorship-name {
+        margin-top: 48px;
+        font-size: 154px;
+        color: var(--paper);
+      }
+      .book-card {
+        position: absolute;
+        top: 900px;
+        right: 72px;
+        z-index: 7;
+        width: 770px;
+        padding: 36px 40px 40px;
+        background: var(--paper);
+        color: var(--ink);
+        border-bottom: 10px solid var(--amber);
+      }
+      .book-card .label {
+        font-size: 22px;
+      }
+      .book-card .title {
+        margin-top: 20px;
+        font-size: 82px;
+        line-height: 0.96;
+      }
+      .authorship-source {
+        position: absolute;
+        top: 1210px;
+        left: 72px;
+        z-index: 8;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-05-authorship"
+      data-duration="6.165397"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="media-frame">
+        <div class="media-motion" id="authorship-media" data-layout-allow-overflow>
+          <video
+            id="authorship-video"
+            class="clip media-clip"
+            src="assets/footage/book-director.mp4"
+            data-start="0"
+            data-duration="6.165397"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="mono scene-index">05 / АВТОРСТВО</span>
+        <span class="mono">ФИЛЬМ + КНИГА</span>
+      </div>
+      <section class="authorship-panel" id="authorship-panel">
+        <div class="mono authorship-role" id="authorship-role">РЕЖИССЁР</div>
+        <h1 class="display authorship-name" id="authorship-name">СЮЗАННА<br /><span class="accent">БИР</span></h1>
+      </section>
+      <section class="book-card" id="book-card">
+        <div class="mono label">ОСНОВА ЭКРАНИЗАЦИИ</div>
+        <div class="display title">«КНИГА МАГИИ»<br />ЭЛИС ХОФФМАН</div>
+      </section>
+      <div class="source-chip mono authorship-source" id="authorship-source">OFFICIAL MOVIE SITE</div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#authorship-media", { scale: 1.02, x: -16 }, { scale: 1.09, x: 18, duration: 6.165397, ease: "none" }, 0);
+      tl.fromTo(".top-meta", { x: 38, opacity: 0 }, { x: 0, opacity: 1, duration: 0.42, ease: "power3.out" }, 0.14);
+      tl.fromTo("#authorship-panel", { y: 90, opacity: 0 }, { y: 0, opacity: 1, duration: 0.64, ease: "expo.out" }, 0.32);
+      tl.fromTo("#authorship-role", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.36, ease: "power2.out" }, 0.62);
+      tl.fromTo("#authorship-name", { scale: 1.1, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.58, ease: "power4.out", transformOrigin: "0 50%" }, 0.78);
+      tl.fromTo("#book-card", { x: 170, opacity: 0 }, { x: 0, opacity: 1, duration: 0.68, ease: "power3.out" }, 1.12);
+      tl.fromTo("#authorship-source", { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 1.42);
+      tl.to("#book-card", { y: -7, duration: 2.1, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.0);
+      window.__timelines["scene-05-authorship"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+[Script Info]
+Title: Motivation V3 Monologue
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Word,Oswald,84,&H00F4F4F4,&H00F4F4F4,&H00000000,&H78000000,-1,0,0,0,104,100,0.7,0,1,4.6,2.4,5,70,70,0,204
+Style: Long,Oswald,76,&H00F4F4F4,&H00F4F4F4,&H00000000,&H78000000,-1,0,0,0,102,100,0.5,0,1,4.4,2.2,5,60,60,0,204
+Style: Hit,Oswald,88,&H004AB3D7,&H004AB3D7,&H00000000,&H78000000,-1,0,0,0,104,100,0.6,0,1,4.8,2.5,5,70,70,0,204
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:00.23,0:00:01.48,Word,,0,0,0,,{\fad(45,60)\blur0.35\pos(540,1065)}ВРЕМЯ ИСЧЕЗАЕТ
+Dialogue: 0,0:00:01.63,0:00:02.63,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}ВЫ
+Dialogue: 0,0:00:02.63,0:00:02.96,Word,,0,0,0,,{\fad(20,30)\blur0.35\pos(540,1065)}МОЖЕТЕ
+Dialogue: 0,0:00:02.96,0:00:04.16,Long,,0,0,0,,{\fad(45,60)\blur0.35\pos(540,1065)}ПУТЕШЕСТВОВАТЬ
+Dialogue: 0,0:00:04.16,0:00:04.97,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}МОЖЕТЕ УЛЕТАТЬ
+Dialogue: 0,0:00:04.97,0:00:05.60,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}В БУДУЩЕЕ
+Dialogue: 0,0:00:05.60,0:00:06.02,Word,,0,0,0,,{\fad(25,35)\blur0.35\pos(540,1065)}ВЫ МОЖЕТЕ
+Dialogue: 0,0:00:06.02,0:00:06.53,Long,,0,0,0,,{\fad(30,45)\blur0.35\pos(540,1065)}НАХОДИТЬСЯ
+Dialogue: 0,0:00:06.53,0:00:07.40,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}ЗДЕСЬ
+Dialogue: 0,0:00:07.40,0:00:07.84,Word,,0,0,0,,{\fad(25,35)\blur0.35\pos(540,1065)}И {\c&H004AB3D7&}СЕЙЧАС
+Dialogue: 0,0:00:07.84,0:00:08.84,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}ВЫ
+Dialogue: 0,0:00:08.84,0:00:09.26,Word,,0,0,0,,{\fad(25,35)\blur0.35\pos(540,1065)}МОЖЕТЕ ДЕЛАТЬ
+Dialogue: 0,0:00:09.26,0:00:09.83,Word,,0,0,0,,{\fad(30,45)\blur0.35\pos(540,1065)}ВСЁ
+Dialogue: 0,0:00:09.83,0:00:10.19,Word,,0,0,0,,{\fad(20,30)\blur0.35\pos(540,1065)}ЧТО ВЫ
+Dialogue: 0,0:00:10.19,0:00:10.49,Word,,0,0,0,,{\fad(20,25)\blur0.35\pos(540,1065)}ХОТИТЕ
+Dialogue: 0,0:00:10.49,0:00:11.36,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}ТОЛЬКО
+Dialogue: 0,0:00:11.36,0:00:11.89,Word,,0,0,0,,{\fad(30,45)\blur0.35\pos(540,1065)}ПОЧЕМУ?
+Dialogue: 0,0:00:11.89,0:00:12.89,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}ПОТОМУ
+Dialogue: 0,0:00:12.89,0:00:13.07,Word,,0,0,0,,{\fad(10,15)\blur0.35\pos(540,1065)}ЧТО
+Dialogue: 0,0:00:13.07,0:00:13.28,Word,,0,0,0,,{\fad(10,15)\blur0.35\pos(540,1065)}У ВАС
+Dialogue: 0,0:00:13.28,0:00:13.46,Word,,0,0,0,,{\fad(10,15)\blur0.35\pos(540,1065)}ЕСТЬ
+Dialogue: 0,0:00:13.46,0:00:14.15,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}ВОТ
+Dialogue: 0,0:00:14.15,0:00:14.89,Long,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}ЭТА ВНУТРЕННЯЯ
+Dialogue: 0,0:00:14.89,0:00:15.89,Hit,,0,0,0,,{\fad(40,55)\blur0.35\pos(540,1065)}ДИСЦИПЛИНА
+Dialogue: 0,0:00:15.89,0:00:16.70,Word,,0,0,0,,{\fad(35,50)\blur0.35\pos(540,1065)}ТАК
+Dialogue: 0,0:00:16.70,0:00:16.88,Word,,0,0,0,,{\fad(10,15)\blur0.35\pos(540,1065)}ЧТО
+Dialogue: 0,0:00:16.88,0:00:17.30,Word,,0,0,0,,{\fad(25,35)\blur0.35\pos(540,1065)}ЭТО НЕ
+Dialogue: 0,0:00:17.30,0:00:18.55,Word,,0,0,0,,{\fad(45,75)\blur0.35\pos(540,1065)}НАСИЛИЕ

@@ -1,0 +1,13 @@
+[Unit]
+Description=Collect Video Factory metrics every minute
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1min
+AccuracySec=10s
+RandomizedDelaySec=5s
+Persistent=true
+Unit=video-factory-metrics.service
+
+[Install]
+WantedBy=timers.target

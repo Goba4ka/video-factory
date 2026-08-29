@@ -1,0 +1,162 @@
+{
+  "project": "moon_trees_preproduction",
+  "as_of": "2026-08-27",
+  "language": "ru",
+  "allowed_source_owners": ["NASA", "U.S. Forest Service"],
+  "claims": [
+    {
+      "id": "C01",
+      "claim_ru": "В 1971 году Стюарт Руса взял в полёт Apollo 14 сотни семян деревьев.",
+      "status": "verified_qualified",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/",
+        "https://www.nasa.gov/history/celebrating-moon-trees-on-arbor-day/"
+      ],
+      "script_usage": "Используется слово «сотни», потому что официальные NASA-страницы расходятся в точном количестве.",
+      "uncertainty": "Официальные оценки: приблизительно 400–500 против возможно 2 000 или более; точное число исключено."
+    },
+    {
+      "id": "C02",
+      "claim_ru": "До NASA Руса был парашютистом-пожарным U.S. Forest Service.",
+      "status": "verified",
+      "sources": [
+        "https://www.nasa.gov/history/celebrating-moon-trees-on-arbor-day/",
+        "https://www.srs.fs.usda.gov/pubs/gtr/gtr_srs272/gtr_srs272.pdf"
+      ],
+      "script_usage": "Используется как мотивационная связь космической миссии с лесом.",
+      "uncertainty": null
+    },
+    {
+      "id": "C03",
+      "claim_ru": "Пока Алан Шепард и Эдгар Митчелл работали на поверхности Луны, Руса оставался в командном модуле Kitty Hawk.",
+      "status": "verified",
+      "sources": [
+        "https://www.nasa.gov/mission/apollo-14/",
+        "https://www.nasa.gov/history/moon-trees/"
+      ],
+      "script_usage": "Используется для объяснения, что семена облетали Луну и не были на поверхности.",
+      "uncertainty": null
+    },
+    {
+      "id": "C04",
+      "claim_ru": "Руса и семена совершили 34 полных лунных орбиты.",
+      "status": "verified",
+      "sources": [
+        "https://www.nasa.gov/learning-resources/nasa-usda-forest-service-fly-next-generation-of-moon-tree-seeds-on-artemis-i/"
+      ],
+      "script_usage": "Используется числом 34.",
+      "uncertainty": null
+    },
+    {
+      "id": "C05",
+      "claim_ru": "В набор входили семена пяти видов: loblolly pine, sycamore, sweetgum, redwood и Douglas fir.",
+      "status": "verified",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/",
+        "https://www.nasa.gov/history/celebrating-moon-trees-on-arbor-day/",
+        "https://www.srs.fs.usda.gov/pubs/gtr/gtr_srs272/gtr_srs272.pdf"
+      ],
+      "script_usage": "Русские названия в сценарии: ладанная сосна, платан, ликвидамбар, секвойя, дугласова пихта.",
+      "uncertainty": "Разговорные переводы названий могут различаться; научные английские наименования фиксируются здесь."
+    },
+    {
+      "id": "C06",
+      "claim_ru": "При обеззараживании после возвращения пакеты раскрылись, семена перемешались и подверглись вакууму; их жизнеспособность вызывала сомнения.",
+      "status": "verified",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/",
+        "https://www.nasa.gov/history/celebrating-moon-trees-on-arbor-day/"
+      ],
+      "script_usage": "Используется без драматизации причин и без постановочной реконструкции, выдаваемой за архив.",
+      "uncertainty": null
+    },
+    {
+      "id": "C07",
+      "claim_ru": "USFS вырастила более 400 саженцев, а космические семена прорастали не хуже земного контроля.",
+      "status": "verified",
+      "sources": [
+        "https://www.nasa.gov/history/celebrating-moon-trees-on-arbor-day/",
+        "https://www.nasa.gov/history/moon-trees/",
+        "https://www.srs.fs.usda.gov/pubs/gtr/gtr_srs272/gtr_srs272.pdf"
+      ],
+      "script_usage": "Используется «более четырёхсот саженцев» и «росли не хуже контрольных семян».",
+      "uncertainty": "Материалы также называют 450; сценарий сохраняет более устойчивую нижнюю формулировку."
+    },
+    {
+      "id": "C08",
+      "claim_ru": "В 1975–1976 годах саженцы отправляли в школы, парки и учреждения в США и за рубежом.",
+      "status": "verified_qualified",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/",
+        "https://www.nasa.gov/history/moon-trees-stand-as-living-testaments-to-first-voyages-to-moon/",
+        "https://www.srs.fs.usda.gov/pubs/gtr/gtr_srs272/gtr_srs272.pdf"
+      ],
+      "script_usage": "География дана без числа штатов.",
+      "uncertainty": "Официальные NASA-страницы расходятся между «все 50 штатов» и «не все штаты; сообщалось примерно о 40»."
+    },
+    {
+      "id": "C09",
+      "claim_ru": "Полного систематического реестра оригинальных Moon Trees не вели.",
+      "status": "verified",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/"
+      ],
+      "script_usage": "Используется как честная граница знания.",
+      "uncertainty": "Существуют составленные позднее списки предполагаемых мест, но они не равны полному первичному реестру."
+    },
+    {
+      "id": "C10",
+      "claim_ru": "NASA не обнаружила различимых отличий между Moon Trees и земными контрольными деревьями спустя десятилетия.",
+      "status": "verified_qualified",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/"
+      ],
+      "script_usage": "Сразу ограничено фразой, что это не доказывает отсутствие любого влияния космоса на растения.",
+      "uncertainty": "Речь об отсутствии различимых наблюдаемых отличий, а не о полном молекулярном или генетическом доказательстве."
+    },
+    {
+      "id": "C11",
+      "claim_ru": "В 2022 году новое поколение семян Moon Tree облетело Луну на Artemis I.",
+      "status": "verified",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/",
+        "https://www.nasa.gov/learning-resources/nasa-usda-forest-service-fly-next-generation-of-moon-tree-seeds-on-artemis-i/",
+        "https://www.nasa.gov/learning-resources/artemis-i-moon-tree-stewards/"
+      ],
+      "script_usage": "Используется как современный финал.",
+      "uncertainty": "«Новое поколение» — название программы; сценарий не утверждает, что все семена были прямыми потомками конкретных Apollo 14 деревьев."
+    },
+    {
+      "id": "I01",
+      "claim_ru": "Лунное наследие укоренилось на Земле.",
+      "status": "inference_editorial_metaphor",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/"
+      ],
+      "script_usage": "Финальная метафора, не фактическое научное утверждение.",
+      "uncertainty": "Редакционная формулировка."
+    }
+  ],
+  "excluded_claims": [
+    {
+      "id": "X01",
+      "claim_ru": "На борту было ровно 500 или ровно 2 000 семян.",
+      "reason": "Официальные NASA-источники расходятся."
+    },
+    {
+      "id": "X02",
+      "claim_ru": "Moon Trees получили все 50 штатов.",
+      "reason": "Актуальная NASA-страница прямо квалифицирует более раннюю версию."
+    },
+    {
+      "id": "X03",
+      "claim_ru": "Семена побывали на поверхности Луны.",
+      "reason": "Они находились в командном модуле на лунной орбите."
+    },
+    {
+      "id": "X04",
+      "claim_ru": "Космос никак не влияет на растения.",
+      "reason": "Данные Moon Trees не поддерживают такой универсальный вывод."
+    }
+  ]
+}

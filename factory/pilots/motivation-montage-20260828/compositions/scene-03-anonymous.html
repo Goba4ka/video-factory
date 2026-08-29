@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru"><body><template>
+  <style>
+    #root { position:absolute; inset:0; width:1080px; height:1920px; overflow:hidden; background:#08090b; color:#f2efe8; }
+    .camera { position:absolute; inset:-24px; overflow:hidden; transform-origin:50% 43%; will-change:transform; }
+    .source-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 42%; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,9,11,.08) 34%,rgba(8,9,11,.55) 63%,rgba(8,9,11,.96) 100%); }
+    .speaker { position:absolute; left:60px; top:154px; color:rgba(242,239,232,.72); font:700 20px "Space Mono",monospace; letter-spacing:.13em; }
+    .take { position:absolute; right:60px; top:154px; color:#b5222a; font:700 20px "Space Mono",monospace; }
+    .flash { background:#b5222a; mix-blend-mode:screen; opacity:.58; }
+    .caption { left:50px; right:50px; bottom:286px; height:auto; margin:auto; display:flex; flex-wrap:wrap; gap:.12em; justify-content:center; align-items:center; text-align:center; font:700 92px/1.04 "Oswald",sans-serif; letter-spacing:-.025em; text-transform:uppercase; text-shadow:0 4px 18px rgba(0,0,0,.96),0 0 3px #000; transform-origin:50% 70%; }
+    .hot { color:#b5222a; }
+  </style>
+  <div id="root" data-composition-id="scene-03-anonymous" data-width="1080" data-height="1920" data-duration="10">
+    <div id="s3-camera" class="camera"><video id="s3-video" class="clip source-video" src="assets/source/anonymous-speaker.mp4" data-start="0" data-duration="10" data-media-start="20.10" data-playback-rate="0.96" data-track-index="1" data-color-grading='{"preset":"mono-clean","intensity":1,"adjust":{"contrast":0.24,"blacks":-0.22,"highlights":-0.08},"details":{"grain":0.16,"grainSize":0.33,"grainRoughness":0.62,"vignette":0.36,"vignetteMidpoint":0.42,"vignetteFeather":0.76}}' muted playsinline></video></div>
+    <div class="shade"></div><div class="speaker">АРХИВНАЯ РЕЧЬ</div><div class="take">03</div><div id="s3-flash" class="clip flash" data-start="0" data-duration="0.066667" data-track-index="30"></div>
+    <div id="s3-c1" class="clip caption" data-start="0" data-duration="2.15" data-track-index="20">Я НИКОГДА НЕ&nbsp;<span class="hot">БУДУ</span></div>
+    <div id="s3-c2" class="clip caption" data-start="2.15" data-duration="2.6" data-track-index="20">ПРОФЕССИОНАЛЬНЫМ СПОРТСМЕНОМ</div>
+    <div id="s3-c3" class="clip caption" data-start="4.75" data-duration="1.604167" data-track-index="20">НО ВСЁ РАВНО&nbsp;<span class="hot">СТАРАЮСЬ</span></div>
+    <div id="s3-c4" class="clip caption" data-start="6.354167" data-duration="1.73" data-track-index="20">ПОЧТИ НИЧЕГО</div>
+    <div id="s3-c5" class="clip caption" data-start="8.084167" data-duration="1.915833" data-track-index="20">НЕ ПОЛУЧИТСЯ — НО&nbsp;<span class="hot">СТАРАЮСЬ</span></div>
+  </div>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo("#s3-camera",{scale:1.02,x:-4,y:0},{scale:1.052,x:8,y:-16,duration:10,ease:"none"},0);
+    tl.fromTo(".speaker",{opacity:0,x:-18},{opacity:.72,x:0,duration:.38,ease:"power3.out"},.16);
+    [["#s3-c1",0,2.15],["#s3-c2",2.15,4.75],["#s3-c3",4.75,6.354167],["#s3-c4",6.354167,8.084167],["#s3-c5",8.084167,10]].forEach(([id,a,b])=>{tl.fromTo(id,{opacity:0,scale:.95,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.12,ease:"power3.out"},a+.02);if(b<9.99)tl.to(id,{opacity:0,scale:1.012,filter:"blur(5px)",duration:.08,ease:"power2.in"},b-.08);});
+    window.__timelines["scene-03-anonymous"]=tl;
+  </script>
+</template></body></html>

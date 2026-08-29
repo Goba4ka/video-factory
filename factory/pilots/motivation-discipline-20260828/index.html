@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Дисциплина начинается после мотивации</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Oswald Local";
+        src: url("assets/fonts/Oswald-Variable.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 200 700;
+        font-display: block;
+      }
+
+      :root {
+        --matte: #050608;
+        --paper: #f1f0eb;
+        --accent: #b51f2a;
+        --outline: #030405;
+      }
+
+      * { box-sizing: border-box; }
+      html, body {
+        width: 1080px;
+        height: 1920px;
+        margin: 0;
+        overflow: hidden;
+        background: var(--matte);
+      }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--matte);
+      }
+
+      #picture {
+        position: absolute;
+        left: 0;
+        top: 420px;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #090a0c;
+        border-radius: 118px;
+        z-index: 1;
+      }
+
+      .visual {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .visual-inner {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      .visual video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .visual video.alarm { object-position: center 56%; }
+      .visual video.rain { object-position: 54% center; }
+      .visual video.boxing { object-position: 43% center; }
+      .visual video.hormozi { object-position: center 42%; }
+
+      .caption-clip {
+        position: absolute;
+        inset: 0;
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .caption-anchor {
+        position: absolute;
+        left: 44px;
+        right: 44px;
+        top: 1112px;
+        min-height: 164px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .caption-text {
+        display: inline-block;
+        max-width: 992px;
+        color: var(--paper);
+        font-family: "Oswald Local", sans-serif;
+        font-size: 78px;
+        font-weight: 700;
+        line-height: 0.98;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        -webkit-text-stroke: 4px var(--outline);
+        paint-order: stroke fill;
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.9), 0 10px 24px rgba(0, 0, 0, 0.72);
+        will-change: transform, opacity;
+      }
+
+      .caption-text.long { font-size: 66px; }
+      #caption-09 .caption-text { font-size: 66px; }
+      #caption-12 .caption-text { font-size: 56px; letter-spacing: 0.004em; }
+      .accent { color: var(--accent); }
+
+      .final-clip {
+        position: absolute;
+        inset: 0;
+        z-index: 30;
+        pointer-events: none;
+      }
+
+      .final-lockup {
+        position: absolute;
+        left: 48px;
+        right: 48px;
+        top: 730px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-family: "Oswald Local", sans-serif;
+        text-transform: uppercase;
+        color: var(--paper);
+        text-shadow: 0 5px 28px rgba(0, 0, 0, 0.94);
+        will-change: transform, opacity;
+      }
+
+      .final-lockup .line-a {
+        font-size: 116px;
+        line-height: 0.92;
+        color: var(--accent);
+      }
+
+      .final-lockup .line-b,
+      .final-lockup .line-c {
+        margin-top: 9px;
+        font-size: 80px;
+        line-height: 0.96;
+        letter-spacing: 0.012em;
+      }
+
+      #final-thesis .line-c { font-size: 72px; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-29by" id="root" data-root="true" data-composition-id="motivation-discipline" data-start="0" data-width="1080" data-height="1920" data-duration="24.2" data-fps="30">
+      <div data-hf-id="hf-3hvi" id="picture" data-layout-ignore="">
+        <div data-hf-id="hf-4xjn" id="vis-alarm" class="visual" data-layout-ignore="" style="display:none">
+          <div data-hf-id="hf-c4uv" class="visual-inner"><video data-hf-id="hf-v7uf" data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="alarm" class="alarm" src="assets/video/alarm-close.mp4" data-start="0" data-duration="5.1" data-media-start="0" muted playsinline></video></div>
+        </div>
+        <div data-hf-id="hf-jocko-a" id="vis-jocko-a" class="visual" data-layout-ignore="">
+          <div data-hf-id="hf-jocko-a-inner" class="visual-inner"><video data-hf-id="hf-jocko-a-video" id="jocko-a" class="jocko" src="assets/video/jocko-face.mp4" data-start="0" data-duration="2.20" data-media-start="0.50" muted playsinline></video></div>
+        </div>
+        <div data-hf-id="hf-sjy4" id="vis-rain-a" class="visual" data-layout-ignore="">
+          <div data-hf-id="hf-2jyv" class="visual-inner"><video data-hf-id="hf-7rab" data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="rain-a" class="rain" src="assets/video/rain-street.mp4" data-start="2.02" data-duration="3.16" data-media-start="0" muted playsinline></video></div>
+        </div>
+        <div data-hf-id="hf-buk1" id="vis-boxing" class="visual" data-layout-ignore="">
+          <div data-hf-id="hf-25nu" class="visual-inner"><video data-hf-id="hf-oat2" data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="boxing" class="boxing" src="assets/video/boxing.mp4" data-start="5.00" data-duration="5.66" data-media-start="1.2" muted playsinline></video></div>
+        </div>
+        <div data-hf-id="hf-jocko-b" id="vis-jocko-b" class="visual" data-layout-ignore="">
+          <div data-hf-id="hf-jocko-b-inner" class="visual-inner"><video data-hf-id="hf-jocko-b-video" id="jocko-b" class="jocko" src="assets/video/jocko-face.mp4" data-start="10.50" data-duration="4.70" data-media-start="7.10" muted playsinline></video></div>
+        </div>
+        <div data-hf-id="hf-gfa8" id="vis-hormozi" class="visual" data-layout-ignore="">
+          <div data-hf-id="hf-1rct" class="visual-inner"><video data-hf-id="hf-mcel" data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="hormozi" class="hormozi" src="assets/video/hormozi-source.mp4" data-start="15.02" data-duration="6.98" data-media-start="0" muted playsinline></video></div>
+        </div>
+        <div data-hf-id="hf-nool" id="vis-rain-final" class="visual" data-layout-ignore="">
+          <div data-hf-id="hf-4ji0" class="visual-inner"><video data-hf-id="hf-45e6" data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="rain-final" class="rain" src="assets/video/rain-street.mp4" data-start="21.82" data-duration="2.38" data-media-start="0.5" muted playsinline></video></div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-zqd1" id="caption-01" class="clip caption-clip" data-start="0.00" data-duration="0.82" data-track-index="4"><div data-hf-id="hf-czqk" class="caption-anchor"><div data-hf-id="hf-ft3h" class="caption-text"><span data-hf-id="hf-f6ck" class="accent">МОТИВАЦИЯ</span> НЕПОСТОЯННА</div></div></div>
+      <div data-hf-id="hf-pdik" id="caption-02" class="clip caption-clip" data-start="1.24" data-duration="0.96" data-track-index="4"><div data-hf-id="hf-gfwk" class="caption-anchor"><div data-hf-id="hf-ihx5" class="caption-text">ОНА ПРИХОДИТ И УХОДИТ</div></div></div>
+      <div data-hf-id="hf-bnzr" id="caption-03" class="clip caption-clip" data-start="3.00" data-duration="1.80" data-track-index="4"><div data-hf-id="hf-f8zh" class="caption-anchor"><div data-hf-id="hf-iopz" class="caption-text long">НА НЕЁ НЕЛЬЗЯ РАССЧИТЫВАТЬ</div></div></div>
+      <div data-hf-id="hf-id7u" id="caption-04" class="clip caption-clip" data-start="4.80" data-duration="2.15" data-track-index="4"><div data-hf-id="hf-fnai" class="caption-anchor"><div data-hf-id="hf-1ma6" class="caption-text">КОГДА СТАНОВИТСЯ ТЯЖЕЛО</div></div></div>
+      <div data-hf-id="hf-20jb" id="caption-05" class="clip caption-clip" data-start="7.20" data-duration="2.05" data-track-index="4"><div data-hf-id="hf-hmtn" class="caption-anchor"><div data-hf-id="hf-d6qb" class="caption-text">ПО-НАСТОЯЩЕМУ ТЯЖЕЛО</div></div></div>
+      <div data-hf-id="hf-n86w" id="caption-06" class="clip caption-clip" data-start="10.00" data-duration="1.20" data-track-index="4"><div data-hf-id="hf-i14o" class="caption-anchor"><div data-hf-id="hf-3ao4" class="caption-text">НО МОЖНО РАССЧИТЫВАТЬ</div></div></div>
+      <div data-hf-id="hf-kfz8" id="caption-07" class="clip caption-clip" data-start="11.20" data-duration="0.98" data-track-index="4"><div data-hf-id="hf-gu7l" class="caption-anchor"><div data-hf-id="hf-7sc7" class="caption-text">НА <span data-hf-id="hf-7wzq" class="accent">ДИСЦИПЛИНУ</span></div></div></div>
+      <div data-hf-id="hf-dgqt" id="caption-08" class="clip caption-clip" data-start="12.72" data-duration="2.10" data-track-index="4"><div data-hf-id="hf-h8im" class="caption-anchor"><div data-hf-id="hf-a56r" class="caption-text">ЕЁ ДИКТУЕШЬ ТЫ</div></div></div>
+      <div data-hf-id="hf-s13t" id="caption-09" class="clip caption-clip" data-start="15.10" data-duration="1.48" data-track-index="4"><div data-hf-id="hf-j81r" class="caption-anchor"><div data-hf-id="hf-vsr6" class="caption-text"><span data-hf-id="hf-5w49" class="accent">ТЫ НЕ ДИСЦИПЛИНИРОВАН</span></div></div></div>
+      <div data-hf-id="hf-ijlm" id="caption-10" class="clip caption-clip" data-start="16.58" data-duration="1.60" data-track-index="4"><div data-hf-id="hf-jmcs" class="caption-anchor"><div data-hf-id="hf-vga8" class="caption-text">ЕСЛИ ПОСТОЯНЕН ТОЛЬКО</div></div></div>
+      <div data-hf-id="hf-x77d" id="caption-11" class="clip caption-clip" data-start="18.18" data-duration="1.24" data-track-index="4"><div data-hf-id="hf-o8rg" class="caption-anchor"><div data-hf-id="hf-p1su" class="caption-text">В ТОМ, ЧТО НРАВИТСЯ</div></div></div>
+      <div data-hf-id="hf-3ma8" id="caption-12" class="clip caption-clip" data-start="19.42" data-duration="1.20" data-track-index="4"><div data-hf-id="hf-nugf" class="caption-anchor"><div data-hf-id="hf-4xja" class="caption-text long">ДИСЦИПЛИНА — БЫТЬ ПОСТОЯННЫМ</div></div></div>
+      <div data-hf-id="hf-7wkp" id="caption-13" class="clip caption-clip" data-start="20.62" data-duration="1.26" data-track-index="4"><div data-hf-id="hf-ng5e" class="caption-anchor"><div data-hf-id="hf-syj6" class="caption-text">В ТОМ, ЧТО НЕ НРАВИТСЯ</div></div></div>
+
+      <div data-hf-id="hf-wn4v" id="final-thesis" class="clip final-clip" data-start="22.10" data-duration="2.10" data-track-index="6">
+        <div data-hf-id="hf-gcvj" class="final-lockup"><span data-hf-id="hf-2vs9" class="line-a">ДИСЦИПЛИНА</span><span data-hf-id="hf-ewtc" class="line-b">НАЧИНАЕТСЯ ТАМ,</span><span data-hf-id="hf-33o5" class="line-c">ГДЕ КОНЧАЕТСЯ НАСТРОЕНИЕ</span></div>
+      </div>
+
+      <audio data-hf-id="hf-tjid" id="jocko-speech" src="assets/video/jocko-source.mp4" data-start="0" data-duration="14.82" data-media-start="0" data-track-index="10" data-volume="1.08"></audio>
+      <audio data-hf-id="hf-f7ct" id="hormozi-speech" src="assets/video/hormozi-source.mp4" data-start="15.10" data-duration="6.78" data-media-start="0" data-track-index="10" data-volume="1.05"></audio>
+      <audio data-hf-id="hf-kd33" id="music" src="assets/audio/tears-bed.wav" data-start="0" data-duration="24.2" data-media-start="0" data-track-index="11" data-volume="0.17"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      document.querySelectorAll(".visual").forEach((clip) => {
+        const inner = clip.querySelector(".visual-inner");
+        const media = clip.querySelector("video");
+        const start = Number(media.dataset.start);
+        const duration = Number(media.dataset.duration);
+        tl.fromTo(inner, { opacity: 0 }, { opacity: 1, duration: 0.16, ease: "power1.out", immediateRender: false }, start);
+        tl.to(inner, { opacity: 0, duration: 0.16, ease: "power1.in" }, Math.max(start + 0.16, start + duration - 0.16));
+        tl.fromTo(media, { scale: 1.005 }, { scale: 1.04, duration, ease: "none", immediateRender: false }, start);
+      });
+
+      document.querySelectorAll(".caption-clip").forEach((clip) => {
+        const text = clip.querySelector(".caption-text");
+        const accent = clip.querySelector(".accent");
+        const start = Number(clip.dataset.start);
+        const duration = Number(clip.dataset.duration);
+        tl.fromTo(text, { opacity: 0, y: 9, scale: 0.99 }, { opacity: 1, y: 0, scale: 1, duration: 0.06, ease: "power2.out", immediateRender: false }, start);
+        tl.to(text, { opacity: 0, y: -3, duration: 0.08, ease: "power2.in" }, Math.max(start + 0.08, start + duration - 0.08));
+        if (accent) {
+          tl.fromTo(accent, { textShadow: "0 0 0 rgba(181,31,42,0)" }, { textShadow: "0 0 18px rgba(181,31,42,0.42)", duration: 0.14, ease: "power2.out", immediateRender: false }, start + 0.02);
+          tl.to(accent, { textShadow: "0 0 7px rgba(181,31,42,0.18)", duration: 0.22 }, start + 0.16);
+        }
+      });
+
+      tl.fromTo(".final-lockup", { opacity: 0, y: 18, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.26, ease: "power2.out", immediateRender: false }, 22.10);
+      tl.to(".final-lockup", { opacity: 0, duration: 0.18, ease: "power1.in" }, 23.98);
+      window.__timelines["motivation-discipline"] = tl;
+    </script>
+  </body>
+</html>

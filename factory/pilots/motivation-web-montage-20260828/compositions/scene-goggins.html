@@ -1,0 +1,27 @@
+<template>
+  <div data-composition-id="scene-goggins" data-width="1080" data-height="1920" data-duration="5" class="scene">
+    <style>
+      @font-face { font-family:"Arial Narrow"; src:local("Arial Narrow"); }
+      [data-composition-id="scene-goggins"] { position:absolute; inset:0; overflow:hidden; background:#000; color:#f2efe8; font-family:"Arial Narrow",Arial,sans-serif; }
+      [data-composition-id="scene-goggins"] .camera { position:absolute; inset:0; transform-origin:30% 42%; }
+      [data-composition-id="scene-goggins"] video { width:100%; height:100%; object-fit:cover; object-position:30% center; }
+      [data-composition-id="scene-goggins"] .matte { position:absolute; left:0; right:0; top:1360px; bottom:0; background:#000; }
+      [data-composition-id="scene-goggins"] .rule { position:absolute; left:0; right:0; top:0; height:6px; background:#b5222a; }
+      [data-composition-id="scene-goggins"] .meta { position:absolute; top:92px; left:62px; font-size:25px; font-weight:800; letter-spacing:5px; }
+      [data-composition-id="scene-goggins"] .counter { position:absolute; top:92px; right:62px; font-size:25px; font-weight:800; color:#b5222a; letter-spacing:4px; }
+      [data-composition-id="scene-goggins"] .caption { position:absolute; left:58px; right:58px; bottom:245px; text-align:center; font-size:96px; line-height:1.02; font-weight:900; letter-spacing:-2px; text-transform:uppercase; }
+      [data-composition-id="scene-goggins"] .red { color:#b5222a; }
+    </style>
+    <div id="goggins-camera" class="camera"><video id="goggins-video" src="assets/clips/goggins.mp4" data-start="0" data-duration="5" data-track-index="0" data-color-grading='{"adjust":{"contrast":0.18,"blacks":-0.12,"highlights":-0.08},"details":{"grain":0.16,"vignette":0.30}}' muted playsinline></video></div>
+    <audio id="goggins-audio" src="assets/clips/goggins.mp4" data-start="0" data-duration="5" data-track-index="10"></audio>
+    <div class="matte"></div><div class="rule"></div><div class="meta">DAVID GOGGINS</div><div class="counter">01</div>
+    <div id="goggins-caption-1" class="caption clip" data-start="0" data-duration="2.2" data-track-index="3"><span>НИКАКИХ </span><span class="red">ЛАЙФХАКОВ</span><span> НЕТ.</span></div>
+    <div id="goggins-caption-2" class="caption clip" data-start="2.2" data-duration="2.8" data-track-index="3"><span>ТЫ — </span><span class="red">ПРОТИВ СЕБЯ.</span></div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#goggins-camera", { scale: 1.03, xPercent: 0 }, { scale: 1.075, xPercent: -1.4, duration: 5, ease: "none" }, 0);
+      window.__timelines["scene-goggins"] = tl;
+    </script>
+  </div>
+</template>

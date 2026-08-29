@@ -1,0 +1,12 @@
+{
+  "name": "motivation-tsiskaridze-20260828",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "npx --yes hyperframes@0.8.17 check",
+    "render": "npx --yes hyperframes@0.8.17 render"
+  },
+  "devDependencies": {
+    "@hyperframes/core": "^0.8.17"
+  }
+}

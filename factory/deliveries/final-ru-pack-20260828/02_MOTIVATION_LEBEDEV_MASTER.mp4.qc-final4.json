@@ -1,0 +1,63 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "7cd2f79c951fc1bc876c2825c421855cf2face1e46764c1ee51684e041893f58",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\7c\\7cd2f79c951fc1bc876c2825c421855cf2face1e46764c1ee51684e041893f58.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 9.844,
+  "failures": [],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 31.146,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 31.167,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-20260828\\02_MOTIVATION_LEBEDEV_MASTER.mp4",
+    "size_bytes": 21703675,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 31.166992,
+      "fps": 30.0,
+      "height": 1920,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 1080
+    }
+  },
+  "ok": true,
+  "profile": {
+    "name": "motivation_v3_master",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -14.86,
+      "lra_lu": 3.5,
+      "threshold_lufs": -24.98,
+      "true_peak_dbtp": -1.32
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-20260828\\02_MOTIVATION_LEBEDEV_MASTER.mp4",
+  "status": "final_technical_pass",
+  "technical_pass": true,
+  "warnings": []
+}

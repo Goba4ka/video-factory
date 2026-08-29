@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Европейская премьера</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      .event-panel {
+        position: absolute;
+        top: 300px;
+        left: 72px;
+        z-index: 6;
+        width: 870px;
+        padding: 42px 44px 48px;
+        background: rgba(9, 10, 14, 0.9);
+        border-top: 4px solid var(--amber);
+        border-bottom: 2px solid rgba(217, 222, 255, 0.4);
+      }
+      .event-date {
+        font-size: 164px;
+        color: var(--amber);
+        font-variant-numeric: tabular-nums;
+      }
+      .event-city {
+        margin-top: 62px;
+        font-size: 58px;
+        color: var(--moon);
+      }
+      .event-title {
+        margin-top: 34px;
+        font-size: 94px;
+        line-height: 0.94;
+      }
+      .event-rule {
+        margin-top: 34px;
+        width: 100%;
+      }
+      .event-source {
+        position: absolute;
+        top: 1100px;
+        left: 72px;
+        z-index: 7;
+      }
+      .event-note {
+        position: absolute;
+        top: 1190px;
+        left: 72px;
+        z-index: 7;
+        width: 750px;
+        font-size: 24px;
+        line-height: 1.4;
+        color: rgba(242, 233, 218, 0.78);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-02-premiere"
+      data-duration="5.279683"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="media-frame">
+        <div class="media-motion" id="premiere-media" data-layout-allow-overflow>
+          <video
+            id="premiere-video"
+            class="clip media-clip"
+            src="assets/footage/cinema-premiere.mp4"
+            data-start="0"
+            data-duration="5.279683"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="mono scene-index">02 / СОБЫТИЕ</span>
+        <span class="context-chip mono">КИНОКОНТЕКСТ · STOCK</span>
+      </div>
+      <section class="event-panel" id="event-panel">
+        <div class="display event-date" id="event-date">26.08.2026</div>
+        <div class="mono event-city" id="event-city">ЛОНДОН</div>
+        <h1 class="display event-title" id="event-title">ЕВРОПЕЙСКАЯ<br />ПРЕМЬЕРА</h1>
+        <div class="fact-rule event-rule" id="event-rule"></div>
+      </section>
+      <div class="source-chip mono event-source" id="event-source">ИСТОЧНИК · RTE · 27.08.2026</div>
+      <div class="mono event-note" id="event-note">Атмосферный кадр не является съёмкой премьеры.</div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#premiere-media", { scale: 1.04, y: -10 }, { scale: 1.09, y: 6, duration: 5.279683, ease: "none" }, 0);
+      tl.fromTo(".top-meta", { opacity: 0, x: 42 }, { opacity: 1, x: 0, duration: 0.38, ease: "power3.out" }, 0.14);
+      tl.fromTo("#event-panel", { x: -140, opacity: 0 }, { x: 0, opacity: 1, duration: 0.62, ease: "expo.out" }, 0.25);
+      tl.fromTo("#event-date", { y: 66, opacity: 0 }, { y: 0, opacity: 1, duration: 0.48, ease: "power4.out" }, 0.48);
+      tl.fromTo("#event-city", { x: 52, opacity: 0 }, { x: 0, opacity: 1, duration: 0.36, ease: "power2.out" }, 0.66);
+      tl.fromTo("#event-title", { y: 42, opacity: 0 }, { y: 0, opacity: 1, duration: 0.54, ease: "power3.out" }, 0.8);
+      tl.fromTo("#event-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power4.out" }, 1.02);
+      tl.fromTo("#event-source", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.42, ease: "power2.out" }, 1.18);
+      tl.fromTo("#event-note", { opacity: 0 }, { opacity: 1, duration: 0.58, ease: "sine.inOut" }, 1.34);
+      window.__timelines["scene-02-premiere"] = tl;
+    </script>
+  </body>
+</html>

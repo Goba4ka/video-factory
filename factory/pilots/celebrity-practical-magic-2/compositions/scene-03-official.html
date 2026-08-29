@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Официальное возвращение</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      #official-orb {
+        top: 170px;
+        left: 150px;
+      }
+      .official-title {
+        position: absolute;
+        top: 250px;
+        left: 72px;
+        z-index: 5;
+        width: 930px;
+        font-size: 118px;
+      }
+      .official-title .accent-line {
+        display: block;
+        color: var(--amber);
+        font-size: 108px;
+      }
+      .official-portraits {
+        top: 610px;
+        height: 570px;
+      }
+      .official-portraits img.sandra {
+        object-position: 50% 27%;
+      }
+      .official-portraits img.nicole {
+        object-position: 50% 25%;
+      }
+      .official-source {
+        position: absolute;
+        top: 1220px;
+        left: 72px;
+        z-index: 8;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-03-official"
+      data-duration="6.831429"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="moon-orb" id="official-orb" data-layout-ignore></div>
+      <div class="top-meta">
+        <span class="mono scene-index">03 / ПОДТВЕРЖДЕНО</span>
+        <span class="mono moon-text">НЕ СЛУХ</span>
+      </div>
+      <h1 class="display official-title" id="official-title">
+        СЁСТРЫ ОУЭНС
+        <span class="accent-line">ВОЗВРАЩАЮТСЯ</span>
+      </h1>
+      <div class="portrait-stage official-portraits">
+        <div class="portrait-card left" id="official-sandra">
+          <img class="sandra" src="assets/images/sandra-bullock-2018.jpg" alt="Сандра Буллок" />
+          <div class="archive-label mono">АРХИВ · 2018</div>
+        </div>
+        <div class="portrait-card right" id="official-nicole">
+          <img class="nicole" src="assets/images/nicole-kidman-2006.jpg" alt="Николь Кидман" />
+          <div class="archive-label mono">АРХИВ · 2006</div>
+        </div>
+      </div>
+      <div class="source-chip mono official-source" id="official-source">OFFICIAL MOVIE SITE · CAST</div>
+      <div class="registration" style="top: 580px; left: 50px" data-layout-ignore></div>
+      <div class="registration br" style="top: 1164px; right: 50px" data-layout-ignore></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#official-orb", { opacity: 0, scale: 0.82 }, { opacity: 0.3, scale: 1, duration: 1.1, ease: "power2.out" }, 0.12);
+      tl.to("#official-orb", { scale: 1.035, duration: 5.19, ease: "sine.inOut" }, 1.23);
+      tl.fromTo(".top-meta", { y: -28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.44, ease: "power3.out" }, 0.16);
+      tl.fromTo("#official-title", { y: 64, opacity: 0 }, { y: 0, opacity: 1, duration: 0.64, ease: "expo.out" }, 0.34);
+      tl.fromTo("#official-sandra", { x: -330, rotationY: 24, scale: 0.88, opacity: 0 }, { x: 0, rotationY: 12, scale: 1, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.82);
+      tl.fromTo("#official-nicole", { x: 330, rotationY: -24, scale: 0.88, opacity: 0 }, { x: 0, rotationY: -12, scale: 1, opacity: 1, duration: 0.98, ease: "power2.out" }, 0.96);
+      tl.fromTo("#official-source", { scale: 0.94, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.42, ease: "power4.out" }, 1.62);
+      tl.to("#official-sandra", { y: -5, duration: 1.75, ease: "sine.inOut", yoyo: true, repeat: 2 }, 2.05);
+      tl.to("#official-nicole", { y: 5, duration: 1.9, ease: "sine.inOut", yoyo: true, repeat: 2 }, 2.05);
+      window.__timelines["scene-03-official"] = tl;
+    </script>
+  </body>
+</html>

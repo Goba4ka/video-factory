@@ -1,0 +1,11 @@
+{
+  "duration": 8.571927,
+  "maxStaticSec": 1.8,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#release-card-1", "bySec": 1.6 },
+    { "kind": "before", "a": "#release-card-1", "b": "#release-card-2" },
+    { "kind": "staysInFrame", "selector": ".release-card" },
+    { "kind": "keepsMoving", "withinSelector": "#root" }
+  ]
+}
+

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "project": "motivation-web-montage-20260828",
+  "rights_status": "unverified-internal-prototype-only",
+  "generated_at": "2026-08-28T12:50:00Z",
+  "sources": [
+    {
+      "asset_id": "speaker-goggins",
+      "speaker": "David Goggins",
+      "url": "https://www.youtube.com/watch?v=84dYijIpWjQ",
+      "channel": "Huberman Lab Clips",
+      "channel_id": "UCkZjTZNvuxq1CYMS3cwZa1Q",
+      "title": "How to Build Extreme Willpower | David Goggins & Dr. Andrew Huberman",
+      "original_timestamp": {"in": "00:12:42.100", "out": "00:12:47.100"},
+      "local_source": "assets/source/goggins/goggins-official-mweb.mp4",
+      "local_clip": "assets/clips/goggins.mp4",
+      "source_sha256": "500A19370925B8C3AFB9FC92B2941D015051232B498E88B1C06B3F093F813D29",
+      "clip_sha256": "6943A96E2FE10D60C0B1A017196CA574259B9445CBC86C8E95BBC9C2CFF2E1FD",
+      "license_declared_by_platform": null,
+      "rights_note": "Copyright and likeness rights are not confirmed; internal prototype only."
+    },
+    {
+      "asset_id": "speaker-jocko",
+      "speaker": "Jocko Willink",
+      "url": "https://www.youtube.com/watch?v=ZbQh1ZPG5pc",
+      "channel": "Jocko Podcast",
+      "channel_id": "UCkqcY4CAuBFNFho6JgygCnA",
+      "title": "What Discipline Really Means - Jocko Willink",
+      "original_timestamp": {"in": "00:01:47.960", "out": "00:02:04.960"},
+      "local_source": "assets/source/jocko/jocko-root-official-mweb.mp4",
+      "local_clip": "assets/clips/jocko.mp4",
+      "source_sha256": "54613C44A9481654F4ECA41FD2769ECF702511755263E618B75ED1E97595CB59",
+      "clip_sha256": "E6CEEFD139DAB58FAE275C32A2A320B3ECD42D98FCD454B22AF8804CF6E43FB1",
+      "license_declared_by_platform": null,
+      "rights_note": "Copyright and likeness rights are not confirmed; internal prototype only."
+    },
+    {
+      "asset_id": "speaker-arnold",
+      "speaker": "Arnold Schwarzenegger",
+      "url": "https://www.youtube.com/watch?v=i5ZeIVPe5dg",
+      "channel": "Arnold Schwarzenegger",
+      "channel_id": "UCvyyU4AdijSZFEO7qqXP6kQ",
+      "title": "USC Commencement Address",
+      "original_timestamp": {"in": "00:22:27.700", "out": "00:22:33.100"},
+      "local_source": "assets/source/arnold/arnold-official-mweb.mp4",
+      "local_clip": "assets/clips/arnold.mp4",
+      "source_sha256": "AFEC0E4647DA108BA97ACA6FBCF00C0B257964B8F30D055BD250CD69134DBBA4",
+      "clip_sha256": "839D591FE4E89BFBFDCB6EF574D49A4ACA513FB7078B18221B484BE2CAF92DF1",
+      "license_declared_by_platform": null,
+      "rights_note": "Copyright and likeness rights are not confirmed; internal prototype only."
+    },
+    {
+      "asset_id": "procedural-dark-bed",
+      "type": "procedural-audio",
+      "generator": "FFmpeg lavfi: 55 Hz + 82.41 Hz sine, pink noise, deterministic filters",
+      "local_file": "assets/audio/procedural-dark-bed.wav",
+      "sha256": "745BDCCFCB39C0D2D35B6210D21404236CF3B5A028C6BB4D5B2CF037DA12B8D2",
+      "license": "Original procedural output generated for this project"
+    }
+  ],
+  "forbidden_source_check": {
+    "downloads_mp4_referenced": false,
+    "old_project_referenced": false
+  }
+}

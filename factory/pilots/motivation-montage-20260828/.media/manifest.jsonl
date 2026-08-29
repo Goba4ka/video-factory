@@ -1,0 +1,5 @@
+{"id":"bgm_001","type":"bgm","path":"assets/audio/dark-bed.m4a","source":"existing","description":"dark bed","provenance":{"provider":"local","adopted":true}}
+{"id":"video_001","type":"video","path":"assets/source/anonymous-speaker.mp4","source":"existing","description":"anonymous speaker","provenance":{"provider":"local","adopted":true}}
+{"id":"video_002","type":"video","path":"assets/source/bed-source.mp4","source":"existing","description":"bed source","provenance":{"provider":"local","adopted":true}}
+{"id":"video_003","type":"video","path":"assets/source/goggins.mp4","source":"existing","description":"goggins","provenance":{"provider":"local","adopted":true}}
+{"id":"video_004","type":"video","path":"assets/source/markaryan.mp4","source":"existing","description":"markaryan","provenance":{"provider":"local","adopted":true}}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "defect_id": "defect_celebrity_kanye_pronunciation_v1",
+  "job_id": "celebrity-kanye-petersburg-20260828",
+  "video_id": "celebrity-kanye-petersburg-20260828",
+  "generation_no": 1,
+  "generation_status": "succeeded",
+  "request_hash": "1e4d9b754043a73ec4c6ef311a2ac74a690741d39b4f3f53fdb963c7b0c09fe8",
+  "output_sha256": "5384bdabe015d240ad6505ad95476c2a70f059865abc0a14daf5cc126130b1fe",
+  "retry_reason": "pronunciation",
+  "description": "Offline Russian ASR detected an unintelligible pronunciation of the English agency name and unstable joins around the arena and date phrases. The second script removes the English brand from narration and splits the affected clauses.",
+  "evidence": "qc/fish-whisper.json: 'Сэйдинс', 'Гаспромарена', and 'Да, ты пока те же' were detected in the completed first generation.",
+  "regeneration_required": true,
+  "detected_by": "whisper.cpp-ggml-base-plus-editorial-review",
+  "detected_at": "2026-08-28T22:34:44.8472570Z"
+}

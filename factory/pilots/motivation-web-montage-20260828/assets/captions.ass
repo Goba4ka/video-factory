@@ -1,0 +1,32 @@
+[Script Info]
+Title: Motivation Web Montage 20260828
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Arial Narrow,88,&HE8EFF2,&HE8EFF2,&H000000,&H78000000,-1,0,0,0,100,100,-2,0,1,5,2,2,54,54,265,1
+Style: Meta,Arial Narrow,24,&H90EFF2,&H90EFF2,&H000000,&H00000000,-1,0,0,0,100,100,4,0,1,2,0,7,60,60,155,1
+Style: Counter,Arial Narrow,24,&H2A22B5,&H2A22B5,&H000000,&H00000000,-1,0,0,0,100,100,4,0,1,2,0,9,60,60,155,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:02.20,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}НИКАКИХ {\c&H2A22B5&}ЛАЙФХАКОВ{\c&HE8EFF2&} НЕТ.
+Dialogue: 0,0:00:02.20,0:00:05.00,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ТЫ — {\c&H2A22B5&}ПРОТИВ СЕБЯ.
+Dialogue: 0,0:00:05.00,0:00:08.20,Caption,,80,80,0,,{\fs72\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)\c&H2A22B5&}ДИСЦИПЛИНА{\c&HE8EFF2&} — ЭТО\NТРУДНЫЙ ПУТЬ.
+Dialogue: 0,0:00:08.20,0:00:11.10,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ПУТЬ {\c&H2A22B5&}В ГОРУ.
+Dialogue: 0,0:00:11.10,0:00:15.70,Caption,,0,0,0,,{\fs76\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ДЕЛАТЬ ТО, ЧТО {\c&H2A22B5&}ПРАВИЛЬНО\N{\c&HE8EFF2&}ДЛЯ ТЕБЯ.
+Dialogue: 0,0:00:15.70,0:00:18.70,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}И ДЛЯ {\c&H2A22B5&}ДРУГИХ ЛЮДЕЙ.
+Dialogue: 0,0:00:18.70,0:00:22.00,Caption,,0,0,0,,{\fs78\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)\c&H2A22B5&}ЛЁГКИЙ ПУТЬ{\c&HE8EFF2&} ЗОВЁТ ЧАЩЕ ВСЕГО.
+Dialogue: 0,0:00:22.00,0:00:23.35,Caption,,0,0,0,,{\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ПРОСТО {\c&H2A22B5&}ПОМНИ:
+Dialogue: 0,0:00:23.35,0:00:25.75,Caption,,0,0,0,,{\fs73\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}ПО ЛЕСТНИЦЕ {\c&H2A22B5&}УСПЕХА\N{\c&HE8EFF2&}НЕ ПОДНЯТЬСЯ
+Dialogue: 0,0:00:25.75,0:00:27.40,Caption,,0,0,0,,{\fs80\blur8\fscx94\fscy94\t(0,120,\blur0.5\fscx100\fscy100)}С {\c&H2A22B5&}РУКАМИ В КАРМАНАХ.
+Dialogue: 1,0:00:00.00,0:00:05.00,Meta,,0,0,0,,DAVID GOGGINS
+Dialogue: 1,0:00:05.00,0:00:22.00,Meta,,0,0,0,,JOCKO WILLINK
+Dialogue: 1,0:00:22.00,0:00:27.40,Meta,,0,0,0,,ARNOLD SCHWARZENEGGER
+Dialogue: 1,0:00:00.00,0:00:05.00,Counter,,0,0,0,,01
+Dialogue: 1,0:00:05.00,0:00:22.00,Counter,,0,0,0,,02
+Dialogue: 1,0:00:22.00,0:00:27.40,Counter,,0,0,0,,03

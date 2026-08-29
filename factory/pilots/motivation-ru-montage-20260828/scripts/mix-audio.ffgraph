@@ -1,0 +1,11 @@
+[0:a]atrim=start=0:duration=10.241,asetpts=PTS-STARTPTS,volume=0.62,highpass=f=80,lowpass=f=12500,acompressor=threshold=-20dB:ratio=2.2:attack=10:release=120:makeup=2,loudnorm=I=-17:LRA=7:TP=-2[m_voice];
+[1:a]atrim=start=0:duration=6.570,asetpts=PTS-STARTPTS,volume=0.62,highpass=f=80,lowpass=f=12500,acompressor=threshold=-20dB:ratio=2.2:attack=10:release=120:makeup=2,loudnorm=I=-17:LRA=7:TP=-2[r_voice];
+[2:a]atrim=start=0:duration=12.200,asetpts=PTS-STARTPTS,volume=0.62,highpass=f=80,lowpass=f=12500,acompressor=threshold=-20dB:ratio=2.2:attack=10:release=120:makeup=2,loudnorm=I=-17:LRA=7:TP=-2[h_voice];
+[m_voice][r_voice][h_voice]concat=n=3:v=0:a=1,asplit=2[voice_main][voice_sc];
+[3:a]atrim=start=155:duration=30.611,asetpts=PTS-STARTPTS,loudnorm=I=-20:LRA=10:TP=-2,asplit=2[music_a][music_b];
+[music_a]atrim=start=0:duration=29.011,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.55,asplit=2[music_duck][music_floor_src];
+[music_floor_src]volume=0.20[music_floor];
+[music_b]atrim=start=29.011:duration=1.600,asetpts=PTS-STARTPTS,volume=1.25,afade=t=out:st=1.20:d=0.40[music_end];
+[music_duck][voice_sc]sidechaincompress=threshold=0.025:ratio=5:attack=18:release=260:makeup=1[ducked_music];
+[ducked_music][music_floor][voice_main]amix=inputs=3:duration=longest:weights='1 1 1':normalize=0,atrim=duration=29.011[mixed_pre];
+[mixed_pre][music_end]concat=n=2:v=0:a=1,alimiter=limit=0.90:attack=5:release=60[aout]

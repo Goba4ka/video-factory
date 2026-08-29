@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Offline demonstration of the Video Factory agent topology.">
+  <title>Video Factory / Agent Observatory</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <div>
+          <p class="eyebrow">VIDEO FACTORY / WORKGRAPH 01</p>
+          <h1>Agent Observatory</h1>
+        </div>
+      </div>
+      <div class="system-state" aria-label="Состояние демонстрации">
+        <span class="signal"><i></i>OFFLINE SIMULATION</span>
+        <span class="clock" id="clock">00:00:00</span>
+        <button class="control" id="toggle-simulation" type="button" aria-pressed="false">
+          <span class="control-icon" aria-hidden="true">Ⅱ</span>
+          <span>Пауза</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="summary-strip" aria-label="Производственный контракт">
+      <div class="summary-cell">
+        <span class="summary-label">LANES</span>
+        <strong>05</strong>
+        <span class="summary-note">тематических линий</span>
+      </div>
+      <div class="summary-cell">
+        <span class="summary-label">DAILY CONTRACT</span>
+        <strong>10–15</strong>
+        <span class="summary-note">видео / сутки</span>
+      </div>
+      <div class="summary-cell">
+        <span class="summary-label">MOTIVATION</span>
+        <strong>02×</strong>
+        <span class="summary-note">параллельный рендер</span>
+      </div>
+      <div class="summary-cell">
+        <span class="summary-label">MASTER</span>
+        <strong>9:16</strong>
+        <span class="summary-note">1080 × 1920 · 30 fps</span>
+      </div>
+      <div class="summary-cell">
+        <span class="summary-label">PUBLISH</span>
+        <strong>GATED</strong>
+        <span class="summary-note">только после проверки</span>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="rail rail-left" aria-label="Очередь производственных линий">
+        <div class="section-heading">
+          <p>ACTIVE PIPELINES</p>
+          <span>DEMO / 05</span>
+        </div>
+        <div id="lane-list" class="lane-list"></div>
+        <div class="rail-footnote">
+          <span class="tiny-label">ORCHESTRATION</span>
+          <p>Роли исполняются изолированно. Переход дальше открывают права, профильная проверка и QC.</p>
+        </div>
+      </aside>
+
+      <section class="graph-stage" aria-label="Интерактивная схема агентов">
+        <div class="stage-toolbar">
+          <div>
+            <p class="stage-kicker">PRODUCTION TOPOLOGY</p>
+            <p class="stage-subtitle">Выберите узел, чтобы открыть его функцию и контракт.</p>
+          </div>
+          <div class="legend" aria-label="Легенда состояний">
+            <span><i class="legend-dot live"></i>АКТИВЕН</span>
+            <span><i class="legend-dot ready"></i>ГОТОВ</span>
+            <span><i class="legend-dot gate"></i>GATE</span>
+          </div>
+        </div>
+        <div class="graph-wrap">
+          <svg id="network" viewBox="0 0 1600 820" role="img" aria-labelledby="network-title network-desc">
+            <title id="network-title">Сеть агентов Video Factory</title>
+            <desc id="network-desc">Пять тематических производственных линий соединены с центральным оркестратором, проверками и публикацией. Линия мотивации содержит два параллельных рендера.</desc>
+            <defs>
+              <filter id="soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur>
+                <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+              </filter>
+              <pattern id="micro-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                <path d="M32 0H0V32" fill="none" stroke="currentColor" stroke-opacity=".06" stroke-width="1"></path>
+              </pattern>
+            </defs>
+            <rect class="grid-field" x="0" y="0" width="1600" height="820" fill="url(#micro-grid)"></rect>
+            <g id="edge-layer"></g>
+            <g id="pulse-layer"></g>
+            <g id="node-layer"></g>
+          </svg>
+        </div>
+        <div class="graph-caption">
+          <span id="event-ticker">ORCHESTRATOR → MOTIVATION / RENDER-A · пакет передан</span>
+          <span>Данные локальные · внешние API не подключены</span>
+        </div>
+      </section>
+
+      <aside class="rail rail-right" aria-label="Инспектор выбранного узла">
+        <div class="section-heading">
+          <p>NODE INSPECTOR</p>
+          <span id="inspector-code">CORE-00</span>
+        </div>
+        <div class="inspector" id="inspector" aria-live="polite"></div>
+        <div class="contract-block">
+          <span class="tiny-label">OUTPUT CONTRACT</span>
+          <dl>
+            <div><dt>Container</dt><dd>MP4 / H.264</dd></div>
+            <div><dt>Audio</dt><dd>AAC · 48 kHz</dd></div>
+            <div><dt>Loudness</dt><dd>−15 LUFS</dd></div>
+            <div><dt>Delivery</dt><dd>Telegram Saved</dd></div>
+          </dl>
+        </div>
+      </aside>
+    </section>
+
+    <section class="command-deck" aria-label="Командный контур демонстрационного запуска">
+      <div class="board-head command-head">
+        <div>
+          <p class="stage-kicker">CURRENT DEMO RUN / RU-V2-0829</p>
+          <h2>Операционный контур</h2>
+        </div>
+        <p class="board-note">Локальная симуляция показывает контракты, очереди и контроль качества. Значения не выдаются за телеметрию внешних сервисов.</p>
+      </div>
+      <div class="run-ribbon" aria-label="Сводка демонстрационного запуска">
+        <div><span>WIP</span><strong>03</strong><small>контрольные сборки</small></div>
+        <div><span>RENDER SLOTS</span><strong>02</strong><small>параллельный лимит</small></div>
+        <div><span>FISH TTS</span><strong>2 / 2</strong><small>лимит новости исчерпан</small></div>
+        <div><span>QC LAYERS</span><strong>06</strong><small>decode · frame · audio · facts · rights · final</small></div>
+        <div><span>DELIVERY</span><strong>GATED</strong><small>без автопубликации</small></div>
+      </div>
+      <div class="command-grid">
+        <article class="ops-panel event-panel">
+          <header class="panel-head"><div><span>01</span><h3>Agent event stream</h3></div><small>SIMULATED / LOCAL</small></header>
+          <div class="event-stream" id="event-stream" aria-live="polite"></div>
+        </article>
+        <article class="ops-panel artifact-panel">
+          <header class="panel-head"><div><span>02</span><h3>Artifact lineage</h3></div><small>3 CONTROL VERSIONS</small></header>
+          <div class="artifact-list" id="artifact-list"></div>
+        </article>
+        <article class="ops-panel quality-panel">
+          <header class="panel-head"><div><span>03</span><h3>Quality vector</h3></div><small>PRE-PUBLISH GATES</small></header>
+          <div class="quality-vector" id="quality-vector"></div>
+        </article>
+        <article class="ops-panel resource-panel">
+          <header class="panel-head"><div><span>04</span><h3>Resource envelope</h3></div><small>CAPACITY MODEL</small></header>
+          <div class="resource-grid">
+            <div class="resource-main"><span class="dial" style="--value:72"><i>72%</i></span><p>локальный render budget</p></div>
+            <dl>
+              <div><dt>Research cache</dt><dd>reuse-first</dd></div>
+              <div><dt>Voice retries</dt><dd>max 2 / video</dd></div>
+              <div><dt>Master encode</dt><dd>CRF quality</dd></div>
+              <div><dt>Telegram copy</dt><dd>derived once</dd></div>
+              <div><dt>Re-render rule</dt><dd>failed gate only</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="pipeline-board" aria-label="Статусы производственных этапов">
+      <div class="board-head">
+        <div>
+          <p class="stage-kicker">PIPELINE MATRIX</p>
+          <h2>Пять линий. Один стандарт.</h2>
+        </div>
+        <p class="board-note">Состояния ниже — демонстрация архитектуры, не мониторинг запущенных сервисов.</p>
+      </div>
+      <div class="pipeline-table" id="pipeline-table"></div>
+    </section>
+
+    <footer>
+      <span>VIDEO FACTORY / LOCAL OBSERVABILITY SURFACE</span>
+      <span>SIMULATED SIGNALS · STATIC DATA · NO NETWORK RUNTIME</span>
+      <span>BUILD 2026.08</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

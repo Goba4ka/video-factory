@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "job_motivation_first_action",
+  "render_id": "render_motivation_control_final",
+  "technical": {
+    "audio_sample_rate_hz": 48000
+  },
+  "checks": [
+    {
+      "check_id": "tech_1080x1920_cfr",
+      "category": "technical",
+      "status": "pass",
+      "evidence": "ffprobe: H.264 High, 1080x1920, 30/1 fps CFR, SAR 1:1, yuv420p, BT.709, 53.800 s, 1611/1611 decoded frames.",
+      "artifact": "MOTIVATION_CONTROL_FINAL.mp4"
+    },
+    {
+      "check_id": "audio_loudness_peak",
+      "category": "audio",
+      "status": "pass",
+      "evidence": "Measured integrated loudness -15.19 LUFS, LRA 1.70 LU, true peak -2.71 dBTP; AAC LC stereo exactly 48 kHz.",
+      "artifact": "MOTIVATION_CONTROL_FINAL.mp4"
+    },
+    {
+      "check_id": "captions_layout_contrast",
+      "category": "captions",
+      "status": "pass",
+      "evidence": "Full Russian Fish Audio voiceover is represented by 25 synchronized burn-in caption blocks derived from 16 offline Whisper phrase timestamps. Forced line spans keep every block to one or two visual lines; the 0.5-second hook and 12-point contact-sheet review passed.",
+      "artifact": "snapshots/FINAL_CONTACT_SHEET.png"
+    },
+    {
+      "check_id": "facts_claim_boundary",
+      "category": "facts",
+      "status": "pass",
+      "evidence": "Implementation-intention claim is bounded to a supported planning technique; the minimum-action/two-minute device is presented as an editorial experiment, not a universal scientific threshold.",
+      "artifact": "SCRIPT.md"
+    },
+    {
+      "check_id": "rights_pexels_ledger",
+      "category": "rights",
+      "status": "pass",
+      "evidence": "Seven Pexels assets have item landing URLs, creators, direct frozen files and license conditions recorded; no arbitrary social-media footage was used.",
+      "artifact": "assets/rights/RIGHTS_LEDGER.md"
+    },
+    {
+      "check_id": "motion_runtime_layout",
+      "category": "visual",
+      "status": "pass",
+      "evidence": "HyperFrames high-quality strict render captured all 1611/1611 frames and completed in 175.7 seconds. Independent full-video ffmpeg decode returned no errors.",
+      "artifact": "index.motion.json"
+    },
+    {
+      "check_id": "caption_track_density",
+      "category": "visual",
+      "status": "warn",
+      "evidence": "Five caption tracks contain five timed elements each and trigger non-blocking timeline_track_too_dense guidance; full render, decode and visual sampling remain valid.",
+      "artifact": "index.html"
+    },
+    {
+      "check_id": "fish_voice_commercial_rights",
+      "category": "rights",
+      "status": "warn",
+      "evidence": "Fish Audio voice is accepted for the internal control render. Official terms make commercial rights plan- and voice-ownership-dependent; external publication remains blocked until Premium status and an owned verified voice are confirmed.",
+      "artifact": "RIGHTS_MANIFEST.json"
+    }
+  ],
+  "decision": {
+    "passed": true,
+    "needs_human_review": true,
+    "blocking_check_ids": [],
+    "review_notes": [
+      "Control final produced autonomously per user instruction.",
+      "External publication requires explicit publish approval plus confirmation that the Fish Audio account was Premium and the selected voice is owned and verified."
+    ]
+  },
+  "created_at": "2026-08-27T20:54:45+03:00"
+}

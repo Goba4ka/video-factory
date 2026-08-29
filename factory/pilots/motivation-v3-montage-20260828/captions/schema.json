@@ -1,0 +1,12 @@
+{
+  "version": 4,
+  "canvas": "1080x1920",
+  "safe_surface": { "x": 0, "y": 420, "width": 1080, "height": 1080 },
+  "anchor": { "x": 540, "y": 960, "alignment": "square-center-below-eyeline" },
+  "font": { "family": "Arial Narrow Bold", "fallback": "Arial Black", "weight": 900, "style": "italic", "size_px": 82, "min_px": 74, "max_px": 84 },
+  "text": { "case": "uppercase", "max_words": 3, "max_lines": 1, "tracking_em": -0.04, "line_height": 0.92, "source_true_only": true },
+  "colors": { "primary": "#F5F3EE", "accent": "#F4D116", "outline": "#050505" },
+  "stroke_shadow": { "stroke_px": 8, "shadow_x_px": 0, "shadow_y_px": 12, "shadow_blur_px": 14, "shadow_opacity": 0.9 },
+  "accent_policy": { "max_cues": 2, "cue_ids": ["m06", "g14"] },
+  "forbidden": ["speaker names", "top labels", "side labels", "metadata", "caption boxes", "CTA", "paraphrases"]
+}

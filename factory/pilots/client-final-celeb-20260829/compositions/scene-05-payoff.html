@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru"><head></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Manrope"; src: url("assets/fonts/Manrope-Variable.ttf") format("truetype"); font-weight: 200 900; }
+        #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0b0a0f; color: #f7f2ea; font-family: "Manrope", sans-serif; }
+        .world { position: absolute; inset: -32px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; will-change: transform; }
+        .portrait { width: 100%; height: 100%; object-fit: cover; filter: saturate(.72) contrast(1.1); }
+        .portrait:nth-child(1) { object-position: 39% center; }
+        .portrait:nth-child(2) { object-position: 50% 18%; }
+        .portrait:nth-child(3) { object-position: 49% 18%; }
+        .veil { position: absolute; inset: 0; background: rgba(11,10,15,.43); }
+        .halo { position: absolute; width: 900px; height: 900px; left: 90px; bottom: 190px; border-radius: 50%; background: radial-gradient(circle, rgba(163,29,73,.62) 0%, rgba(163,29,73,0) 70%); opacity: 0; }
+        .rule { position: absolute; left: 100px; right: 100px; top: 850px; height: 4px; background: #ff4f79; }
+        .caption { position: absolute; left: 66px; right: 66px; bottom: 350px; min-height: 270px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 94px; line-height: .98; font-weight: 900; letter-spacing: -.045em; opacity: 0; text-shadow: 0 5px 0 rgba(11,10,15,.9), 0 10px 28px rgba(11,10,15,.95); }
+        .accent { color: #ff4f79; }
+      </style>
+      <div data-hf-id="hf-w6zr" id="root" data-composition-id="scene-05-payoff" data-width="1080" data-height="1920" data-duration="3.672">
+        <div data-hf-id="hf-5rxo" class="world" id="s5-world" data-layout-allow-overflow=""><img data-hf-id="hf-1j2f" class="portrait" src="assets/images/basta-vkfest.jpg" alt="Баста"><img data-hf-id="hf-0fsx" class="portrait" src="assets/images/egor-kreed-vkfest-cropped.jpg" alt="Егор Крид"><img data-hf-id="hf-b0u8" class="portrait" src="assets/images/ani-lorak-cropped.jpg" alt="Ани Лорак"><div data-hf-id="hf-h5f4" class="veil"></div><div data-hf-id="hf-mm3n" class="halo" id="s5-halo"></div></div>
+        <div data-hf-id="hf-mvwv" class="rule" id="s5-rule"></div>
+        <div data-hf-id="hf-agad" class="caption" id="s5-cap1">Самый дорогой лот здесь</div>
+        <div data-hf-id="hf-lfrw" class="caption" id="s5-cap2">не имя, а <span data-hf-id="hf-s6gp" class="accent">помощь</span></div>
+      </div>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#s5-world", { scale: 1.04 }, { scale: 1.09, duration: 3.672, ease: "none" }, 0);
+        tl.fromTo("#s5-halo", { opacity: 0, scale: .84 }, { opacity: .40, scale: 1, duration: .9, ease: "power2.out" }, 1.48);
+        tl.fromTo("#s5-rule", { scaleX: 0, transformOrigin: "50% 50%" }, { scaleX: 1, duration: .45, ease: "power3.out" }, .08);
+        const cues = [["#s5-cap1", 0], ["#s5-cap2", 1.596]];
+        cues.forEach((cue, index) => {
+          if (index) tl.set(cues[index - 1][0], { opacity: 0 }, cue[1]);
+          tl.set(cue[0], { opacity: 1, y: 64 }, cue[1]);
+          tl.to(cue[0], { y: 0, duration: .18, ease: "power4.out" }, cue[1]);
+        });
+        window.__timelines["scene-05-payoff"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

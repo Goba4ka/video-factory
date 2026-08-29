@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/frozen_media_manifest.schema.json",
+  "title": "FrozenMediaManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "idea_id",
+    "created_at",
+    "frozen_root",
+    "rights_manifest",
+    "assets",
+    "decision"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 6},
+    "idea_id": {"type": "string", "minLength": 6},
+    "created_at": {"type": "string", "format": "date-time"},
+    "frozen_root": {"type": "string", "minLength": 1},
+    "rights_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "idea_id", "sha256"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "idea_id": {"type": "string", "minLength": 6},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_id",
+          "source",
+          "frozen_path",
+          "sha256",
+          "size_bytes",
+          "content_type",
+          "reused_existing",
+          "rights"
+        ],
+        "properties": {
+          "asset_id": {"type": "string", "minLength": 3},
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "input", "final_url", "landing_url_is_byte_source"],
+            "properties": {
+              "kind": {"enum": ["local_file", "direct_download"]},
+              "input": {"type": "string", "minLength": 1},
+              "final_url": {"type": ["string", "null"]},
+              "landing_url_is_byte_source": {"const": false}
+            }
+          },
+          "frozen_path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "size_bytes": {"type": "integer", "minimum": 1},
+          "content_type": {"type": "string", "pattern": "^(audio|image|video)/"},
+          "reused_existing": {"type": "boolean"},
+          "rights": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "asset_id",
+              "landing_url",
+              "creator",
+              "license",
+              "license_url",
+              "retrieved_at",
+              "commercial_use",
+              "modification_allowed",
+              "attribution_required",
+              "platforms",
+              "rights_status"
+            ],
+            "properties": {
+              "asset_id": {"type": "string", "minLength": 3},
+              "local_path": {"type": ["string", "null"]},
+              "landing_url": {"type": "string", "format": "uri"},
+              "download_url": {"type": ["string", "null"], "format": "uri"},
+              "creator": {"type": "string", "minLength": 1},
+              "license": {"type": "string", "minLength": 2},
+              "license_url": {"type": "string", "format": "uri"},
+              "license_receipt": {"type": ["string", "null"]},
+              "retrieved_at": {"type": "string", "format": "date-time"},
+              "commercial_use": {"const": true},
+              "modification_allowed": {"const": true},
+              "attribution_required": {"type": "boolean"},
+              "attribution_text": {"type": ["string", "null"]},
+              "model_release": {"enum": ["not_applicable", "confirmed", "unknown", "required"]},
+              "property_release": {"enum": ["not_applicable", "confirmed", "unknown", "required"]},
+              "platforms": {
+                "type": "array",
+                "items": {"enum": ["youtube_shorts", "instagram_reels", "tiktok"]},
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "territories": {"type": "array", "items": {"type": "string"}},
+              "expires_at": {"type": ["string", "null"], "format": "date-time"},
+              "rights_status": {"const": "approved"},
+              "notes": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "passed",
+        "all_rights_approved",
+        "all_hashes_verified",
+        "asset_count",
+        "network_downloads",
+        "local_copies",
+        "cache_hits"
+      ],
+      "properties": {
+        "passed": {"const": true},
+        "all_rights_approved": {"const": true},
+        "all_hashes_verified": {"const": true},
+        "asset_count": {"type": "integer", "minimum": 1},
+        "network_downloads": {"type": "integer", "minimum": 0},
+        "local_copies": {"type": "integer", "minimum": 0},
+        "cache_hits": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

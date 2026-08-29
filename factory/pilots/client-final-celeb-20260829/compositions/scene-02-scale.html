@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru"><head></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Manrope"; src: url("assets/fonts/Manrope-Variable.ttf") format("truetype"); font-weight: 200 900; }
+        #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0b0a0f; color: #f7f2ea; font-family: "Manrope", sans-serif; }
+        .world { position: absolute; inset: -40px; will-change: transform; }
+        .portrait { width: 100%; height: 100%; object-fit: cover; object-position: 48% 22%; filter: saturate(.86) contrast(1.06); }
+        .veil { position: absolute; inset: 0; background: rgba(11,10,15,.34); }
+        .halo { position: absolute; width: 920px; height: 920px; left: -180px; bottom: 70px; border-radius: 50%; background: radial-gradient(circle, rgba(163,29,73,.58) 0%, rgba(163,29,73,0) 70%); opacity: 0; }
+        .caption { position: absolute; left: 70px; right: 70px; bottom: 250px; min-height: 230px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 80px; line-height: 1.04; font-weight: 900; letter-spacing: -.035em; opacity: 0; text-shadow: 0 4px 0 rgba(11,10,15,.9), 0 8px 24px rgba(11,10,15,.95); }
+      </style>
+      <div data-hf-id="hf-g99u" id="root" data-composition-id="scene-02-scale" data-width="1080" data-height="1920" data-duration="4.21">
+        <div data-hf-id="hf-fn8v" class="world" id="s2-world" data-layout-allow-overflow=""><img data-hf-id="hf-b0u8" class="portrait" src="assets/images/ani-lorak-cropped.jpg" alt="Ани Лорак"><div data-hf-id="hf-h5f4" class="veil"></div><div data-hf-id="hf-ymja" class="halo" id="s2-halo"></div></div>
+        <div data-hf-id="hf-ny45" class="caption" id="s2-cap1">Более двухсот артистов и блогеров</div>
+        <div data-hf-id="hf-hwlv" class="caption" id="s2-cap2">передали свыше двух тысяч вещей</div>
+      </div>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#s2-world", { scale: 1.04, x: 12 }, { scale: 1.105, x: -10, duration: 4.21, ease: "none" }, 0);
+        tl.fromTo("#s2-halo", { opacity: 0, scale: .84 }, { opacity: .38, scale: 1, duration: .8, ease: "power2.out" }, .12);
+        const cues = [["#s2-cap1", 0], ["#s2-cap2", 1.995]];
+        cues.forEach((cue, index) => {
+          if (index) tl.set(cues[index - 1][0], { opacity: 0 }, cue[1]);
+          tl.set(cue[0], { opacity: 1, y: 52 }, cue[1]);
+          tl.to(cue[0], { y: 0, duration: .18, ease: "power4.out" }, cue[1]);
+        });
+        window.__timelines["scene-02-scale"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

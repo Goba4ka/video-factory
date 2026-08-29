@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg: #090908;
+        --fg: #f2f2ec;
+        --muted: #9a9a93;
+        --acid: #e7ff2f;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; width: 100%; height: 100%; background: var(--bg); overflow: hidden; }
+
+      #motivation-focus {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: "Oswald", sans-serif;
+      }
+
+      .camera-shell,
+      .frame-shell {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        transform-origin: 50% 42%;
+        will-change: transform, opacity;
+      }
+
+      .source-video,
+      .hold-image {
+        position: absolute;
+        inset: 0;
+        width: 1080px;
+        height: 1920px;
+        object-fit: cover;
+        background: var(--bg);
+      }
+
+      .hold-image { object-position: 50% 50%; }
+
+      .top-meta {
+        position: absolute;
+        top: 90px;
+        left: 76px;
+        right: 76px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 30;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 21px;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #d8d8d1;
+      }
+
+      .signal { display: flex; align-items: center; gap: 13px; }
+      .signal-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 24px rgba(231,255,47,.5); }
+
+      .top-rule,
+      .bottom-rule {
+        position: absolute;
+        left: 76px;
+        right: 76px;
+        height: 2px;
+        z-index: 29;
+        background: rgba(242,242,236,.36);
+        transform-origin: 0 50%;
+      }
+      .top-rule { top: 156px; }
+      .bottom-rule { bottom: 110px; }
+
+      .caption-card {
+        position: absolute;
+        left: 82px;
+        right: 82px;
+        bottom: 238px;
+        min-height: 138px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 30px 26px;
+        z-index: 40;
+        text-align: center;
+        font-size: 74px;
+        line-height: 0.98;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--fg);
+        text-shadow: 0 4px 18px rgba(0,0,0,.9);
+        background: linear-gradient(90deg, rgba(9,9,8,0), rgba(9,9,8,.72) 16%, rgba(9,9,8,.72) 84%, rgba(9,9,8,0));
+      }
+
+      .caption-card .accent { color: var(--acid); text-shadow: 0 0 24px rgba(231,255,47,.32), 0 4px 18px rgba(0,0,0,.9); }
+
+      #caption-final {
+        bottom: 300px;
+        font-size: 92px;
+        min-height: 220px;
+        background: none;
+      }
+
+      .final-shade {
+        position: absolute;
+        inset: 0;
+        z-index: 25;
+        background: rgba(9,9,8,.08);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .timecode {
+        position: absolute;
+        right: 76px;
+        bottom: 72px;
+        z-index: 31;
+        font-family: "IBM Plex Mono", monospace;
+        color: var(--acid);
+        font-size: 20px;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: .08em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="motivation-focus" data-composition-id="motivation-focus" data-width="1080" data-height="1920" data-duration="22.2">
+      <div id="camera-a" class="camera-shell">
+        <video id="video-a" class="clip source-video" src="assets/source/arsen-markaryan.mp4" data-start="0" data-duration="10" data-media-start="0" data-track-index="1" data-color-grading="{&quot;adjust&quot;:{&quot;saturation&quot;:-1,&quot;contrast&quot;:0.08,&quot;highlights&quot;:-0.08,&quot;shadows&quot;:-0.06},&quot;details&quot;:{&quot;grain&quot;:0.09,&quot;grainSize&quot;:0.22,&quot;grainRoughness&quot;:0.62,&quot;vignette&quot;:0.14,&quot;vignetteMidpoint&quot;:0.44,&quot;vignetteFeather&quot;:0.72}}" muted playsinline></video>
+      </div>
+
+      <div id="camera-b" class="camera-shell">
+        <video id="video-b" class="clip source-video" src="assets/source/arsen-markaryan.mp4" data-start="10" data-duration="9.55" data-media-start="12.1" data-track-index="1" data-color-grading="{&quot;adjust&quot;:{&quot;saturation&quot;:-1,&quot;contrast&quot;:0.09,&quot;highlights&quot;:-0.09,&quot;shadows&quot;:-0.07},&quot;details&quot;:{&quot;grain&quot;:0.09,&quot;grainSize&quot;:0.22,&quot;grainRoughness&quot;:0.62,&quot;vignette&quot;:0.16,&quot;vignetteMidpoint&quot;:0.43,&quot;vignetteFeather&quot;:0.7}}" muted playsinline></video>
+      </div>
+
+      <div id="final-hold" class="frame-shell">
+        <img id="hold-image" class="clip hold-image" src="assets/source/final-hold.jpg" data-start="19.55" data-duration="2.65" data-track-index="2" />
+      </div>
+      <div id="final-shade" class="final-shade"></div>
+
+      <audio id="speaker-audio-a" src="assets/source/arsen-markaryan.mp4" data-start="0" data-duration="10" data-media-start="0" data-track-index="10" data-volume="1"></audio>
+      <audio id="speaker-audio-b" src="assets/source/arsen-markaryan.mp4" data-start="10" data-duration="9.55" data-media-start="12.1" data-track-index="10" data-volume="1"></audio>
+      <audio id="music-bed" src="assets/audio/depressive-bed-72bpm.wav" data-start="0" data-duration="22.2" data-track-index="12" data-volume="0.16" data-automation="{&quot;version&quot;:1,&quot;lanes&quot;:[{&quot;target&quot;:&quot;volume&quot;,&quot;points&quot;:[{&quot;t&quot;:0,&quot;v&quot;:0.03},{&quot;t&quot;:0.8,&quot;v&quot;:0.11},{&quot;t&quot;:8.4,&quot;v&quot;:0.11},{&quot;t&quot;:9.75,&quot;v&quot;:0.2},{&quot;t&quot;:10.1,&quot;v&quot;:0.07},{&quot;t&quot;:19.35,&quot;v&quot;:0.09},{&quot;t&quot;:19.62,&quot;v&quot;:0.34},{&quot;t&quot;:20.5,&quot;v&quot;:0.22},{&quot;t&quot;:22.2,&quot;v&quot;:0}]}]}"></audio>
+
+      <div id="top-meta" class="clip top-meta" data-start="0" data-duration="22.2" data-track-index="20">
+        <div class="signal"><span class="signal-dot"></span><span>ARCHIVE / FOCUS</span></div>
+        <span>ARSEN MARKARYAN</span>
+      </div>
+      <div id="top-rule" class="clip top-rule" data-start="0" data-duration="22.2" data-track-index="19"></div>
+      <div id="bottom-rule" class="clip bottom-rule" data-start="0" data-duration="22.2" data-track-index="19"></div>
+      <div id="timecode" class="clip timecode" data-start="0" data-duration="22.2" data-track-index="20">CUT / 02</div>
+
+      <div id="caption-01" class="clip caption-card" data-start="0.35" data-duration="1.35" data-track-index="30" data-layout-allow-caption-zone><span><span class="accent">НЕ</span> БУДЬТЕ</span></div>
+      <div id="caption-02" class="clip caption-card" data-start="1.70" data-duration="2.05" data-track-index="30" data-layout-allow-caption-zone><span>СРЕДИ <span class="accent">ПРОИГРАВШИХ</span></span></div>
+      <div id="caption-03" class="clip caption-card" data-start="3.75" data-duration="1.55" data-track-index="30" data-layout-allow-caption-zone><span><span class="accent">БУДЬТЕ</span> СРЕДИ</span></div>
+      <div id="caption-04" class="clip caption-card" data-start="5.30" data-duration="1.25" data-track-index="30" data-layout-allow-caption-zone><span class="accent">ПОБЕДИТЕЛЕЙ</span></div>
+      <div id="caption-05" class="clip caption-card" data-start="6.55" data-duration="3.20" data-track-index="30" data-layout-allow-caption-zone><span>ЛИШЬ <span class="accent">ПЕРЕСТАТЬ</span> ЖАЛЕТЬ СЕБЯ</span></div>
+      <div id="caption-final" class="clip caption-card" data-start="19.55" data-duration="2.65" data-track-index="31" data-layout-allow-caption-zone><span><span class="accent">ПЕРЕСТАНЬ</span> ЖАЛЕТЬ СЕБЯ</span></div>
+    </div>
+
+    <script>
+      document.fonts.ready.then(() => {
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo("#camera-a", { scale: 1.0, x: 0, y: 0 }, { scale: 1.085, x: -16, y: -28, duration: 9.7, ease: "power2.inOut" }, 0.15);
+        tl.fromTo("#camera-b", { scale: 1.12, x: -32, y: -22 }, { scale: 1.21, x: 22, y: -58, duration: 9.25, ease: "sine.inOut" }, 10.1);
+        tl.fromTo("#final-hold", { scale: 1.21, x: 22, y: -58 }, { scale: 1.29, x: 12, y: -70, duration: 2.65, ease: "power3.out" }, 19.55);
+
+        tl.fromTo("#top-meta", { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.75, ease: "power3.out" }, 0.2);
+        tl.fromTo("#top-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "expo.out" }, 0.35);
+        tl.fromTo("#bottom-rule", { scaleX: 0 }, { scaleX: 1, duration: 1.1, ease: "power2.out" }, 0.45);
+
+        const captions = ["#caption-01", "#caption-02", "#caption-03", "#caption-04", "#caption-05"];
+        const starts = [0.35, 1.70, 3.75, 5.30, 6.55];
+        const durations = [1.35, 2.05, 1.55, 1.25, 3.20];
+        captions.forEach((selector, index) => {
+          const start = starts[index];
+          const end = start + durations[index];
+          tl.fromTo(selector, { opacity: 0, y: 28, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, start);
+          tl.to(selector, { opacity: 0, y: -12, duration: 0.16, ease: "power3.in" }, end - 0.16);
+        });
+
+        tl.fromTo("#caption-final", { opacity: 0, scale: 1.22, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.28, ease: "expo.out", immediateRender: false }, 19.55);
+        tl.fromTo("#final-shade", { opacity: 0 }, { opacity: 0.4, duration: 1.9, ease: "sine.inOut" }, 19.55);
+
+        const dotPhase = { p: 0 };
+        tl.to(dotPhase, {
+          p: Math.PI * 8,
+          duration: 22.2,
+          ease: "none",
+          onUpdate: () => {
+            const signal = document.querySelector(".signal-dot");
+            const pulse = (Math.sin(dotPhase.p) + 1) / 2;
+            signal.style.opacity = String(0.65 + pulse * 0.35);
+            signal.style.transform = `scale(${0.92 + pulse * 0.16})`;
+          }
+        }, 0);
+
+        window.__timelines["motivation-focus"] = tl;
+        window.__hfForceTimelineRebind?.();
+      });
+    </script>
+  </body>
+</html>

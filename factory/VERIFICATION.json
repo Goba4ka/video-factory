@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "verified_at": "2026-08-28T14:45:00+03:00",
+  "status": "passed",
+  "checks": {
+    "unit_integration_tests": {
+      "command": "py -3 -m unittest discover -s factory/tests -p test_*.py -v",
+      "passed": 108,
+      "failed": 0
+    },
+    "lane_registry": {
+      "command": "python -m video_factory lanes --registry factory/lanes/registry.json",
+      "ok": true,
+      "enabled_lanes": 5,
+      "total_candidates": 122,
+      "daily_min": 10,
+      "daily_target": 15,
+      "daily_max": 15
+    },
+    "all_lane_launch": {
+      "jobs": 5,
+      "task_links": 49,
+      "specialized_roles": [
+        "sensitivity_review",
+        "privacy_review",
+        "medical_review"
+      ],
+      "human_publish_gate": true
+    },
+    "fish_audio_runtime": {
+      "api_authentication_passed": true,
+      "central_max_generations_per_video": 2,
+      "pilot_generations_used": 2,
+      "pilot_generations_remaining": 0,
+      "paid_attempt_http_status": 402,
+      "free_generation_http_status": 200,
+      "free_generation_duration_seconds": 47.57984126984127,
+      "free_generation_cost_usd": 0.0,
+      "voice_manifest_schema_valid": true,
+      "generation_two_defect_artifact_valid": true,
+      "generation_two_cache_replay_without_network": true,
+      "repository_plaintext_secret_found": false,
+      "process_or_user_env_secret_found": false,
+      "voice_publication_rights_confirmed": false
+    },
+    "artifact_store_concurrency_soak": {
+      "series": 50,
+      "writers_per_series": 24,
+      "write_attempts": 1200,
+      "failures": 0
+    },
+    "queue_cli_soak": {
+      "full_runs": 50,
+      "failures": 0
+    },
+    "pilot_artifacts": {
+      "render_manifest_schema_valid": true,
+      "qc_report_schema_valid": true,
+      "actual_render_ffprobe_valid": true,
+      "actual_render_unicode_absolute_path_valid": true,
+      "ffprobe_runtime": "C:\\Users\\ns277\\bin\\ffprobe.exe (4.0.2)",
+      "actual_render_audio_sample_rate_hz": 48000,
+      "root_and_project_render_hash_equal": true,
+      "sha256": "c2985394bcb3e9d94256c84ec60cbb4d01575651f83b7f5280c881c39fe88995",
+      "decoded_frames": 1611,
+      "verbatim_caption_blocks": 25,
+      "caption_max_visual_lines": 2,
+      "external_publication_blocked": true,
+      "publication_blocker": "Fish Audio voice ownership or applicable commercial license has not been confirmed by the user."
+    }
+  }
+}

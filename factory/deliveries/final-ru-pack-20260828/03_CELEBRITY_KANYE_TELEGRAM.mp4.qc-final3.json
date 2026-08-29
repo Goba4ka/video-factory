@@ -1,0 +1,73 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "cd79ece47d5a82e1a88785e9222361aec20c3bb7c104ddc992749e33b9c2b96f",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\cd\\cd79ece47d5a82e1a88785e9222361aec20c3bb7c104ddc992749e33b9c2b96f.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 3.328,
+  "failures": [
+    {
+      "code": "delivery_size",
+      "message": "10313883 bytes exceeds hard Telegram cap 2790000"
+    }
+  ],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 25.4,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 25.4,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-20260828\\03_CELEBRITY_KANYE_TELEGRAM.mp4",
+    "size_bytes": 10313883,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 25.4,
+      "fps": 30.0,
+      "height": 1280,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 720
+    }
+  },
+  "ok": false,
+  "profile": {
+    "name": "motivation_v3_telegram",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -14.37,
+      "lra_lu": 1.6,
+      "threshold_lufs": -24.54,
+      "true_peak_dbtp": -1.38
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-20260828\\03_CELEBRITY_KANYE_TELEGRAM.mp4",
+  "status": "final_technical_fail",
+  "technical_pass": false,
+  "warnings": [
+    {
+      "code": "loudness_range",
+      "message": "1.60 LU is outside 2.0..7.0"
+    }
+  ]
+}

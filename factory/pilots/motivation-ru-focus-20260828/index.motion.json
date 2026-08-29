@@ -1,0 +1,10 @@
+{
+  "duration": 28.37,
+  "maxStaticSec": 3.0,
+  "assertions": [
+    {"kind": "appearsBy", "selector": "#caption-1", "bySec": 0.30},
+    {"kind": "staysInFrame", "selector": "#caption-1 .caption-card"},
+    {"kind": "keepsMoving", "withinSelector": "#motivation-ru-focus-v2"},
+    {"kind": "appearsBy", "selector": "#caption-7", "bySec": 23.75}
+  ]
+}

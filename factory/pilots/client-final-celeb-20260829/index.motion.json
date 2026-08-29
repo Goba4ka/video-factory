@@ -1,0 +1,21 @@
+{
+  "duration": 28.8,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#s1-cap1", "bySec": 0.35 },
+    { "kind": "appearsBy", "selector": "#s2-cap1", "bySec": 6.45 },
+    { "kind": "appearsBy", "selector": "#s3-cap1", "bySec": 10.65 },
+    { "kind": "appearsBy", "selector": "#s4-cap1", "bySec": 17.9 },
+    { "kind": "appearsBy", "selector": "#s5-cap1", "bySec": 25.55 },
+    { "kind": "before", "a": "#s1-cap1", "b": "#s1-cap2" },
+    { "kind": "before", "a": "#s2-cap1", "b": "#s2-cap2" },
+    { "kind": "before", "a": "#s3-cap1", "b": "#s3-cap2" },
+    { "kind": "before", "a": "#s4-cap1", "b": "#s4-cap2" },
+    { "kind": "before", "a": "#s5-cap1", "b": "#s5-cap2" },
+    { "kind": "staysInFrame", "selector": "#s1-cap3" },
+    { "kind": "staysInFrame", "selector": "#s2-cap2" },
+    { "kind": "staysInFrame", "selector": "#s3-cap4" },
+    { "kind": "staysInFrame", "selector": "#s4-cap4" },
+    { "kind": "staysInFrame", "selector": "#s5-cap2" },
+    { "kind": "keepsMoving", "withinSelector": "body > #root", "maxStaticSec": 2 }
+  ]
+}

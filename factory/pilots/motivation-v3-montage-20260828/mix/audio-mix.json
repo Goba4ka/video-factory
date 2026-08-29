@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "duration_sec": 25.28,
+  "groups": {
+    "voices": {
+      "members": ["m3-markaryan-voice", "m3-gandapas-voice", "m3-sitnikov-voice"],
+      "target_role": "original_dialogue",
+      "bus_volume": 1
+    },
+    "music": {
+      "members": ["bed"],
+      "target_role": "music_bed",
+      "static_preview_volume": 0.14
+    }
+  },
+  "finalization": {
+    "carve": { "enabled": true, "bed": "bed", "sources": ["voices"], "strength": 0.25, "dynamic": true },
+    "integrated_lufs": -14.5,
+    "true_peak_dbtp_max": -1.2,
+    "bed_fade_in_sec": 0.35,
+    "bed_fade_out_sec": 0.55
+  }
+}
+

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/script_package.schema.json",
+  "title": "ScriptPackage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "idea_id", "job_id", "lane_id", "language",
+    "target_duration_seconds", "hook", "segments", "caption_style",
+    "edit_direction", "disclaimer", "decision"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "idea_id": {"type": "string", "minLength": 6},
+    "job_id": {"type": "string", "minLength": 6},
+    "lane_id": {
+      "enum": ["war_history", "celebrity_news", "motivation", "chinese_medicine", "health"]
+    },
+    "language": {"type": "string", "const": "ru"},
+    "target_duration_seconds": {"type": "number", "minimum": 15, "maximum": 75},
+    "hook": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spoken_text", "first_frame_text", "duration_seconds"],
+      "properties": {
+        "spoken_text": {"type": "string", "minLength": 5, "maxLength": 180},
+        "first_frame_text": {"type": "string", "minLength": 3, "maxLength": 70},
+        "duration_seconds": {"type": "number", "exclusiveMinimum": 0, "maximum": 2.5}
+      }
+    },
+    "segments": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "segment_id", "start_seconds", "end_seconds", "spoken_text",
+          "caption_text", "visual_intent", "claim_ids"
+        ],
+        "properties": {
+          "segment_id": {"type": "string", "pattern": "^[a-z0-9_-]{2,40}$"},
+          "start_seconds": {"type": "number", "minimum": 0, "maximum": 75},
+          "end_seconds": {"type": "number", "exclusiveMinimum": 0, "maximum": 75},
+          "spoken_text": {"type": "string", "minLength": 1, "maxLength": 350},
+          "caption_text": {"type": "string", "minLength": 1, "maxLength": 80},
+          "visual_intent": {"type": "string", "minLength": 3, "maxLength": 240},
+          "claim_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 3}
+          }
+        }
+      }
+    },
+    "caption_style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_lines", "max_words_per_card", "safe_zone", "side_labels"],
+      "properties": {
+        "max_lines": {"type": "integer", "minimum": 1, "maximum": 2},
+        "max_words_per_card": {"type": "integer", "minimum": 1, "maximum": 8},
+        "safe_zone": {"type": "string", "const": "center_lower_third"},
+        "side_labels": {"type": "boolean", "const": false}
+      }
+    },
+    "edit_direction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual_world", "music_mood", "average_cut_seconds", "speaker_scale"],
+      "properties": {
+        "visual_world": {"type": "string", "minLength": 5, "maxLength": 240},
+        "music_mood": {"type": "string", "minLength": 3, "maxLength": 120},
+        "average_cut_seconds": {"type": "number", "minimum": 0.5, "maximum": 4},
+        "speaker_scale": {"type": "number", "minimum": 0.72, "maximum": 1}
+      }
+    },
+    "disclaimer": {"type": ["string", "null"], "maxLength": 180},
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["passed", "needs_human_review", "review_notes"],
+      "properties": {
+        "passed": {"type": "boolean"},
+        "needs_human_review": {"type": "boolean"},
+        "review_notes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

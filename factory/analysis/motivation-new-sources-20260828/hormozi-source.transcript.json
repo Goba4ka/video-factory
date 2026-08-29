@@ -1,0 +1,415 @@
+{
+  "source": "factory\\pilots\\motivation-discipline-20260828\\assets\\video\\hormozi-source.mp4",
+  "language": "en",
+  "language_probability": 1,
+  "duration": 19.017125,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.24,
+      "text": "I would then look at them and say you're not disciplined because you only are consistent with the things you like",
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.14,
+          "word": " I",
+          "probability": 0.6073880791664124
+        },
+        {
+          "start": 0.14,
+          "end": 0.2,
+          "word": " would",
+          "probability": 0.9133260250091553
+        },
+        {
+          "start": 0.2,
+          "end": 0.3,
+          "word": " then",
+          "probability": 0.9576704502105713
+        },
+        {
+          "start": 0.3,
+          "end": 0.44,
+          "word": " look",
+          "probability": 0.9957465529441833
+        },
+        {
+          "start": 0.44,
+          "end": 0.54,
+          "word": " at",
+          "probability": 0.9979785084724426
+        },
+        {
+          "start": 0.54,
+          "end": 0.62,
+          "word": " them",
+          "probability": 0.9889892935752869
+        },
+        {
+          "start": 0.62,
+          "end": 0.7,
+          "word": " and",
+          "probability": 0.9835619330406189
+        },
+        {
+          "start": 0.7,
+          "end": 0.82,
+          "word": " say",
+          "probability": 0.9950003027915955
+        },
+        {
+          "start": 0.82,
+          "end": 1.04,
+          "word": " you're",
+          "probability": 0.7551920115947723
+        },
+        {
+          "start": 1.04,
+          "end": 1.2,
+          "word": " not",
+          "probability": 0.9954892992973328
+        },
+        {
+          "start": 1.2,
+          "end": 1.52,
+          "word": " disciplined",
+          "probability": 0.9702123999595642
+        },
+        {
+          "start": 1.52,
+          "end": 2.04,
+          "word": " because",
+          "probability": 0.8173295855522156
+        },
+        {
+          "start": 2.04,
+          "end": 2.54,
+          "word": " you",
+          "probability": 0.9828349351882935
+        },
+        {
+          "start": 2.54,
+          "end": 2.9,
+          "word": " only",
+          "probability": 0.9772868156433105
+        },
+        {
+          "start": 2.9,
+          "end": 3.16,
+          "word": " are",
+          "probability": 0.9951053857803345
+        },
+        {
+          "start": 3.16,
+          "end": 3.42,
+          "word": " consistent",
+          "probability": 0.9809828400611877
+        },
+        {
+          "start": 3.42,
+          "end": 3.64,
+          "word": " with",
+          "probability": 0.985729455947876
+        },
+        {
+          "start": 3.64,
+          "end": 3.72,
+          "word": " the",
+          "probability": 0.9929494857788086
+        },
+        {
+          "start": 3.72,
+          "end": 3.86,
+          "word": " things",
+          "probability": 0.9986029267311096
+        },
+        {
+          "start": 3.86,
+          "end": 4.0,
+          "word": " you",
+          "probability": 0.9820365309715271
+        },
+        {
+          "start": 4.0,
+          "end": 4.24,
+          "word": " like",
+          "probability": 0.994442880153656
+        }
+      ]
+    },
+    {
+      "start": 4.24,
+      "end": 9.4,
+      "text": "Discipline is about being able to be consistent with things you don't like so here's me going into more depth explaining that exact concept",
+      "words": [
+        {
+          "start": 4.24,
+          "end": 4.9,
+          "word": " Discipline",
+          "probability": 0.8243676523367564
+        },
+        {
+          "start": 4.9,
+          "end": 5.02,
+          "word": " is",
+          "probability": 0.9677927494049072
+        },
+        {
+          "start": 5.02,
+          "end": 5.14,
+          "word": " about",
+          "probability": 0.9895444512367249
+        },
+        {
+          "start": 5.14,
+          "end": 5.32,
+          "word": " being",
+          "probability": 0.9986321330070496
+        },
+        {
+          "start": 5.32,
+          "end": 5.44,
+          "word": " able",
+          "probability": 0.9986922144889832
+        },
+        {
+          "start": 5.44,
+          "end": 5.52,
+          "word": " to",
+          "probability": 0.9990426898002625
+        },
+        {
+          "start": 5.52,
+          "end": 5.58,
+          "word": " be",
+          "probability": 0.997989296913147
+        },
+        {
+          "start": 5.58,
+          "end": 5.8,
+          "word": " consistent",
+          "probability": 0.9984367489814758
+        },
+        {
+          "start": 5.8,
+          "end": 5.98,
+          "word": " with",
+          "probability": 0.9977830052375793
+        },
+        {
+          "start": 5.98,
+          "end": 6.08,
+          "word": " things",
+          "probability": 0.991158664226532
+        },
+        {
+          "start": 6.08,
+          "end": 6.28,
+          "word": " you",
+          "probability": 0.8550772666931152
+        },
+        {
+          "start": 6.28,
+          "end": 6.46,
+          "word": " don't",
+          "probability": 0.9987052977085114
+        },
+        {
+          "start": 6.46,
+          "end": 6.68,
+          "word": " like",
+          "probability": 0.9929397106170654
+        },
+        {
+          "start": 6.68,
+          "end": 7.04,
+          "word": " so",
+          "probability": 0.4834502339363098
+        },
+        {
+          "start": 7.04,
+          "end": 7.3,
+          "word": " here's",
+          "probability": 0.9113547801971436
+        },
+        {
+          "start": 7.3,
+          "end": 7.42,
+          "word": " me",
+          "probability": 0.9971158504486084
+        },
+        {
+          "start": 7.42,
+          "end": 7.64,
+          "word": " going",
+          "probability": 0.9893304705619812
+        },
+        {
+          "start": 7.64,
+          "end": 7.84,
+          "word": " into",
+          "probability": 0.995860755443573
+        },
+        {
+          "start": 7.84,
+          "end": 8.06,
+          "word": " more",
+          "probability": 0.9941993951797485
+        },
+        {
+          "start": 8.06,
+          "end": 8.28,
+          "word": " depth",
+          "probability": 0.9906182885169983
+        },
+        {
+          "start": 8.28,
+          "end": 8.66,
+          "word": " explaining",
+          "probability": 0.8022124171257019
+        },
+        {
+          "start": 8.66,
+          "end": 8.84,
+          "word": " that",
+          "probability": 0.9943355917930603
+        },
+        {
+          "start": 8.84,
+          "end": 9.02,
+          "word": " exact",
+          "probability": 0.9974689483642578
+        },
+        {
+          "start": 9.02,
+          "end": 9.4,
+          "word": " concept",
+          "probability": 0.9948111772537231
+        }
+      ]
+    },
+    {
+      "start": 9.4,
+      "end": 10.86,
+      "text": "Do you consider yourself disciplined?",
+      "words": [
+        {
+          "start": 9.4,
+          "end": 9.84,
+          "word": " Do",
+          "probability": 0.46334385871887207
+        },
+        {
+          "start": 9.84,
+          "end": 9.96,
+          "word": " you",
+          "probability": 0.9988479614257812
+        },
+        {
+          "start": 9.96,
+          "end": 10.16,
+          "word": " consider",
+          "probability": 0.9953289031982422
+        },
+        {
+          "start": 10.16,
+          "end": 10.42,
+          "word": " yourself",
+          "probability": 0.995917022228241
+        },
+        {
+          "start": 10.42,
+          "end": 10.86,
+          "word": " disciplined?",
+          "probability": 0.9924004077911377
+        }
+      ]
+    },
+    {
+      "start": 12.74,
+      "end": 15.26,
+      "text": "With things I like right so that's not discipline",
+      "words": [
+        {
+          "start": 12.74,
+          "end": 13.14,
+          "word": " With",
+          "probability": 0.53094482421875
+        },
+        {
+          "start": 13.14,
+          "end": 13.32,
+          "word": " things",
+          "probability": 0.9819168448448181
+        },
+        {
+          "start": 13.32,
+          "end": 13.44,
+          "word": " I",
+          "probability": 0.9342617392539978
+        },
+        {
+          "start": 13.44,
+          "end": 13.72,
+          "word": " like",
+          "probability": 0.9538606405258179
+        },
+        {
+          "start": 13.72,
+          "end": 14.46,
+          "word": " right",
+          "probability": 0.44132915139198303
+        },
+        {
+          "start": 14.46,
+          "end": 14.72,
+          "word": " so",
+          "probability": 0.48212841153144836
+        },
+        {
+          "start": 14.72,
+          "end": 14.86,
+          "word": " that's",
+          "probability": 0.7408916354179382
+        },
+        {
+          "start": 14.86,
+          "end": 14.98,
+          "word": " not",
+          "probability": 0.9401627779006958
+        },
+        {
+          "start": 14.98,
+          "end": 15.26,
+          "word": " discipline",
+          "probability": 0.6478408575057983
+        }
+      ]
+    },
+    {
+      "start": 17.74,
+      "end": 18.8,
+      "text": "Right and so",
+      "words": [
+        {
+          "start": 17.74,
+          "end": 18.14,
+          "word": " Right",
+          "probability": 0.2696976363658905
+        },
+        {
+          "start": 18.14,
+          "end": 18.54,
+          "word": " and",
+          "probability": 0.8205336928367615
+        },
+        {
+          "start": 18.54,
+          "end": 18.8,
+          "word": " so",
+          "probability": 0.9957544803619385
+        }
+      ]
+    }
+  ]
+}

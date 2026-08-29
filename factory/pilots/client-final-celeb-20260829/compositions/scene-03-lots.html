@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru"><head></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Manrope"; src: url("assets/fonts/Manrope-Variable.ttf") format("truetype"); font-weight: 200 900; }
+        #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0b0a0f; color: #f7f2ea; font-family: "Manrope", sans-serif; }
+        .world { position: absolute; inset: -36px; will-change: transform; }
+        .burunov { position: absolute; inset: 0; width: 100%; height: 75%; object-fit: cover; object-position: 48% 23%; filter: saturate(.78) contrast(1.08); }
+        .clothes { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 34%; object-fit: cover; object-position: center; filter: saturate(.72) contrast(1.1); clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%); }
+        .veil { position: absolute; inset: 0; background: rgba(11,10,15,.28); }
+        .halo { position: absolute; width: 860px; height: 860px; left: 120px; bottom: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(163,29,73,.48) 0%, rgba(163,29,73,0) 69%); opacity: 0; }
+        .caption { position: absolute; left: 70px; right: 70px; bottom: 250px; min-height: 230px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 78px; line-height: 1.04; font-weight: 900; letter-spacing: -.035em; opacity: 0; text-shadow: 0 4px 0 rgba(11,10,15,.9), 0 8px 24px rgba(11,10,15,.95); }
+        .accent { color: #ff4f79; }
+      </style>
+      <div data-hf-id="hf-cb0v" id="root" data-composition-id="scene-03-lots" data-width="1080" data-height="1920" data-duration="7.222">
+        <div data-hf-id="hf-p0zm" class="world" id="s3-world" data-layout-allow-overflow=""><img data-hf-id="hf-gbcq" class="burunov" src="assets/images/sergey-burunov-cropped.jpg" alt="Сергей Бурунов"><img data-hf-id="hf-h6bk" class="clothes" src="assets/images/clothing-racks.jpg" alt="Рейлы одежды"><div data-hf-id="hf-h5f4" class="veil"></div><div data-hf-id="hf-fw95" class="halo" id="s3-halo"></div></div>
+        <div data-hf-id="hf-t93y" class="caption" id="s3-cap1">Среди лотов — часы <span data-hf-id="hf-9w6o" class="accent">Сергея Бурунова</span></div>
+        <div data-hf-id="hf-lk1v" class="caption" id="s3-cap2">из сериала «Кибердеревня»</div>
+        <div data-hf-id="hf-cnal" class="caption" id="s3-cap3">И платье Екатерины Волковой</div>
+        <div data-hf-id="hf-9peb" class="caption" id="s3-cap4">с синей дорожки VK Fest</div>
+      </div>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#s3-world", { scale: 1.035, y: 10 }, { scale: 1.10, y: -8, duration: 7.222, ease: "none" }, 0);
+        tl.fromTo("#s3-halo", { opacity: 0, scale: .86 }, { opacity: .32, scale: 1, duration: .85, ease: "power2.out" }, .15);
+        const cues = [["#s3-cap1", 0], ["#s3-cap2", 1.995], ["#s3-cap3", 3.411], ["#s3-cap4", 5.007]];
+        cues.forEach((cue, index) => {
+          if (index) tl.set(cues[index - 1][0], { opacity: 0 }, cue[1]);
+          tl.set(cue[0], { opacity: 1, y: 52 }, cue[1]);
+          tl.to(cue[0], { y: 0, duration: .18, ease: "power4.out" }, cue[1]);
+        });
+        window.__timelines["scene-03-lots"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

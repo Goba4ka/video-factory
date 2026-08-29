@@ -1,0 +1,30 @@
+<template>
+  <div data-composition-id="scene-jocko" data-width="1080" data-height="1920" data-duration="17" class="scene">
+    <style>
+      @font-face { font-family:"Arial Narrow"; src:local("Arial Narrow"); }
+      [data-composition-id="scene-jocko"] { position:absolute; inset:0; overflow:hidden; background:#000; color:#f2efe8; font-family:"Arial Narrow",Arial,sans-serif; }
+      [data-composition-id="scene-jocko"] .camera { position:absolute; left:40px; right:40px; top:310px; height:700px; overflow:hidden; background:#050505; transform-origin:50% 50%; box-shadow:0 0 0 2px rgba(181,34,42,.42); }
+      [data-composition-id="scene-jocko"] video { width:100%; height:100%; object-fit:contain; object-position:center; }
+      [data-composition-id="scene-jocko"] .matte { position:absolute; left:0; right:0; top:1360px; bottom:0; background:#000; }
+      [data-composition-id="scene-jocko"] .rule { position:absolute; left:0; right:0; top:0; height:6px; background:#b5222a; }
+      [data-composition-id="scene-jocko"] .meta { position:absolute; top:92px; left:62px; font-size:25px; font-weight:800; letter-spacing:5px; }
+      [data-composition-id="scene-jocko"] .counter { position:absolute; top:92px; right:62px; font-size:25px; font-weight:800; color:#b5222a; letter-spacing:4px; }
+      [data-composition-id="scene-jocko"] .caption { position:absolute; left:58px; right:58px; bottom:245px; text-align:center; font-size:84px; line-height:1.02; font-weight:900; letter-spacing:-1.5px; text-transform:uppercase; }
+      [data-composition-id="scene-jocko"] .red { color:#b5222a; }
+    </style>
+    <div id="jocko-camera" class="camera"><video id="jocko-video" src="assets/clips/jocko.mp4" data-start="0" data-duration="17" data-track-index="0" data-color-grading='{"adjust":{"contrast":0.20,"blacks":-0.14,"highlights":-0.10},"details":{"grain":0.18,"vignette":0.34}}' muted playsinline></video></div>
+    <audio id="jocko-audio" src="assets/clips/jocko.mp4" data-start="0" data-duration="17" data-track-index="11"></audio>
+    <div class="matte"></div><div class="rule"></div><div class="meta">JOCKO WILLINK</div><div class="counter">02</div>
+    <div id="jocko-caption-1" class="caption clip" data-start="0" data-duration="3.2" data-track-index="3"><span class="red">ДИСЦИПЛИНА</span><span> — ЭТО ТРУДНЫЙ ПУТЬ.</span></div>
+    <div id="jocko-caption-2" class="caption clip" data-start="3.2" data-duration="2.9" data-track-index="3"><span>ПУТЬ </span><span class="red">В ГОРУ.</span></div>
+    <div id="jocko-caption-3" class="caption clip" data-start="6.1" data-duration="4.6" data-track-index="3"><span>ДЕЛАТЬ ТО, ЧТО </span><span class="red">ПРАВИЛЬНО</span><span> ДЛЯ ТЕБЯ.</span></div>
+    <div id="jocko-caption-4" class="caption clip" data-start="10.7" data-duration="3" data-track-index="3"><span>И ДЛЯ </span><span class="red">ДРУГИХ ЛЮДЕЙ.</span></div>
+    <div id="jocko-caption-5" class="caption clip" data-start="13.7" data-duration="3.3" data-track-index="3"><span class="red">ЛЁГКИЙ ПУТЬ</span><span> ЗОВЁТ ЧАЩЕ ВСЕГО.</span></div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#jocko-camera", { scale: 1.00, xPercent: 0 }, { scale: 1.035, xPercent: 0, duration: 17, ease: "none" }, 0);
+      window.__timelines["scene-jocko"] = tl;
+    </script>
+  </div>
+</template>

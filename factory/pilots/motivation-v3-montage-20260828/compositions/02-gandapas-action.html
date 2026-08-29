@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position:absolute; inset:0; width:1080px; height:1920px; overflow:hidden; background:transparent; }
+        @font-face { font-family:"Arial Narrow Local"; src:url("assets/fonts/arial-narrow-bold.ttf") format("truetype"); font-weight:900; font-style:normal; font-display:block; }
+        .cue { position:absolute; left:0; top:420px; width:1080px; height:1080px; display:flex; align-items:center; justify-content:center; padding:0 40px; box-sizing:border-box; text-align:center; pointer-events:none; }
+        .glyph { display:inline-block; max-width:1000px; white-space:nowrap; color:#f5f3ee; font-family:"Arial Narrow Local","Arial Black",sans-serif; font-size:82px; font-style:italic; font-weight:900; line-height:.92; letter-spacing:-.035em; text-transform:uppercase; -webkit-text-stroke:5px #050505; paint-order:stroke fill; text-shadow:0 9px 11px rgba(0,0,0,.92),0 2px 0 #050505; will-change:transform,opacity,filter; }
+        .tight { font-size:74px; }
+        .accent { color:#f4d116; }
+      </style>
+      <div id="root" data-composition-id="m3-gandapas" data-width="1080" data-height="1920" data-duration="8.78">
+        <div id="m3-gandapas-cue-01" class="clip cue" data-start="0" data-duration="0.58" data-track-index="2"><span id="m3-gandapas-c01" class="glyph">ВНЕ ЗАВИСИМОСТИ</span></div>
+        <div id="m3-gandapas-cue-02" class="clip cue" data-start="0.58" data-duration="0.44" data-track-index="3"><span id="m3-gandapas-c02" class="glyph">ОТ ТОГО</span></div>
+        <div id="m3-gandapas-cue-03" class="clip cue" data-start="1.2" data-duration="0.44" data-track-index="4"><span id="m3-gandapas-c03" class="glyph">КАКИЕ ТАМ</span></div>
+        <div id="m3-gandapas-cue-04" class="clip cue" data-start="1.64" data-duration="0.7" data-track-index="5"><span id="m3-gandapas-c04" class="glyph tight">СДЕРЖИВАЮЩИЕ</span></div>
+        <div id="m3-gandapas-cue-05" class="clip cue" data-start="2.34" data-duration="0.6" data-track-index="6"><span id="m3-gandapas-c05" class="glyph">ФАКТОРЫ</span></div>
+        <div id="m3-gandapas-cue-06" class="clip cue" data-start="3.08" data-duration="0.9" data-track-index="2"><span id="m3-gandapas-c06" class="glyph">КОМУ ПРИЕХАЛА</span></div>
+        <div id="m3-gandapas-cue-07" class="clip cue" data-start="3.98" data-duration="0.3" data-track-index="3"><span id="m3-gandapas-c07" class="glyph">МАМА</span></div>
+        <div id="m3-gandapas-cue-08" class="clip cue" data-start="4.54" data-duration="0.78" data-track-index="4"><span id="m3-gandapas-c08" class="glyph tight">КАКИЕ ТАМ ПРАЗДНИКИ</span></div>
+        <div id="m3-gandapas-cue-09" class="clip cue" data-start="5.32" data-duration="0.34" data-track-index="5"><span id="m3-gandapas-c09" class="glyph">НА ДВОРЕ</span></div>
+        <div id="m3-gandapas-cue-10" class="clip cue" data-start="6.02" data-duration="0.72" data-track-index="6"><span id="m3-gandapas-c10" class="glyph">ОНИ ПОНИМАЮТ</span></div>
+        <div id="m3-gandapas-cue-11" class="clip cue" data-start="6.78" data-duration="0.28" data-track-index="2"><span id="m3-gandapas-c11" class="glyph">ЧТО НУЖНО</span></div>
+        <div id="m3-gandapas-cue-12" class="clip cue" data-start="7.06" data-duration="0.46" data-track-index="3"><span id="m3-gandapas-c12" class="glyph">ДЕЙСТВОВАТЬ</span></div>
+        <div id="m3-gandapas-cue-13" class="clip cue" data-start="7.52" data-duration="0.66" data-track-index="4"><span id="m3-gandapas-c13" class="glyph">И ДЕЙСТВУЮТ</span></div>
+        <div id="m3-gandapas-cue-14" class="clip cue" data-start="8.18" data-duration="0.6" data-track-index="5"><span id="m3-gandapas-c14" class="glyph accent">ПРЯМО СЕЙЧАС</span></div>
+      </div>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        const cueData = [
+          ["#m3-gandapas-c01",0,"slam"],["#m3-gandapas-c02",.58,"left"],["#m3-gandapas-c03",1.2,"rise"],["#m3-gandapas-c04",1.64,"slam"],
+          ["#m3-gandapas-c05",2.34,"left"],["#m3-gandapas-c06",3.08,"rise"],["#m3-gandapas-c07",3.98,"slam"],["#m3-gandapas-c08",4.54,"left"],
+          ["#m3-gandapas-c09",5.32,"rise"],["#m3-gandapas-c10",6.02,"slam"],["#m3-gandapas-c11",6.78,"left"],["#m3-gandapas-c12",7.06,"rise"],
+          ["#m3-gandapas-c13",7.52,"slam"],["#m3-gandapas-c14",8.18,"left"]
+        ];
+        cueData.forEach(([selector,at,mode]) => {
+          if (mode === "slam") tl.fromTo(selector,{scale:1.15,filter:"blur(8px)",opacity:0},{scale:1,filter:"blur(0px)",opacity:1,duration:.14,ease:"power4.out"},at);
+          if (mode === "left") tl.fromTo(selector,{x:-30,opacity:0},{x:0,opacity:1,duration:.16,ease:"expo.out"},at);
+          if (mode === "rise") tl.fromTo(selector,{y:20,rotation:1.1,opacity:0},{y:0,rotation:0,opacity:1,duration:.18,ease:"circ.out"},at);
+        });
+        window.__timelines["m3-gandapas"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

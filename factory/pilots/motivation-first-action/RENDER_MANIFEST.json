@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "render_id": "render_motivation_control_final",
+  "job_id": "job_motivation_first_action",
+  "composition": "factory/pilots/motivation-first-action/index.html",
+  "output": "MOTIVATION_CONTROL_FINAL.mp4",
+  "output_sha256": "c2985394bcb3e9d94256c84ec60cbb4d01575651f83b7f5280c881c39fe88995",
+  "technical": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration_seconds": 53.8,
+    "video_codec": "h264 High yuv420p bt709",
+    "audio_codec": "aac stereo 48000Hz",
+    "audio_sample_rate_hz": 48000,
+    "integrated_lufs": -15.19,
+    "true_peak_dbtp": -2.71
+  },
+  "input_hashes": [
+    {"path": "assets/footage/phone-desk.mp4", "sha256": "27826e9ea70a47b8db2662d227258de54aa7bb562e352a5b389609013bca0ad5"},
+    {"path": "assets/footage/put-on-shoe.mp4", "sha256": "37ce21fbd0fd3151d21cf72b3ce42857d071d65aef801d6a86fd120950ac7500"},
+    {"path": "assets/footage/shoes-clock.mp4", "sha256": "04f78321052efe693c807f21924fc9976e21bd62e68892e5b8c4e00eb45d92dd"},
+    {"path": "assets/footage/sticky-note.mp4", "sha256": "0bd96f547d7f919dfbd977359cdf6bf6d621835f65fea0f9ea8f8c4926313ffd"},
+    {"path": "assets/footage/tidy-desk.mp4", "sha256": "52bb86bd2d0100312eed8775364534e067b2efc536ff2c6511dd2c7de0f63551"},
+    {"path": "assets/footage/todo-list.mp4", "sha256": "674f4d988d62a10e49f1a9945a84cb7799525e80c7e971fc0f8e29f6248911d3"},
+    {"path": "assets/footage/typing-coffee.mp4", "sha256": "154e66c055c2b944f4b572d75ab839b191d50d41f6cfd6a59642b56058fbc71f"},
+    {"path": "assets/audio/fish-voice.wav", "sha256": "7a745b17c6769f2ac7a24674c436b4b700d395bab17925642429022df76a8131"},
+    {"path": "output/transcribe/fish-voice/fish-voice.json", "sha256": "8741d18c63a9045da568b87dbb1a54bc97c8a64d4349c03daca41c7c1c73b217"},
+    {"path": "index.html", "sha256": "e6366d724d5aa447494f327c0e8b11bf4f783b67b1d76b832fdd8f72c40ccf01"},
+    {"path": "index.motion.json", "sha256": "1533e4b878d7a98ff84f9fbfaf587e494441a27974f852a7132b24c4794f3365"}
+  ],
+  "created_at": "2026-08-27T20:54:45+03:00"
+}

@@ -1,0 +1,24 @@
+[Script Info]
+Title: Decision in the Dark RU captions
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Main,Oswald,78,&H00F2F2F2,&H00F2F2F2,&H00101010,&H90000000,-1,0,0,0,100,100,-1,0,1,5,0,2,80,80,225,1
+Style: Meta,Arial,28,&H002FFFE7,&H002FFFE7,&H00101010,&H00000000,-1,0,0,0,100,100,2,0,1,2,0,7,56,56,54,1
+Style: Foot,Arial,24,&H00C8CCC6,&H00C8CCC6,&H00101010,&H00000000,0,0,0,0,100,100,1,0,1,2,0,1,56,56,64,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:26.08,Meta,,0,0,0,,JOCKO WILLINK / DISCIPLINE
+Dialogue: 0,0:00:00.00,0:00:26.08,Foot,,0,0,0,,OFFICIAL PRIMARY / 2016
+Dialogue: 1,0:00:00.00,0:00:03.30,Main,,0,0,0,,{\fad(120,70)}САМОДИСЦИПЛИНА\NРОЖДАЕТСЯ {\c&H002FFFE7&}ВНУТРИ{\c&H00F2F2F2&}.
+Dialogue: 1,0:00:03.30,0:00:04.25,Main,,0,0,0,,{\fad(70,70)}ОНА ИСХОДИТ\N{\c&H002FFFE7&}ОТ ТЕБЯ{\c&H00F2F2F2&}.
+Dialogue: 1,0:00:04.25,0:00:08.75,Main,,0,0,0,,{\fad(70,70)}ОНА ПОЯВЛЯЕТСЯ,\NКОГДА ТЫ {\c&H002FFFE7&}РЕШАЕШЬ...{\c&H00F2F2F2&}
+Dialogue: 1,0:00:08.75,0:00:12.95,Main,,0,0,0,,{\fad(70,70)}БЫТЬ\N{\c&H002FFFE7&}ДИСЦИПЛИНИРОВАННЫМ{\c&H00F2F2F2&}.
+Dialogue: 1,0:00:12.95,0:00:15.20,Main,,0,0,0,,{\fad(70,70)}КОГДА РЕШАЕШЬ\N{\c&H002FFFE7&}СТАТЬ ЛУЧШЕ{\c&H00F2F2F2&}.
+Dialogue: 1,0:00:15.20,0:00:20.30,Main,,0,0,0,,{\fad(70,70)}{\c&H002FFFE7&}ДЕЛАТЬ БОЛЬШЕ.\N{\c&H00F2F2F2&}БЫТЬ БОЛЬШИМ.
+Dialogue: 1,0:00:20.30,0:00:26.08,Main,,0,0,0,,{\fad(70,180)}РЕШИТЬ\N{\c&H002FFFE7&}ОСТАВИТЬ СЛЕД\N{\c&H00F2F2F2&}В ЭТОМ МИРЕ.

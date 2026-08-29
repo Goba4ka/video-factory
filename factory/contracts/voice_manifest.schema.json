@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/voice_manifest.schema.json",
+  "title": "VoiceManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider",
+    "job_id",
+    "video_id",
+    "generation_no",
+    "generation_limit",
+    "request_hash",
+    "text_sha256",
+    "text_bytes",
+    "model",
+    "reference_id",
+    "voice_rights_status",
+    "immutable_output_path",
+    "output_sha256",
+    "output_bytes",
+    "audio",
+    "render_target_sample_rate_hz",
+    "estimated_cost_usd",
+    "retry_reason",
+    "defect_reference",
+    "defect_sha256",
+    "retry_of_request_hash",
+    "retry_of_output_sha256",
+    "retry_of_generation_status",
+    "created_at",
+    "completed_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "provider": {"const": "fish_audio"},
+    "job_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "video_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "generation_no": {"type": "integer", "minimum": 1, "maximum": 2},
+    "generation_limit": {"const": 2},
+    "request_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "text_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "text_bytes": {"type": "integer", "minimum": 1},
+    "model": {"enum": ["s1", "s2-pro", "s2.1-pro", "s2.1-pro-free"]},
+    "reference_id": {"type": ["string", "null"]},
+    "voice_rights_status": {
+      "enum": ["user_confirmation_required", "approved_owned_voice", "approved_licensed_voice"]
+    },
+    "immutable_output_path": {"type": "string", "minLength": 1},
+    "output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "output_bytes": {"type": "integer", "minimum": 44},
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sample_rate_hz", "channels", "sample_width_bits", "frames", "duration_seconds"],
+      "properties": {
+        "sample_rate_hz": {"const": 44100},
+        "channels": {"const": 1},
+        "sample_width_bits": {"const": 16},
+        "frames": {"type": "integer", "minimum": 1},
+        "duration_seconds": {"type": "number", "minimum": 0.01, "maximum": 900}
+      }
+    },
+    "render_target_sample_rate_hz": {"const": 48000},
+    "estimated_cost_usd": {"type": "number", "minimum": 0},
+    "retry_reason": {
+      "type": ["string", "null"],
+      "enum": [null, "pronunciation", "pacing", "text_error", "technical_failure", "provider_failure"]
+    },
+    "defect_reference": {"type": ["string", "null"], "minLength": 3, "maxLength": 1024},
+    "defect_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "retry_of_request_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "retry_of_output_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "retry_of_generation_status": {
+      "type": ["string", "null"],
+      "enum": [null, "failed", "failed_unknown", "succeeded"]
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "completed_at": {"type": "string", "format": "date-time"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"generation_no": {"const": 2}}},
+      "then": {
+        "properties": {
+          "retry_reason": {
+            "enum": ["pronunciation", "pacing", "text_error", "technical_failure", "provider_failure"]
+          },
+          "defect_reference": {"type": "string", "minLength": 3, "maxLength": 1024},
+          "defect_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "retry_of_request_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "retry_of_generation_status": {
+            "enum": ["failed", "failed_unknown", "succeeded"]
+          }
+        }
+      }
+    }
+  ]
+}

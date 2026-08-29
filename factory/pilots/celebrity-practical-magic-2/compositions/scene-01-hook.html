@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Почти 28 лет спустя</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      .hook-title {
+        position: absolute;
+        top: 235px;
+        left: 72px;
+        z-index: 6;
+        width: 790px;
+        font-size: 178px;
+        text-shadow: 0 10px 40px rgba(9, 10, 14, 0.9);
+      }
+      .hook-title span {
+        display: block;
+      }
+      .hook-title .almost {
+        font-size: 132px;
+      }
+      .hook-title .after {
+        color: var(--amber);
+        font-size: 212px;
+      }
+      .hook-source {
+        position: absolute;
+        top: 660px;
+        left: 72px;
+        z-index: 7;
+      }
+      .hook-portraits {
+        top: 750px;
+        height: 480px;
+      }
+      .hook-portraits .left {
+        box-shadow: -26px 30px 60px rgba(0, 0, 0, 0.5);
+      }
+      .hook-portraits .right {
+        box-shadow: 26px 30px 60px rgba(0, 0, 0, 0.5);
+      }
+      .hook-portraits img.sandra {
+        object-position: 50% 28%;
+      }
+      .hook-portraits img.nicole {
+        object-position: 50% 24%;
+      }
+      .orbit-ring {
+        position: absolute;
+        top: 180px;
+        right: -150px;
+        z-index: 2;
+        width: 520px;
+        height: 520px;
+        border: 2px solid rgba(217, 222, 255, 0.34);
+        border-radius: 50%;
+        will-change: transform;
+      }
+      .orbit-ring::before {
+        content: "";
+        position: absolute;
+        top: 42px;
+        right: 78px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--amber);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-01-hook"
+      data-duration="7.731837"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="media-frame">
+        <div class="media-motion" id="hook-media" data-layout-allow-overflow>
+          <video
+            id="hook-video"
+            class="clip media-clip"
+            src="assets/footage/moon-hook.mp4"
+            data-start="0"
+            data-duration="7.731837"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+      <div class="orbit-ring" id="hook-ring" data-layout-ignore></div>
+      <div class="top-meta">
+        <span class="mono scene-index">01 / ЗВЁЗДЫ</span>
+        <span class="mono">АКТУАЛЬНАЯ НОВОСТЬ</span>
+      </div>
+      <h1 class="display hook-title">
+        <span class="almost" id="hook-line-1" data-layout-allow-overlap>ПОЧТИ 28 ЛЕТ</span>
+        <span class="after" id="hook-line-2" data-layout-allow-overlap data-layout-allow-occlusion>СПУСТЯ</span>
+      </h1>
+      <div class="source-chip mono hook-source" id="hook-source">АРХИВ · WIKIMEDIA COMMONS</div>
+      <div class="portrait-stage hook-portraits">
+        <div class="portrait-card left" id="hook-sandra">
+          <img class="sandra" src="assets/images/sandra-bullock-2018.jpg" alt="Сандра Буллок" />
+          <div class="archive-label mono">САНДРА БУЛЛОК · АРХИВ 2018</div>
+        </div>
+        <div class="portrait-card right" id="hook-nicole">
+          <img class="nicole" src="assets/images/nicole-kidman-2006.jpg" alt="Николь Кидман" />
+          <div class="archive-label mono">НИКОЛЬ КИДМАН · АРХИВ 2006</div>
+        </div>
+      </div>
+      <div class="registration" style="top: 680px; left: 50px" data-layout-ignore></div>
+      <div class="registration br" style="top: 1212px; right: 50px" data-layout-ignore></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#hook-media", { scale: 1 }, { scale: 1.06, duration: 7.731837, ease: "none" }, 0);
+      tl.fromTo(".top-meta", { y: -34, opacity: 0 }, { y: 0, opacity: 1, duration: 0.48, ease: "power3.out" }, 0.16);
+      tl.fromTo("#hook-line-1", { y: 76, opacity: 0 }, { y: 0, opacity: 1, duration: 0.52, ease: "power4.out" }, 0.28);
+      tl.fromTo("#hook-line-2", { x: -90, opacity: 0 }, { x: 0, opacity: 1, duration: 0.68, ease: "expo.out" }, 0.46);
+      tl.fromTo("#hook-source", { scaleX: 0.72, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.38, ease: "power2.out", transformOrigin: "0 50%" }, 0.82);
+      tl.fromTo("#hook-sandra", { x: -300, rotationY: 22, opacity: 0 }, { x: 0, rotationY: 11, opacity: 1, duration: 0.86, ease: "power3.out" }, 0.98);
+      tl.fromTo("#hook-nicole", { x: 300, rotationY: -22, opacity: 0 }, { x: 0, rotationY: -11, opacity: 1, duration: 0.94, ease: "power2.out" }, 1.12);
+      tl.to("#hook-sandra", { y: -6, duration: 1.8, ease: "sine.inOut", yoyo: true, repeat: 2 }, 2.0);
+      tl.to("#hook-nicole", { y: 6, duration: 1.95, ease: "sine.inOut", yoyo: true, repeat: 2 }, 2.0);
+      tl.to("#hook-ring", { rotation: 18, scale: 1.04, duration: 7.5, ease: "none" }, 0.2);
+      window.__timelines["scene-01-hook"] = tl;
+    </script>
+  </body>
+</html>

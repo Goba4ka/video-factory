@@ -1,0 +1,9 @@
+{
+  "duration": 8.78,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#m3-gandapas-c01", "bySec": 0.25 },
+    { "kind": "staysInFrame", "selector": ".glyph" },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 1.4 }
+  ]
+}
+

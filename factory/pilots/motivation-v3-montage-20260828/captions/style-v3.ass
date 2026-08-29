@@ -1,0 +1,50 @@
+[Script Info]
+Title: Motivation V3 Montage Exact Captions
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Main,Arial Narrow,82,&H00EEF3F5,&H00EEF3F5,&H00050505,&HD9000000,-1,-1,0,0,100,100,-3,0,1,5,4,5,40,40,0,1
+Style: Tight,Arial Narrow,74,&H00EEF3F5,&H00EEF3F5,&H00050505,&HD9000000,-1,-1,0,0,100,100,-3,0,1,5,4,5,40,40,0,1
+Style: Accent,Arial Narrow,82,&H0016D1F4,&H0016D1F4,&H00050505,&HD9000000,-1,-1,0,0,100,100,-3,0,1,5,4,5,40,40,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.08,0:00:00.72,Main,m01,0,0,0,,{\pos(540,960)}ОН НАЧИНАЕТ
+Dialogue: 0,0:00:00.72,0:00:01.20,Main,m02,0,0,0,,{\pos(540,960)}ОБЪЯСНЯТЬ
+Dialogue: 0,0:00:01.24,0:00:01.94,Main,m03,0,0,0,,{\pos(540,960)}О, Я УСТАЛ
+Dialogue: 0,0:00:02.04,0:00:02.92,Main,m04,0,0,0,,{\pos(540,960)}О, ИДЁТ ДОЖДИК
+Dialogue: 0,0:00:02.92,0:00:03.60,Main,m05,0,0,0,,{\pos(540,960)}ОЙ, НУ НАЧНУ
+Dialogue: 0,0:00:03.60,0:00:03.98,Accent,m06,0,0,0,,{\pos(540,960)}ЗАВТРА
+Dialogue: 0,0:00:04.48,0:00:05.08,Main,m07,0,0,0,,{\pos(540,960)}ПРИЧИНА-ТО
+Dialogue: 0,0:00:05.08,0:00:05.86,Main,m08,0,0,0,,{\pos(540,960)}НА САМОМ ДЕЛЕ
+Dialogue: 0,0:00:05.86,0:00:06.50,Tight,m09,0,0,0,,{\pos(540,960)}ДРУГАЯ СОВЕРШЕННО
+Dialogue: 0,0:00:06.50,0:00:07.08,Main,g01,0,0,0,,{\pos(540,960)}ВНЕ ЗАВИСИМОСТИ
+Dialogue: 0,0:00:07.08,0:00:07.52,Main,g02,0,0,0,,{\pos(540,960)}ОТ ТОГО
+Dialogue: 0,0:00:07.70,0:00:08.14,Main,g03,0,0,0,,{\pos(540,960)}КАКИЕ ТАМ
+Dialogue: 0,0:00:08.14,0:00:08.84,Tight,g04,0,0,0,,{\pos(540,960)}СДЕРЖИВАЮЩИЕ
+Dialogue: 0,0:00:08.84,0:00:09.44,Main,g05,0,0,0,,{\pos(540,960)}ФАКТОРЫ
+Dialogue: 0,0:00:09.58,0:00:10.48,Main,g06,0,0,0,,{\pos(540,960)}КОМУ ПРИЕХАЛА
+Dialogue: 0,0:00:10.48,0:00:10.78,Main,g07,0,0,0,,{\pos(540,960)}МАМА
+Dialogue: 0,0:00:11.04,0:00:11.82,Tight,g08,0,0,0,,{\pos(540,960)}КАКИЕ ТАМ ПРАЗДНИКИ
+Dialogue: 0,0:00:11.82,0:00:12.16,Main,g09,0,0,0,,{\pos(540,960)}НА ДВОРЕ
+Dialogue: 0,0:00:12.52,0:00:13.24,Main,g10,0,0,0,,{\pos(540,960)}ОНИ ПОНИМАЮТ
+Dialogue: 0,0:00:13.28,0:00:13.56,Main,g11,0,0,0,,{\pos(540,960)}ЧТО НУЖНО
+Dialogue: 0,0:00:13.56,0:00:14.02,Main,g12,0,0,0,,{\pos(540,960)}ДЕЙСТВОВАТЬ
+Dialogue: 0,0:00:14.02,0:00:14.68,Main,g13,0,0,0,,{\pos(540,960)}И ДЕЙСТВУЮТ
+Dialogue: 0,0:00:14.68,0:00:15.28,Accent,g14,0,0,0,,{\pos(540,960)}ПРЯМО СЕЙЧАС
+Dialogue: 0,0:00:15.28,0:00:15.94,Main,s01,0,0,0,,{\pos(540,960)}И ВОТ БЫТЬ
+Dialogue: 0,0:00:15.94,0:00:16.66,Main,s02,0,0,0,,{\pos(540,960)}В ГАРМОНИИ
+Dialogue: 0,0:00:16.70,0:00:16.92,Main,s03,0,0,0,,{\pos(540,960)}СОБСТВЕННО
+Dialogue: 0,0:00:16.98,0:00:17.86,Tight,s04,0,0,0,,{\pos(540,960)}С БЕССОЗНАТЕЛЬНЫМ
+Dialogue: 0,0:00:18.00,0:00:19.08,Main,s05,0,0,0,,{\pos(540,960)}ТО, ЧТО ФРЕЙД
+Dialogue: 0,0:00:19.10,0:00:19.70,Main,s06,0,0,0,,{\pos(540,960)}КОГДА-ТО СКАЗАЛ
+Dialogue: 0,0:00:21.44,0:00:21.98,Main,s07,0,0,0,,{\pos(540,960)}СВОБОДА — ЭТО
+Dialogue: 0,0:00:21.98,0:00:23.06,Tight,s08,0,0,0,,{\pos(540,960)}СПОСОБНОСТЬ ХОТЕТЬ
+Dialogue: 0,0:00:23.06,0:00:23.96,Main,s09,0,0,0,,{\pos(540,960)}ТО, ЧТО ХОЧЕШЬ
+Dialogue: 0,0:00:23.96,0:00:25.28,Main,s10,0,0,0,,{\pos(540,960)}НА САМОМ ДЕЛЕ

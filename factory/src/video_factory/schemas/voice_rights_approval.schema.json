@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/voice_rights_approval.schema.json",
+  "title": "VoiceRightsApproval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "reference_id",
+    "voice_rights_status",
+    "basis",
+    "evidence",
+    "approved",
+    "approved_by",
+    "approved_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "reference_id": {"type": "string", "minLength": 3, "maxLength": 128},
+    "voice_rights_status": {
+      "enum": ["approved_owned_voice", "approved_licensed_voice"]
+    },
+    "basis": {"enum": ["voice_owner_confirmation", "commercial_license"]},
+    "evidence": {"type": "string", "minLength": 10, "maxLength": 2000},
+    "approved": {"const": true},
+    "approved_by": {"type": "string", "minLength": 2, "maxLength": 128},
+    "approved_at": {"type": "string", "format": "date-time"}
+  }
+}

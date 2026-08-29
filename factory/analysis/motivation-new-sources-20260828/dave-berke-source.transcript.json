@@ -1,0 +1,1421 @@
+{
+  "source": "factory\\pilots\\motivation-responsibility-20260828\\assets\\video\\dave-berke-source.mp4",
+  "language": "en",
+  "language_probability": 1,
+  "duration": 54.009625,
+  "segments": [
+    {
+      "start": 0.7,
+      "end": 3.1,
+      "text": "It stings a little bit like, oh, dang, that means it's me.",
+      "words": [
+        {
+          "start": 0.7,
+          "end": 1.06,
+          "word": " It",
+          "probability": 0.16158205270767212
+        },
+        {
+          "start": 1.06,
+          "end": 1.32,
+          "word": " stings",
+          "probability": 0.7774385809898376
+        },
+        {
+          "start": 1.32,
+          "end": 1.52,
+          "word": " a",
+          "probability": 0.9765275716781616
+        },
+        {
+          "start": 1.52,
+          "end": 1.6,
+          "word": " little",
+          "probability": 0.9924526810646057
+        },
+        {
+          "start": 1.6,
+          "end": 1.72,
+          "word": " bit",
+          "probability": 0.9830581545829773
+        },
+        {
+          "start": 1.72,
+          "end": 1.88,
+          "word": " like,",
+          "probability": 0.9156569242477417
+        },
+        {
+          "start": 1.96,
+          "end": 2.06,
+          "word": " oh,",
+          "probability": 0.49220219254493713
+        },
+        {
+          "start": 2.06,
+          "end": 2.24,
+          "word": " dang,",
+          "probability": 0.960946798324585
+        },
+        {
+          "start": 2.42,
+          "end": 2.6,
+          "word": " that",
+          "probability": 0.9915577173233032
+        },
+        {
+          "start": 2.6,
+          "end": 2.76,
+          "word": " means",
+          "probability": 0.9949082732200623
+        },
+        {
+          "start": 2.76,
+          "end": 2.94,
+          "word": " it's",
+          "probability": 0.9923813045024872
+        },
+        {
+          "start": 2.94,
+          "end": 3.1,
+          "word": " me.",
+          "probability": 0.9981613755226135
+        }
+      ]
+    },
+    {
+      "start": 3.3,
+      "end": 4.34,
+      "text": "I mean, it's the way I've communicated.",
+      "words": [
+        {
+          "start": 3.3,
+          "end": 3.3,
+          "word": " I",
+          "probability": 0.5039222240447998
+        },
+        {
+          "start": 3.3,
+          "end": 3.4,
+          "word": " mean,",
+          "probability": 0.9483437538146973
+        },
+        {
+          "start": 3.52,
+          "end": 3.74,
+          "word": " it's",
+          "probability": 0.8928559720516205
+        },
+        {
+          "start": 3.74,
+          "end": 3.94,
+          "word": " the",
+          "probability": 0.6600322127342224
+        },
+        {
+          "start": 3.94,
+          "end": 4.06,
+          "word": " way",
+          "probability": 0.9968641400337219
+        },
+        {
+          "start": 4.06,
+          "end": 4.12,
+          "word": " I've",
+          "probability": 0.831025242805481
+        },
+        {
+          "start": 4.12,
+          "end": 4.34,
+          "word": " communicated.",
+          "probability": 0.8824406862258911
+        }
+      ]
+    },
+    {
+      "start": 4.52,
+      "end": 5.02,
+      "text": "I'm the leader.",
+      "words": [
+        {
+          "start": 4.52,
+          "end": 4.7,
+          "word": " I'm",
+          "probability": 0.7389306128025055
+        },
+        {
+          "start": 4.7,
+          "end": 4.82,
+          "word": " the",
+          "probability": 0.9902535080909729
+        },
+        {
+          "start": 4.82,
+          "end": 5.02,
+          "word": " leader.",
+          "probability": 0.9638532996177673
+        }
+      ]
+    },
+    {
+      "start": 5.54,
+      "end": 6.52,
+      "text": "Yeah, it's my problem, right?",
+      "words": [
+        {
+          "start": 5.54,
+          "end": 5.66,
+          "word": " Yeah,",
+          "probability": 0.6383902430534363
+        },
+        {
+          "start": 5.72,
+          "end": 5.9,
+          "word": " it's",
+          "probability": 0.9857970476150513
+        },
+        {
+          "start": 5.9,
+          "end": 6.0,
+          "word": " my",
+          "probability": 0.9979853630065918
+        },
+        {
+          "start": 6.0,
+          "end": 6.28,
+          "word": " problem,",
+          "probability": 0.9981927275657654
+        },
+        {
+          "start": 6.36,
+          "end": 6.52,
+          "word": " right?",
+          "probability": 0.9953560829162598
+        }
+      ]
+    },
+    {
+      "start": 7.02,
+      "end": 8.6,
+      "text": "And it stings for just a split second",
+      "words": [
+        {
+          "start": 7.02,
+          "end": 7.16,
+          "word": " And",
+          "probability": 0.9873330593109131
+        },
+        {
+          "start": 7.16,
+          "end": 7.24,
+          "word": " it",
+          "probability": 0.9977395534515381
+        },
+        {
+          "start": 7.24,
+          "end": 7.5,
+          "word": " stings",
+          "probability": 0.8270657658576965
+        },
+        {
+          "start": 7.5,
+          "end": 7.68,
+          "word": " for",
+          "probability": 0.9966952800750732
+        },
+        {
+          "start": 7.68,
+          "end": 7.82,
+          "word": " just",
+          "probability": 0.9552121162414551
+        },
+        {
+          "start": 7.82,
+          "end": 8.06,
+          "word": " a",
+          "probability": 0.9949725866317749
+        },
+        {
+          "start": 8.06,
+          "end": 8.28,
+          "word": " split",
+          "probability": 0.9805419445037842
+        },
+        {
+          "start": 8.28,
+          "end": 8.6,
+          "word": " second",
+          "probability": 0.9899202585220337
+        }
+      ]
+    },
+    {
+      "start": 8.6,
+      "end": 13.4,
+      "text": "to have that recognition of, oh, this is a reflection of me.",
+      "words": [
+        {
+          "start": 8.6,
+          "end": 8.76,
+          "word": " to",
+          "probability": 0.7631915211677551
+        },
+        {
+          "start": 8.76,
+          "end": 8.92,
+          "word": " have",
+          "probability": 0.9991751313209534
+        },
+        {
+          "start": 8.92,
+          "end": 9.12,
+          "word": " that",
+          "probability": 0.9983331561088562
+        },
+        {
+          "start": 9.12,
+          "end": 9.72,
+          "word": " recognition",
+          "probability": 0.6449648141860962
+        },
+        {
+          "start": 9.72,
+          "end": 10.02,
+          "word": " of,",
+          "probability": 0.9982396364212036
+        },
+        {
+          "start": 10.08,
+          "end": 10.28,
+          "word": " oh,",
+          "probability": 0.8551650047302246
+        },
+        {
+          "start": 11.4,
+          "end": 11.72,
+          "word": " this",
+          "probability": 0.9960928559303284
+        },
+        {
+          "start": 11.72,
+          "end": 11.86,
+          "word": " is",
+          "probability": 0.24838152527809143
+        },
+        {
+          "start": 11.86,
+          "end": 12.0,
+          "word": " a",
+          "probability": 0.9757551550865173
+        },
+        {
+          "start": 12.0,
+          "end": 12.84,
+          "word": " reflection",
+          "probability": 0.9935787916183472
+        },
+        {
+          "start": 12.84,
+          "end": 13.06,
+          "word": " of",
+          "probability": 0.9996274709701538
+        },
+        {
+          "start": 13.06,
+          "end": 13.4,
+          "word": " me.",
+          "probability": 0.9985772371292114
+        }
+      ]
+    },
+    {
+      "start": 14.32,
+      "end": 16.76,
+      "text": "And what happens right after that is",
+      "words": [
+        {
+          "start": 14.32,
+          "end": 14.68,
+          "word": " And",
+          "probability": 0.9538809061050415
+        },
+        {
+          "start": 14.68,
+          "end": 14.84,
+          "word": " what",
+          "probability": 0.9920634627342224
+        },
+        {
+          "start": 14.84,
+          "end": 15.88,
+          "word": " happens",
+          "probability": 0.8438324928283691
+        },
+        {
+          "start": 15.88,
+          "end": 16.16,
+          "word": " right",
+          "probability": 0.9875307083129883
+        },
+        {
+          "start": 16.16,
+          "end": 16.34,
+          "word": " after",
+          "probability": 0.9992396831512451
+        },
+        {
+          "start": 16.34,
+          "end": 16.54,
+          "word": " that",
+          "probability": 0.9993996620178223
+        },
+        {
+          "start": 16.54,
+          "end": 16.76,
+          "word": " is",
+          "probability": 0.9509045481681824
+        }
+      ]
+    },
+    {
+      "start": 17.16,
+      "end": 18.62,
+      "text": "you are presented with the answer.",
+      "words": [
+        {
+          "start": 17.16,
+          "end": 17.52,
+          "word": " you",
+          "probability": 0.7638520002365112
+        },
+        {
+          "start": 17.52,
+          "end": 17.8,
+          "word": " are",
+          "probability": 0.9977430105209351
+        },
+        {
+          "start": 17.8,
+          "end": 18.12,
+          "word": " presented",
+          "probability": 0.9973996877670288
+        },
+        {
+          "start": 18.12,
+          "end": 18.3,
+          "word": " with",
+          "probability": 0.9995300769805908
+        },
+        {
+          "start": 18.3,
+          "end": 18.4,
+          "word": " the",
+          "probability": 0.997421383857727
+        },
+        {
+          "start": 18.4,
+          "end": 18.62,
+          "word": " answer.",
+          "probability": 0.9990215301513672
+        }
+      ]
+    },
+    {
+      "start": 19.06,
+      "end": 20.56,
+      "text": "And that's the best part about it, because the answer,",
+      "words": [
+        {
+          "start": 19.06,
+          "end": 19.22,
+          "word": " And",
+          "probability": 0.9967139959335327
+        },
+        {
+          "start": 19.22,
+          "end": 19.4,
+          "word": " that's",
+          "probability": 0.9992724359035492
+        },
+        {
+          "start": 19.4,
+          "end": 19.5,
+          "word": " the",
+          "probability": 0.9995693564414978
+        },
+        {
+          "start": 19.5,
+          "end": 19.64,
+          "word": " best",
+          "probability": 0.9989458918571472
+        },
+        {
+          "start": 19.64,
+          "end": 19.82,
+          "word": " part",
+          "probability": 0.9989591836929321
+        },
+        {
+          "start": 19.82,
+          "end": 19.94,
+          "word": " about",
+          "probability": 0.9821712970733643
+        },
+        {
+          "start": 19.94,
+          "end": 20.08,
+          "word": " it,",
+          "probability": 0.9911487102508545
+        },
+        {
+          "start": 20.08,
+          "end": 20.16,
+          "word": " because",
+          "probability": 0.4022205173969269
+        },
+        {
+          "start": 20.16,
+          "end": 20.28,
+          "word": " the",
+          "probability": 0.8274590969085693
+        },
+        {
+          "start": 20.28,
+          "end": 20.56,
+          "word": " answer,",
+          "probability": 0.9985059499740601
+        }
+      ]
+    },
+    {
+      "start": 20.76,
+      "end": 21.84,
+      "text": "if every problem is a leadership problem,",
+      "words": [
+        {
+          "start": 20.76,
+          "end": 20.88,
+          "word": " if",
+          "probability": 0.9859089255332947
+        },
+        {
+          "start": 20.88,
+          "end": 21.1,
+          "word": " every",
+          "probability": 0.9805859923362732
+        },
+        {
+          "start": 21.1,
+          "end": 21.28,
+          "word": " problem",
+          "probability": 0.9770225286483765
+        },
+        {
+          "start": 21.28,
+          "end": 21.38,
+          "word": " is",
+          "probability": 0.5370134711265564
+        },
+        {
+          "start": 21.38,
+          "end": 21.42,
+          "word": " a",
+          "probability": 0.9373641610145569
+        },
+        {
+          "start": 21.42,
+          "end": 21.52,
+          "word": " leadership",
+          "probability": 0.9895743727684021
+        },
+        {
+          "start": 21.52,
+          "end": 21.84,
+          "word": " problem,",
+          "probability": 0.99730384349823
+        }
+      ]
+    },
+    {
+      "start": 21.84,
+      "end": 24.0,
+      "text": "then by definition, the answer is leadership.",
+      "words": [
+        {
+          "start": 21.84,
+          "end": 21.98,
+          "word": " then",
+          "probability": 0.984751284122467
+        },
+        {
+          "start": 21.98,
+          "end": 22.1,
+          "word": " by",
+          "probability": 0.9295133352279663
+        },
+        {
+          "start": 22.1,
+          "end": 22.46,
+          "word": " definition,",
+          "probability": 0.9995545744895935
+        },
+        {
+          "start": 23.06,
+          "end": 23.36,
+          "word": " the",
+          "probability": 0.9988698363304138
+        },
+        {
+          "start": 23.36,
+          "end": 23.56,
+          "word": " answer",
+          "probability": 0.998536229133606
+        },
+        {
+          "start": 23.56,
+          "end": 23.7,
+          "word": " is",
+          "probability": 0.9757838845252991
+        },
+        {
+          "start": 23.7,
+          "end": 24.0,
+          "word": " leadership.",
+          "probability": 0.9989493489265442
+        }
+      ]
+    },
+    {
+      "start": 24.5,
+      "end": 26.04,
+      "text": "And that is the most liberating,",
+      "words": [
+        {
+          "start": 24.5,
+          "end": 24.86,
+          "word": " And",
+          "probability": 0.9961742758750916
+        },
+        {
+          "start": 24.86,
+          "end": 25.06,
+          "word": " that",
+          "probability": 0.9991376399993896
+        },
+        {
+          "start": 25.06,
+          "end": 25.26,
+          "word": " is",
+          "probability": 0.9979479908943176
+        },
+        {
+          "start": 25.26,
+          "end": 25.38,
+          "word": " the",
+          "probability": 0.9986763596534729
+        },
+        {
+          "start": 25.38,
+          "end": 25.54,
+          "word": " most",
+          "probability": 0.9673371911048889
+        },
+        {
+          "start": 25.54,
+          "end": 26.04,
+          "word": " liberating,",
+          "probability": 0.9978092908859253
+        }
+      ]
+    },
+    {
+      "start": 26.18,
+      "end": 27.34,
+      "text": "that is the best feeling in the world,",
+      "words": [
+        {
+          "start": 26.18,
+          "end": 26.26,
+          "word": " that",
+          "probability": 0.9969565868377686
+        },
+        {
+          "start": 26.26,
+          "end": 26.38,
+          "word": " is",
+          "probability": 0.9973723888397217
+        },
+        {
+          "start": 26.38,
+          "end": 26.5,
+          "word": " the",
+          "probability": 0.9983193278312683
+        },
+        {
+          "start": 26.5,
+          "end": 26.72,
+          "word": " best",
+          "probability": 0.999305009841919
+        },
+        {
+          "start": 26.72,
+          "end": 26.94,
+          "word": " feeling",
+          "probability": 0.9977340698242188
+        },
+        {
+          "start": 26.94,
+          "end": 27.08,
+          "word": " in",
+          "probability": 0.9978654980659485
+        },
+        {
+          "start": 27.08,
+          "end": 27.14,
+          "word": " the",
+          "probability": 0.9991365075111389
+        },
+        {
+          "start": 27.14,
+          "end": 27.34,
+          "word": " world,",
+          "probability": 0.9935715198516846
+        }
+      ]
+    },
+    {
+      "start": 27.34,
+      "end": 29.64,
+      "text": "because you can go, oh, here's 30 things",
+      "words": [
+        {
+          "start": 27.34,
+          "end": 27.52,
+          "word": " because",
+          "probability": 0.047310106456279755
+        },
+        {
+          "start": 27.52,
+          "end": 27.62,
+          "word": " you",
+          "probability": 0.7485779523849487
+        },
+        {
+          "start": 27.62,
+          "end": 27.66,
+          "word": " can",
+          "probability": 0.5557277202606201
+        },
+        {
+          "start": 27.66,
+          "end": 27.8,
+          "word": " go,",
+          "probability": 0.9700558185577393
+        },
+        {
+          "start": 27.88,
+          "end": 28.2,
+          "word": " oh,",
+          "probability": 0.5479023456573486
+        },
+        {
+          "start": 28.38,
+          "end": 29.04,
+          "word": " here's",
+          "probability": 0.9784574806690216
+        },
+        {
+          "start": 29.04,
+          "end": 29.38,
+          "word": " 30",
+          "probability": 0.9215776324272156
+        },
+        {
+          "start": 29.38,
+          "end": 29.64,
+          "word": " things",
+          "probability": 0.9955428242683411
+        }
+      ]
+    },
+    {
+      "start": 29.64,
+      "end": 30.48,
+      "text": "I can now do differently.",
+      "words": [
+        {
+          "start": 29.64,
+          "end": 29.82,
+          "word": " I",
+          "probability": 0.9793989658355713
+        },
+        {
+          "start": 29.82,
+          "end": 29.92,
+          "word": " can",
+          "probability": 0.995145857334137
+        },
+        {
+          "start": 29.92,
+          "end": 30.06,
+          "word": " now",
+          "probability": 0.9448301196098328
+        },
+        {
+          "start": 30.06,
+          "end": 30.2,
+          "word": " do",
+          "probability": 0.9977104663848877
+        },
+        {
+          "start": 30.2,
+          "end": 30.48,
+          "word": " differently.",
+          "probability": 0.9958372116088867
+        }
+      ]
+    },
+    {
+      "start": 30.64,
+      "end": 31.76,
+      "text": "Here's different ways I can behave,",
+      "words": [
+        {
+          "start": 30.64,
+          "end": 30.78,
+          "word": " Here's",
+          "probability": 0.9921132028102875
+        },
+        {
+          "start": 30.78,
+          "end": 30.98,
+          "word": " different",
+          "probability": 0.9953047037124634
+        },
+        {
+          "start": 30.98,
+          "end": 31.14,
+          "word": " ways",
+          "probability": 0.9976174235343933
+        },
+        {
+          "start": 31.14,
+          "end": 31.32,
+          "word": " I",
+          "probability": 0.9927735924720764
+        },
+        {
+          "start": 31.32,
+          "end": 31.42,
+          "word": " can",
+          "probability": 0.9993129968643188
+        },
+        {
+          "start": 31.42,
+          "end": 31.76,
+          "word": " behave,",
+          "probability": 0.9987820982933044
+        }
+      ]
+    },
+    {
+      "start": 32.1,
+      "end": 32.96,
+      "text": "different ways I can communicate,",
+      "words": [
+        {
+          "start": 32.1,
+          "end": 32.26,
+          "word": " different",
+          "probability": 0.9979677796363831
+        },
+        {
+          "start": 32.26,
+          "end": 32.4,
+          "word": " ways",
+          "probability": 0.9968457818031311
+        },
+        {
+          "start": 32.4,
+          "end": 32.54,
+          "word": " I",
+          "probability": 0.9913875460624695
+        },
+        {
+          "start": 32.54,
+          "end": 32.66,
+          "word": " can",
+          "probability": 0.9978888630867004
+        },
+        {
+          "start": 32.66,
+          "end": 32.96,
+          "word": " communicate,",
+          "probability": 0.9967058300971985
+        }
+      ]
+    },
+    {
+      "start": 33.32,
+      "end": 34.52,
+      "text": "different ways of using that tool.",
+      "words": [
+        {
+          "start": 33.32,
+          "end": 33.54,
+          "word": " different",
+          "probability": 0.9986593723297119
+        },
+        {
+          "start": 33.54,
+          "end": 33.74,
+          "word": " ways",
+          "probability": 0.9988697171211243
+        },
+        {
+          "start": 33.74,
+          "end": 33.9,
+          "word": " of",
+          "probability": 0.9988368153572083
+        },
+        {
+          "start": 33.9,
+          "end": 34.06,
+          "word": " using",
+          "probability": 0.999448835849762
+        },
+        {
+          "start": 34.06,
+          "end": 34.26,
+          "word": " that",
+          "probability": 0.9992995262145996
+        },
+        {
+          "start": 34.26,
+          "end": 34.52,
+          "word": " tool.",
+          "probability": 0.9990660548210144
+        }
+      ]
+    },
+    {
+      "start": 35.4,
+      "end": 36.68,
+      "text": "And if you look at it like that,",
+      "words": [
+        {
+          "start": 35.4,
+          "end": 35.58,
+          "word": " And",
+          "probability": 0.9549034237861633
+        },
+        {
+          "start": 35.58,
+          "end": 35.74,
+          "word": " if",
+          "probability": 0.9888024926185608
+        },
+        {
+          "start": 35.74,
+          "end": 35.84,
+          "word": " you",
+          "probability": 0.998883068561554
+        },
+        {
+          "start": 35.84,
+          "end": 36.04,
+          "word": " look",
+          "probability": 0.9983242154121399
+        },
+        {
+          "start": 36.04,
+          "end": 36.12,
+          "word": " at",
+          "probability": 0.997225821018219
+        },
+        {
+          "start": 36.12,
+          "end": 36.2,
+          "word": " it",
+          "probability": 0.9969872832298279
+        },
+        {
+          "start": 36.2,
+          "end": 36.38,
+          "word": " like",
+          "probability": 0.9979459643363953
+        },
+        {
+          "start": 36.38,
+          "end": 36.68,
+          "word": " that,",
+          "probability": 0.9990168809890747
+        }
+      ]
+    },
+    {
+      "start": 36.76,
+      "end": 39.64,
+      "text": "then all of a sudden these problems beyond your control",
+      "words": [
+        {
+          "start": 36.76,
+          "end": 36.88,
+          "word": " then",
+          "probability": 0.9941779375076294
+        },
+        {
+          "start": 36.88,
+          "end": 37.0,
+          "word": " all",
+          "probability": 0.9141011834144592
+        },
+        {
+          "start": 37.0,
+          "end": 37.12,
+          "word": " of",
+          "probability": 0.9800332188606262
+        },
+        {
+          "start": 37.12,
+          "end": 37.14,
+          "word": " a",
+          "probability": 0.9762881994247437
+        },
+        {
+          "start": 37.14,
+          "end": 37.38,
+          "word": " sudden",
+          "probability": 0.9992662072181702
+        },
+        {
+          "start": 37.38,
+          "end": 38.06,
+          "word": " these",
+          "probability": 0.5493407249450684
+        },
+        {
+          "start": 38.06,
+          "end": 38.9,
+          "word": " problems",
+          "probability": 0.9962706565856934
+        },
+        {
+          "start": 38.9,
+          "end": 39.16,
+          "word": " beyond",
+          "probability": 0.7440561652183533
+        },
+        {
+          "start": 39.16,
+          "end": 39.26,
+          "word": " your",
+          "probability": 0.946121335029602
+        },
+        {
+          "start": 39.26,
+          "end": 39.64,
+          "word": " control",
+          "probability": 0.9994707703590393
+        }
+      ]
+    },
+    {
+      "start": 39.64,
+      "end": 41.6,
+      "text": "becomes, they become solvable problems.",
+      "words": [
+        {
+          "start": 39.64,
+          "end": 39.94,
+          "word": " becomes,",
+          "probability": 0.16441494226455688
+        },
+        {
+          "start": 40.2,
+          "end": 40.44,
+          "word": " they",
+          "probability": 0.9800814390182495
+        },
+        {
+          "start": 40.44,
+          "end": 40.74,
+          "word": " become",
+          "probability": 0.9395034909248352
+        },
+        {
+          "start": 40.74,
+          "end": 41.18,
+          "word": " solvable",
+          "probability": 0.9768069088459015
+        },
+        {
+          "start": 41.18,
+          "end": 41.6,
+          "word": " problems.",
+          "probability": 0.9979285001754761
+        }
+      ]
+    },
+    {
+      "start": 41.82,
+      "end": 43.54,
+      "text": "And then people go, oh, I just led my way through this.",
+      "words": [
+        {
+          "start": 41.82,
+          "end": 41.9,
+          "word": " And",
+          "probability": 0.9952918291091919
+        },
+        {
+          "start": 41.9,
+          "end": 42.0,
+          "word": " then",
+          "probability": 0.9961955547332764
+        },
+        {
+          "start": 42.0,
+          "end": 42.2,
+          "word": " people",
+          "probability": 0.9925602674484253
+        },
+        {
+          "start": 42.2,
+          "end": 42.36,
+          "word": " go,",
+          "probability": 0.9677157402038574
+        },
+        {
+          "start": 42.42,
+          "end": 42.54,
+          "word": " oh,",
+          "probability": 0.9211935997009277
+        },
+        {
+          "start": 42.56,
+          "end": 42.68,
+          "word": " I",
+          "probability": 0.9987749457359314
+        },
+        {
+          "start": 42.68,
+          "end": 42.84,
+          "word": " just",
+          "probability": 0.9989110231399536
+        },
+        {
+          "start": 42.84,
+          "end": 43.02,
+          "word": " led",
+          "probability": 0.7139550447463989
+        },
+        {
+          "start": 43.02,
+          "end": 43.14,
+          "word": " my",
+          "probability": 0.9967004656791687
+        },
+        {
+          "start": 43.14,
+          "end": 43.28,
+          "word": " way",
+          "probability": 0.9992629885673523
+        },
+        {
+          "start": 43.28,
+          "end": 43.4,
+          "word": " through",
+          "probability": 0.9934051632881165
+        },
+        {
+          "start": 43.4,
+          "end": 43.54,
+          "word": " this.",
+          "probability": 0.9560506343841553
+        }
+      ]
+    },
+    {
+      "start": 43.62,
+      "end": 44.98,
+      "text": "That problem got better, my life got better.",
+      "words": [
+        {
+          "start": 43.62,
+          "end": 43.62,
+          "word": " That",
+          "probability": 0.3864189088344574
+        },
+        {
+          "start": 43.62,
+          "end": 43.84,
+          "word": " problem",
+          "probability": 0.982133686542511
+        },
+        {
+          "start": 43.84,
+          "end": 43.98,
+          "word": " got",
+          "probability": 0.993202269077301
+        },
+        {
+          "start": 43.98,
+          "end": 44.24,
+          "word": " better,",
+          "probability": 0.999194324016571
+        },
+        {
+          "start": 44.32,
+          "end": 44.42,
+          "word": " my",
+          "probability": 0.7944218516349792
+        },
+        {
+          "start": 44.42,
+          "end": 44.58,
+          "word": " life",
+          "probability": 0.9993603825569153
+        },
+        {
+          "start": 44.58,
+          "end": 44.7,
+          "word": " got",
+          "probability": 0.9986205101013184
+        },
+        {
+          "start": 44.7,
+          "end": 44.98,
+          "word": " better.",
+          "probability": 0.999714195728302
+        }
+      ]
+    },
+    {
+      "start": 45.64,
+      "end": 47.48,
+      "text": "And it is just a core belief of",
+      "words": [
+        {
+          "start": 45.64,
+          "end": 45.96,
+          "word": " And",
+          "probability": 0.9908543825149536
+        },
+        {
+          "start": 45.96,
+          "end": 46.22,
+          "word": " it",
+          "probability": 0.9956931471824646
+        },
+        {
+          "start": 46.22,
+          "end": 46.34,
+          "word": " is",
+          "probability": 0.9931529760360718
+        },
+        {
+          "start": 46.34,
+          "end": 46.48,
+          "word": " just",
+          "probability": 0.9287535548210144
+        },
+        {
+          "start": 46.48,
+          "end": 46.56,
+          "word": " a",
+          "probability": 0.9874150156974792
+        },
+        {
+          "start": 46.56,
+          "end": 46.82,
+          "word": " core",
+          "probability": 0.9939351677894592
+        },
+        {
+          "start": 46.82,
+          "end": 47.26,
+          "word": " belief",
+          "probability": 0.9931156039237976
+        },
+        {
+          "start": 47.26,
+          "end": 47.48,
+          "word": " of",
+          "probability": 0.9688385128974915
+        }
+      ]
+    },
+    {
+      "start": 47.48,
+      "end": 49.16,
+      "text": "you gotta look at every problem as a leadership problem.",
+      "words": [
+        {
+          "start": 47.48,
+          "end": 47.66,
+          "word": " you",
+          "probability": 0.8408888578414917
+        },
+        {
+          "start": 47.66,
+          "end": 47.78,
+          "word": " gotta",
+          "probability": 0.6110583543777466
+        },
+        {
+          "start": 47.78,
+          "end": 47.94,
+          "word": " look",
+          "probability": 0.9959062337875366
+        },
+        {
+          "start": 47.94,
+          "end": 48.04,
+          "word": " at",
+          "probability": 0.9947966933250427
+        },
+        {
+          "start": 48.04,
+          "end": 48.18,
+          "word": " every",
+          "probability": 0.9578376412391663
+        },
+        {
+          "start": 48.18,
+          "end": 48.42,
+          "word": " problem",
+          "probability": 0.9403087496757507
+        },
+        {
+          "start": 48.42,
+          "end": 48.52,
+          "word": " as",
+          "probability": 0.5469799041748047
+        },
+        {
+          "start": 48.52,
+          "end": 48.6,
+          "word": " a",
+          "probability": 0.9742432832717896
+        },
+        {
+          "start": 48.6,
+          "end": 48.72,
+          "word": " leadership",
+          "probability": 0.9970633387565613
+        },
+        {
+          "start": 48.72,
+          "end": 49.16,
+          "word": " problem.",
+          "probability": 0.998664379119873
+        }
+      ]
+    },
+    {
+      "start": 49.3,
+      "end": 51.8,
+      "text": "And if you do, leadership will be presented as solution,",
+      "words": [
+        {
+          "start": 49.3,
+          "end": 49.42,
+          "word": " And",
+          "probability": 0.9986950755119324
+        },
+        {
+          "start": 49.42,
+          "end": 49.52,
+          "word": " if",
+          "probability": 0.9986465573310852
+        },
+        {
+          "start": 49.52,
+          "end": 49.62,
+          "word": " you",
+          "probability": 0.9991763234138489
+        },
+        {
+          "start": 49.62,
+          "end": 49.8,
+          "word": " do,",
+          "probability": 0.9994545578956604
+        },
+        {
+          "start": 50.32,
+          "end": 50.66,
+          "word": " leadership",
+          "probability": 0.9924408197402954
+        },
+        {
+          "start": 50.66,
+          "end": 50.88,
+          "word": " will",
+          "probability": 0.9840602874755859
+        },
+        {
+          "start": 50.88,
+          "end": 51.0,
+          "word": " be",
+          "probability": 0.971430778503418
+        },
+        {
+          "start": 51.0,
+          "end": 51.3,
+          "word": " presented",
+          "probability": 0.9818986058235168
+        },
+        {
+          "start": 51.3,
+          "end": 51.5,
+          "word": " as",
+          "probability": 0.7461456656455994
+        },
+        {
+          "start": 51.5,
+          "end": 51.8,
+          "word": " solution,",
+          "probability": 0.678402304649353
+        }
+      ]
+    },
+    {
+      "start": 51.98,
+      "end": 52.66,
+      "text": "which is what you want.",
+      "words": [
+        {
+          "start": 51.98,
+          "end": 52.16,
+          "word": " which",
+          "probability": 0.9992921352386475
+        },
+        {
+          "start": 52.16,
+          "end": 52.26,
+          "word": " is",
+          "probability": 0.9994065761566162
+        },
+        {
+          "start": 52.26,
+          "end": 52.38,
+          "word": " what",
+          "probability": 0.9992626309394836
+        },
+        {
+          "start": 52.38,
+          "end": 52.48,
+          "word": " you",
+          "probability": 0.999122679233551
+        },
+        {
+          "start": 52.48,
+          "end": 52.66,
+          "word": " want.",
+          "probability": 0.9988529682159424
+        }
+      ]
+    }
+  ]
+}

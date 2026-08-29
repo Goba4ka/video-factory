@@ -1,0 +1,22 @@
+[Script Info]
+Title: Motivation RU Focus V2
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Caption,Oswald,76,&H00F2EFF2,&H00F2EFF2,&HDA000000,&H65000000,-1,0,0,0,100,100,1.0,0,1,4.0,1.5,2,72,72,470,1
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:00.00,0:00:03.08,Caption,,0,0,0,,ВЫ УЖЕ {\c&H0078B9D9&}ВСЁ ЗНАЕТЕ{\c&H00F2EFF2&},\NЧТОБЫ ДОБИТЬСЯ УСПЕХА.
+Dialogue: 0,0:00:03.08,0:00:05.18,Caption,,0,0,0,,ВОТ. ПРОСТО Я {\c&H0078B9D9&}УВЕРЕН{\c&H00F2EFF2&}.
+Dialogue: 0,0:00:05.18,0:00:10.90,Caption,,0,0,0,,СЕЙЧАС В КАЖДОМ ИЗ ВАС\NЕСТЬ {\c&H0078B9D9&}ВСЕ ЗНАНИЯ{\c&H00F2EFF2&}.
+Dialogue: 0,0:00:10.90,0:00:14.65,Caption,,0,0,0,,ЕСЛИ {\c&H0078B9D9&}ЗАПРЕТИТЬ{\c&H00F2EFF2&} ВАМ\NУЧИТЬСЯ…
+Dialogue: 0,0:00:14.65,0:00:18.70,Caption,,0,0,0,,У ВАС {\c&H0078B9D9&}ВСЁ{\c&H00F2EFF2&} РАВНО ЕСТЬ\NВСЁ ДЛЯ ЛЮБЫХ ЦЕЛЕЙ.
+Dialogue: 0,0:00:18.70,0:00:23.40,Caption,,0,0,0,,НАДО ТОЛЬКО НАУЧИТЬСЯ\N{\c&H0078B9D9&}ЗАСТАВЛЯТЬ СЕБЯ{\c&H00F2EFF2&}…
+Dialogue: 0,0:00:23.40,0:00:28.37,Caption,,0,0,0,,{\c&H0078B9D9&}ДЕЛАТЬ{\c&H00F2EFF2&} ТО,\NЧТО ТЫ УЖЕ ЗНАЕШЬ.
+

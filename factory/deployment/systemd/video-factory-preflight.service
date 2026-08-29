@@ -1,0 +1,26 @@
+[Unit]
+Description=Validate Video Factory production invariants
+After=local-fs.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=video-factory
+Group=video-factory
+UMask=0027
+EnvironmentFile=/etc/video-factory/runtime.env
+WorkingDirectory=/opt/video-factory/current
+ExecStart=/opt/video-factory/current/.venv/bin/python /opt/video-factory/current/factory/tools/server_preflight.py --runtime-env /etc/video-factory/runtime.env
+RemainAfterExit=yes
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadOnlyPaths=/var/lib/video-factory /srv/video-factory/artifacts
+ReadWritePaths=/var/lib/video-factory/.codex

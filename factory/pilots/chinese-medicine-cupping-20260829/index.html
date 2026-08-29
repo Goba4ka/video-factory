@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>Банки и «токсины»: что показывает круг</title>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face{font-family:OswaldLocal;src:url("assets/fonts/Oswald-Variable.ttf") format("truetype");font-weight:200 700;font-display:block}
+    *{box-sizing:border-box}html,body{width:1080px;height:1920px;margin:0;overflow:hidden;background:#090a0b}#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#090a0b;isolation:isolate}
+    .scene{position:absolute;inset:0;width:1080px;height:1920px;object-fit:cover;object-position:center;opacity:0;filter:saturate(.72) contrast(1.16) brightness(.75);will-change:opacity,transform}.scene.marks{object-position:72% center}
+    .wash{position:absolute;inset:0;z-index:5;background:linear-gradient(180deg,rgba(6,7,8,.42),rgba(6,7,8,.03) 38%,rgba(6,7,8,.14) 60%,rgba(6,7,8,.92) 100%)}
+    .top{position:absolute;left:74px;right:74px;top:122px;z-index:14;display:flex;align-items:center;justify-content:center}.top span{padding:12px 21px;border:1px solid rgba(255,255,255,.72);background:rgba(5,6,7,.68);font-family:OswaldLocal,Arial,sans-serif;font-size:27px;letter-spacing:.105em;text-transform:uppercase;color:#fff;text-shadow:0 2px 10px #000}
+    .caption{position:absolute;left:56px;right:56px;top:990px;height:350px;z-index:20;display:flex;justify-content:center;align-items:center;text-align:center}.caption span{max-width:950px;color:#fff;font-family:OswaldLocal,Arial,sans-serif;font-size:91px;font-weight:680;line-height:1.01;text-transform:uppercase;letter-spacing:-.016em;-webkit-text-stroke:3px #050607;paint-order:stroke fill;text-shadow:0 12px 28px rgba(0,0,0,.95)}.caption .small{font-size:76px}.caption .hit{font-size:108px}.red{color:#ff4459}.mint{color:#7fffd1}
+    .myth{position:absolute;left:95px;right:95px;top:410px;z-index:18;padding:42px 46px 48px;background:rgba(245,245,239,.95);color:#111;font-family:OswaldLocal,Arial,sans-serif;text-transform:uppercase;text-align:center;opacity:0}.myth b{display:block;color:#e32945;font-size:32px;letter-spacing:.13em}.myth strong{display:block;margin-top:18px;font-size:78px;line-height:1.03}.stamp{display:inline-block;margin-top:32px;padding:13px 30px;border:6px solid #e32945;color:#e32945;font-size:52px;font-weight:700;transform:rotate(-4deg)}
+    .diagram{position:absolute;left:90px;right:90px;top:360px;height:590px;z-index:17;background:rgba(7,8,9,.91);border:2px solid rgba(255,255,255,.55);padding:42px 48px;color:#fff;font-family:OswaldLocal,Arial,sans-serif;text-transform:uppercase;opacity:0}.diagram .label{text-align:center;color:#7fffd1;font-size:29px;letter-spacing:.1em}.cup{position:absolute;left:310px;top:104px;width:280px;height:230px;border:15px solid #d8e2e1;border-bottom:none;border-radius:130px 130px 24px 24px;background:linear-gradient(180deg,rgba(127,255,209,.18),rgba(127,255,209,.02))}.skin{position:absolute;left:70px;right:70px;top:350px;height:80px;border-radius:50%;background:#be7567;box-shadow:inset 0 20px 35px rgba(70,8,8,.24)}.pull{position:absolute;left:380px;top:258px;width:0;height:104px;border-left:7px dashed #7fffd1}.pull:after{content:'▲';position:absolute;left:-16px;top:-28px;color:#7fffd1;font-size:28px}.vessels{position:absolute;left:165px;right:165px;top:420px;height:72px;background:repeating-linear-gradient(90deg,transparent 0 28px,#d73049 29px 35px,transparent 36px 52px)}.diagram p{position:absolute;left:60px;right:60px;bottom:38px;margin:0;text-align:center;font-size:39px;line-height:1.12}
+    .evidence{position:absolute;left:72px;right:72px;top:390px;z-index:19;padding:44px 42px 46px;background:rgba(8,9,10,.93);border-top:8px solid #7fffd1;color:#fff;font-family:OswaldLocal,Arial,sans-serif;text-transform:uppercase;text-align:center;opacity:0}.evidence b{display:block;color:#7fffd1;font-size:30px;letter-spacing:.11em}.evidence strong{display:block;margin:21px 0;font-size:72px;line-height:1.02}.evidence p{margin:0;font-size:38px;line-height:1.16;color:#e5e6e3}.evidence .risk{margin-top:28px;color:#ff5a68;font-size:42px;font-weight:650}
+  </style>
+</head>
+<body>
+<div id="root" data-root="true" data-hf-id="root" data-composition-id="chinese-medicine-cupping" data-start="0" data-width="1080" data-height="1920" data-duration="30.00" data-fps="30">
+  <video class="clip scene marks" id="s01" data-hf-id="s01" src="assets/video/cupping-marks.mp4" data-start="0" data-duration="4.10" data-media-start="8.5" muted playsinline></video>
+  <video class="clip scene" id="s02" data-hf-id="s02" src="assets/video/cupping-fire.mp4" data-start="4.10" data-duration="4.60" data-media-start="1.8" muted playsinline></video>
+  <video class="clip scene" id="s03" data-hf-id="s03" src="assets/video/cupping-remove.mp4" data-start="8.70" data-duration="5.00" data-media-start="2.2" muted playsinline></video>
+  <video class="clip scene marks" id="s04" data-hf-id="s04" src="assets/video/cupping-marks.mp4" data-start="13.70" data-duration="4.50" data-media-start="5.8" muted playsinline></video>
+  <video class="clip scene" id="s05" data-hf-id="s05" src="assets/video/cupping-remove.mp4" data-start="18.20" data-duration="5.20" data-media-start="8.5" muted playsinline></video>
+  <video class="clip scene" id="s06" data-hf-id="s06" src="assets/video/cupping-fire.mp4" data-start="23.40" data-duration="3.50" data-media-start="7.8" muted playsinline></video>
+  <video class="clip scene marks" id="s07" data-hf-id="s07" src="assets/video/cupping-marks.mp4" data-start="26.90" data-duration="3.10" data-media-start="8.5" muted playsinline></video>
+  <div class="wash" data-hf-id="wash" data-layout-allow-overlap="true"></div>
+  <div class="top" data-hf-id="top" data-layout-allow-overlap="true"><span>РАЗБОР МИФА • НЕ МЕДИЦИНСКАЯ РЕКОМЕНДАЦИЯ</span></div>
+
+  <div id="c01" class="clip caption" data-hf-id="c01" data-start="0" data-duration="3.40"><span>ТЁМНЫЙ КРУГ = БОЛЬШЕ «ТОКСИНОВ»?</span></div>
+  <div id="c02" class="clip caption" data-hf-id="c02" data-start="3.74" data-duration="0.82"><span class="hit"><span class="red">НЕ ДОКАЗАНО</span></span></div>
+  <div id="c03" class="clip caption" data-hf-id="c03" data-start="5.02" data-duration="1.32"><span>БАНКА СОЗДАЁТ ВАКУУМ</span></div>
+  <div id="c04" class="clip caption" data-hf-id="c04" data-start="6.48" data-duration="1.54"><span class="small">КОЖА И СОСУДЫ РАСТЯГИВАЮТСЯ</span></div>
+  <div id="c05" class="clip caption" data-hf-id="c05" data-start="8.30" data-duration="2.94"><span class="small">МЕЛКИЕ СОСУДЫ МОГУТ ПОВРЕЖДАТЬСЯ</span></div>
+  <div id="c06" class="clip caption" data-hf-id="c06" data-start="11.42" data-duration="1.18"><span>КРОВЬ ВЫХОДИТ В ТКАНЬ</span></div>
+  <div id="c07" class="clip caption" data-hf-id="c07" data-start="12.92" data-duration="1.68"><span class="hit">ЭТО СИНЯК</span></div>
+  <div id="c08" class="clip caption" data-hf-id="c08" data-start="14.70" data-duration="1.02"><span>А НЕ «АНАЛИЗ ТОКСИНОВ»</span></div>
+  <div id="c09" class="clip caption" data-hf-id="c09" data-start="16.14" data-duration="2.48"><span class="small">СТАТЬ ЛЕГЧЕ? ИНОГДА ТАК ЧУВСТВУЮТ</span></div>
+  <div id="c10" class="clip caption" data-hf-id="c10" data-start="18.96" data-duration="2.34"><span class="small">ДВА ИССЛЕДОВАНИЯ С ИМИТАЦИЕЙ</span></div>
+  <div id="c11" class="clip caption" data-hf-id="c11" data-start="21.30" data-duration="1.78"><span class="small">ПРОЦЕДУРА НЕ БЫЛА ЛУЧШЕ</span></div>
+  <div id="c12" class="clip caption" data-hf-id="c12" data-start="23.64" data-duration="1.50"><span>ДОКАЗАТЕЛЬСТВА СЛАБЫЕ</span></div>
+  <div id="c13" class="clip caption" data-hf-id="c13" data-start="25.40" data-duration="1.74"><span class="small"><span class="red">ОЖОГИ И ИНФЕКЦИИ ВОЗМОЖНЫ</span></span></div>
+  <div id="c14" class="clip caption" data-hf-id="c14" data-start="27.34" data-duration="2.10"><span class="small">НЕ ЗАМЕНЯЕТ ОБСЛЕДОВАНИЕ</span></div>
+
+  <div id="myth" class="myth" data-hf-id="myth" data-layout-allow-overlap="true"><b>ПОПУЛЯРНОЕ ОБЪЯСНЕНИЕ</b><strong>ЧЕМ ТЕМНЕЕ КРУГ,<br>ТЕМ БОЛЬШЕ «ТОКСИНОВ»</strong><div class="stamp">НЕ ДОКАЗАНО</div></div>
+  <div id="diagram" class="diagram" data-hf-id="diagram" data-layout-allow-overlap="true"><div class="label">ЧТО ПРОИСХОДИТ ПОД БАНКОЙ</div><div class="cup"></div><div class="pull"></div><div class="skin"></div><div class="vessels"></div><p>ВАКУУМ РАСТЯГИВАЕТ КОЖУ<br>И МЕЛКИЕ СОСУДЫ</p></div>
+  <div id="evidence" class="evidence" data-hf-id="evidence" data-layout-allow-overlap="true"><b>КЛИНИЧЕСКИЕ ИССЛЕДОВАНИЯ</b><strong>ЭФФЕКТ НЕ УБЕДИТЕЛЬНЕЕ ИМИТАЦИИ</strong><p>доказательства в целом слабые<br>банки не заменяют обследование</p><div class="risk">РИСКИ: ОЖОГИ • ИНФЕКЦИИ</div></div>
+
+  <audio id="voice" data-hf-id="voice" src="assets/audio/voice.wav" data-start="0" data-duration="29.58" data-media-start="0" data-audio-group="voiceover"></audio>
+  <audio id="music" data-hf-id="music" src="assets/audio/music.mp3" data-start="0" data-duration="30" data-media-start="12" data-volume="0.075" data-fx-carve="{&quot;enabled&quot;:true,&quot;sources&quot;:[&quot;voiceover&quot;],&quot;strength&quot;:0.22}" data-fx-chain="{&quot;version&quot;:1,&quot;nodes&quot;:[{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;n1&quot;,&quot;fromCarve&quot;:true,&quot;params&quot;:{&quot;frequency&quot;:1600,&quot;gain&quot;:-3.4,&quot;q&quot;:1.35}},{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;n2&quot;,&quot;fromCarve&quot;:true,&quot;params&quot;:{&quot;frequency&quot;:2500,&quot;gain&quot;:-5.0,&quot;q&quot;:1.35}}]}"></audio>
+</div>
+<script>
+  const tl=gsap.timeline({paused:true});
+  document.querySelectorAll('.scene').forEach((s,i)=>{const st=+s.dataset.start,d=+s.dataset.duration;tl.fromTo(s,{opacity:0,scale:1.09,xPercent:i%2?-1:1},{opacity:1,scale:1.09,xPercent:i%2?-1:1,duration:.08,ease:'none',immediateRender:false},st).to(s,{scale:1.17,xPercent:i%2?1:-1,duration:d,ease:'none'},st).to(s,{opacity:0,duration:.08},st+d-.08)});
+  document.querySelectorAll('.caption').forEach(c=>{const t=c.firstElementChild,st=+c.dataset.start,d=+c.dataset.duration;tl.fromTo(t,{opacity:0,scale:1.05,y:12},{opacity:1,scale:1,y:0,duration:.12,ease:'power3.out',immediateRender:false},st).to(t,{opacity:0,duration:.09},st+d-.09)});
+  tl.fromTo('#myth',{opacity:0,scale:1.04},{opacity:1,scale:1,duration:.18,ease:'power3.out',immediateRender:false},0).to('#myth',{opacity:0,duration:.12},2.18).set('#myth',{opacity:0},2.30)
+    .fromTo('#diagram',{opacity:0,y:24},{opacity:1,y:0,duration:.18,ease:'power3.out',immediateRender:false},5.02).to('#diagram',{opacity:0,duration:.12},8.08).set('#diagram',{opacity:0},8.20)
+    .fromTo('#evidence',{opacity:0,scale:1.03},{opacity:1,scale:1,duration:.18,ease:'power3.out',immediateRender:false},18.96).to('#evidence',{opacity:0,duration:.10},22.88).set('#evidence',{opacity:0},22.98);
+  window.__timelines['chinese-medicine-cupping']=tl;
+</script>
+</body>
+</html>

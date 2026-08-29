@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Действие после тени</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family:"OswaldLocal"; src:url("assets/fonts/Oswald-Variable.ttf") format("truetype"); font-weight:200 700; }
+      @font-face { font-family:"PlexMonoLocal"; src:url("assets/fonts/IBMPlexMono-Regular.ttf") format("truetype"); font-weight:400; }
+      @font-face { font-family:"PlexMonoLocal"; src:url("assets/fonts/IBMPlexMono-Bold.ttf") format("truetype"); font-weight:700; }
+      :root { --ink:#08090b; --paper:#f1eee9; --red:#d5493f; --muted:#969394; }
+      * { box-sizing:border-box; }
+      html,body { width:1080px; height:1920px; margin:0; overflow:hidden; background:var(--ink); }
+      #motivation-ru-montage-v2 { position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--ink); color:var(--paper); }
+      .clip { position:absolute; inset:0; overflow:hidden; }
+      .scene { z-index:4; background:transparent; pointer-events:none; }
+      .media-panel { position:absolute; left:30px; top:292px; width:1020px; height:574px; object-fit:cover; z-index:2; border:3px solid rgba(213,73,63,.62); box-shadow:0 26px 80px rgba(0,0,0,.55); transform-origin:50% 50%; will-change:transform; }
+      #rybakov-media { object-position:55% 12%; clip-path:inset(0 0 18% 0); background:#0d0e10; }
+      .camera { position:absolute; inset:-30px; transform-origin:50% 50%; will-change:transform; }
+      .bg { position:absolute; inset:-80px; width:1240px; height:2080px; object-fit:cover; object-position:center; filter:blur(42px) grayscale(.82) brightness(.36) contrast(1.2); transform:scale(1.08); }
+      .veil { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,9,11,.18),rgba(8,9,11,.42) 50%,rgba(8,9,11,.95) 78%); }
+      .panel { position:absolute; left:30px; top:292px; width:1020px; height:574px; overflow:hidden; border:3px solid rgba(213,73,63,.62); background:#0d0e10; box-shadow:0 26px 80px rgba(0,0,0,.55); }
+      .panel video { width:100%; height:100%; object-fit:cover; }
+      .panel.rybakov video { width:112%; height:112%; transform:translate(-5.5%,-1%); object-position:55% 10%; }
+      .lower-ink { position:absolute; left:0; right:0; top:1238px; bottom:0; background:rgba(8,9,11,.90); border-top:1px solid rgba(241,238,233,.12); }
+      .rule { position:absolute; left:62px; right:62px; top:246px; height:3px; background:var(--red); transform-origin:left center; }
+      .name { position:absolute; left:64px; top:92px; font:700 24px/1 "PlexMonoLocal",monospace; letter-spacing:.12em; }
+      .meta { position:absolute; right:64px; top:92px; color:var(--muted); font:400 19px/1 "PlexMonoLocal",monospace; letter-spacing:.10em; }
+      .caption { position:absolute; left:62px; right:62px; bottom:254px; margin:0; text-align:center; color:var(--paper); font:700 78px/1.02 "OswaldLocal","Arial Narrow",sans-serif; text-transform:uppercase; letter-spacing:.015em; text-shadow:0 4px 6px rgba(0,0,0,.92),0 16px 44px rgba(0,0,0,.85); }
+      .caption .red,.end .red { color:var(--red); }
+      .signature { position:absolute; left:64px; bottom:92px; color:rgba(241,238,233,.56); font:400 18px/1 "PlexMonoLocal",monospace; letter-spacing:.11em; }
+      .end-card { background:rgba(8,9,11,.92); display:grid; place-items:center; }
+      .end { margin:0; color:var(--paper); font:700 112px/1 "OswaldLocal",sans-serif; letter-spacing:.04em; text-transform:uppercase; }
+    </style>
+  </head>
+  <body>
+    <main id="motivation-ru-montage-v2" data-composition-id="motivation-ru-montage-v2" data-width="1080" data-height="1920" data-duration="30.611" data-fps="30">
+      <video id="markaryan-media" class="media-panel" src="assets/clips/markaryan.mp4" muted playsinline data-start="0" data-duration="10.241" data-track-index="2"></video>
+      <video id="rybakov-media" class="media-panel" src="assets/visuals/rybakov-visual.mp4" muted playsinline data-start="10.241" data-duration="6.570" data-track-index="2"></video>
+      <video id="hartmann-media" class="media-panel" src="assets/visuals/hartmann-visual.mp4" muted playsinline data-start="16.811" data-duration="12.200" data-track-index="2"></video>
+
+      <section id="scene-01" class="clip scene" data-start="0" data-duration="10.241" data-track-index="1">
+        <div class="veil"></div><div class="rule"></div>
+        <div class="lower-ink"></div><div class="name"><span>01 /</span> <span>АРСЕН</span> <span>МАРКАРЯН</span></div><div class="meta">MOTIVE / EXCUSE</div>
+        <p class="caption">ПРИЧИНА — <span class="red">СТРАХ.</span></p><div class="signature">ДЕЙСТВИЕ ПОСЛЕ ТЕНИ</div>
+      </section>
+
+      <section id="scene-02" class="clip scene" data-start="10.241" data-duration="6.570" data-track-index="1">
+        <div class="veil"></div><div class="rule"></div>
+        <div class="lower-ink"></div><div class="name"><span>02 /</span> <span>ИГОРЬ</span> <span>РЫБАКОВ</span></div><div class="meta">MOTIVE / CONNECTION</div>
+        <p class="caption">МОЖЕТ РАДИКАЛЬНО<br><span class="red">ИЗМЕНИТЬ ЖИЗНЬ.</span></p><div class="signature">ДЕЙСТВИЕ ПОСЛЕ ТЕНИ</div>
+      </section>
+
+      <section id="scene-03" class="clip scene" data-start="16.811" data-duration="12.200" data-track-index="1">
+        <div class="veil"></div><div class="rule"></div>
+        <div class="lower-ink"></div><div class="name"><span>03 /</span> <span>ОСКАР</span> <span>ХАРТМАНН</span></div><div class="meta">MOTIVE / ACTION</div>
+        <p class="caption">ОН ТОЖЕ СТОИТ<br><span class="red">ЗА ДЕЙСТВИЯМИ.</span></p><div class="signature">ДЕЙСТВИЕ ПОСЛЕ ТЕНИ</div>
+      </section>
+
+      <section id="end-card" class="clip end-card" data-start="29.011" data-duration="1.600" data-track-index="10"><p class="end">НАЧНИ. <span class="red">СЕЙЧАС.</span></p></section>
+
+      <audio id="voice-markaryan" src="assets/audio/markaryan-dialogue.wav" data-start="0" data-duration="10.241" data-track-index="40" data-group="voiceover" data-volume="1" data-fx-chain="highpass=f=80,lowpass=f=12500,acompressor=threshold=-20dB:ratio=2.2:attack=10:release=120:makeup=2"></audio>
+      <audio id="voice-rybakov" src="assets/audio/rybakov-dialogue.wav" data-start="10.241" data-duration="6.570" data-track-index="40" data-group="voiceover" data-volume="1" data-fx-chain="highpass=f=80,lowpass=f=12500,acompressor=threshold=-20dB:ratio=2.2:attack=10:release=120:makeup=2"></audio>
+      <audio id="voice-hartmann" src="assets/audio/hartmann-dialogue.wav" data-start="16.811" data-duration="12.200" data-track-index="40" data-group="voiceover" data-volume="1" data-fx-chain="highpass=f=80,lowpass=f=12500,acompressor=threshold=-20dB:ratio=2.2:attack=10:release=120:makeup=2"></audio>
+      <audio id="nightfall" src=".media/audio/bgm/bgm_001.mp3" data-start="0" data-duration="30.611" data-media-start="155" data-track-index="41" data-group="music" data-volume="0.26" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0.18},{"t":1.2,"v":0.24},{"t":10.1,"v":0.25},{"t":16.7,"v":0.27},{"t":27.2,"v":0.31},{"t":29.011,"v":0.47},{"t":30.611,"v":0.34}]}]}'></audio>
+    </main>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused:true });
+      [["#markaryan-media",0,10.241],["#rybakov-media",10.241,6.570],["#hartmann-media",16.811,12.200]].forEach(([sel,start,dur]) => {
+        const phase = { scale:1.00 }; const drift = { p:0 };
+        tl.to(phase,{scale:1.025,duration:dur*.42,ease:"power2.inOut"},start)
+          .to(phase,{scale:1.065,duration:dur*.58,ease:"power2.inOut"},start+dur*.42)
+          .to(drift,{p:Math.PI*2*1.2,duration:dur,ease:"none",onUpdate:()=>{
+            const el=document.querySelector(sel); if(el) el.style.transform=`scale(${phase.scale}) translate(${Math.sin(drift.p)*2}px,${Math.sin(drift.p*1.3)*1.5}px)`;
+          }},start);
+      });
+      document.querySelectorAll(".name span").forEach((el,index) => {
+        const host=el.closest("[data-start]"); const start=Number(host.dataset.start||0)+0.10+(index%3)*0.12;
+        tl.set(el,{opacity:1,y:52},start).to(el,{y:0,duration:index%3===0?.18:.14,ease:"power4.out"},start);
+      });
+      document.querySelectorAll(".caption").forEach((el) => {
+        const start=Number(el.closest("[data-start]").dataset.start||0)+0.18;
+        tl.set(el,{opacity:1,y:64},start).to(el,{y:0,duration:.18,ease:"power4.out"},start);
+      });
+      tl.fromTo("#end-card .end",{opacity:0,y:72,scale:1.08},{opacity:1,y:0,scale:1,duration:.22,ease:"power4.out"},29.011)
+        .to("#end-card .end",{y:-2,duration:.67,ease:"sine.inOut",yoyo:true,repeat:1},29.25);
+      window.__timelines["motivation-ru-montage-v2"] = tl;
+    </script>
+  </body>
+</html>

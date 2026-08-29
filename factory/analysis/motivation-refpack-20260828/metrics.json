@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "source": "C:\\Users\\ns277\\Downloads\\osDQqGfxQethqFBEY2iBAZUWEaEBHItgRRRdo1.mp4",
+      "duration_seconds": 41.634,
+      "width": 576,
+      "height": 576,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_codec": "aac",
+      "audio_sample_rate_hz": 44100,
+      "scene_cuts": {
+        "threshold_0_15": 2,
+        "threshold_0_25": 1
+      },
+      "estimated_seconds_per_shot": {
+        "threshold_0_15": 13.88,
+        "threshold_0_25": 20.82
+      },
+      "loudness": {
+        "input_i": "-28.03",
+        "input_tp": "-12.68",
+        "input_lra": "1.90",
+        "input_thresh": "-38.03",
+        "output_i": "-14.35",
+        "output_tp": "-1.50",
+        "output_lra": "1.60",
+        "output_thresh": "-24.35",
+        "normalization_type": "dynamic",
+        "target_offset": "0.35"
+      },
+      "silence": {
+        "events": 0,
+        "total_seconds": 0,
+        "max_seconds": 0.0
+      },
+      "signal": {
+        "sample_count": 42,
+        "yavg_mean": 43.05,
+        "yavg_p10": 37.38,
+        "satavg_mean": 4.05
+      }
+    },
+    {
+      "source": "C:\\Users\\ns277\\Downloads\\oMhhTDMIuEFWBmLfEgitTcpnZ6RfrASkEE1BQz.mp4",
+      "duration_seconds": 64.134,
+      "width": 576,
+      "height": 1024,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_codec": "aac",
+      "audio_sample_rate_hz": 44100,
+      "scene_cuts": {
+        "threshold_0_15": 23,
+        "threshold_0_25": 18
+      },
+      "estimated_seconds_per_shot": {
+        "threshold_0_15": 2.67,
+        "threshold_0_25": 3.38
+      },
+      "loudness": {
+        "input_i": "-21.86",
+        "input_tp": "-6.99",
+        "input_lra": "2.10",
+        "input_thresh": "-31.86",
+        "output_i": "-14.24",
+        "output_tp": "-1.50",
+        "output_lra": "1.90",
+        "output_thresh": "-24.24",
+        "normalization_type": "dynamic",
+        "target_offset": "0.24"
+      },
+      "silence": {
+        "events": 0,
+        "total_seconds": 0,
+        "max_seconds": 0.0
+      },
+      "signal": {
+        "sample_count": 64,
+        "yavg_mean": 54.72,
+        "yavg_p10": 38.03,
+        "satavg_mean": 4.85
+      }
+    },
+    {
+      "source": "C:\\Users\\ns277\\Downloads\\oEY5qQcBpBo0dpSiiDz5zAITEBj3ftSgqREaGe.mp4",
+      "duration_seconds": 73.8,
+      "width": 576,
+      "height": 576,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_codec": "aac",
+      "audio_sample_rate_hz": 44100,
+      "scene_cuts": {
+        "threshold_0_15": 26,
+        "threshold_0_25": 25
+      },
+      "estimated_seconds_per_shot": {
+        "threshold_0_15": 2.73,
+        "threshold_0_25": 2.84
+      },
+      "loudness": {
+        "input_i": "-11.92",
+        "input_tp": "1.04",
+        "input_lra": "4.00",
+        "input_thresh": "-21.97",
+        "output_i": "-14.17",
+        "output_tp": "-1.50",
+        "output_lra": "4.10",
+        "output_thresh": "-24.23",
+        "normalization_type": "dynamic",
+        "target_offset": "0.17"
+      },
+      "silence": {
+        "events": 0,
+        "total_seconds": 0,
+        "max_seconds": 0.0
+      },
+      "signal": {
+        "sample_count": 74,
+        "yavg_mean": 80.62,
+        "yavg_p10": 43.65,
+        "satavg_mean": 10.05
+      }
+    },
+    {
+      "source": "C:\\Users\\ns277\\Downloads\\okFkA2A0PBxoQ8E4BgiaxXEEiAiaBF1VE9SIY.mp4",
+      "duration_seconds": 39.934,
+      "width": 576,
+      "height": 576,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_codec": "aac",
+      "audio_sample_rate_hz": 44100,
+      "scene_cuts": {
+        "threshold_0_15": 2,
+        "threshold_0_25": 0
+      },
+      "estimated_seconds_per_shot": {
+        "threshold_0_15": 13.31,
+        "threshold_0_25": 39.93
+      },
+      "loudness": {
+        "input_i": "-28.14",
+        "input_tp": "-12.75",
+        "input_lra": "2.90",
+        "input_thresh": "-38.26",
+        "output_i": "-14.23",
+        "output_tp": "-1.50",
+        "output_lra": "2.40",
+        "output_thresh": "-24.36",
+        "normalization_type": "dynamic",
+        "target_offset": "0.23"
+      },
+      "silence": {
+        "events": 2,
+        "total_seconds": 1.117,
+        "max_seconds": 0.81
+      },
+      "signal": {
+        "sample_count": 40,
+        "yavg_mean": 35.05,
+        "yavg_p10": 28.48,
+        "satavg_mean": 3.83
+      }
+    },
+    {
+      "source": "C:\\Users\\ns277\\Downloads\\ocGJEpdF2ffIRoLGYkIgYeAQY8AecvVccKOQGG.mp4",
+      "duration_seconds": 44.2,
+      "width": 576,
+      "height": 576,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_codec": "aac",
+      "audio_sample_rate_hz": 44100,
+      "scene_cuts": {
+        "threshold_0_15": 11,
+        "threshold_0_25": 11
+      },
+      "estimated_seconds_per_shot": {
+        "threshold_0_15": 3.68,
+        "threshold_0_25": 3.68
+      },
+      "loudness": {
+        "input_i": "-27.98",
+        "input_tp": "-13.97",
+        "input_lra": "1.90",
+        "input_thresh": "-37.99",
+        "output_i": "-14.06",
+        "output_tp": "-1.50",
+        "output_lra": "1.80",
+        "output_thresh": "-24.07",
+        "normalization_type": "dynamic",
+        "target_offset": "0.06"
+      },
+      "silence": {
+        "events": 0,
+        "total_seconds": 0,
+        "max_seconds": 0.0
+      },
+      "signal": {
+        "sample_count": 44,
+        "yavg_mean": 64.06,
+        "yavg_p10": 46.78,
+        "satavg_mean": 6.43
+      }
+    },
+    {
+      "source": "C:\\Users\\ns277\\Downloads\\ocf5L5YuKAAixZrIQERWzCAQDzbw41RpBCIXi9.mp4",
+      "duration_seconds": 58.334,
+      "width": 576,
+      "height": 576,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_codec": "aac",
+      "audio_sample_rate_hz": 44100,
+      "scene_cuts": {
+        "threshold_0_15": 3,
+        "threshold_0_25": 3
+      },
+      "estimated_seconds_per_shot": {
+        "threshold_0_15": 14.58,
+        "threshold_0_25": 14.58
+      },
+      "loudness": {
+        "input_i": "-27.25",
+        "input_tp": "-11.68",
+        "input_lra": "1.60",
+        "input_thresh": "-37.27",
+        "output_i": "-13.82",
+        "output_tp": "-1.50",
+        "output_lra": "1.70",
+        "output_thresh": "-23.85",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.18"
+      },
+      "silence": {
+        "events": 0,
+        "total_seconds": 0,
+        "max_seconds": 0.0
+      },
+      "signal": {
+        "sample_count": 58,
+        "yavg_mean": 40.32,
+        "yavg_p10": 24.34,
+        "satavg_mean": 6.52
+      }
+    }
+  ]
+}

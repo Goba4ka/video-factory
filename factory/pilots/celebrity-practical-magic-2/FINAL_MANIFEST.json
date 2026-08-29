@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "project_id": "celebrity-practical-magic-2",
+  "created_on": "2026-08-27",
+  "topic": "Celebrity news: Practical Magic 2",
+  "composition": {
+    "engine": "HyperFrames",
+    "cli_version": "0.8.16",
+    "embedded_renderer_tag": "0.0.0-dev",
+    "duration_seconds": 57.2,
+    "scene_count": 9,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "artifacts": [
+    {
+      "role": "master",
+      "path": "renders/celebrity-practical-magic-2-final.mp4",
+      "bytes": 22671550,
+      "sha256": "03C8501B4FD061FA3B7F67D4F9E05893BA6322A915DD397D7DA1B1BB26089A30",
+      "video": "H.264 High, 1080x1920, 30 fps, yuv420p, BT.709",
+      "audio": "AAC LC, 48 kHz, stereo",
+      "duration_seconds": 57.2
+    },
+    {
+      "role": "messenger",
+      "path": "renders/celebrity-practical-magic-2-telegram.mp4",
+      "bytes": 4451152,
+      "sha256": "79D47341601EB490FB24D0AB66E08F6F44BEA492B2CDCD0F8203B0384161B131",
+      "video": "H.264 High, 720x1280, 30 fps, yuv420p",
+      "audio": "AAC LC, 48 kHz, stereo",
+      "duration_seconds": 57.216
+    }
+  ],
+  "quality_control": {
+    "hyperframes_check": "pass",
+    "lint_errors": 0,
+    "lint_warnings": 0,
+    "runtime_findings": 0,
+    "layout_findings": 0,
+    "motion_findings": 0,
+    "contrast_checks_passed": 57,
+    "contrast_checks_failed": 0,
+    "master_full_decode": "pass",
+    "messenger_full_decode": "pass",
+    "audio_master_ebur128": {
+      "integrated_lufs": -16.0,
+      "loudness_range_lu": 3.5,
+      "true_peak_dbfs": -1.5
+    },
+    "audio_independent_loudnorm_audit": {
+      "master_integrated_lufs": -16.06,
+      "master_loudness_range_lu": 2.9,
+      "master_true_peak_dbtp": -1.49,
+      "messenger_integrated_lufs": -16.1,
+      "messenger_loudness_range_lu": 2.9,
+      "messenger_true_peak_dbtp": -1.34
+    },
+    "silence_over_one_second": false,
+    "visual_contact_sheet": "qc/final-contact-sheet.png",
+    "last_frame": "qc/final-last-frame.png"
+  },
+  "cost": {
+    "direct_external_usd": 0,
+    "note": "Local rendering and a local test voice were used. Subscription, electricity and operator time are not metered here."
+  },
+  "release_gate": {
+    "internal_test": "ready",
+    "commercial_publish": "replace_or_clear_test_voice",
+    "reason": "The Microsoft SAPI voice is suitable for this control render but its commercial-output rights were not documented for publication."
+  },
+  "delivery": {
+    "telegram_saved_messages": {
+      "status": "sent",
+      "artifact_role": "messenger",
+      "caption": "Тестовый выпуск — новости знаменитостей. Сжатая версия 720×1280.",
+      "visually_verified_in_chat": true
+    }
+  }
+}

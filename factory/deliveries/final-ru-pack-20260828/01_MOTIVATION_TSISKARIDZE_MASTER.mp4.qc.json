@@ -1,0 +1,78 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "788059a452b59305b59b6ebffbc0cdc9a4a1f3dc58133fb2b7bdefc40aebbdd6",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\78\\788059a452b59305b59b6ebffbc0cdc9a4a1f3dc58133fb2b7bdefc40aebbdd6.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 12.86,
+  "failures": [
+    {
+      "code": "av_drift",
+      "message": "audio/video duration drift is 0.100s"
+    },
+    {
+      "code": "freeze_run",
+      "message": "unmarked freeze is at least 1.50s"
+    }
+  ],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 31.3,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 31.3,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-20260828\\01_MOTIVATION_TSISKARIDZE_MASTER.mp4",
+    "size_bytes": 49102064,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 31.2,
+      "fps": 30.0,
+      "height": 1920,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 1080
+    }
+  },
+  "ok": false,
+  "profile": {
+    "name": "motivation_v3_master",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [
+      1.7,
+      1.8,
+      1.66667
+    ],
+    "loudness": {
+      "integrated_lufs": -14.77,
+      "lra_lu": 2.3,
+      "threshold_lufs": -25.39,
+      "true_peak_dbtp": -2.35
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 1.8,
+    "max_silence_seconds": 0.358437,
+    "silence_durations_seconds": [
+      0.358437
+    ]
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-20260828\\01_MOTIVATION_TSISKARIDZE_MASTER.mp4",
+  "status": "final_technical_fail",
+  "technical_pass": false,
+  "warnings": []
+}

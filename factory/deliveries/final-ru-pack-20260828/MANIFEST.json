@@ -1,0 +1,62 @@
+{
+  "package": "final-ru-pack-20260828",
+  "created_at": "2026-08-28",
+  "fish_audio_cost_usd": 0.0,
+  "files": [
+    {
+      "name": "01_MOTIVATION_TSISKARIDZE_MASTER.mp4",
+      "duration_seconds": 31.2,
+      "bytes": 21538333,
+      "sha256": "8C5E28BF7A307C446EEF7F53E19F066548696513F1922B93FF631D305CB4C00E",
+      "technical_qc": "pass"
+    },
+    {
+      "name": "01_MOTIVATION_TSISKARIDZE_TELEGRAM.mp4",
+      "duration_seconds": 31.2,
+      "bytes": 9291594,
+      "sha256": "6F93CCF53EEB8E734C5E0A1EEE356371E8ABF4E9F647009159F8C3185FE746AE",
+      "technical_qc": "pass_with_intentional_size_override",
+      "ssim_all": 0.991464,
+      "psnr_average_db": 49.44875
+    },
+    {
+      "name": "02_MOTIVATION_LEBEDEV_MASTER.mp4",
+      "duration_seconds": 31.167,
+      "bytes": 21703675,
+      "sha256": "53ECA63476DAE339BB1099A8E9E36B429E6AECEC2F82C9D1CA4E7018886C4AEE",
+      "technical_qc": "pass"
+    },
+    {
+      "name": "02_MOTIVATION_LEBEDEV_TELEGRAM.mp4",
+      "duration_seconds": 31.167,
+      "bytes": 8727834,
+      "sha256": "0AE1A2FE1EA8A86201924D83B46569A60FFDEDE3317C5EA1D6868F31AA5BCD29",
+      "technical_qc": "pass_with_intentional_size_override",
+      "ssim_all": 0.993053,
+      "psnr_average_db": 49.314075
+    },
+    {
+      "name": "03_CELEBRITY_KANYE_MASTER.mp4",
+      "duration_seconds": 25.4,
+      "bytes": 51722403,
+      "sha256": "9993945C0D22B3DCC881F9916FEFD5F5907B13E7C997AE8E06BC4935C139D83A",
+      "technical_qc": "pass"
+    },
+    {
+      "name": "03_CELEBRITY_KANYE_TELEGRAM.mp4",
+      "duration_seconds": 25.4,
+      "bytes": 10313883,
+      "sha256": "4E56743E1657FDD4CB2CBE39A16AF8C4859F2FE9AE05527E64D87DB93DBBEC36",
+      "technical_qc": "pass_with_intentional_size_override",
+      "ssim_all": 0.990044,
+      "psnr_average_db": 48.120289
+    }
+  ],
+  "publication_blockers": [
+    "rights_clearance_for_interview_excerpts",
+    "rights_clearance_for_ye_concert_clip",
+    "fish_voice_rights_confirmation",
+    "human_final_review",
+    "fresh_fact_check_before_publishing_celebrity_news"
+  ]
+}

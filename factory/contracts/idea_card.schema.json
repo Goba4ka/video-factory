@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/idea_card.schema.json",
+  "title": "IdeaCard",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "idea_id",
+    "pod",
+    "title",
+    "hook",
+    "message",
+    "why_now",
+    "source_candidates",
+    "visual_plan",
+    "risk",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "idea_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{5,63}$"},
+    "pod": {"enum": ["space_technology", "nature_animals", "people_culture", "war_history", "celebrity_news", "motivation", "chinese_medicine", "health"]},
+    "title": {"type": "string", "minLength": 5, "maxLength": 120},
+    "hook": {"type": "string", "minLength": 5, "maxLength": 180},
+    "message": {"type": "string", "minLength": 10, "maxLength": 300},
+    "why_now": {"type": "string", "minLength": 3, "maxLength": 300},
+    "audience": {"type": "string", "default": "Russian-speaking general curiosity audience, 18-44"},
+    "destination": {
+      "type": "array",
+      "items": {"enum": ["youtube_shorts", "instagram_reels", "tiktok"]},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "source_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "url", "publisher", "source_type"],
+        "properties": {
+          "source_id": {"type": "string", "minLength": 3},
+          "url": {"type": "string", "format": "uri"},
+          "publisher": {"type": "string", "minLength": 2},
+          "source_type": {"enum": ["primary", "official", "secondary"]},
+          "notes": {"type": "string"}
+        }
+      },
+      "minItems": 1
+    },
+    "visual_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_shots", "rights_feasibility", "visual_world"],
+      "properties": {
+        "target_shots": {"type": "integer", "minimum": 6, "maximum": 40},
+        "rights_feasibility": {"enum": ["green", "yellow", "red"]},
+        "visual_world": {"type": "string", "minLength": 5},
+        "candidate_asset_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "score": {
+      "type": "object",
+      "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1},
+      "properties": {
+        "relevance": {"type": "number"},
+        "trend_acceleration": {"type": "number"},
+        "audience_fit": {"type": "number"},
+        "visualability": {"type": "number"},
+        "source_quality": {"type": "number"},
+        "rights_availability": {"type": "number"},
+        "novelty": {"type": "number"},
+        "saturation": {"type": "number"},
+        "policy_risk": {"type": "number"}
+      }
+    },
+    "risk": {"enum": ["green", "yellow", "red"]},
+    "status": {"enum": ["candidate", "approved", "rejected", "researching", "blocked", "completed"]},
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

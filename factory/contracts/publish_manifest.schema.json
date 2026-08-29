@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/publish_manifest.schema.json",
+  "title": "PublishManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "render_id",
+    "qc_report",
+    "human_approval",
+    "destinations",
+    "disclosures"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 6},
+    "render_id": {"type": "string", "minLength": 6},
+    "qc_report": {"type": "string", "minLength": 1},
+    "human_approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["approved", "approved_by", "approved_at", "render_sha256", "metadata_sha256"],
+      "properties": {
+        "approved": {"const": true},
+        "approved_by": {"type": "string", "minLength": 1},
+        "approved_at": {"type": "string", "format": "date-time"},
+        "render_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "metadata_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "destinations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["platform", "account_id", "caption", "visibility", "status"],
+        "properties": {
+          "platform": {"enum": ["youtube_shorts", "instagram_reels", "tiktok"]},
+          "account_id": {"type": "string", "minLength": 1},
+          "caption": {"type": "string", "maxLength": 2200},
+          "visibility": {"enum": ["private", "draft", "scheduled", "public"]},
+          "scheduled_at": {"type": ["string", "null"], "format": "date-time"},
+          "status": {"enum": ["pending", "scheduled", "published", "failed"]},
+          "remote_id": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "disclosures": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ai_generated", "altered_or_synthetic", "paid_promotion", "notes"],
+      "properties": {
+        "ai_generated": {"type": "boolean"},
+        "altered_or_synthetic": {"type": "boolean"},
+        "paid_promotion": {"type": "boolean"},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

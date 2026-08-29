@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Decision in the Dark</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #080a08; }
+    body { font-family: "IBM Plex Mono", monospace; }
+    .composition { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #080a08; color: #f2f2ec; }
+    .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+    .camera { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; transform-origin: 50% 48%; }
+    video { object-fit: cover; filter: none; }
+    .shade { position: absolute; inset: 0; background: radial-gradient(circle at 50% 44%, transparent 32%, rgba(3,4,3,.64) 100%); pointer-events: none; }
+    .grain { position: absolute; inset: -80px; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.74' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E"); mix-blend-mode: soft-light; pointer-events: none; }
+    .meta { padding: 60px 56px; display: flex; justify-content: space-between; align-items: flex-start; font-size: 27px; font-weight: 700; letter-spacing: .13em; color: #e7ff2f; text-transform: uppercase; }
+    .meta small { display: block; margin-top: 15px; color: #e4e6e1; font-size: 20px; font-weight: 400; letter-spacing: .08em; }
+    .caption { display: flex; align-items: flex-end; justify-content: center; padding: 0 76px 226px; text-align: center; }
+    .caption-card { display: block; width: 100%; max-width: 940px; font-family: Oswald, sans-serif; font-size: 78px; line-height: 1.06; font-weight: 700; letter-spacing: -.025em; text-transform: uppercase; text-shadow: 0 4px 22px rgba(0,0,0,.95); }
+    .accent { display: inline-block; color: #e7ff2f; --glow: 0; text-shadow: 0 0 calc(var(--glow) * 22px) rgba(231,255,47,.85), 0 4px 22px rgba(0,0,0,.95); }
+    .progress { position: absolute; left: 56px; right: 56px; bottom: 74px; height: 4px; background: rgba(242,242,236,.2); transform-origin: 0 50%; }
+    .progress > i { display: block; width: 100%; height: 100%; background: #e7ff2f; transform-origin: 0 50%; }
+  </style>
+</head>
+<body>
+  <div class="composition" data-composition-id="motivation-web-focus" data-width="1080" data-height="1920" data-duration="26.08" data-fps="30">
+    <div id="camera-jocko-a" class="camera"><video id="jocko-a" class="clip" src="assets/source/jocko-official-mweb.mp4" data-start="0" data-duration="6.8" data-media-start="55.52" data-track-index="1" muted playsinline></video></div>
+    <div id="camera-rain" class="camera"><video id="rain" class="clip" src="assets/source/pexels-rain-runner-9897057.mp4" data-start="6.8" data-duration="6.3" data-media-start="1" data-track-index="1" muted playsinline></video></div>
+    <div id="camera-night" class="camera"><video id="night" class="clip" src="assets/source/pexels-night-track-20540592.mp4" data-start="13.1" data-duration="7.3" data-media-start="0" data-track-index="1" muted playsinline></video></div>
+    <div id="camera-jocko-b" class="camera"><video id="jocko-b" class="clip" src="assets/source/jocko-official-mweb.mp4" data-start="20.4" data-duration="5.68" data-media-start="75.92" data-track-index="1" muted playsinline></video></div>
+
+    <div class="shade"></div><div class="grain"></div>
+    <div id="meta-overlay" class="clip meta" data-start="0" data-duration="26.08" data-track-index="40"><div>Jocko Willink<small>Discipline / 2016</small></div><div>Primary 01</div></div>
+
+    <div id="caption-1" class="clip caption" data-start="0" data-duration="3.3" data-track-index="30"><div class="caption-card">Самодисциплина<br>рождается <span class="accent">внутри</span>.</div></div>
+    <div id="caption-2" class="clip caption" data-start="3.3" data-duration="0.95" data-track-index="30"><div class="caption-card">Она исходит<br><span class="accent">от тебя</span>.</div></div>
+    <div id="caption-3" class="clip caption" data-start="4.25" data-duration="4.5" data-track-index="30"><div class="caption-card">Она появляется,<br>когда ты <span class="accent">решаешь...</span></div></div>
+    <div id="caption-4" class="clip caption" data-start="8.75" data-duration="4.2" data-track-index="30"><div class="caption-card">Быть<br><span class="accent">дисциплинированным</span>.</div></div>
+    <div id="caption-5" class="clip caption" data-start="12.95" data-duration="2.25" data-track-index="30"><div class="caption-card">Когда решаешь<br><span class="accent">стать лучше</span>.</div></div>
+    <div id="caption-6" class="clip caption" data-start="15.2" data-duration="5.1" data-track-index="30"><div class="caption-card"><span class="accent">Делать больше.</span><br>Быть большим.</div></div>
+    <div id="caption-7" class="clip caption" data-start="20.3" data-duration="5.78" data-track-index="30"><div class="caption-card">Решить<br><span class="accent">оставить след</span><br>в этом мире.</div></div>
+
+    <div class="progress"><i id="progress-fill"></i></div>
+    <audio id="jocko-voice" src="assets/audio/jocko-voice-55.52-81.60.wav" data-start="0" data-duration="26.08" data-track-index="50" data-volume="1"></audio>
+    <audio id="procedural-bed" src="assets/audio/procedural-dark-bed-70bpm.wav" data-start="0" data-duration="26.08" data-track-index="51" data-volume="0.08" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":1.2,"v":0.08},{"t":24.4,"v":0.08},{"t":26.08,"v":0}]}]}'></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#camera-jocko-a", { scale: 1.02, x: 0 }, { scale: 1.075, x: -10, duration: 6.8, ease: "none" }, 0);
+    tl.fromTo("#camera-rain", { scale: 1.015, y: 0 }, { scale: 1.06, y: -14, duration: 6.3, ease: "none" }, 6.8);
+    tl.fromTo("#camera-night", { scale: 1.02, x: 0 }, { scale: 1.065, x: 12, duration: 7.3, ease: "none" }, 13.1);
+    tl.fromTo("#camera-jocko-b", { scale: 1.025, y: 0 }, { scale: 1.08, y: -10, duration: 5.68, ease: "none" }, 20.4);
+    const windows = [["#caption-1",0,3.3],["#caption-2",3.3,4.25],["#caption-3",4.25,8.75],["#caption-4",8.75,12.95],["#caption-5",12.95,15.2],["#caption-6",15.2,20.3],["#caption-7",20.3,26.08]];
+    windows.forEach(([sel,start,end]) => {
+      tl.fromTo(`${sel} .caption-card`, { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: .24, ease: "power3.out", immediateRender: false }, start + .03);
+      tl.fromTo(`${sel} .accent`, { scale: .96, "--glow": 0 }, { scale: 1, "--glow": 1, duration: .22, ease: "power2.out", immediateRender: false }, start + .18);
+      tl.to(`${sel} .caption-card`, { y: -24, opacity: 0, duration: .14, ease: "power2.in" }, Math.max(start + .4, end - .14));
+    });
+    tl.fromTo("#progress-fill", { scaleX: 0 }, { scaleX: 1, duration: 26.08, ease: "none" }, 0);
+    window.__timelines["motivation-web-focus"] = tl;
+  </script>
+</body>
+</html>

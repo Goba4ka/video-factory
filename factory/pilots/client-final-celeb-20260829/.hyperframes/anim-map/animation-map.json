@@ -1,0 +1,7612 @@
+{
+  "composition": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\client-final-celeb-20260829",
+  "duration": 28.8,
+  "totalTweens": 156,
+  "mappedTweens": 81,
+  "skippedMicroTweens": 75,
+  "tweens": [
+    {
+      "index": 1,
+      "selector": "#s1-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 0,
+      "end": 6.075,
+      "duration": 6.075,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 0.506,
+          "x": -79,
+          "y": -82,
+          "w": 1210,
+          "h": 2084,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 1.519,
+          "x": -81,
+          "y": -92,
+          "w": 1222,
+          "h": 2104,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.531,
+          "x": -82,
+          "y": -102,
+          "w": 1233,
+          "h": 2124,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 3.544,
+          "x": -84,
+          "y": -112,
+          "w": 1245,
+          "h": 2144,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.556,
+          "x": -85,
+          "y": -122,
+          "w": 1257,
+          "h": 2164,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 5.569,
+          "x": -87,
+          "y": -132,
+          "w": 1269,
+          "h": 2184,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s1-world animates scale+x over 6.08s (none). moves 50px up and 8px left. scales. width 1210→1269px. height 2084→2184px. ends at (-87, -132) 1269×2184px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 2,
+      "selector": "#s1-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 0.05,
+      "end": 0.23,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 0.065,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": true
+        },
+        {
+          "t": 0.095,
+          "x": 70,
+          "y": 1476,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.125,
+          "x": 70,
+          "y": 1451,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.155,
+          "x": 70,
+          "y": 1443,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.185,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.215,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s1-cap1 animates y over 0.18s (power4.out). fades in. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 3,
+      "selector": "#s1-rule",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scaleY"
+      ],
+      "start": 0.08,
+      "end": 0.63,
+      "duration": 0.55,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 0.126,
+          "x": 480,
+          "y": 42,
+          "w": 3,
+          "h": 160,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 0.218,
+          "x": 480,
+          "y": 41,
+          "w": 3,
+          "h": 728,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 0.309,
+          "x": 481,
+          "y": 40,
+          "w": 3,
+          "h": 1012,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 0.401,
+          "x": 481,
+          "y": 39,
+          "w": 3,
+          "h": 1128,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 0.493,
+          "x": 481,
+          "y": 39,
+          "w": 3,
+          "h": 1155,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 0.584,
+          "x": 482,
+          "y": 38,
+          "w": 3,
+          "h": 1165,
+          "opacity": 0.82,
+          "visible": true
+        }
+      ],
+      "flags": [],
+      "summary": "#s1-rule animates scaleY over 0.55s (power3.out). moves 4px up. scales. height 160→1165px. ends at (482, 38) 3×1165px."
+    },
+    {
+      "index": 4,
+      "selector": "#s1-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 0.711,
+      "end": 6.786,
+      "duration": 6.075,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 1.217,
+          "x": -80,
+          "y": -89,
+          "w": 1219,
+          "h": 2098,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.23,
+          "x": -82,
+          "y": -99,
+          "w": 1230,
+          "h": 2118,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 3.242,
+          "x": -83,
+          "y": -109,
+          "w": 1242,
+          "h": 2138,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.255,
+          "x": -85,
+          "y": -119,
+          "w": 1253,
+          "h": 2158,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 5.267,
+          "x": -86,
+          "y": -129,
+          "w": 1265,
+          "h": 2178,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.28,
+          "x": -87,
+          "y": -137,
+          "w": 1275,
+          "h": 2194,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s1-world animates scale+x over 6.08s (none). moves 48px up and 7px left. scales. width 1219→1275px. height 2098→2194px. becomes hidden. ends at (-87, -137) 1275×2194px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 5,
+      "selector": "#s1-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 0.711,
+      "end": 6.786,
+      "duration": 6.075,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 1.217,
+          "x": -80,
+          "y": -89,
+          "w": 1219,
+          "h": 2098,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.23,
+          "x": -82,
+          "y": -99,
+          "w": 1230,
+          "h": 2118,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 3.242,
+          "x": -83,
+          "y": -109,
+          "w": 1242,
+          "h": 2138,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.255,
+          "x": -85,
+          "y": -119,
+          "w": 1253,
+          "h": 2158,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 5.267,
+          "x": -86,
+          "y": -129,
+          "w": 1265,
+          "h": 2178,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.28,
+          "x": -87,
+          "y": -137,
+          "w": 1275,
+          "h": 2194,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s1-world animates scale+x over 6.08s (none). moves 48px up and 7px left. scales. width 1219→1275px. height 2098→2194px. becomes hidden. ends at (-87, -137) 1275×2194px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 6,
+      "selector": "#s2-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 0.711,
+      "end": 4.921,
+      "duration": 4.21,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 1.062,
+          "x": -51,
+          "y": -80,
+          "w": 1206,
+          "h": 2080,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 1.764,
+          "x": -51,
+          "y": -80,
+          "w": 1206,
+          "h": 2080,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 2.465,
+          "x": -51,
+          "y": -80,
+          "w": 1206,
+          "h": 2080,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 3.167,
+          "x": -51,
+          "y": -80,
+          "w": 1206,
+          "h": 2080,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 3.868,
+          "x": -51,
+          "y": -80,
+          "w": 1206,
+          "h": 2080,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 4.57,
+          "x": -51,
+          "y": -80,
+          "w": 1206,
+          "h": 2080,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s2-world animates scale+x over 4.21s (none). scales. ends at (-51, -80) 1206×2080px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 7,
+      "selector": "#s2-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 0.711,
+      "end": 0.891,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 0.726,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.756,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.786,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.816,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.846,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.876,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s2-cap1 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 8,
+      "selector": "#s3-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "y"
+      ],
+      "start": 0.711,
+      "end": 7.933,
+      "duration": 7.222,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 1.313,
+          "x": -56,
+          "y": -61,
+          "w": 1192,
+          "h": 2062,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 2.517,
+          "x": -56,
+          "y": -61,
+          "w": 1192,
+          "h": 2062,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 3.72,
+          "x": -56,
+          "y": -61,
+          "w": 1192,
+          "h": 2062,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 4.924,
+          "x": -56,
+          "y": -61,
+          "w": 1192,
+          "h": 2062,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 6.128,
+          "x": -56,
+          "y": -61,
+          "w": 1192,
+          "h": 2062,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 7.331,
+          "x": -56,
+          "y": -61,
+          "w": 1192,
+          "h": 2062,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s3-world animates scale+y over 7.22s (none). scales. ends at (-56, -61) 1192×2062px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 9,
+      "selector": "#s3-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 0.711,
+      "end": 0.891,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 0.726,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.756,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.786,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.816,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.846,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.876,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s3-cap1 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 10,
+      "selector": "#s4-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 0.711,
+      "end": 8.332,
+      "duration": 7.621,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 1.346,
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 2.616,
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 3.886,
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 5.157,
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 6.427,
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 7.697,
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s4-world animates scale+x over 7.62s (none). scales. ends at (-79, -84) 1215×2088px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 11,
+      "selector": "#s4-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 0.711,
+      "end": 0.891,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 0.726,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.756,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.786,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.816,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.846,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.876,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s4-cap1 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 12,
+      "selector": "#s5-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 0.711,
+      "end": 4.383,
+      "duration": 3.672,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 1.017,
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 1.629,
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 2.241,
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 2.853,
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 3.465,
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 4.077,
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s5-world animates scale over 3.67s (none). scales. ends at (-55, -72) 1190×2063px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 13,
+      "selector": "#s5-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 0.711,
+      "end": 0.891,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 0.726,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.756,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.786,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.816,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.846,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 0.876,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s5-cap1 animates y over 0.18s (power4.out). ends at (66, 1300) 948×270px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 14,
+      "selector": "#s1-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 0.761,
+      "end": 0.941,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 0.776,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.806,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.836,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.866,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.896,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.926,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s1-cap1 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 15,
+      "selector": "#s1-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 0.761,
+      "end": 0.941,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 0.776,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.806,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.836,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.866,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.896,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.926,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s1-cap1 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 16,
+      "selector": "#s1-rule",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scaleY"
+      ],
+      "start": 0.791,
+      "end": 1.341,
+      "duration": 0.55,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 0.837,
+          "x": 483,
+          "y": 36,
+          "w": 3,
+          "h": 1168,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 0.928,
+          "x": 483,
+          "y": 35,
+          "w": 3,
+          "h": 1169,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 1.02,
+          "x": 483,
+          "y": 34,
+          "w": 3,
+          "h": 1170,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 1.112,
+          "x": 484,
+          "y": 33,
+          "w": 3,
+          "h": 1171,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 1.204,
+          "x": 484,
+          "y": 32,
+          "w": 3,
+          "h": 1173,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 1.295,
+          "x": 484,
+          "y": 32,
+          "w": 3,
+          "h": 1173,
+          "opacity": 0.82,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s1-rule animates scaleY over 0.55s (power3.out). moves 4px up. scales. ends at (484, 32) 3×1173px. Overlaps another animated element."
+    },
+    {
+      "index": 17,
+      "selector": "#s1-rule",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scaleY"
+      ],
+      "start": 0.791,
+      "end": 1.341,
+      "duration": 0.55,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 0.837,
+          "x": 483,
+          "y": 36,
+          "w": 3,
+          "h": 1168,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 0.928,
+          "x": 483,
+          "y": 35,
+          "w": 3,
+          "h": 1169,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 1.02,
+          "x": 483,
+          "y": 34,
+          "w": 3,
+          "h": 1170,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 1.112,
+          "x": 484,
+          "y": 33,
+          "w": 3,
+          "h": 1171,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 1.204,
+          "x": 484,
+          "y": 32,
+          "w": 3,
+          "h": 1173,
+          "opacity": 0.82,
+          "visible": true
+        },
+        {
+          "t": 1.295,
+          "x": 484,
+          "y": 32,
+          "w": 3,
+          "h": 1173,
+          "opacity": 0.82,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s1-rule animates scaleY over 0.55s (power3.out). moves 4px up. scales. ends at (484, 32) 3×1173px. Overlaps another animated element."
+    },
+    {
+      "index": 18,
+      "selector": "#s5-rule",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scaleX"
+      ],
+      "start": 0.791,
+      "end": 1.241,
+      "duration": 0.45,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 0.828,
+          "x": 540,
+          "y": 850,
+          "w": 0,
+          "h": 4,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 0.903,
+          "x": 540,
+          "y": 850,
+          "w": 0,
+          "h": 4,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 0.978,
+          "x": 540,
+          "y": 850,
+          "w": 0,
+          "h": 4,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 1.053,
+          "x": 540,
+          "y": 850,
+          "w": 0,
+          "h": 4,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 1.128,
+          "x": 540,
+          "y": 850,
+          "w": 0,
+          "h": 4,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 1.203,
+          "x": 540,
+          "y": 850,
+          "w": 0,
+          "h": 4,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "degenerate"
+      ],
+      "summary": "#s5-rule animates scaleX over 0.45s (power3.out). scales. ends at (540, 850) 0×4px. FLAGS: degenerate."
+    },
+    {
+      "index": 19,
+      "selector": "#s2-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 0.831,
+      "end": 1.631,
+      "duration": 0.8,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 0.898,
+          "x": -162,
+          "y": 1047,
+          "w": 804,
+          "h": 804,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.031,
+          "x": -162,
+          "y": 1047,
+          "w": 804,
+          "h": 804,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.164,
+          "x": -162,
+          "y": 1047,
+          "w": 804,
+          "h": 804,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.298,
+          "x": -162,
+          "y": 1047,
+          "w": 804,
+          "h": 804,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.431,
+          "x": -162,
+          "y": 1047,
+          "w": 804,
+          "h": 804,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.564,
+          "x": -162,
+          "y": 1047,
+          "w": 804,
+          "h": 804,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s2-halo animates opacity+scale over 0.80s (power2.out). scales. ends at (-162, 1047) 804×804px. Overlaps another animated element."
+    },
+    {
+      "index": 20,
+      "selector": "#s3-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 0.861,
+      "end": 1.711,
+      "duration": 0.85,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 0.932,
+          "x": 130,
+          "y": 904,
+          "w": 765,
+          "h": 765,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.073,
+          "x": 130,
+          "y": 904,
+          "w": 765,
+          "h": 765,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.215,
+          "x": 130,
+          "y": 904,
+          "w": 765,
+          "h": 765,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.357,
+          "x": 130,
+          "y": 904,
+          "w": 765,
+          "h": 765,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.498,
+          "x": 130,
+          "y": 904,
+          "w": 765,
+          "h": 765,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.64,
+          "x": 130,
+          "y": 904,
+          "w": 765,
+          "h": 765,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s3-halo animates opacity+scale over 0.85s (power2.out). scales. ends at (130, 904) 765×765px. Overlaps another animated element."
+    },
+    {
+      "index": 21,
+      "selector": "#s4-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 0.861,
+      "end": 1.761,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 0.936,
+          "x": 44,
+          "y": 257,
+          "w": 856,
+          "h": 856,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.086,
+          "x": 44,
+          "y": 257,
+          "w": 856,
+          "h": 856,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.236,
+          "x": 44,
+          "y": 257,
+          "w": 856,
+          "h": 856,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.386,
+          "x": 44,
+          "y": 257,
+          "w": 856,
+          "h": 856,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.536,
+          "x": 44,
+          "y": 257,
+          "w": 856,
+          "h": 856,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.686,
+          "x": 44,
+          "y": 257,
+          "w": 856,
+          "h": 856,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s4-halo animates opacity+scale over 0.90s (power2.out). scales. ends at (44, 257) 856×856px. Overlaps another animated element."
+    },
+    {
+      "index": 22,
+      "selector": "#s4-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 1.908,
+      "end": 2.088,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 1.923,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.953,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 1.983,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.013,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.043,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.073,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s4-cap2 animates y over 0.18s (power4.out). ends at (70, 1427) 940×243px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 23,
+      "selector": "#s1-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 2.045,
+      "end": 2.225,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 2.06,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": true
+        },
+        {
+          "t": 2.09,
+          "x": 70,
+          "y": 1471,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.12,
+          "x": 70,
+          "y": 1449,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.15,
+          "x": 70,
+          "y": 1442,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.18,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.21,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s1-cap2 animates y over 0.18s (power4.out). fades in. ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 24,
+      "selector": "#s5-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 2.191,
+      "end": 3.091,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 2.266,
+          "x": 114,
+          "y": 933,
+          "w": 786,
+          "h": 786,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.416,
+          "x": 114,
+          "y": 933,
+          "w": 786,
+          "h": 786,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.566,
+          "x": 114,
+          "y": 933,
+          "w": 786,
+          "h": 786,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.716,
+          "x": 114,
+          "y": 933,
+          "w": 786,
+          "h": 786,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.866,
+          "x": 114,
+          "y": 933,
+          "w": 786,
+          "h": 786,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 3.016,
+          "x": 114,
+          "y": 933,
+          "w": 786,
+          "h": 786,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s5-halo animates opacity+scale over 0.90s (power2.out). scales. ends at (114, 933) 786×786px. Overlaps another animated element."
+    },
+    {
+      "index": 25,
+      "selector": "#s5-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 2.307,
+      "end": 2.487,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 2.322,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.352,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.382,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.412,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.442,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.472,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s5-cap2 animates y over 0.18s (power4.out). ends at (66, 1300) 948×270px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 26,
+      "selector": "#s2-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 2.706,
+      "end": 2.886,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 2.721,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.751,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.781,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.811,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.841,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.871,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s2-cap2 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 27,
+      "selector": "#s3-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 2.706,
+      "end": 2.886,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 2.721,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.751,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.781,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.811,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.841,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 2.871,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s3-cap2 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 28,
+      "selector": "#s1-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 2.756,
+      "end": 2.936,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 2.771,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.801,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.831,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.861,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.891,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.921,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s1-cap2 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 29,
+      "selector": "#s1-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 2.756,
+      "end": 2.936,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 2.771,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.801,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.831,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.861,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.891,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 2.921,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s1-cap2 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 30,
+      "selector": "#s1-glow",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 3.72,
+      "end": 4.62,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 3.795,
+          "x": 89,
+          "y": 921,
+          "w": 812,
+          "h": 812,
+          "opacity": 0.0502,
+          "visible": true
+        },
+        {
+          "t": 3.945,
+          "x": 63,
+          "y": 894,
+          "w": 866,
+          "h": 866,
+          "opacity": 0.189,
+          "visible": true
+        },
+        {
+          "t": 4.095,
+          "x": 49,
+          "y": 880,
+          "w": 895,
+          "h": 895,
+          "opacity": 0.261,
+          "visible": true
+        },
+        {
+          "t": 4.245,
+          "x": 39,
+          "y": 870,
+          "w": 916,
+          "h": 916,
+          "opacity": 0.313,
+          "visible": true
+        },
+        {
+          "t": 4.395,
+          "x": 35,
+          "y": 867,
+          "w": 924,
+          "h": 924,
+          "opacity": 0.3324,
+          "visible": true
+        },
+        {
+          "t": 4.545,
+          "x": 34,
+          "y": 865,
+          "w": 929,
+          "h": 929,
+          "opacity": 0.3397,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s1-glow animates opacity+scale over 0.90s (power2.out). moves 56px up and 55px left. opacity 0.1→0.3. scales. width 812→929px. height 812→929px. ends at (34, 865) 929×929px. Overlaps another animated element."
+    },
+    {
+      "index": 31,
+      "selector": "#s1-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 3.861,
+      "end": 4.041,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 3.876,
+          "x": 70,
+          "y": 1489,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 3.906,
+          "x": 70,
+          "y": 1457,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 3.936,
+          "x": 70,
+          "y": 1444,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 3.966,
+          "x": 70,
+          "y": 1444,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 3.996,
+          "x": 70,
+          "y": 1441,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.026,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s1-cap3 animates y over 0.18s (power4.out). moves 49px up. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 32,
+      "selector": "#s3-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 4.122,
+      "end": 4.302,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 4.137,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.167,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.197,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.227,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.257,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.287,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s3-cap3 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 33,
+      "selector": "#s4-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 4.122,
+      "end": 4.302,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 4.137,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.167,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.197,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.227,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.257,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 4.287,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s4-cap3 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 34,
+      "selector": "#s1-glow",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 4.431,
+      "end": 5.331,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 4.506,
+          "x": 34,
+          "y": 865,
+          "w": 928,
+          "h": 928,
+          "opacity": 0.3392,
+          "visible": true
+        },
+        {
+          "t": 4.656,
+          "x": 34,
+          "y": 865,
+          "w": 929,
+          "h": 929,
+          "opacity": 0.34,
+          "visible": true
+        },
+        {
+          "t": 4.806,
+          "x": 34,
+          "y": 865,
+          "w": 931,
+          "h": 931,
+          "opacity": 0.34,
+          "visible": true
+        },
+        {
+          "t": 4.956,
+          "x": 34,
+          "y": 865,
+          "w": 932,
+          "h": 932,
+          "opacity": 0.34,
+          "visible": true
+        },
+        {
+          "t": 5.106,
+          "x": 34,
+          "y": 864,
+          "w": 933,
+          "h": 933,
+          "opacity": 0.34,
+          "visible": true
+        },
+        {
+          "t": 5.256,
+          "x": 33,
+          "y": 864,
+          "w": 935,
+          "h": 935,
+          "opacity": 0.34,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s1-glow animates opacity+scale over 0.90s (power2.out). scales. width 928→935px. height 928→935px. ends at (33, 864) 935×935px. Overlaps another animated element."
+    },
+    {
+      "index": 35,
+      "selector": "#s1-glow",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 4.431,
+      "end": 5.331,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 4.506,
+          "x": 34,
+          "y": 865,
+          "w": 928,
+          "h": 928,
+          "opacity": 0.3392,
+          "visible": true
+        },
+        {
+          "t": 4.656,
+          "x": 34,
+          "y": 865,
+          "w": 929,
+          "h": 929,
+          "opacity": 0.34,
+          "visible": true
+        },
+        {
+          "t": 4.806,
+          "x": 34,
+          "y": 865,
+          "w": 931,
+          "h": 931,
+          "opacity": 0.34,
+          "visible": true
+        },
+        {
+          "t": 4.956,
+          "x": 34,
+          "y": 865,
+          "w": 932,
+          "h": 932,
+          "opacity": 0.34,
+          "visible": true
+        },
+        {
+          "t": 5.106,
+          "x": 34,
+          "y": 864,
+          "w": 933,
+          "h": 933,
+          "opacity": 0.34,
+          "visible": true
+        },
+        {
+          "t": 5.256,
+          "x": 33,
+          "y": 864,
+          "w": 935,
+          "h": 935,
+          "opacity": 0.34,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s1-glow animates opacity+scale over 0.90s (power2.out). scales. width 928→935px. height 928→935px. ends at (33, 864) 935×935px. Overlaps another animated element."
+    },
+    {
+      "index": 36,
+      "selector": "#s1-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 4.572,
+      "end": 4.752,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 4.587,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.617,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.647,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.677,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.707,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.737,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s1-cap3 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 37,
+      "selector": "#s1-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 4.572,
+      "end": 4.752,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 4.587,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.617,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.647,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.677,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.707,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 4.737,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s1-cap3 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 38,
+      "selector": "#s3-cap4",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 5.718,
+      "end": 5.898,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 5.733,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 5.763,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 5.793,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 5.823,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 5.853,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 5.883,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap4 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 39,
+      "selector": "#s2-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 6.075,
+      "end": 10.285,
+      "duration": 4.21,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 6.426,
+          "x": -56,
+          "y": -85,
+          "w": 1212,
+          "h": 2090,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 7.128,
+          "x": -66,
+          "y": -96,
+          "w": 1225,
+          "h": 2112,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 7.829,
+          "x": -76,
+          "y": -107,
+          "w": 1237,
+          "h": 2133,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.531,
+          "x": -86,
+          "y": -117,
+          "w": 1250,
+          "h": 2155,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 9.232,
+          "x": -95,
+          "y": -128,
+          "w": 1262,
+          "h": 2176,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 9.934,
+          "x": -106,
+          "y": -140,
+          "w": 1276,
+          "h": 2199,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s2-world animates scale+x over 4.21s (none). moves 55px up and 50px left. scales. width 1212→1276px. height 2090→2199px. ends at (-106, -140) 1276×2199px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 40,
+      "selector": "#s2-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 6.075,
+      "end": 6.255,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 6.09,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 6.12,
+          "x": 70,
+          "y": 1465,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.15,
+          "x": 70,
+          "y": 1447,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.18,
+          "x": 70,
+          "y": 1441,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.21,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.24,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s2-cap1 animates y over 0.18s (power4.out). fades in. becomes visible. ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 41,
+      "selector": "#s4-cap4",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 6.117,
+      "end": 6.297,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 6.132,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 6.162,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 6.192,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 6.222,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 6.252,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 6.282,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s4-cap4 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 42,
+      "selector": "#s2-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 6.195,
+      "end": 6.995,
+      "duration": 0.8,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 6.262,
+          "x": -175,
+          "y": 1037,
+          "w": 827,
+          "h": 827,
+          "opacity": 0.052,
+          "visible": true
+        },
+        {
+          "t": 6.395,
+          "x": -206,
+          "y": 1008,
+          "w": 886,
+          "h": 886,
+          "opacity": 0.1959,
+          "visible": true
+        },
+        {
+          "t": 6.528,
+          "x": -227,
+          "y": 989,
+          "w": 926,
+          "h": 926,
+          "opacity": 0.29,
+          "visible": true
+        },
+        {
+          "t": 6.662,
+          "x": -241,
+          "y": 978,
+          "w": 950,
+          "h": 950,
+          "opacity": 0.3449,
+          "visible": true
+        },
+        {
+          "t": 6.795,
+          "x": -248,
+          "y": 972,
+          "w": 963,
+          "h": 963,
+          "opacity": 0.3712,
+          "visible": true
+        },
+        {
+          "t": 6.928,
+          "x": -252,
+          "y": 971,
+          "w": 968,
+          "h": 968,
+          "opacity": 0.3794,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s2-halo animates opacity+scale over 0.80s (power2.out). moves 66px up and 77px left. opacity 0.1→0.4. scales. width 827→968px. height 827→968px. ends at (-252, 971) 968×968px. Overlaps another animated element."
+    },
+    {
+      "index": 43,
+      "selector": "#s2-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 6.786,
+      "end": 10.996,
+      "duration": 4.21,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 7.137,
+          "x": -66,
+          "y": -96,
+          "w": 1225,
+          "h": 2113,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 7.839,
+          "x": -76,
+          "y": -107,
+          "w": 1238,
+          "h": 2134,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.54,
+          "x": -86,
+          "y": -118,
+          "w": 1250,
+          "h": 2156,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 9.242,
+          "x": -96,
+          "y": -129,
+          "w": 1263,
+          "h": 2178,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 9.944,
+          "x": -106,
+          "y": -140,
+          "w": 1276,
+          "h": 2199,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 10.645,
+          "x": -111,
+          "y": -145,
+          "w": 1282,
+          "h": 2210,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s2-world animates scale+x over 4.21s (none). moves 49px up and 45px left. scales. width 1225→1282px. height 2113→2210px. becomes hidden. ends at (-111, -145) 1282×2210px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 44,
+      "selector": "#s2-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 6.786,
+      "end": 6.966,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 6.801,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.831,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.861,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.891,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.921,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 6.951,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s2-cap1 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 45,
+      "selector": "#s2-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 6.906,
+      "end": 7.706,
+      "duration": 0.8,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 6.973,
+          "x": -254,
+          "y": 971,
+          "w": 969,
+          "h": 969,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 7.106,
+          "x": -256,
+          "y": 971,
+          "w": 971,
+          "h": 971,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 7.239,
+          "x": -258,
+          "y": 971,
+          "w": 973,
+          "h": 973,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 7.373,
+          "x": -260,
+          "y": 971,
+          "w": 975,
+          "h": 975,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 7.506,
+          "x": -263,
+          "y": 971,
+          "w": 977,
+          "h": 977,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 7.639,
+          "x": -265,
+          "y": 971,
+          "w": 979,
+          "h": 979,
+          "opacity": 0.38,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s2-halo animates opacity+scale over 0.80s (power2.out). moves 11px left. scales. width 969→979px. height 969→979px. ends at (-265, 971) 979×979px. Overlaps another animated element."
+    },
+    {
+      "index": 46,
+      "selector": "#s2-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 8.07,
+      "end": 8.25,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 8.085,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": true
+        },
+        {
+          "t": 8.115,
+          "x": 70,
+          "y": 1461,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.145,
+          "x": 70,
+          "y": 1446,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.175,
+          "x": 70,
+          "y": 1441,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.205,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.235,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s2-cap2 animates y over 0.18s (power4.out). fades in. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 47,
+      "selector": "#s2-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 8.781,
+      "end": 8.961,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 8.796,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.826,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.856,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.886,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.916,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 8.946,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s2-cap2 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 48,
+      "selector": "#s3-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "y"
+      ],
+      "start": 10.285,
+      "end": 17.507,
+      "duration": 7.222,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 10.887,
+          "x": -59,
+          "y": -67,
+          "w": 1198,
+          "h": 2072,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 12.091,
+          "x": -65,
+          "y": -81,
+          "w": 1211,
+          "h": 2094,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.294,
+          "x": -72,
+          "y": -95,
+          "w": 1223,
+          "h": 2115,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 14.498,
+          "x": -78,
+          "y": -109,
+          "w": 1236,
+          "h": 2137,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 15.702,
+          "x": -84,
+          "y": -123,
+          "w": 1248,
+          "h": 2159,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 16.905,
+          "x": -90,
+          "y": -137,
+          "w": 1261,
+          "h": 2180,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s3-world animates scale+y over 7.22s (none). moves 70px up and 31px left. scales. width 1198→1261px. height 2072→2180px. ends at (-90, -137) 1261×2180px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 49,
+      "selector": "#s3-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 10.285,
+      "end": 10.465,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 10.3,
+          "x": 70,
+          "y": 1474,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 10.33,
+          "x": 70,
+          "y": 1474,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 10.36,
+          "x": 70,
+          "y": 1451,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 10.39,
+          "x": 70,
+          "y": 1443,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 10.42,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 10.45,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap1 animates y over 0.18s (power4.out). moves 34px up. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 50,
+      "selector": "#s3-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 10.435,
+      "end": 11.285,
+      "duration": 0.85,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 10.506,
+          "x": 116,
+          "y": 890,
+          "w": 793,
+          "h": 793,
+          "opacity": 0.0679,
+          "visible": true
+        },
+        {
+          "t": 10.648,
+          "x": 95,
+          "y": 869,
+          "w": 836,
+          "h": 836,
+          "opacity": 0.1758,
+          "visible": true
+        },
+        {
+          "t": 10.789,
+          "x": 80,
+          "y": 854,
+          "w": 865,
+          "h": 865,
+          "opacity": 0.2474,
+          "visible": true
+        },
+        {
+          "t": 10.931,
+          "x": 71,
+          "y": 845,
+          "w": 883,
+          "h": 883,
+          "opacity": 0.2903,
+          "visible": true
+        },
+        {
+          "t": 11.072,
+          "x": 66,
+          "y": 840,
+          "w": 894,
+          "h": 894,
+          "opacity": 0.3146,
+          "visible": true
+        },
+        {
+          "t": 11.214,
+          "x": 64,
+          "y": 838,
+          "w": 897,
+          "h": 897,
+          "opacity": 0.3197,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s3-halo animates opacity+scale over 0.85s (power2.out). moves 52px up and 52px left. opacity 0.1→0.3. scales. width 793→897px. height 793→897px. ends at (64, 838) 897×897px. Overlaps another animated element."
+    },
+    {
+      "index": 51,
+      "selector": "#s3-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "y"
+      ],
+      "start": 10.996,
+      "end": 18.218,
+      "duration": 7.222,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 11.598,
+          "x": -63,
+          "y": -76,
+          "w": 1206,
+          "h": 2085,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 12.802,
+          "x": -69,
+          "y": -90,
+          "w": 1218,
+          "h": 2107,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 14.005,
+          "x": -75,
+          "y": -103,
+          "w": 1231,
+          "h": 2128,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 15.209,
+          "x": -82,
+          "y": -117,
+          "w": 1243,
+          "h": 2150,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 16.413,
+          "x": -88,
+          "y": -131,
+          "w": 1256,
+          "h": 2171,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 17.616,
+          "x": -94,
+          "y": -144,
+          "w": 1267,
+          "h": 2191,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s3-world animates scale+y over 7.22s (none). moves 68px up and 31px left. scales. width 1206→1267px. height 2085→2191px. becomes hidden. ends at (-94, -144) 1267×2191px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 52,
+      "selector": "#s3-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 10.996,
+      "end": 11.176,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 11.011,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 11.041,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 11.071,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 11.101,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 11.131,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 11.161,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap1 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 53,
+      "selector": "#s3-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 11.146,
+      "end": 11.996,
+      "duration": 0.85,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 11.217,
+          "x": 64,
+          "y": 838,
+          "w": 897,
+          "h": 897,
+          "opacity": 0.3197,
+          "visible": true
+        },
+        {
+          "t": 11.359,
+          "x": 64,
+          "y": 838,
+          "w": 898,
+          "h": 898,
+          "opacity": 0.32,
+          "visible": true
+        },
+        {
+          "t": 11.5,
+          "x": 63,
+          "y": 837,
+          "w": 899,
+          "h": 899,
+          "opacity": 0.32,
+          "visible": true
+        },
+        {
+          "t": 11.642,
+          "x": 63,
+          "y": 837,
+          "w": 901,
+          "h": 901,
+          "opacity": 0.32,
+          "visible": true
+        },
+        {
+          "t": 11.784,
+          "x": 62,
+          "y": 836,
+          "w": 902,
+          "h": 902,
+          "opacity": 0.32,
+          "visible": true
+        },
+        {
+          "t": 11.925,
+          "x": 61,
+          "y": 836,
+          "w": 903,
+          "h": 903,
+          "opacity": 0.32,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s3-halo animates opacity+scale over 0.85s (power2.out). scales. width 897→903px. height 897→903px. ends at (61, 836) 903×903px. Overlaps another animated element."
+    },
+    {
+      "index": 54,
+      "selector": "#s3-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 12.28,
+      "end": 12.46,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 12.295,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": true
+        },
+        {
+          "t": 12.325,
+          "x": 70,
+          "y": 1469,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 12.355,
+          "x": 70,
+          "y": 1449,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 12.385,
+          "x": 70,
+          "y": 1442,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 12.415,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 12.445,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap2 animates y over 0.18s (power4.out). fades in. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 55,
+      "selector": "#s3-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 12.991,
+      "end": 13.171,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 13.006,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.036,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.066,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.096,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.126,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.156,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap2 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 56,
+      "selector": "#s3-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 13.696,
+      "end": 13.876,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 13.711,
+          "x": 70,
+          "y": 1486,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.741,
+          "x": 70,
+          "y": 1456,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.771,
+          "x": 70,
+          "y": 1444,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.801,
+          "x": 70,
+          "y": 1441,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.831,
+          "x": 70,
+          "y": 1441,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 13.861,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap3 animates y over 0.18s (power4.out). moves 46px up. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 57,
+      "selector": "#s3-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 14.407,
+      "end": 14.587,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 14.422,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 14.452,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 14.482,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 14.512,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 14.542,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 14.572,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap3 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 58,
+      "selector": "#s3-cap4",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 15.292,
+      "end": 15.472,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 15.307,
+          "x": 70,
+          "y": 1481,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 15.337,
+          "x": 70,
+          "y": 1454,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 15.367,
+          "x": 70,
+          "y": 1444,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 15.397,
+          "x": 70,
+          "y": 1444,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 15.427,
+          "x": 70,
+          "y": 1441,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 15.457,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap4 animates y over 0.18s (power4.out). moves 41px up. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 59,
+      "selector": "#s3-cap4",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 16.003,
+      "end": 16.183,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 16.018,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 16.048,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 16.078,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 16.108,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 16.138,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 16.168,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s3-cap4 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 60,
+      "selector": "#s4-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 17.507,
+      "end": 25.128,
+      "duration": 7.621,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 18.142,
+          "x": -81,
+          "y": -90,
+          "w": 1221,
+          "h": 2100,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 19.412,
+          "x": -84,
+          "y": -102,
+          "w": 1235,
+          "h": 2123,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 20.682,
+          "x": -87,
+          "y": -113,
+          "w": 1249,
+          "h": 2147,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.953,
+          "x": -90,
+          "y": -125,
+          "w": 1262,
+          "h": 2170,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.223,
+          "x": -93,
+          "y": -137,
+          "w": 1276,
+          "h": 2193,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 24.493,
+          "x": -97,
+          "y": -148,
+          "w": 1289,
+          "h": 2217,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s4-world animates scale+x over 7.62s (none). moves 58px up and 16px left. scales. width 1221→1289px. height 2100→2217px. ends at (-97, -148) 1289×2217px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 61,
+      "selector": "#s4-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 17.507,
+      "end": 17.687,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 17.522,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": false
+        },
+        {
+          "t": 17.552,
+          "x": 70,
+          "y": 1464,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 17.582,
+          "x": 70,
+          "y": 1447,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 17.612,
+          "x": 70,
+          "y": 1441,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 17.642,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 17.672,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s4-cap1 animates y over 0.18s (power4.out). fades in. becomes visible. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 62,
+      "selector": "#s4-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 17.657,
+      "end": 18.557,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 17.732,
+          "x": 32,
+          "y": 245,
+          "w": 880,
+          "h": 880,
+          "opacity": 0.0519,
+          "visible": true
+        },
+        {
+          "t": 17.882,
+          "x": -2,
+          "y": 210,
+          "w": 949,
+          "h": 949,
+          "opacity": 0.2085,
+          "visible": true
+        },
+        {
+          "t": 18.032,
+          "x": -19,
+          "y": 192,
+          "w": 985,
+          "h": 985,
+          "opacity": 0.2899,
+          "visible": true
+        },
+        {
+          "t": 18.182,
+          "x": -32,
+          "y": 178,
+          "w": 1012,
+          "h": 1012,
+          "opacity": 0.349,
+          "visible": true
+        },
+        {
+          "t": 18.332,
+          "x": -38,
+          "y": 172,
+          "w": 1023,
+          "h": 1023,
+          "opacity": 0.3712,
+          "visible": true
+        },
+        {
+          "t": 18.482,
+          "x": -40,
+          "y": 169,
+          "w": 1028,
+          "h": 1028,
+          "opacity": 0.3796,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s4-halo animates opacity+scale over 0.90s (power2.out). moves 76px up and 72px left. opacity 0.1→0.4. scales. width 880→1028px. height 880→1028px. ends at (-40, 169) 1028×1028px. Overlaps another animated element."
+    },
+    {
+      "index": 63,
+      "selector": "#s4-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "start": 18.218,
+      "end": 25.839,
+      "duration": 7.621,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 18.853,
+          "x": -83,
+          "y": -96,
+          "w": 1229,
+          "h": 2113,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 20.123,
+          "x": -86,
+          "y": -108,
+          "w": 1243,
+          "h": 2136,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.393,
+          "x": -89,
+          "y": -120,
+          "w": 1256,
+          "h": 2160,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 22.664,
+          "x": -92,
+          "y": -131,
+          "w": 1270,
+          "h": 2183,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.934,
+          "x": -95,
+          "y": -143,
+          "w": 1284,
+          "h": 2207,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.204,
+          "x": -98,
+          "y": -154,
+          "w": 1296,
+          "h": 2229,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s4-world animates scale+x over 7.62s (none). moves 58px up and 15px left. scales. width 1229→1296px. height 2113→2229px. becomes hidden. ends at (-98, -154) 1296×2229px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 64,
+      "selector": "#s4-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 18.218,
+      "end": 18.398,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 18.233,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.263,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.293,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.323,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.353,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.383,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s4-cap1 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 65,
+      "selector": "#s4-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 18.368,
+      "end": 19.268,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 18.443,
+          "x": -40,
+          "y": 170,
+          "w": 1027,
+          "h": 1027,
+          "opacity": 0.379,
+          "visible": true
+        },
+        {
+          "t": 18.593,
+          "x": -40,
+          "y": 169,
+          "w": 1029,
+          "h": 1029,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 18.743,
+          "x": -40,
+          "y": 167,
+          "w": 1030,
+          "h": 1030,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 18.893,
+          "x": -41,
+          "y": 166,
+          "w": 1031,
+          "h": 1031,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 19.043,
+          "x": -41,
+          "y": 165,
+          "w": 1033,
+          "h": 1033,
+          "opacity": 0.38,
+          "visible": true
+        },
+        {
+          "t": 19.193,
+          "x": -41,
+          "y": 164,
+          "w": 1034,
+          "h": 1034,
+          "opacity": 0.38,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s4-halo animates opacity+scale over 0.90s (power2.out). moves 6px up. scales. width 1027→1034px. height 1027→1034px. ends at (-41, 164) 1034×1034px. Overlaps another animated element."
+    },
+    {
+      "index": 66,
+      "selector": "#s4-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 18.704,
+      "end": 18.884,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 18.719,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 0,
+          "visible": true
+        },
+        {
+          "t": 18.749,
+          "x": 70,
+          "y": 1448,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.779,
+          "x": 70,
+          "y": 1433,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.809,
+          "x": 70,
+          "y": 1428,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.839,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 18.869,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s4-cap2 animates y over 0.18s (power4.out). fades in. ends at (70, 1427) 940×243px. FLAGS: paced-fast."
+    },
+    {
+      "index": 67,
+      "selector": "#s4-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 19.415,
+      "end": 19.595,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 19.43,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 19.46,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 19.49,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 19.52,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 19.55,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 19.58,
+          "x": 70,
+          "y": 1427,
+          "w": 940,
+          "h": 243,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s4-cap2 animates y over 0.18s (power4.out). ends at (70, 1427) 940×243px. FLAGS: paced-fast."
+    },
+    {
+      "index": 68,
+      "selector": "#s4-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 20.918,
+      "end": 21.098,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 20.933,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": true
+        },
+        {
+          "t": 20.963,
+          "x": 70,
+          "y": 1473,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 20.993,
+          "x": 70,
+          "y": 1451,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.023,
+          "x": 70,
+          "y": 1442,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.053,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.083,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s4-cap3 animates y over 0.18s (power4.out). fades in. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 69,
+      "selector": "#s4-cap3",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 21.629,
+      "end": 21.809,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 21.644,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.674,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.704,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.734,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.764,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 21.794,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s4-cap3 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 70,
+      "selector": "#s4-cap4",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 22.913,
+      "end": 23.093,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 22.928,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 0,
+          "visible": true
+        },
+        {
+          "t": 22.958,
+          "x": 70,
+          "y": 1469,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 22.988,
+          "x": 70,
+          "y": 1449,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.018,
+          "x": 70,
+          "y": 1442,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.048,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.078,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s4-cap4 animates y over 0.18s (power4.out). fades in. ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 71,
+      "selector": "#s4-cap4",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 23.624,
+      "end": 23.804,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 23.639,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.669,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.699,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.729,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.759,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 23.789,
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s4-cap4 animates y over 0.18s (power4.out). ends at (70, 1440) 940×230px. FLAGS: paced-fast."
+    },
+    {
+      "index": 72,
+      "selector": "#s5-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 25.128,
+      "end": 28.8,
+      "duration": 3.672,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 25.434,
+          "x": -57,
+          "y": -76,
+          "w": 1195,
+          "h": 2072,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.046,
+          "x": -62,
+          "y": -84,
+          "w": 1204,
+          "h": 2088,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.658,
+          "x": -67,
+          "y": -92,
+          "w": 1213,
+          "h": 2104,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.27,
+          "x": -72,
+          "y": -101,
+          "w": 1223,
+          "h": 2121,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.882,
+          "x": -76,
+          "y": -109,
+          "w": 1232,
+          "h": 2137,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 28.494,
+          "x": -81,
+          "y": -117,
+          "w": 1242,
+          "h": 2154,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s5-world animates scale over 3.67s (none). moves 41px up and 24px left. scales. width 1195→1242px. height 2072→2154px. ends at (-81, -117) 1242×2154px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 73,
+      "selector": "#s5-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 25.128,
+      "end": 25.308,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 25.143,
+          "x": 66,
+          "y": 1355,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.173,
+          "x": 66,
+          "y": 1319,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.203,
+          "x": 66,
+          "y": 1305,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.233,
+          "x": 66,
+          "y": 1305,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.263,
+          "x": 66,
+          "y": 1301,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.293,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s5-cap1 animates y over 0.18s (power4.out). moves 55px up. ends at (66, 1300) 948×270px. FLAGS: paced-fast."
+    },
+    {
+      "index": 74,
+      "selector": "#s5-rule",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scaleX"
+      ],
+      "start": 25.208,
+      "end": 25.658,
+      "duration": 0.45,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 25.245,
+          "x": 449,
+          "y": 850,
+          "w": 182,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.32,
+          "x": 276,
+          "y": 850,
+          "w": 527,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.395,
+          "x": 177,
+          "y": 850,
+          "w": 725,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.47,
+          "x": 114,
+          "y": 850,
+          "w": 851,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.545,
+          "x": 103,
+          "y": 850,
+          "w": 875,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.62,
+          "x": 100,
+          "y": 850,
+          "w": 880,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [],
+      "summary": "#s5-rule animates scaleX over 0.45s (power3.out). moves 349px left. scales. width 182→880px. ends at (100, 850) 880×4px."
+    },
+    {
+      "index": 75,
+      "selector": "#s5-world",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 25.839,
+      "end": 29.511,
+      "duration": 3.672,
+      "ease": "none",
+      "bboxes": [
+        {
+          "t": 26.145,
+          "x": -63,
+          "y": -85,
+          "w": 1205,
+          "h": 2091,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.757,
+          "x": -67,
+          "y": -93,
+          "w": 1215,
+          "h": 2107,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.369,
+          "x": -72,
+          "y": -102,
+          "w": 1225,
+          "h": 2124,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.981,
+          "x": -77,
+          "y": -110,
+          "w": 1234,
+          "h": 2140,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 28.593,
+          "x": -82,
+          "y": -118,
+          "w": 1243,
+          "h": 2156,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 29.205,
+          "x": -83,
+          "y": -121,
+          "w": 1247,
+          "h": 2163,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow",
+        "collision"
+      ],
+      "summary": "#s5-world animates scale over 3.67s (none). moves 36px up and 20px left. scales. width 1205→1247px. height 2091→2163px. becomes hidden. ends at (-83, -121) 1247×2163px. FLAGS: paced-slow. Overlaps another animated element."
+    },
+    {
+      "index": 76,
+      "selector": "#s5-cap1",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 25.839,
+      "end": 26.019,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 25.854,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.884,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.914,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.944,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 25.974,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.004,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s5-cap1 animates y over 0.18s (power4.out). ends at (66, 1300) 948×270px. FLAGS: paced-fast."
+    },
+    {
+      "index": 77,
+      "selector": "#s5-rule",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "scaleX"
+      ],
+      "start": 25.919,
+      "end": 26.369,
+      "duration": 0.45,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 25.956,
+          "x": 100,
+          "y": 850,
+          "w": 880,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.031,
+          "x": 100,
+          "y": 850,
+          "w": 880,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.106,
+          "x": 100,
+          "y": 850,
+          "w": 880,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.181,
+          "x": 100,
+          "y": 850,
+          "w": 880,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.256,
+          "x": 100,
+          "y": 850,
+          "w": 880,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.331,
+          "x": 100,
+          "y": 850,
+          "w": 880,
+          "h": 4,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [],
+      "summary": "#s5-rule animates scaleX over 0.45s (power3.out). scales. ends at (100, 850) 880×4px."
+    },
+    {
+      "index": 78,
+      "selector": "#s5-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 26.608,
+      "end": 27.508,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 26.683,
+          "x": 91,
+          "y": 918,
+          "w": 830,
+          "h": 830,
+          "opacity": 0.0732,
+          "visible": true
+        },
+        {
+          "t": 26.833,
+          "x": 65,
+          "y": 893,
+          "w": 882,
+          "h": 882,
+          "opacity": 0.2053,
+          "visible": true
+        },
+        {
+          "t": 26.983,
+          "x": 43,
+          "y": 872,
+          "w": 925,
+          "h": 925,
+          "opacity": 0.313,
+          "visible": true
+        },
+        {
+          "t": 27.133,
+          "x": 33,
+          "y": 863,
+          "w": 946,
+          "h": 946,
+          "opacity": 0.3627,
+          "visible": true
+        },
+        {
+          "t": 27.283,
+          "x": 26,
+          "y": 857,
+          "w": 959,
+          "h": 959,
+          "opacity": 0.3923,
+          "visible": true
+        },
+        {
+          "t": 27.433,
+          "x": 24,
+          "y": 855,
+          "w": 964,
+          "h": 964,
+          "opacity": 0.3993,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s5-halo animates opacity+scale over 0.90s (power2.out). moves 63px up and 67px left. opacity 0.1→0.4. scales. width 830→964px. height 830→964px. ends at (24, 855) 964×964px. Overlaps another animated element."
+    },
+    {
+      "index": 79,
+      "selector": "#s5-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 26.724,
+      "end": 26.904,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 26.739,
+          "x": 66,
+          "y": 1349,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.769,
+          "x": 66,
+          "y": 1317,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.799,
+          "x": 66,
+          "y": 1317,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.829,
+          "x": 66,
+          "y": 1304,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.859,
+          "x": 66,
+          "y": 1301,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 26.889,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast",
+        "collision"
+      ],
+      "summary": "#s5-cap2 animates y over 0.18s (power4.out). moves 49px up. ends at (66, 1300) 948×270px. FLAGS: paced-fast. Overlaps another animated element."
+    },
+    {
+      "index": 80,
+      "selector": "#s5-halo",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "start": 27.319,
+      "end": 28.219,
+      "duration": 0.9,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 27.394,
+          "x": 24,
+          "y": 855,
+          "w": 963,
+          "h": 963,
+          "opacity": 0.3985,
+          "visible": true
+        },
+        {
+          "t": 27.544,
+          "x": 23,
+          "y": 855,
+          "w": 966,
+          "h": 966,
+          "opacity": 0.4,
+          "visible": true
+        },
+        {
+          "t": 27.694,
+          "x": 22,
+          "y": 855,
+          "w": 967,
+          "h": 967,
+          "opacity": 0.4,
+          "visible": true
+        },
+        {
+          "t": 27.844,
+          "x": 21,
+          "y": 854,
+          "w": 969,
+          "h": 969,
+          "opacity": 0.4,
+          "visible": true
+        },
+        {
+          "t": 27.994,
+          "x": 20,
+          "y": 854,
+          "w": 971,
+          "h": 971,
+          "opacity": 0.4,
+          "visible": true
+        },
+        {
+          "t": 28.144,
+          "x": 19,
+          "y": 854,
+          "w": 973,
+          "h": 973,
+          "opacity": 0.4,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "collision"
+      ],
+      "summary": "#s5-halo animates opacity+scale over 0.90s (power2.out). moves 5px left. scales. width 963→973px. height 963→973px. ends at (19, 854) 973×973px. Overlaps another animated element."
+    },
+    {
+      "index": 81,
+      "selector": "#s5-cap2",
+      "driver": "target",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 27.435,
+      "end": 27.615,
+      "duration": 0.18,
+      "ease": "power4.out",
+      "bboxes": [
+        {
+          "t": 27.45,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.48,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.51,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.54,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.57,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 27.6,
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-fast"
+      ],
+      "summary": "#s5-cap2 animates y over 0.18s (power4.out). ends at (66, 1300) 948×270px. FLAGS: paced-fast."
+    }
+  ],
+  "choreography": "Timeline (28.8s, each char ≈ 0.48s):\n  0s                                                    29s\n  ┼───────────────────────────────────────────────────────────┤\n  █████████████                                                 #s1-world scale+x\n  █                                                             #s1-cap1 y\n  ██                                                            #s1-rule scaleY\n   ██████████████                                               #s1-world scale+x\n   ██████████████                                               #s1-world scale+x\n   ██████████                                                   #s2-world scale+x\n   █                                                            #s2-cap1 y\n   ████████████████                                             #s3-world scale+y\n   █                                                            #s3-cap1 y\n   █████████████████                                            #s4-world scale+x\n   █                                                            #s4-cap1 y\n   █████████                                                    #s5-world scale\n   █                                                            #s5-cap1 y\n   █                                                            #s1-cap1 y\n   █                                                            #s1-cap1 y\n   ██                                                           #s1-rule scaleY\n   ██                                                           #s1-rule scaleY\n   ██                                                           #s5-rule scaleX\n   ███                                                          #s2-halo opacity+scale\n   ███                                                          #s3-halo opacity+scale\n   ███                                                          #s4-halo opacity+scale\n     ██                                                         #s4-cap2 y\n      █                                                         #s1-cap2 y\n      ███                                                       #s5-halo opacity+scale\n      ██                                                        #s5-cap2 y\n       ██                                                       #s2-cap2 y\n       ██                                                       #s3-cap2 y\n       ██                                                       #s1-cap2 y\n       ██                                                       #s1-cap2 y\n         ███                                                    #s1-glow opacity+scale\n          █                                                     #s1-cap3 y\n          █                                                     #s3-cap3 y\n          █                                                     #s4-cap3 y\n           ███                                                  #s1-glow opacity+scale\n           ███                                                  #s1-glow opacity+scale\n           █                                                    #s1-cap3 y\n           █                                                    #s1-cap3 y\n             ██                                                 #s3-cap4 y\n              ██████████                                        #s2-world scale+x\n              ██                                                #s2-cap1 y\n              ██                                                #s4-cap4 y\n              ███                                               #s2-halo opacity+scale\n                █████████                                       #s2-world scale+x\n                █                                               #s2-cap1 y\n                ███                                             #s2-halo opacity+scale\n                  ██                                            #s2-cap2 y\n                    █                                           #s2-cap2 y\n                       ████████████████                         #s3-world scale+y\n                       █                                        #s3-cap1 y\n                       ███                                      #s3-halo opacity+scale\n                        ████████████████                        #s3-world scale+y\n                        ██                                      #s3-cap1 y\n                         ██                                     #s3-halo opacity+scale\n                           █                                    #s3-cap2 y\n                             █                                  #s3-cap2 y\n                              █                                 #s3-cap3 y\n                                █                               #s3-cap3 y\n                                 ██                             #s3-cap4 y\n                                   █                            #s3-cap4 y\n                                      █████████████████         #s4-world scale+x\n                                      █                         #s4-cap1 y\n                                      ███                       #s4-halo opacity+scale\n                                       █████████████████        #s4-world scale+x\n                                       ██                       #s4-cap1 y\n                                        ███                     #s4-halo opacity+scale\n                                        ██                      #s4-cap2 y\n                                          █                     #s4-cap2 y\n                                             █                  #s4-cap3 y\n                                               █                #s4-cap3 y\n                                                 ██             #s4-cap4 y\n                                                   █            #s4-cap4 y\n                                                      ████████  #s5-world scale\n                                                      █         #s5-cap1 y\n                                                      ██        #s5-rule scaleX\n                                                       ███████  #s5-world scale\n                                                       ██       #s5-cap1 y\n                                                       ██       #s5-rule scaleX\n                                                         ███    #s5-halo opacity+scale\n                                                         ██     #s5-cap2 y\n                                                          ███   #s5-halo opacity+scale\n                                                           █    #s5-cap2 y",
+  "density": [
+    {
+      "t": 0,
+      "activeTweens": 3
+    },
+    {
+      "t": 0.5,
+      "activeTweens": 20
+    },
+    {
+      "t": 1,
+      "activeTweens": 13
+    },
+    {
+      "t": 1.5,
+      "activeTweens": 11
+    },
+    {
+      "t": 2,
+      "activeTweens": 11
+    },
+    {
+      "t": 2.5,
+      "activeTweens": 12
+    },
+    {
+      "t": 3,
+      "activeTweens": 8
+    },
+    {
+      "t": 3.5,
+      "activeTweens": 9
+    },
+    {
+      "t": 4,
+      "activeTweens": 13
+    },
+    {
+      "t": 4.5,
+      "activeTweens": 11
+    },
+    {
+      "t": 5,
+      "activeTweens": 7
+    },
+    {
+      "t": 5.5,
+      "activeTweens": 6
+    },
+    {
+      "t": 6,
+      "activeTweens": 9
+    },
+    {
+      "t": 6.5,
+      "activeTweens": 9
+    },
+    {
+      "t": 7,
+      "activeTweens": 5
+    },
+    {
+      "t": 7.5,
+      "activeTweens": 5
+    },
+    {
+      "t": 8,
+      "activeTweens": 4
+    },
+    {
+      "t": 8.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 9,
+      "activeTweens": 2
+    },
+    {
+      "t": 9.5,
+      "activeTweens": 2
+    },
+    {
+      "t": 10,
+      "activeTweens": 5
+    },
+    {
+      "t": 10.5,
+      "activeTweens": 5
+    },
+    {
+      "t": 11,
+      "activeTweens": 5
+    },
+    {
+      "t": 11.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 12,
+      "activeTweens": 3
+    },
+    {
+      "t": 12.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 13,
+      "activeTweens": 3
+    },
+    {
+      "t": 13.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 14,
+      "activeTweens": 3
+    },
+    {
+      "t": 14.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 15,
+      "activeTweens": 3
+    },
+    {
+      "t": 15.5,
+      "activeTweens": 2
+    },
+    {
+      "t": 16,
+      "activeTweens": 3
+    },
+    {
+      "t": 16.5,
+      "activeTweens": 2
+    },
+    {
+      "t": 17,
+      "activeTweens": 2
+    },
+    {
+      "t": 17.5,
+      "activeTweens": 5
+    },
+    {
+      "t": 18,
+      "activeTweens": 6
+    },
+    {
+      "t": 18.5,
+      "activeTweens": 5
+    },
+    {
+      "t": 19,
+      "activeTweens": 4
+    },
+    {
+      "t": 19.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 20,
+      "activeTweens": 2
+    },
+    {
+      "t": 20.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 21,
+      "activeTweens": 3
+    },
+    {
+      "t": 21.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 22,
+      "activeTweens": 2
+    },
+    {
+      "t": 22.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 23,
+      "activeTweens": 3
+    },
+    {
+      "t": 23.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 24,
+      "activeTweens": 2
+    },
+    {
+      "t": 24.5,
+      "activeTweens": 2
+    },
+    {
+      "t": 25,
+      "activeTweens": 5
+    },
+    {
+      "t": 25.5,
+      "activeTweens": 6
+    },
+    {
+      "t": 26,
+      "activeTweens": 4
+    },
+    {
+      "t": 26.5,
+      "activeTweens": 4
+    },
+    {
+      "t": 27,
+      "activeTweens": 5
+    },
+    {
+      "t": 27.5,
+      "activeTweens": 5
+    },
+    {
+      "t": 28,
+      "activeTweens": 3
+    },
+    {
+      "t": 28.5,
+      "activeTweens": 2
+    }
+  ],
+  "staggers": [
+    {
+      "elements": [
+        "#s1-world",
+        "#s1-world",
+        "#s1-world"
+      ],
+      "props": [
+        "scale",
+        "x"
+      ],
+      "count": 3,
+      "intervals": [
+        0.711,
+        0
+      ],
+      "avgInterval": 0.355,
+      "consistent": false,
+      "note": "3 elements stagger with uneven intervals (711ms, 0ms)"
+    },
+    {
+      "elements": [
+        "#s1-cap1",
+        "#s2-cap1",
+        "#s3-cap1",
+        "#s4-cap1",
+        "#s5-cap1",
+        "#s1-cap1",
+        "#s1-cap1"
+      ],
+      "props": [
+        "y"
+      ],
+      "count": 7,
+      "intervals": [
+        0.661,
+        0,
+        0,
+        0,
+        0.05,
+        0
+      ],
+      "avgInterval": 0.119,
+      "consistent": false,
+      "note": "7 elements stagger with uneven intervals (661ms, 0ms, 0ms, 0ms, 50ms, 0ms)"
+    },
+    {
+      "elements": [
+        "#s1-rule",
+        "#s1-rule",
+        "#s1-rule"
+      ],
+      "props": [
+        "scaleY"
+      ],
+      "count": 3,
+      "intervals": [
+        0.711,
+        0
+      ],
+      "avgInterval": 0.355,
+      "consistent": false,
+      "note": "3 elements stagger with uneven intervals (711ms, 0ms)"
+    },
+    {
+      "elements": [
+        "#s2-world",
+        "#s2-world",
+        "#s2-world"
+      ],
+      "props": [
+        "scale",
+        "x"
+      ],
+      "count": 3,
+      "intervals": [
+        5.364,
+        0.711
+      ],
+      "avgInterval": 3.038,
+      "consistent": false,
+      "note": "3 elements stagger with uneven intervals (5364ms, 711ms)"
+    },
+    {
+      "elements": [
+        "#s3-world",
+        "#s3-world",
+        "#s3-world"
+      ],
+      "props": [
+        "scale",
+        "y"
+      ],
+      "count": 3,
+      "intervals": [
+        9.574,
+        0.711
+      ],
+      "avgInterval": 5.143,
+      "consistent": false,
+      "note": "3 elements stagger with uneven intervals (9574ms, 711ms)"
+    },
+    {
+      "elements": [
+        "#s4-world",
+        "#s4-world",
+        "#s4-world"
+      ],
+      "props": [
+        "scale",
+        "x"
+      ],
+      "count": 3,
+      "intervals": [
+        16.796,
+        0.711
+      ],
+      "avgInterval": 8.753,
+      "consistent": false,
+      "note": "3 elements stagger with uneven intervals (16796ms, 711ms)"
+    },
+    {
+      "elements": [
+        "#s4-halo",
+        "#s5-halo",
+        "#s1-glow",
+        "#s1-glow",
+        "#s1-glow"
+      ],
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "count": 5,
+      "intervals": [
+        1.33,
+        1.529,
+        0.711,
+        0
+      ],
+      "avgInterval": 0.892,
+      "consistent": false,
+      "note": "5 elements stagger with uneven intervals (1330ms, 1529ms, 711ms, 0ms)"
+    },
+    {
+      "elements": [
+        "#s4-cap2",
+        "#s1-cap2",
+        "#s5-cap2"
+      ],
+      "props": [
+        "y"
+      ],
+      "count": 3,
+      "intervals": [
+        0.137,
+        0.262
+      ],
+      "avgInterval": 0.2,
+      "consistent": false,
+      "note": "3 elements stagger with uneven intervals (137ms, 262ms)"
+    },
+    {
+      "elements": [
+        "#s2-cap2",
+        "#s3-cap2",
+        "#s1-cap2",
+        "#s1-cap2"
+      ],
+      "props": [
+        "y"
+      ],
+      "count": 4,
+      "intervals": [
+        0,
+        0.05,
+        0
+      ],
+      "avgInterval": 0.017,
+      "consistent": false,
+      "note": "4 elements stagger with uneven intervals (0ms, 50ms, 0ms)"
+    },
+    {
+      "elements": [
+        "#s1-cap3",
+        "#s3-cap3",
+        "#s4-cap3",
+        "#s1-cap3",
+        "#s1-cap3"
+      ],
+      "props": [
+        "y"
+      ],
+      "count": 5,
+      "intervals": [
+        0.261,
+        0,
+        0.45,
+        0
+      ],
+      "avgInterval": 0.178,
+      "consistent": false,
+      "note": "5 elements stagger with uneven intervals (261ms, 0ms, 450ms, 0ms)"
+    },
+    {
+      "elements": [
+        "#s3-cap4",
+        "#s2-cap1",
+        "#s4-cap4"
+      ],
+      "props": [
+        "y"
+      ],
+      "count": 3,
+      "intervals": [
+        0.357,
+        0.042
+      ],
+      "avgInterval": 0.199,
+      "consistent": false,
+      "note": "3 elements stagger with uneven intervals (357ms, 42ms)"
+    }
+  ],
+  "elements": {
+    "#s1-world": {
+      "firstAppears": 0,
+      "lastAnimates": 6.786,
+      "tweenCount": 3,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": -87,
+        "y": -137,
+        "w": 1275,
+        "h": 2194
+      }
+    },
+    "#s1-cap1": {
+      "firstAppears": 0.05,
+      "lastAnimates": 0.941,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s1-rule": {
+      "firstAppears": 0.08,
+      "lastAnimates": 1.341,
+      "tweenCount": 3,
+      "props": [
+        "scaleY"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 484,
+        "y": 32,
+        "w": 3,
+        "h": 1173
+      }
+    },
+    "#s2-world": {
+      "firstAppears": 0.711,
+      "lastAnimates": 10.996,
+      "tweenCount": 3,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": -111,
+        "y": -145,
+        "w": 1282,
+        "h": 2210
+      }
+    },
+    "#s2-cap1": {
+      "firstAppears": 0.711,
+      "lastAnimates": 6.966,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s3-world": {
+      "firstAppears": 0.711,
+      "lastAnimates": 18.218,
+      "tweenCount": 3,
+      "props": [
+        "scale",
+        "y"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": -94,
+        "y": -144,
+        "w": 1267,
+        "h": 2191
+      }
+    },
+    "#s3-cap1": {
+      "firstAppears": 0.711,
+      "lastAnimates": 11.176,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s4-world": {
+      "firstAppears": 0.711,
+      "lastAnimates": 25.839,
+      "tweenCount": 3,
+      "props": [
+        "scale",
+        "x"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": -98,
+        "y": -154,
+        "w": 1296,
+        "h": 2229
+      }
+    },
+    "#s4-cap1": {
+      "firstAppears": 0.711,
+      "lastAnimates": 18.398,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s5-world": {
+      "firstAppears": 0.711,
+      "lastAnimates": 29.511,
+      "tweenCount": 3,
+      "props": [
+        "scale"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": -83,
+        "y": -121,
+        "w": 1247,
+        "h": 2163
+      }
+    },
+    "#s5-cap1": {
+      "firstAppears": 0.711,
+      "lastAnimates": 26.019,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 66,
+        "y": 1300,
+        "w": 948,
+        "h": 270
+      }
+    },
+    "#s5-rule": {
+      "firstAppears": 0.791,
+      "lastAnimates": 26.369,
+      "tweenCount": 3,
+      "props": [
+        "scaleX"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 100,
+        "y": 850,
+        "w": 880,
+        "h": 4
+      }
+    },
+    "#s2-halo": {
+      "firstAppears": 0.831,
+      "lastAnimates": 7.706,
+      "tweenCount": 3,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": -265,
+        "y": 971,
+        "w": 979,
+        "h": 979
+      }
+    },
+    "#s3-halo": {
+      "firstAppears": 0.861,
+      "lastAnimates": 11.996,
+      "tweenCount": 3,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 61,
+        "y": 836,
+        "w": 903,
+        "h": 903
+      }
+    },
+    "#s4-halo": {
+      "firstAppears": 0.861,
+      "lastAnimates": 19.268,
+      "tweenCount": 3,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": -41,
+        "y": 164,
+        "w": 1034,
+        "h": 1034
+      }
+    },
+    "#s4-cap2": {
+      "firstAppears": 1.908,
+      "lastAnimates": 19.595,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1427,
+        "w": 940,
+        "h": 243
+      }
+    },
+    "#s1-cap2": {
+      "firstAppears": 2.045,
+      "lastAnimates": 2.936,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s5-halo": {
+      "firstAppears": 2.191,
+      "lastAnimates": 28.219,
+      "tweenCount": 3,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 19,
+        "y": 854,
+        "w": 973,
+        "h": 973
+      }
+    },
+    "#s5-cap2": {
+      "firstAppears": 2.307,
+      "lastAnimates": 27.615,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 66,
+        "y": 1300,
+        "w": 948,
+        "h": 270
+      }
+    },
+    "#s2-cap2": {
+      "firstAppears": 2.706,
+      "lastAnimates": 8.961,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s3-cap2": {
+      "firstAppears": 2.706,
+      "lastAnimates": 13.171,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s1-glow": {
+      "firstAppears": 3.72,
+      "lastAnimates": 5.331,
+      "tweenCount": 3,
+      "props": [
+        "opacity",
+        "scale"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 33,
+        "y": 864,
+        "w": 935,
+        "h": 935
+      }
+    },
+    "#s1-cap3": {
+      "firstAppears": 3.861,
+      "lastAnimates": 4.752,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s3-cap3": {
+      "firstAppears": 4.122,
+      "lastAnimates": 14.587,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s4-cap3": {
+      "firstAppears": 4.122,
+      "lastAnimates": 21.809,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s3-cap4": {
+      "firstAppears": 5.718,
+      "lastAnimates": 16.183,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    },
+    "#s4-cap4": {
+      "firstAppears": 6.117,
+      "lastAnimates": 23.804,
+      "tweenCount": 3,
+      "props": [
+        "y"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 70,
+        "y": 1440,
+        "w": 940,
+        "h": 230
+      }
+    }
+  },
+  "deadZones": [],
+  "snapshots": [
+    {
+      "t": 0,
+      "visibleElements": 11,
+      "animatingNow": [
+        "#s1-world"
+      ],
+      "elements": [
+        {
+          "id": "root",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-01",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s1-world",
+          "x": -78,
+          "y": -77,
+          "w": 1205,
+          "h": 2074,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-02",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s2-world",
+          "x": -51,
+          "y": -80,
+          "w": 1206,
+          "h": 2080,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-03",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s3-world",
+          "x": -56,
+          "y": -61,
+          "w": 1192,
+          "h": 2062,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-04",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s4-world",
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-05",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s5-world",
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "t": 7.2,
+      "visibleElements": 16,
+      "animatingNow": [
+        "#s3-world",
+        "#s4-world",
+        "#s2-world",
+        "#s2-world",
+        "#s2-halo"
+      ],
+      "elements": [
+        {
+          "id": "root",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-01",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s1-world",
+          "x": -87,
+          "y": -137,
+          "w": 1275,
+          "h": 2194,
+          "opacity": 1
+        },
+        {
+          "id": "s1-glow",
+          "x": 33,
+          "y": 864,
+          "w": 942,
+          "h": 942,
+          "opacity": 0.34
+        },
+        {
+          "id": "s1-rule",
+          "x": 503,
+          "y": -10,
+          "w": 3,
+          "h": 1226,
+          "opacity": 0.82
+        },
+        {
+          "id": "s1-cap3",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-02",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s2-world",
+          "x": -67,
+          "y": -97,
+          "w": 1227,
+          "h": 2115,
+          "opacity": 1
+        },
+        {
+          "id": "s2-halo",
+          "x": -258,
+          "y": 971,
+          "w": 973,
+          "h": 973,
+          "opacity": 0.38
+        },
+        {
+          "id": "s2-cap1",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-03",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s3-world",
+          "x": -56,
+          "y": -61,
+          "w": 1192,
+          "h": 2062,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-04",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s4-world",
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-05",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s5-world",
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "t": 14.4,
+      "visibleElements": 18,
+      "animatingNow": [
+        "#s3-world",
+        "#s3-world"
+      ],
+      "elements": [
+        {
+          "id": "root",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-01",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s1-world",
+          "x": -87,
+          "y": -137,
+          "w": 1275,
+          "h": 2194,
+          "opacity": 1
+        },
+        {
+          "id": "s1-glow",
+          "x": 33,
+          "y": 864,
+          "w": 942,
+          "h": 942,
+          "opacity": 0.34
+        },
+        {
+          "id": "s1-rule",
+          "x": 503,
+          "y": -10,
+          "w": 3,
+          "h": 1226,
+          "opacity": 0.82
+        },
+        {
+          "id": "s1-cap3",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-02",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s2-world",
+          "x": -111,
+          "y": -145,
+          "w": 1282,
+          "h": 2210,
+          "opacity": 1
+        },
+        {
+          "id": "s2-halo",
+          "x": -310,
+          "y": 971,
+          "w": 1017,
+          "h": 1017,
+          "opacity": 0.38
+        },
+        {
+          "id": "s2-cap2",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-03",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s3-world",
+          "x": -77,
+          "y": -108,
+          "w": 1235,
+          "h": 2135,
+          "opacity": 1
+        },
+        {
+          "id": "s3-halo",
+          "x": 51,
+          "y": 827,
+          "w": 922,
+          "h": 922,
+          "opacity": 0.32
+        },
+        {
+          "id": "s3-cap3",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-04",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s4-world",
+          "x": -79,
+          "y": -84,
+          "w": 1215,
+          "h": 2088,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-05",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s5-world",
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "t": 21.6,
+      "visibleElements": 20,
+      "animatingNow": [
+        "#s4-world",
+        "#s4-world"
+      ],
+      "elements": [
+        {
+          "id": "root",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-01",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s1-world",
+          "x": -87,
+          "y": -137,
+          "w": 1275,
+          "h": 2194,
+          "opacity": 1
+        },
+        {
+          "id": "s1-glow",
+          "x": 33,
+          "y": 864,
+          "w": 942,
+          "h": 942,
+          "opacity": 0.34
+        },
+        {
+          "id": "s1-rule",
+          "x": 503,
+          "y": -10,
+          "w": 3,
+          "h": 1226,
+          "opacity": 0.82
+        },
+        {
+          "id": "s1-cap3",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-02",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s2-world",
+          "x": -111,
+          "y": -145,
+          "w": 1282,
+          "h": 2210,
+          "opacity": 1
+        },
+        {
+          "id": "s2-halo",
+          "x": -310,
+          "y": 971,
+          "w": 1017,
+          "h": 1017,
+          "opacity": 0.38
+        },
+        {
+          "id": "s2-cap2",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-03",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s3-world",
+          "x": -94,
+          "y": -144,
+          "w": 1267,
+          "h": 2191,
+          "opacity": 1
+        },
+        {
+          "id": "s3-halo",
+          "x": 38,
+          "y": 816,
+          "w": 946,
+          "h": 946,
+          "opacity": 0.32
+        },
+        {
+          "id": "s3-cap4",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-04",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s4-world",
+          "x": -90,
+          "y": -122,
+          "w": 1259,
+          "h": 2164,
+          "opacity": 1
+        },
+        {
+          "id": "s4-halo",
+          "x": -46,
+          "y": 147,
+          "w": 1056,
+          "h": 1056,
+          "opacity": 0.38
+        },
+        {
+          "id": "s4-cap3",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-05",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s5-world",
+          "x": -55,
+          "y": -72,
+          "w": 1190,
+          "h": 2063,
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "t": 28.7,
+      "visibleElements": 23,
+      "animatingNow": [
+        "#s5-world",
+        "#s5-world"
+      ],
+      "elements": [
+        {
+          "id": "root",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-01",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s1-world",
+          "x": -87,
+          "y": -137,
+          "w": 1275,
+          "h": 2194,
+          "opacity": 1
+        },
+        {
+          "id": "s1-glow",
+          "x": 33,
+          "y": 864,
+          "w": 942,
+          "h": 942,
+          "opacity": 0.34
+        },
+        {
+          "id": "s1-rule",
+          "x": 503,
+          "y": -10,
+          "w": 3,
+          "h": 1226,
+          "opacity": 0.82
+        },
+        {
+          "id": "s1-cap3",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-02",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s2-world",
+          "x": -111,
+          "y": -145,
+          "w": 1282,
+          "h": 2210,
+          "opacity": 1
+        },
+        {
+          "id": "s2-halo",
+          "x": -310,
+          "y": 971,
+          "w": 1017,
+          "h": 1017,
+          "opacity": 0.38
+        },
+        {
+          "id": "s2-cap2",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-03",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s3-world",
+          "x": -94,
+          "y": -144,
+          "w": 1267,
+          "h": 2191,
+          "opacity": 1
+        },
+        {
+          "id": "s3-halo",
+          "x": 38,
+          "y": 816,
+          "w": 946,
+          "h": 946,
+          "opacity": 0.32
+        },
+        {
+          "id": "s3-cap4",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-04",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s4-world",
+          "x": -98,
+          "y": -154,
+          "w": 1296,
+          "h": 2229,
+          "opacity": 1
+        },
+        {
+          "id": "s4-halo",
+          "x": -54,
+          "y": 123,
+          "w": 1088,
+          "h": 1088,
+          "opacity": 0.38
+        },
+        {
+          "id": "s4-cap4",
+          "x": 70,
+          "y": 1440,
+          "w": 940,
+          "h": 230,
+          "opacity": 1
+        },
+        {
+          "id": "el-scene-05",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1920,
+          "opacity": 1
+        },
+        {
+          "id": "s5-world",
+          "x": -83,
+          "y": -120,
+          "w": 1245,
+          "h": 2160,
+          "opacity": 1
+        },
+        {
+          "id": "s5-halo",
+          "x": 15,
+          "y": 853,
+          "w": 980,
+          "h": 980,
+          "opacity": 0.4
+        },
+        {
+          "id": "s5-rule",
+          "x": 100,
+          "y": 850,
+          "w": 880,
+          "h": 4,
+          "opacity": 1
+        },
+        {
+          "id": "s5-cap2",
+          "x": 66,
+          "y": 1300,
+          "w": 948,
+          "h": 270,
+          "opacity": 1
+        }
+      ]
+    }
+  ]
+}

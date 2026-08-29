@@ -1,0 +1,37 @@
+[Script Info]
+Title: Действие после тени
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Oswald,78,&H00F1EEF1,&H00F1EEF1,&H00101012,&HC808090B,-1,0,0,0,100,100,1.2,0,3,13,0,2,62,62,255,1
+Style: Name,IBM Plex Mono,24,&H00F1EEF1,&H00F1EEF1,&H0008090B,&H0008090B,-1,0,0,0,100,100,2.2,0,1,2,0,7,64,40,92,1
+Style: Meta,IBM Plex Mono,18,&H00969394,&H00969394,&H0008090B,&H0008090B,0,0,0,0,100,100,2.0,0,1,1,0,9,40,64,94,1
+Style: End,Oswald,112,&H00F1EEF1,&H00F1EEF1,&H0008090B,&H0008090B,-1,0,0,0,100,100,3.0,0,1,4,0,5,60,60,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:02.10,Name,,0,0,0,,{\fad(100,180)}01 / АРСЕН МАРКАРЯН
+Dialogue: 1,0:00:00.00,0:00:02.10,Meta,,0,0,0,,MOTIVE / EXCUSE
+Dialogue: 2,0:00:00.00,0:00:02.70,Caption,,0,0,0,,{\fscx108\fscy108\t(0,150,\fscx100\fscy100)\fad(40,100)}МОЗГ ИЩЕТ\N{\c&H3F49D5&}ОПРАВДАНИЕ.
+Dialogue: 2,0:00:02.70,0:00:04.20,Caption,,0,0,0,,{\fscx108\fscy108\t(0,130,\fscx100\fscy100)\fad(30,90)}Я {\c&H3F49D5&}УСТАЛ.
+Dialogue: 2,0:00:04.20,0:00:06.10,Caption,,0,0,0,,{\fscx108\fscy108\t(0,130,\fscx100\fscy100)\fad(30,90)}ИДЁТ {\c&H3F49D5&}ДОЖДИК.
+Dialogue: 2,0:00:06.10,0:00:07.60,Caption,,0,0,0,,{\fscx108\fscy108\t(0,130,\fscx100\fscy100)\fad(30,90)}НАЧНУ {\c&H3F49D5&}ЗАВТРА.
+Dialogue: 2,0:00:07.60,0:00:10.24,Caption,,0,0,0,,{\fscx110\fscy110\t(0,160,\fscx100\fscy100)\fad(30,120)}ПРИЧИНА — {\c&H3F49D5&}СТРАХ.
+Dialogue: 1,0:00:10.24,0:00:12.24,Name,,0,0,0,,{\fad(90,160)}02 / ИГОРЬ РЫБАКОВ
+Dialogue: 1,0:00:10.24,0:00:12.24,Meta,,0,0,0,,MOTIVE / CONNECTION
+Dialogue: 2,0:00:10.24,0:00:12.50,Caption,,0,0,0,,{\fscx108\fscy108\t(0,140,\fscx100\fscy100)\fad(30,90)}{\c&H3F49D5&}ОДНА{\c&H00F1EEF1&} СВЯЗЬ.
+Dialogue: 2,0:00:12.50,0:00:14.20,Caption,,0,0,0,,{\fscx108\fscy108\t(0,130,\fscx100\fscy100)\fad(30,90)}ОДИН {\c&H3F49D5&}РАЗГОВОР.
+Dialogue: 2,0:00:14.20,0:00:16.81,Caption,,0,0,0,,{\fscx108\fscy108\t(0,150,\fscx100\fscy100)\fad(30,100)}МОЖЕТ РАДИКАЛЬНО\N{\c&H3F49D5&}ИЗМЕНИТЬ ЖИЗНЬ.
+Dialogue: 1,0:00:16.81,0:00:18.81,Name,,0,0,0,,{\fad(90,160)}03 / ОСКАР ХАРТМАНН
+Dialogue: 1,0:00:16.81,0:00:18.81,Meta,,0,0,0,,MOTIVE / ACTION
+Dialogue: 2,0:00:16.81,0:00:20.25,Caption,,0,0,0,,{\fscx106\fscy106\t(0,150,\fscx100\fscy100)\fad(30,110)}МОТИВАЦИЯ ПРИХОДИТ\NПОСЛЕ {\c&H3F49D5&}МОЩНЫХ ДЕЙСТВИЙ.
+Dialogue: 2,0:00:20.25,0:00:24.00,Caption,,0,0,0,,{\fscx106\fscy106\t(0,150,\fscx100\fscy100)\fad(30,110)}СМЕЛОСТЬ ТОЖЕ ПРИХОДИТ\N{\c&H3F49D5&}ПОСЛЕ ДЕЙСТВИЯ.
+Dialogue: 2,0:00:24.00,0:00:27.00,Caption,,0,0,0,,{\fscx106\fscy106\t(0,150,\fscx100\fscy100)\fad(30,110)}ТЫ ЖДЁШЬ\N{\c&H3F49D5&}ПОДХОДЯЩИЙ МОМЕНТ?
+Dialogue: 2,0:00:27.00,0:00:29.01,Caption,,0,0,0,,{\fscx108\fscy108\t(0,150,\fscx100\fscy100)\fad(30,120)}ОН ТОЖЕ СТОИТ\N{\c&H3F49D5&}ЗА ДЕЙСТВИЯМИ.
+Dialogue: 3,0:00:29.01,0:00:30.61,End,,0,0,0,,{\fscx115\fscy115\t(0,220,\fscx100\fscy100)\fad(70,180)}НАЧНИ. {\c&H3F49D5&}СЕЙЧАС.
+

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/safety_gate_report.schema.json",
+  "title": "SafetyGateReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "idea_id",
+    "lane",
+    "gate_type",
+    "checked_at",
+    "reviewer",
+    "source_ids_checked",
+    "findings",
+    "decision"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 3, "maxLength": 128},
+    "idea_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{5,63}$"},
+    "lane": {"enum": ["war_history", "celebrity_news", "motivation", "chinese_medicine", "health"]},
+    "gate_type": {"enum": ["war_sensitivity", "privacy_defamation", "medical_safety", "editorial_safety"]},
+    "checked_at": {"type": "string", "format": "date-time"},
+    "reviewer": {"type": "string", "minLength": 2, "maxLength": 120},
+    "source_ids_checked": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 2},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "severity", "message"],
+        "properties": {
+          "code": {"type": "string", "minLength": 2, "maxLength": 80},
+          "severity": {"enum": ["info", "warning", "blocking"]},
+          "message": {"type": "string", "minLength": 3, "maxLength": 600},
+          "claim_id": {"type": "string", "minLength": 2}
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["passed", "needs_human_review", "review_notes"],
+      "properties": {
+        "passed": {"type": "boolean"},
+        "needs_human_review": {"type": "boolean"},
+        "review_notes": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 2}
+        }
+      }
+    }
+  }
+}

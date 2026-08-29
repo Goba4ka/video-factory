@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Подпишись</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      #cta-orb {
+        top: 60px;
+        left: 160px;
+      }
+      .cta-portraits {
+        top: 260px;
+        height: 400px;
+      }
+      .cta-portraits img.sandra {
+        object-position: 50% 25%;
+      }
+      .cta-portraits img.nicole {
+        object-position: 50% 23%;
+      }
+      .cta-title {
+        position: absolute;
+        top: 735px;
+        left: 72px;
+        z-index: 7;
+        width: 920px;
+        font-size: 118px;
+      }
+      .cta-button {
+        position: absolute;
+        top: 1015px;
+        left: 72px;
+        z-index: 8;
+        width: 650px;
+        min-height: 132px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 24px 34px;
+        background: var(--amber);
+        color: var(--ink);
+        font-family: "Oswald", sans-serif;
+        font-size: 76px;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        text-transform: uppercase;
+        will-change: transform, opacity;
+      }
+      .cta-arrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 54px;
+      }
+      .cta-promise {
+        position: absolute;
+        top: 1195px;
+        left: 72px;
+        z-index: 8;
+        width: 870px;
+        color: var(--moon);
+        font-size: 24px;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-09-cta"
+      data-duration="6.053105"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="moon-orb" id="cta-orb" data-layout-ignore></div>
+      <div class="top-meta">
+        <span class="mono scene-index">09 / ФИНАЛ</span>
+        <span class="mono">ЗВЁЗДЫ · БЕЗ СЛУХОВ</span>
+      </div>
+      <div class="portrait-stage cta-portraits">
+        <div class="portrait-card left" id="cta-sandra">
+          <img class="sandra" src="assets/images/sandra-bullock-2018.jpg" alt="Сандра Буллок" />
+          <div class="archive-label mono">АРХИВ · 2018</div>
+        </div>
+        <div class="portrait-card right" id="cta-nicole">
+          <img class="nicole" src="assets/images/nicole-kidman-2006.jpg" alt="Николь Кидман" />
+          <div class="archive-label mono">АРХИВ · 2006</div>
+        </div>
+      </div>
+      <h1 class="display cta-title" id="cta-title">ЖДАЛ<br /><span class="accent">ПРОДОЛЖЕНИЕ?</span></h1>
+      <div class="cta-button" id="cta-button"><span>ПОДПИШИСЬ</span><span class="cta-arrow">→</span></div>
+      <div class="mono cta-promise" id="cta-promise">ЗДЕСЬ ТОЛЬКО ПРОВЕРЕННЫЕ НОВОСТИ О ЗНАМЕНИТОСТЯХ</div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#cta-orb", { opacity: 0, scale: 0.82 }, { opacity: 0.34, scale: 1, duration: 0.92, ease: "power2.out" }, 0.12);
+      tl.to("#cta-orb", { scale: 1.045, x: 8, duration: 4.8, ease: "sine.inOut" }, 1.04);
+      tl.fromTo(".top-meta", { y: -28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.15);
+      tl.fromTo("#cta-sandra", { x: -250, rotationY: 18, opacity: 0 }, { x: 0, rotationY: 8, opacity: 1, duration: 0.72, ease: "power4.out" }, 0.38);
+      tl.fromTo("#cta-nicole", { x: 250, rotationY: -18, opacity: 0 }, { x: 0, rotationY: -8, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.5);
+      tl.fromTo("#cta-title", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.58, ease: "expo.out" }, 0.88);
+      tl.fromTo("#cta-button", { scaleX: 0.5, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.46, ease: "power4.out", transformOrigin: "0 50%" }, 1.3);
+      tl.fromTo("#cta-promise", { x: -48, opacity: 0 }, { x: 0, opacity: 1, duration: 0.46, ease: "power2.out" }, 1.54);
+      tl.to("#cta-button", { scale: 1.02, duration: 1.5, ease: "sine.inOut", yoyo: true, repeat: 2 }, 2.0);
+      window.__timelines["scene-09-cta"] = tl;
+    </script>
+  </body>
+</html>

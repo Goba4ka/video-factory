@@ -1,0 +1,68 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "0a18332603335ed4a90343007bcfb424fe7313451493b4a44508bc643b74847e",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\0a\\0a18332603335ed4a90343007bcfb424fe7313451493b4a44508bc643b74847e.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 1.985,
+  "failures": [],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 30.016,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 30.016,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-v2-20260829\\telegram\\chinese-medicine-cupping-v1-telegram.mp4",
+    "size_bytes": 2754331,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 30.0,
+      "fps": 30.0,
+      "height": 1280,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 720
+    }
+  },
+  "ok": true,
+  "profile": {
+    "name": "motivation_v3_telegram",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -14.44,
+      "lra_lu": 2.0,
+      "threshold_lufs": -24.77,
+      "true_peak_dbtp": -1.11
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-v2-20260829\\telegram\\chinese-medicine-cupping-v1-telegram.mp4",
+  "status": "final_technical_pass",
+  "technical_pass": true,
+  "warnings": [
+    {
+      "code": "delivery_size",
+      "message": "2754331 bytes exceeds Telegram target 2651280"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Главная интрига</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      .question-title {
+        position: absolute;
+        top: 270px;
+        left: 72px;
+        z-index: 6;
+        width: 910px;
+        font-size: 122px;
+        text-shadow: 0 12px 44px rgba(9, 10, 14, 0.92);
+      }
+      .question-title .last {
+        display: block;
+        color: var(--amber);
+        font-size: 148px;
+      }
+      .genre-stack {
+        position: absolute;
+        top: 820px;
+        left: 72px;
+        right: 72px;
+        z-index: 7;
+        display: grid;
+        gap: 18px;
+      }
+      .genre-chip {
+        min-height: 116px;
+        padding: 22px 30px;
+        opacity: 0;
+        background: rgba(9, 10, 14, 0.88);
+        border-top: 2px solid rgba(217, 222, 255, 0.44);
+        color: var(--paper);
+        font-family: "Oswald", sans-serif;
+        font-size: 70px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+      .genre-chip:nth-child(2) {
+        color: var(--moon);
+      }
+      .genre-chip:nth-child(3) {
+        color: var(--amber);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-08-question"
+      data-duration="6.778776"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="media-frame">
+        <div class="media-motion" id="question-media" data-layout-allow-overflow>
+          <video
+            id="question-video"
+            class="clip media-clip"
+            src="assets/footage/moon-intrigue.mp4"
+            data-start="0"
+            data-duration="6.778776"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="mono scene-index">08 / ИНТРИГА</span>
+        <span class="mono">1998 → 2026</span>
+      </div>
+      <h1 class="display question-title" id="question-title">
+        ВЕРНЁТСЯ ЛИ<br />ТА САМАЯ
+        <span class="last">ФОРМУЛА?</span>
+      </h1>
+      <div class="genre-stack">
+        <div class="genre-chip" id="genre-1">РОМАНТИКА</div>
+        <div class="genre-chip" id="genre-2">ЧЁРНЫЙ ЮМОР</div>
+        <div class="genre-chip" id="genre-3">МИСТИКА</div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#question-media", { scale: 1.01, x: -10 }, { scale: 1.08, x: 12, duration: 6.778776, ease: "none" }, 0);
+      tl.fromTo(".top-meta", { opacity: 0, x: 34 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.14);
+      tl.fromTo("#question-title", { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.72, ease: "expo.out", transformOrigin: "0 50%" }, 0.34);
+      tl.set("#genre-1", { opacity: 1, y: 78 }, 0.96);
+      tl.to("#genre-1", { y: 0, duration: 0.2, ease: "power4.out" }, 0.96);
+      tl.set("#genre-2", { opacity: 1, y: 58 }, 1.17);
+      tl.to("#genre-2", { y: 0, duration: 0.17, ease: "power3.out" }, 1.17);
+      tl.set("#genre-3", { opacity: 1, y: 42 }, 1.35);
+      tl.to("#genre-3", { y: 0, duration: 0.14, ease: "expo.out" }, 1.35);
+      tl.to(".genre-stack", { y: -9, duration: 3.2, ease: "sine.inOut" }, 2.0);
+      window.__timelines["scene-08-question"] = tl;
+    </script>
+  </body>
+</html>

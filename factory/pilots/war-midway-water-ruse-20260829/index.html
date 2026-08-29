@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <title>Мидуэй: фальшивая нехватка воды</title>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face{font-family:OswaldLocal;src:url("assets/fonts/Oswald-Variable.ttf") format("truetype");font-weight:200 700;font-display:block}
+    *{box-sizing:border-box}html,body{width:1080px;height:1920px;margin:0;overflow:hidden;background:#080806}#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#080806;isolation:isolate}
+    .scene{position:absolute;inset:0;width:1080px;height:1920px;object-fit:cover;object-position:center;opacity:0;filter:sepia(.28) saturate(.55) contrast(1.24) brightness(.66);will-change:opacity,transform}
+    .shade{position:absolute;inset:0;z-index:5;background:linear-gradient(180deg,rgba(4,4,3,.44),rgba(4,4,3,.02) 30%,rgba(4,4,3,.08) 53%,rgba(4,4,3,.92) 100%)}
+    .grain{position:absolute;inset:-30px;z-index:6;opacity:.16;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
+    .rule{position:absolute;left:72px;right:72px;top:230px;height:2px;z-index:13;background:#d63b2f;transform-origin:left center}
+    .source{position:absolute;left:72px;right:72px;top:118px;z-index:14;display:flex;justify-content:space-between;align-items:center;padding:13px 18px 15px;background:rgba(5,5,4,.88);font-family:OswaldLocal,Arial,sans-serif;text-transform:uppercase;color:#fff5df;font-size:30px;letter-spacing:.09em}.source b{color:#ff9386;font-weight:650}.source span:last-child{font-size:26px;color:#fff5df}
+    .caption{position:absolute;left:58px;right:58px;top:990px;height:350px;z-index:20;display:flex;align-items:center;justify-content:center;text-align:center}.caption span{max-width:950px;color:#f4ead2;font-family:OswaldLocal,Arial,sans-serif;font-size:92px;font-weight:680;line-height:1.01;letter-spacing:-.018em;text-transform:uppercase;-webkit-text-stroke:3px #070705;paint-order:stroke fill;text-shadow:0 12px 30px rgba(0,0,0,.95)}.caption .small{font-size:78px}.caption .hit{font-size:112px}.red{color:#ed493b}.cream{color:#ffeeb9}
+    .codecard{position:absolute;left:92px;right:92px;top:420px;z-index:17;padding:44px 50px 48px;border:2px solid rgba(244,234,210,.72);background:rgba(10,10,8,.88);font-family:OswaldLocal,Arial,sans-serif;text-transform:uppercase;text-align:center;color:#f4ead2;opacity:0}.codecard .kicker{font-size:28px;letter-spacing:.12em;color:#ed493b}.codecard strong{display:block;margin:18px 0 12px;font-size:108px;line-height:.95;letter-spacing:.01em}.codecard p{margin:0;font-size:43px;line-height:1.13}.codecard .decode{margin-top:28px;padding-top:24px;border-top:2px solid #ed493b;color:#ffeeb9;font-size:58px;font-weight:650}
+    .final{position:absolute;left:68px;right:68px;top:395px;z-index:25;padding:46px 40px 50px;background:#ece3cd;color:#11110e;border-top:12px solid #d63b2f;font-family:OswaldLocal,Arial,sans-serif;text-transform:uppercase;text-align:center;opacity:0}.final b{display:block;font-size:31px;letter-spacing:.11em;color:#a72b24}.final strong{display:block;margin-top:24px;font-size:82px;line-height:1.04}.final em{display:block;margin-top:28px;font-size:39px;line-height:1.12;font-style:normal}
+    .signal{position:absolute;left:120px;right:120px;top:405px;z-index:24;padding:42px 42px 46px;background:rgba(8,8,6,.92);border:2px solid #e9dfc8;color:#f4ead2;font-family:OswaldLocal,Arial,sans-serif;text-transform:uppercase;text-align:center;opacity:0}.signal b{display:block;color:#ed493b;font-size:29px;letter-spacing:.12em}.signal strong{display:block;margin:20px 0 18px;font-size:70px;line-height:1.03}.signal p{margin:0;font-size:36px;line-height:1.12;color:#ffeeb9}.dot{display:inline-block;width:25px;height:25px;margin-right:14px;border-radius:50%;background:#ed493b;box-shadow:0 0 0 12px rgba(237,73,59,.18)}
+  </style>
+</head>
+<body>
+<div id="root" data-root="true" data-hf-id="root" data-composition-id="war-midway-water-ruse" data-start="0" data-width="1080" data-height="1920" data-duration="35.20" data-fps="30">
+  <video class="clip scene" id="s01" data-hf-id="s01" src="assets/video/midway-archive.webm" data-start="0" data-duration="3.75" data-media-start="718" muted playsinline></video>
+  <video class="clip scene" id="s02" data-hf-id="s02" src="assets/video/midway-archive.webm" data-start="3.75" data-duration="4.20" data-media-start="174" muted playsinline></video>
+  <video class="clip scene" id="s03" data-hf-id="s03" src="assets/video/midway-archive.webm" data-start="7.95" data-duration="4.05" data-media-start="536" muted playsinline></video>
+  <video class="clip scene" id="s04" data-hf-id="s04" src="assets/video/midway-archive.webm" data-start="12.00" data-duration="4.55" data-media-start="261" muted playsinline></video>
+  <video class="clip scene" id="s05" data-hf-id="s05" src="assets/video/midway-archive.webm" data-start="16.55" data-duration="1.95" data-media-start="625" muted playsinline></video>
+  <video class="clip scene" id="s06" data-hf-id="s06" src="assets/video/midway-archive.webm" data-start="18.50" data-duration="1.85" data-media-start="710" muted playsinline></video>
+  <video class="clip scene" id="s07" data-hf-id="s07" src="assets/video/midway-archive.webm" data-start="20.35" data-duration="1.85" data-media-start="804" muted playsinline></video>
+  <video class="clip scene" id="s08" data-hf-id="s08" src="assets/video/midway-archive.webm" data-start="22.20" data-duration="1.92" data-media-start="535" muted playsinline></video>
+  <video class="clip scene" id="s09" data-hf-id="s09" src="assets/video/midway-archive.webm" data-start="24.12" data-duration="2.98" data-media-start="897" muted playsinline></video>
+  <video class="clip scene" id="s10" data-hf-id="s10" src="assets/video/midway-archive.webm" data-start="27.10" data-duration="2.12" data-media-start="625" muted playsinline></video>
+  <video class="clip scene" id="s11" data-hf-id="s11" src="assets/video/midway-archive.webm" data-start="29.22" data-duration="2.33" data-media-start="984" muted playsinline></video>
+  <video class="clip scene" id="s12" data-hf-id="s12" src="assets/video/midway-archive.webm" data-start="31.55" data-duration="3.65" data-media-start="740" muted playsinline></video>
+  <div class="shade" data-hf-id="shade" data-layout-allow-overlap="true"></div><div class="grain" data-hf-id="grain" data-layout-allow-overlap="true"></div><div class="rule" data-hf-id="rule" data-layout-allow-overlap="true"></div>
+  <div class="source" data-hf-id="source" data-layout-allow-overlap="true"><span><b>РАССЕКРЕЧЕНО</b> • МИДУЭЙ</span><span>АРХИВ США • 1942</span></div>
+
+  <div id="c01" class="clip caption" data-hf-id="c01" data-start="0" data-duration="1.70"><span class="small">ОДНА ФРАЗА РАСКРЫЛА ЦЕЛЬ</span></div>
+  <div id="c02" class="clip caption" data-hf-id="c02" data-start="1.70" data-duration="1.88"><span class="hit">ЯПОНСКОГО ФЛОТА</span></div>
+  <div id="c03" class="clip caption" data-hf-id="c03" data-start="3.84" data-duration="4.04"><span class="small">РАДИОРАЗВЕДКА ВИДЕЛА ШИФР</span></div>
+  <div id="c04" class="clip caption" data-hf-id="c04" data-start="7.88" data-duration="3.68"><span>ЦЕЛЬ <span class="red">«ЭЙ-ЭФ»</span></span></div>
+  <div id="c05" class="clip caption" data-hf-id="c05" data-start="11.72" data-duration="2.02"><span class="small">ОСТРОВУ ПРИКАЗАЛИ ПЕРЕДАТЬ</span></div>
+  <div id="c06" class="clip caption" data-hf-id="c06" data-start="13.94" data-duration="2.44"><span>«ВОДЫ НЕ ХВАТАЕТ»</span></div>
+  <div id="c07" class="clip caption" data-hf-id="c07" data-start="16.64" data-duration="1.28"><span>ЯПОНЦЫ ПЕРЕХВАТИЛИ</span></div>
+  <div id="c08" class="clip caption" data-hf-id="c08" data-start="18.50" data-duration="3.24"><span class="small">22 МАЯ: НОВОЕ ДОНЕСЕНИЕ</span></div>
+  <div id="c09" class="clip caption" data-hf-id="c09" data-start="22.06" data-duration="1.88"><span>У «ЭЙ-ЭФ» ВОДЫ НА 2 НЕДЕЛИ</span></div>
+  <div id="c10" class="clip caption" data-hf-id="c10" data-start="24.12" data-duration="2.84"><span><span class="red">«ЭЙ-ЭФ» = МИДУЭЙ</span></span></div>
+  <div id="c11" class="clip caption" data-hf-id="c11" data-start="27.20" data-duration="2.02"><span class="small">АВИАНОСЦЫ УЖЕ ЖДАЛИ</span></div>
+  <div id="c12" class="clip caption" data-hf-id="c12" data-start="29.22" data-duration="2.28"><span>ЯПОНИЯ ПОТЕРЯЛА ЧЕТЫРЕ</span></div>
+  <div id="c13" class="clip caption" data-hf-id="c13" data-start="31.72" data-duration="1.28"><span>НЕ ВОДА ВЫИГРАЛА БИТВУ</span></div>
+  <div id="c14" class="clip caption" data-hf-id="c14" data-start="33.10" data-duration="1.64"><span class="small">ОНА ПОМОГЛА НАЙТИ ЛОВУШКУ</span></div>
+
+  <div id="mapcard" class="signal" data-hf-id="mapcard" data-layout-allow-overlap="true"><b>КОДОВОЕ ОБОЗНАЧЕНИЕ</b><strong><span class="dot"></span>«ЭЙ-ЭФ»</strong><p>РАЗВЕДКА ПОДОЗРЕВАЛА:<br>ЭТО ОСТРОВ МИДУЭЙ</p></div>
+  <div id="radiocard" class="signal" data-hf-id="radiocard" data-layout-allow-overlap="true"><b>РАДИОПЕРЕХВАТ • 22 МАЯ</b><strong>«У ЭЙ-ЭФ ВОДЫ<br>НА ДВЕ НЕДЕЛИ»</strong><p>КОД БЫЛ ПОДТВЕРЖДЁН</p></div>
+  <div id="codecard" class="codecard" data-hf-id="codecard" data-layout-allow-overlap="true"><div class="kicker" data-layout-allow-overlap="true">ЯПОНСКИЙ ШИФР</div><strong data-layout-allow-overlap="true">«ЭЙ-ЭФ»</strong><p data-layout-allow-overlap="true">ВОДЫ ОСТАЛОСЬ<br>НА ДВЕ НЕДЕЛИ</p><div class="decode" data-layout-allow-overlap="true">«ЭЙ-ЭФ» = МИДУЭЙ</div></div>
+  <div id="final" class="final" data-hf-id="final" data-layout-allow-overlap="true"><b>ПОПРАВКА К МИФУ</b><strong>НЕ ОДНА ХИТРОСТЬ<br>ВЫИГРАЛА БИТВУ</strong><em>радиоперехват подтвердил цель<br>и помог подготовить засаду</em></div>
+
+  <audio id="voice" data-hf-id="voice" src="assets/audio/voice.wav" data-start="0" data-duration="34.82" data-media-start="0" data-audio-group="voiceover"></audio>
+  <audio id="music" data-hf-id="music" src="assets/audio/music.mp3" data-start="0" data-duration="35.20" data-media-start="18" data-volume="0.085" data-fx-carve="{&quot;enabled&quot;:true,&quot;sources&quot;:[&quot;voiceover&quot;],&quot;strength&quot;:0.20}" data-fx-chain="{&quot;version&quot;:1,&quot;nodes&quot;:[{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;n1&quot;,&quot;fromCarve&quot;:true,&quot;params&quot;:{&quot;frequency&quot;:1600,&quot;gain&quot;:-3.2,&quot;q&quot;:1.35}},{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;n2&quot;,&quot;fromCarve&quot;:true,&quot;params&quot;:{&quot;frequency&quot;:2500,&quot;gain&quot;:-4.6,&quot;q&quot;:1.35}}]}"></audio>
+</div>
+<script>
+  const tl=gsap.timeline({paused:true});
+  const poses=[[-1.20,0,1.28],[-1.11,-2,1.20],[-1.15,1,1.24],[-1.16,-1,1.25],[-1.13,2,1.22],[-1.18,-1,1.27],[-1.16,1,1.25],[-1.20,0,1.29],[-1.14,2,1.23],[-1.18,-2,1.27],[-1.16,1,1.25],[-1.20,0,1.29]];
+  document.querySelectorAll('.scene').forEach((s,i)=>{const st=+s.dataset.start,d=+s.dataset.duration,p=poses[i];tl.fromTo(s,{opacity:0,scale:Math.abs(p[0]),xPercent:p[1]},{opacity:1,scale:Math.abs(p[0]),xPercent:p[1],duration:.08,ease:'none',immediateRender:false},st).to(s,{scale:p[2],xPercent:-p[1],duration:d,ease:'none'},st).to(s,{opacity:0,duration:.08},st+d-.08)});
+  document.querySelectorAll('.caption').forEach(c=>{const t=c.firstElementChild,st=+c.dataset.start,d=+c.dataset.duration;tl.fromTo(t,{opacity:0,y:18,scale:1.02},{opacity:1,y:0,scale:1,duration:.12,ease:'power3.out',immediateRender:false},st).to(t,{opacity:0,y:-8,duration:.09},st+d-.09)});
+  tl.fromTo('.rule',{scaleX:0},{scaleX:1,duration:.55,ease:'power2.out',immediateRender:false},0)
+    .fromTo('#mapcard',{opacity:0,scale:1.03},{opacity:1,scale:1,duration:.16,ease:'power3.out',immediateRender:false},7.88).to('#mapcard',{opacity:0,duration:.10},10.40).set('#mapcard',{opacity:0},10.50)
+    .fromTo('#radiocard',{opacity:0,scale:1.03},{opacity:1,scale:1,duration:.16,ease:'power3.out',immediateRender:false},18.50).to('#radiocard',{opacity:0,duration:.10},21.80).set('#radiocard',{opacity:0},21.90)
+    .fromTo('#codecard',{opacity:0,scale:1.04},{opacity:1,scale:1,duration:.16,ease:'power3.out',immediateRender:false},22.06).to('#codecard',{opacity:0,duration:.12},23.90).set('#codecard',{opacity:0},24.02)
+    .fromTo('#final',{opacity:0,scale:1.03},{opacity:1,scale:1,duration:.18,ease:'power3.out',immediateRender:false},31.70).to('#final',{opacity:0,duration:.10},34.55).set('#final',{opacity:0},34.65);
+  window.__timelines['war-midway-water-ruse']=tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Ловушка знания — Оскар Хартманн</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "OswaldLocal"; src: url("assets/fonts/Oswald-Variable.ttf") format("truetype"); font-weight: 200 700; }
+      @font-face { font-family: "PlexMonoLocal"; src: url("assets/fonts/IBMPlexMono-Regular.ttf") format("truetype"); font-weight: 400; }
+      @font-face { font-family: "PlexMonoLocal"; src: url("assets/fonts/IBMPlexMono-Bold.ttf") format("truetype"); font-weight: 700; }
+      :root { --ink:#0b0b09; --ivory:#f2efe8; --brass:#d9b978; --muted:#b8b2a7; }
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin:0; width:1080px; height:1920px; overflow:hidden; background:var(--ink); }
+      #motivation-ru-focus-v2 { position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--ink); color:var(--ivory); }
+      .clip { position:absolute; inset:0; }
+      #picture-host { overflow:hidden; z-index:1; }
+      #camera { position:absolute; inset:-50px; transform-origin:56% 38%; will-change:transform; }
+      #speaker-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:56% 50%; }
+      #tone { z-index:5; pointer-events:none; background:
+        radial-gradient(circle at 58% 32%, rgba(217,185,120,.06), transparent 38%),
+        linear-gradient(180deg, rgba(6,6,5,.10) 0%, rgba(6,6,5,.04) 46%, rgba(6,6,5,.54) 85%, rgba(6,6,5,.78) 100%); }
+      #vignette { z-index:6; pointer-events:none; box-shadow:inset 0 0 190px 36px rgba(0,0,0,.40); }
+      #chrome { z-index:20; pointer-events:none; font-family:"PlexMonoLocal", monospace; }
+      .top-rule { position:absolute; top:82px; left:62px; right:62px; height:2px; background:rgba(242,239,232,.28); }
+      .eyebrow { position:absolute; top:104px; left:64px; display:flex; align-items:center; gap:15px; font-size:24px; line-height:1; letter-spacing:.11em; text-transform:uppercase; text-shadow:0 2px 12px rgba(0,0,0,.65); }
+      .eyebrow .dot { width:9px; height:9px; border-radius:50%; background:var(--brass); box-shadow:0 0 20px rgba(217,185,120,.45); }
+      .episode { position:absolute; top:104px; right:64px; color:var(--ivory); font-size:22px; font-weight:700; letter-spacing:.08em; text-shadow:0 2px 9px rgba(0,0,0,.95), 0 0 3px rgba(0,0,0,.9); }
+      .caption-layer { z-index:30; pointer-events:none; }
+      .caption-card { position:absolute; left:62px; right:62px; bottom:405px; display:flex; justify-content:center; text-align:center; }
+      .caption-text { max-width:930px; margin:0; color:var(--ivory); font-family:"OswaldLocal", sans-serif; font-size:76px; font-weight:700; line-height:1.06; letter-spacing:.018em; text-transform:uppercase; text-wrap:balance; text-shadow:0 4px 5px rgba(0,0,0,.82), 0 12px 34px rgba(0,0,0,.76); }
+      .accent { color:var(--brass); }
+      .signature { position:absolute; left:64px; bottom:92px; display:flex; align-items:center; gap:16px; color:rgba(242,239,232,.56); font-family:"PlexMonoLocal",monospace; font-size:20px; letter-spacing:.08em; text-transform:uppercase; }
+      .signature::before { content:""; width:46px; height:2px; background:var(--brass); }
+    </style>
+  </head>
+  <body>
+    <main id="motivation-ru-focus-v2" data-composition-id="motivation-ru-focus-v2" data-width="1080" data-height="1920" data-duration="28.37" data-fps="30">
+      <div id="picture-host">
+        <div id="camera">
+          <video id="speaker-video" src="assets/source/oskar-hartmann-official.mp4" muted playsinline data-start="0" data-duration="28.37" data-track-index="2" data-media-start="28.68"></video>
+        </div>
+      </div>
+
+      <div id="tone" class="clip" data-start="0" data-duration="28.37" data-track-index="5"></div>
+      <div id="vignette" class="clip" data-start="0" data-duration="28.37" data-track-index="6"></div>
+
+      <div id="chrome" class="clip" data-start="0" data-duration="28.37" data-track-index="20">
+        <div class="top-rule"></div>
+        <div class="eyebrow"><span class="dot"></span><span>ОСКАР ХАРТМАНН / ДЕЙСТВИЕ</span></div>
+        <div class="episode">MOTIVE / 02</div>
+        <div class="signature">ЗНАНИЕ ≠ ДЕЙСТВИЕ</div>
+      </div>
+
+      <section id="caption-1" class="clip caption-layer" data-start="0" data-duration="3.08" data-track-index="30"><div class="caption-card"><p class="caption-text">ВЫ УЖЕ <span class="accent">ВСЁ ЗНАЕТЕ</span>,<br>ЧТОБЫ ДОБИТЬСЯ УСПЕХА.</p></div></section>
+      <section id="caption-2" class="clip caption-layer" data-start="3.08" data-duration="2.10" data-track-index="30"><div class="caption-card"><p class="caption-text">ВОТ. ПРОСТО Я <span class="accent">УВЕРЕН</span>.</p></div></section>
+      <section id="caption-3" class="clip caption-layer" data-start="5.18" data-duration="5.72" data-track-index="30"><div class="caption-card"><p class="caption-text">СЕЙЧАС В КАЖДОМ ИЗ ВАС<br>ЕСТЬ <span class="accent">ВСЕ ЗНАНИЯ</span>.</p></div></section>
+      <section id="caption-4" class="clip caption-layer" data-start="10.90" data-duration="3.75" data-track-index="30"><div class="caption-card"><p class="caption-text">ЕСЛИ <span class="accent">ЗАПРЕТИТЬ</span> ВАМ<br>УЧИТЬСЯ…</p></div></section>
+      <section id="caption-5" class="clip caption-layer" data-start="14.65" data-duration="4.05" data-track-index="30"><div class="caption-card"><p class="caption-text">У ВАС <span class="accent">ВСЁ</span> РАВНО ЕСТЬ<br>ВСЁ ДЛЯ ЛЮБЫХ ЦЕЛЕЙ.</p></div></section>
+      <section id="caption-6" class="clip caption-layer" data-start="18.70" data-duration="4.70" data-track-index="30"><div class="caption-card"><p class="caption-text">НАДО ТОЛЬКО НАУЧИТЬСЯ<br><span class="accent">ЗАСТАВЛЯТЬ СЕБЯ</span>…</p></div></section>
+      <section id="caption-7" class="clip caption-layer" data-start="23.40" data-duration="4.97" data-track-index="30"><div class="caption-card"><p class="caption-text"><span class="accent">ДЕЛАТЬ</span> ТО,<br>ЧТО ТЫ УЖЕ ЗНАЕШЬ.</p></div></section>
+
+      <audio id="speaker-voice" src="assets/audio/oskar-voice-28.68-57.05.wav" data-start="0" data-duration="28.37" data-track-index="40" data-volume="1" data-group="voiceover" data-fx-chain="highpass=f=80,lowpass=f=15500,equalizer=f=250:t=q:w=1:g=-2,acompressor=threshold=-20dB:ratio=2.5:attack=10:release=120:makeup=2"></audio>
+      <audio id="music-bed" src="assets/audio/the-long-dark-165.00-193.37.wav" data-start="0" data-duration="28.37" data-track-index="41" data-volume="0.18" data-group="music" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":1.4,"v":0.14},{"t":9.8,"v":0.16},{"t":20.5,"v":0.19},{"t":26.8,"v":0.23},{"t":28.37,"v":0.12}]}]}'></audio>
+    </main>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#camera", { scale: 1.00, x: 0, y: 0 }, { scale: 1.055, x: -8, y: -10, duration: 10.90, ease: "sine.inOut" }, 0)
+        .to("#camera", { scale: 1.105, x: -18, y: -18, duration: 0.32, ease: "power2.out" }, 10.90)
+        .to("#camera", { scale: 1.075, x: -12, y: -12, duration: 3.43, ease: "sine.out" }, 11.22)
+        .to("#camera", { scale: 1.125, x: -24, y: -22, duration: 8.75, ease: "sine.inOut" }, 14.65)
+        .to("#camera", { scale: 1.17, x: -30, y: -28, duration: 4.97, ease: "sine.inOut" }, 23.40);
+      tl.fromTo("#chrome", { opacity: 0 }, { opacity: 1, duration: 0.55, ease: "power1.out" }, 0);
+      document.querySelectorAll(".caption-card").forEach((el) => {
+        const host = el.closest("[data-start]");
+        const start = Number(host.dataset.start || 0);
+        const duration = Number(host.dataset.duration || 0);
+        tl.fromTo(el, { opacity: 0, y: 18, filter: "blur(7px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.24, ease: "power2.out" }, start)
+          .to(el, { opacity: 0, y: -8, duration: 0.16, ease: "power1.in" }, Math.max(start + 0.24, start + duration - 0.16));
+      });
+      window.__timelines["motivation-ru-focus-v2"] = tl;
+    </script>
+  </body>
+</html>

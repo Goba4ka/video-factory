@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position:absolute; inset:0; width:1080px; height:1920px; overflow:hidden; background:#000; }
+        .square { position:absolute; left:0; top:420px; width:1080px; height:1080px; overflow:hidden; background:#050505; }
+        .camera { position:absolute; top:0; left:-270px; width:1920px; height:1080px; transform-origin:42.1875% 50%; will-change:transform; }
+        .source-video { position:absolute; inset:0; width:1920px; height:1080px; object-fit:cover; }
+        @font-face { font-family:"Arial Narrow Local"; src:url("assets/fonts/arial-narrow-bold.ttf") format("truetype"); font-weight:900; font-style:normal; font-display:block; }
+        .cue { position:absolute; left:0; top:420px; width:1080px; height:1080px; display:flex; align-items:center; justify-content:center; padding:0 40px; box-sizing:border-box; text-align:center; pointer-events:none; }
+        .glyph { display:inline-block; max-width:1000px; white-space:nowrap; color:#f5f3ee; font-family:"Arial Narrow Local","Arial Black",sans-serif; font-size:82px; font-style:italic; font-weight:900; line-height:.92; letter-spacing:-.035em; text-transform:uppercase; -webkit-text-stroke:5px #050505; paint-order:stroke fill; text-shadow:0 9px 11px rgba(0,0,0,.92),0 2px 0 #050505; will-change:transform,opacity,filter; }
+        .tight { font-size:74px; }
+      </style>
+      <div id="root" data-composition-id="m3-sitnikov" data-width="1080" data-height="1920" data-duration="10">
+        <div class="square"><div id="m3-sitnikov-camera" class="camera"><video id="m3-sitnikov-video" class="clip source-video" src="assets/source/speaker-03-mono-cfr30.mp4" data-start="0" data-duration="10" data-media-start="0" data-track-index="0" muted playsinline></video></div></div>
+        <div id="m3-sitnikov-cue-01" class="clip cue" data-start="0" data-duration="0.66" data-track-index="2"><span id="m3-sitnikov-c01" class="glyph">И ВОТ БЫТЬ</span></div>
+        <div id="m3-sitnikov-cue-02" class="clip cue" data-start="0.66" data-duration="0.72" data-track-index="3"><span id="m3-sitnikov-c02" class="glyph">В ГАРМОНИИ</span></div>
+        <div id="m3-sitnikov-cue-03" class="clip cue" data-start="1.42" data-duration="0.22" data-track-index="4"><span id="m3-sitnikov-c03" class="glyph">СОБСТВЕННО</span></div>
+        <div id="m3-sitnikov-cue-04" class="clip cue" data-start="1.7" data-duration="0.88" data-track-index="5"><span id="m3-sitnikov-c04" class="glyph tight">С БЕССОЗНАТЕЛЬНЫМ</span></div>
+        <div id="m3-sitnikov-cue-05" class="clip cue" data-start="2.72" data-duration="1.08" data-track-index="2"><span id="m3-sitnikov-c05" class="glyph">ТО, ЧТО ФРЕЙД</span></div>
+        <div id="m3-sitnikov-cue-06" class="clip cue" data-start="3.82" data-duration="0.6" data-track-index="3"><span id="m3-sitnikov-c06" class="glyph">КОГДА-ТО СКАЗАЛ</span></div>
+        <div id="m3-sitnikov-cue-07" class="clip cue" data-start="6.16" data-duration="0.54" data-track-index="4"><span id="m3-sitnikov-c07" class="glyph">СВОБОДА — ЭТО</span></div>
+        <div id="m3-sitnikov-cue-08" class="clip cue" data-start="6.7" data-duration="1.08" data-track-index="5"><span id="m3-sitnikov-c08" class="glyph tight">СПОСОБНОСТЬ ХОТЕТЬ</span></div>
+        <div id="m3-sitnikov-cue-09" class="clip cue" data-start="7.78" data-duration="0.9" data-track-index="2"><span id="m3-sitnikov-c09" class="glyph">ТО, ЧТО ХОЧЕШЬ</span></div>
+        <div id="m3-sitnikov-cue-10" class="clip cue" data-start="8.68" data-duration="1.32" data-track-index="3"><span id="m3-sitnikov-c10" class="glyph">НА САМОМ ДЕЛЕ</span></div>
+      </div>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        const cueData = [
+          ["#m3-sitnikov-c01",0,"slam"],["#m3-sitnikov-c02",.66,"left"],["#m3-sitnikov-c03",1.42,"rise"],["#m3-sitnikov-c04",1.7,"slam"],
+          ["#m3-sitnikov-c05",2.72,"left"],["#m3-sitnikov-c06",3.82,"rise"],["#m3-sitnikov-c07",6.16,"slam"],["#m3-sitnikov-c08",6.7,"left"],
+          ["#m3-sitnikov-c09",7.78,"rise"],["#m3-sitnikov-c10",8.68,"slam"]
+        ];
+        cueData.forEach(([selector,at,mode]) => {
+          if (mode === "slam") tl.fromTo(selector,{scale:1.15,filter:"blur(8px)",opacity:0},{scale:1,filter:"blur(0px)",opacity:1,duration:.14,ease:"power4.out"},at);
+          if (mode === "left") tl.fromTo(selector,{x:-30,opacity:0},{x:0,opacity:1,duration:.16,ease:"expo.out"},at);
+          if (mode === "rise") tl.fromTo(selector,{y:20,rotation:1.1,opacity:0},{y:0,rotation:0,opacity:1,duration:.18,ease:"circ.out"},at);
+        });
+        tl.fromTo("#m3-sitnikov-camera", { scale:1 }, { scale:1.05, duration:.16, ease:"power3.out" }, 6.16);
+        window.__timelines["m3-sitnikov"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

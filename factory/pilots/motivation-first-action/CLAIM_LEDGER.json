@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "idea_id": "motivation_first_action_001",
+  "sources": [
+    {
+      "source_id": "src_gollwitzer_sheeran_2006",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1",
+      "publisher": "Elsevier / Advances in Experimental Social Psychology",
+      "retrieved_at": "2026-08-27T12:00:00+03:00",
+      "primary": true,
+      "archived_receipt": null,
+      "notes": "Meta-analysis; cited only for the intention-to-action gap and bounded implementation-intention claim."
+    },
+    {
+      "source_id": "src_nci_implementation_intentions",
+      "url": "https://cancercontrol.cancer.gov/brp/research/constructs/implementation-intentions",
+      "publisher": "U.S. National Cancer Institute",
+      "retrieved_at": "2026-08-27T12:00:00+03:00",
+      "primary": false,
+      "archived_receipt": null,
+      "notes": "Official summary of implementation intentions and if-then planning."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "clm_intention_not_action",
+      "text": "Намерение само по себе ещё не гарантирует действие.",
+      "source_ids": ["src_gollwitzer_sheeran_2006"],
+      "support": "direct",
+      "risk": "green",
+      "script_usage": "allowed",
+      "notes": "Non-absolute wording retained."
+    },
+    {
+      "claim_id": "clm_if_then_may_help",
+      "text": "Планы «если — то» могут облегчать переход от намерения к началу.",
+      "source_ids": ["src_gollwitzer_sheeran_2006", "src_nci_implementation_intentions"],
+      "support": "direct",
+      "risk": "yellow",
+      "script_usage": "qualify",
+      "notes": "Modal wording is mandatory; the script immediately adds that this is a tool, not a guarantee."
+    }
+  ],
+  "decision": {
+    "passed": true,
+    "needs_human_review": false,
+    "review_notes": [
+      "No diagnostic, therapeutic or guaranteed-success claims.",
+      "The two-minute duration is explicitly editorial and is not represented as a research finding."
+    ]
+  }
+}

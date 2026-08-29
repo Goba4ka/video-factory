@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-29T00:43:00+03:00",
+  "editorial_status": "demo_permission_required",
+  "technical_status": "pass",
+  "deliveries": [
+    {
+      "concept": "responsibility_returns_power",
+      "title_ru": "Ответственность возвращает силу",
+      "master": {
+        "path": "factory/pilots/motivation-responsibility-20260828/renders/motivation-responsibility-master.mp4",
+        "size_bytes": 24109124,
+        "duration_seconds": 48.0,
+        "resolution": "1080x1920",
+        "integrated_lufs": -15.0,
+        "true_peak_dbtp": -1.86,
+        "qc": "pass",
+        "sha256": "1856EBE46E9A39BAAB762F4B309C33FF5C2929C29697A25A66A6A20B129F0241"
+      },
+      "telegram": {
+        "path": "factory/pilots/motivation-responsibility-20260828/renders/motivation-responsibility-telegram-final-v2.mp4",
+        "size_bytes": 4590504,
+        "duration_seconds": 48.0,
+        "resolution": "720x1280",
+        "integrated_lufs": -14.75,
+        "true_peak_dbtp": -1.7,
+        "qc": "pass",
+        "sha256": "896C34A14B029933A0729227267C241C6FD52E311B714BE08EEE54BAAA3ABACE"
+      }
+    },
+    {
+      "concept": "discipline_after_motivation",
+      "title_ru": "Дисциплина начинается там, где заканчивается настроение",
+      "master": {
+        "path": "factory/pilots/motivation-discipline-20260828/renders/motivation-discipline-master-control.mp4",
+        "size_bytes": 23571108,
+        "duration_seconds": 26.615,
+        "resolution": "1080x1920",
+        "integrated_lufs": -14.96,
+        "true_peak_dbtp": -1.4,
+        "qc": "pass",
+        "sha256": "1A1448222E3A52CB99EE796D14F11A99CB55C216B059CB355B1F8411E8626970"
+      },
+      "telegram": {
+        "path": "factory/pilots/motivation-discipline-20260828/renders/motivation-discipline-telegram-control.mp4",
+        "size_bytes": 2531798,
+        "duration_seconds": 26.615,
+        "resolution": "720x1280",
+        "integrated_lufs": -14.95,
+        "true_peak_dbtp": -1.06,
+        "qc": "pass",
+        "sha256": "F7F734868D1D782482ACB30476D518569F709443122D1AD88EA973CE25B30B5F"
+      }
+    }
+  ],
+  "rights": {
+    "stock": "Pexels License",
+    "music": "Scott Buckley / CC BY 4.0 / attribution required",
+    "speaker_excerpts": "permission_required before commercial publication"
+  }
+}

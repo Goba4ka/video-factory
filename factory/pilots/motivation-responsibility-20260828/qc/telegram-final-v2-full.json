@@ -1,0 +1,68 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "a101d4899d9d3ee30d0cd8ca5f99bfac7ed52431c28b00b37c005b58bab10a16",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\a1\\a101d4899d9d3ee30d0cd8ca5f99bfac7ed52431c28b00b37c005b58bab10a16.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 5.719,
+  "failures": [],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 48.0,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 48.0,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-responsibility-20260828\\renders\\motivation-responsibility-telegram-final-v2.mp4",
+    "size_bytes": 4590504,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 48.0,
+      "fps": 30.0,
+      "height": 1280,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 720
+    }
+  },
+  "ok": true,
+  "profile": {
+    "name": "motivation_v3_telegram",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -14.75,
+      "lra_lu": 4.2,
+      "threshold_lufs": -25.15,
+      "true_peak_dbtp": -1.7
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-responsibility-20260828\\renders\\motivation-responsibility-telegram-final-v2.mp4",
+  "status": "final_technical_pass",
+  "technical_pass": true,
+  "warnings": [
+    {
+      "code": "delivery_size",
+      "message": "4590504 bytes exceeds Telegram target 4090000"
+    }
+  ]
+}

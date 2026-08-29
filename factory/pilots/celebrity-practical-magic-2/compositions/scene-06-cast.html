@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Новый актёрский состав</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      .cast-title {
+        position: absolute;
+        top: 270px;
+        left: 72px;
+        z-index: 6;
+        width: 900px;
+        font-size: 96px;
+      }
+      .cast-list {
+        position: absolute;
+        top: 520px;
+        left: 72px;
+        right: 72px;
+        z-index: 7;
+        display: grid;
+        gap: 20px;
+      }
+      .cast-row {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        align-items: center;
+        min-height: 176px;
+        padding: 24px 30px;
+        opacity: 0;
+        background: rgba(9, 10, 14, 0.86);
+        border-top: 2px solid rgba(217, 222, 255, 0.42);
+      }
+      .cast-number {
+        color: var(--amber);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 32px;
+      }
+      .cast-name {
+        font-size: 84px;
+        line-height: 0.94;
+      }
+      .cast-source {
+        position: absolute;
+        top: 1190px;
+        left: 72px;
+        z-index: 8;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-06-cast"
+      data-duration="5.320227"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="media-frame">
+        <div class="media-motion" id="cast-media" data-layout-allow-overflow>
+          <video
+            id="cast-video"
+            class="clip media-clip"
+            src="assets/footage/candles-cast.mp4"
+            data-start="0"
+            data-duration="5.320227"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="mono scene-index">06 / CAST</span>
+        <span class="mono">НОВЫЕ ИМЕНА</span>
+      </div>
+      <h1 class="display cast-title" id="cast-title">К ДУЭТУ<br /><span class="accent">ПРИСОЕДИНИЛИСЬ</span></h1>
+      <div class="cast-list">
+        <div class="cast-row" id="cast-1"><span class="cast-number mono">01</span><span class="display cast-name">ДЖОИ КИНГ</span></div>
+        <div class="cast-row" id="cast-2"><span class="cast-number mono">02</span><span class="display cast-name">МЭЙСИ УИЛЬЯМС</span></div>
+        <div class="cast-row" id="cast-3"><span class="cast-number mono">03</span><span class="display cast-name">ЛИ ПЕЙС</span></div>
+      </div>
+      <div class="source-chip mono cast-source" id="cast-source">ОФИЦИАЛЬНЫЙ АКТЁРСКИЙ СОСТАВ</div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#cast-media", { scale: 1.03, y: -12 }, { scale: 1.08, y: 10, duration: 5.320227, ease: "none" }, 0);
+      tl.fromTo(".top-meta", { opacity: 0, y: -28 }, { opacity: 1, y: 0, duration: 0.36, ease: "power3.out" }, 0.12);
+      tl.fromTo("#cast-title", { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.52, ease: "expo.out" }, 0.24);
+      tl.set("#cast-1", { opacity: 1, y: 82 }, 0.7);
+      tl.to("#cast-1", { y: 0, duration: 0.2, ease: "power4.out" }, 0.7);
+      tl.set("#cast-2", { opacity: 1, y: 64 }, 0.9);
+      tl.to("#cast-2", { y: 0, duration: 0.17, ease: "power3.out" }, 0.9);
+      tl.set("#cast-3", { opacity: 1, y: 48 }, 1.07);
+      tl.to("#cast-3", { y: 0, duration: 0.14, ease: "expo.out" }, 1.07);
+      tl.fromTo("#cast-source", { opacity: 0, scaleX: 0.8 }, { opacity: 1, scaleX: 1, duration: 0.42, ease: "power2.out", transformOrigin: "0 50%" }, 1.34);
+      tl.to(".cast-list", { y: -8, duration: 2.5, ease: "sine.inOut" }, 1.9);
+      window.__timelines["scene-06-cast"] = tl;
+    </script>
+  </body>
+</html>

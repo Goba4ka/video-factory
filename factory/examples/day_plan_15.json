@@ -1,0 +1,29 @@
+{
+  "target": 15,
+  "pod_targets": {
+    "war_history": 3,
+    "celebrity_news": 3,
+    "motivation": 3,
+    "chinese_medicine": 3,
+    "health": 3
+  },
+  "pod_capacities": {
+    "war_history": 3,
+    "celebrity_news": 3,
+    "motivation": 3,
+    "chinese_medicine": 3,
+    "health": 3
+  },
+  "expected_attrition": {
+    "idea_review": 0.2,
+    "research": 0.08,
+    "rights": 0.1,
+    "production": 0.05,
+    "qc": 0.1
+  },
+  "render_slots": 1,
+  "human_review_minutes": 120,
+  "minutes_per_candidate_review": 3,
+  "minutes_per_final_review": 2,
+  "approval_gate": "idea_review"
+}

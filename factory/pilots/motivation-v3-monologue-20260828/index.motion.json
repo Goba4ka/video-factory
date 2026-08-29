@@ -1,0 +1,10 @@
+{
+  "duration": 18.7,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#caption-01 .caption-text", "bySec": 0.4 },
+    { "kind": "staysInFrame", "selector": "#picture-square" },
+    { "kind": "staysInFrame", "selector": "#caption-01 .caption-text" },
+    { "kind": "staysInFrame", "selector": "#caption-12 .caption-text" },
+    { "kind": "staysInFrame", "selector": "#caption-28 .caption-text" }
+  ]
+}

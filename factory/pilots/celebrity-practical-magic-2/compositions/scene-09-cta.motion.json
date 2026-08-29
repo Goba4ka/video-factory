@@ -1,0 +1,11 @@
+{
+  "duration": 6.053105,
+  "maxStaticSec": 1.5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#cta-title", "bySec": 1.6 },
+    { "kind": "before", "a": "#cta-title", "b": "#cta-button" },
+    { "kind": "staysInFrame", "selector": "#cta-button" },
+    { "kind": "keepsMoving", "withinSelector": "#root" }
+  ]
+}
+

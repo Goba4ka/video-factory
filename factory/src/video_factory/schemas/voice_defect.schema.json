@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/voice_defect.schema.json",
+  "title": "VoiceDefect",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "defect_id",
+    "job_id",
+    "video_id",
+    "generation_no",
+    "generation_status",
+    "request_hash",
+    "output_sha256",
+    "retry_reason",
+    "description",
+    "evidence",
+    "regeneration_required",
+    "detected_by",
+    "detected_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "defect_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "job_id": {"type": "string", "minLength": 6, "maxLength": 128},
+    "video_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "generation_no": {"const": 1},
+    "generation_status": {"enum": ["failed", "failed_unknown", "succeeded"]},
+    "request_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "output_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "retry_reason": {
+      "enum": ["pronunciation", "pacing", "text_error", "technical_failure", "provider_failure"]
+    },
+    "description": {"type": "string", "minLength": 10, "maxLength": 2000},
+    "evidence": {"type": "string", "minLength": 3, "maxLength": 2000},
+    "regeneration_required": {"const": true},
+    "detected_by": {"type": "string", "minLength": 2, "maxLength": 128},
+    "detected_at": {"type": "string", "format": "date-time"}
+  }
+}

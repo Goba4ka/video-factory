@@ -1,0 +1,860 @@
+{
+  "schema_version": "1.0.0",
+  "lane_id": "health",
+  "language": "ru",
+  "generated_at": "2026-08-27T00:00:00+03:00",
+  "source_reviewed_at": "2026-08-27",
+  "duration_seconds": {
+    "min": 60,
+    "max": 80
+  },
+  "editorial_status": "candidate_pool",
+  "medical_review_policy": "Каждый финальный сценарий проходит медицинский review; yellow-идеи требуют reviewer с релевантной клинической компетенцией.",
+  "ideas": [
+    {
+      "id": "health-001-any-movement-counts",
+      "title": "Любое движение считается: почему начинать можно с малого",
+      "topic": "физическая активность",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Если вы не набрали идеальную тренировку, это не значит, что движение не засчитывается.",
+      "summary": "Показать принцип WHO: любая физическая активность лучше её отсутствия, а объём можно наращивать постепенно.",
+      "allowed_claim": "Регулярная физическая активность полезна, и некоторое количество активности лучше, чем отсутствие активности.",
+      "do_not_infer": "Не обещать конкретное снижение риска конкретному зрителю и не задавать программу людям с ограничениями по здоровью.",
+      "why_evergreen": "Снимает барьер «всё или ничего» без персонального тренировочного назначения.",
+      "advice_boundary": {
+        "viewer_can": "Выбрать посильный способ добавить немного движения в обычный день.",
+        "viewer_cannot": "Определять по ролику безопасную интенсивность при симптомах, беременности, травме или хроническом заболевании."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-pa-fact-2024",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Общая польза и принцип любой активности."
+        },
+        {
+          "source_id": "who-pa-guideline-2020",
+          "url": "https://www.who.int/publications/i/item/9789240015128",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Формальное руководство и границы по группам."
+        }
+      ],
+      "visual_plan": "Серия коротких бытовых движений; шкала от нуля к посильному старту без трансформации тела.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-002-strength-is-part",
+      "title": "Почему рекомендации по движению включают не только ходьбу",
+      "topic": "физическая активность",
+      "format": "myth_evidence_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Кардио — только одна часть рекомендации: в ней есть и укрепление мышц.",
+      "summary": "Объяснить, что руководство WHO для взрослых включает аэробную и мышечно-укрепляющую активность.",
+      "allowed_claim": "WHO рекомендует взрослым сочетать аэробную активность с упражнениями на основные группы мышц.",
+      "do_not_infer": "Не составлять тренировочный план, не задавать веса и не обещать безопасность конкретного упражнения.",
+      "why_evergreen": "Расширяет понимание физической активности без фитнес-маркетинга.",
+      "advice_boundary": {
+        "viewer_can": "Проверить, присутствуют ли в неделе разные типы посильной активности.",
+        "viewer_cannot": "Выбирать нагрузку при боли, головокружении, после операции или при медицинских ограничениях."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-pa-guideline-2020-strength",
+          "url": "https://www.who.int/publications/i/item/9789240015128",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Рекомендации по аэробной и мышечно-укрепляющей активности."
+        }
+      ],
+      "visual_plan": "Сплит-экран: ходьба, перенос бытового груза, упражнение с собственным весом; без техники сложных движений.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-003-sitting-is-separate",
+      "title": "Тренировка не отменяет весь день сидения: два разных рычага",
+      "topic": "сидячее поведение",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Можно выполнить тренировку и всё равно почти весь день провести сидя.",
+      "summary": "Разделить понятия физической активности и сидячего времени; показать безопасную идею заменять часть сидения движением любой интенсивности.",
+      "allowed_claim": "WHO советует ограничивать сидячее время; замена части сидения физической активностью любой интенсивности приносит пользу.",
+      "do_not_infer": "Не утверждать, что вставание по таймеру лечит болезнь или полностью компенсирует длительное сидение.",
+      "why_evergreen": "Полезно для офисной и домашней рутины независимо от трендов.",
+      "advice_boundary": {
+        "viewer_can": "Найти один безопасный момент, где сидение можно заменить коротким движением.",
+        "viewer_cannot": "Использовать ролик как реабилитационную программу при ограниченной мобильности."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-pa-guideline-2020-sedentary",
+          "url": "https://www.who.int/publications/i/item/9789240015128",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Рекомендации по сидячему поведению."
+        }
+      ],
+      "visual_plan": "Таймлайн дня с отдельными слоями «активность» и «сидение»; без медицинских показателей.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-004-sleep-needs-change",
+      "title": "Сколько сна нужно: почему одна цифра не подходит всем возрастам",
+      "topic": "сон",
+      "format": "category_not_verdict",
+      "duration_seconds": [60, 80],
+      "hook": "Норма сна меняется с возрастом, а таблица — ориентир, не персональный диагноз.",
+      "summary": "Показать, что рекомендованная длительность сна различается по возрасту и требует контекста.",
+      "allowed_claim": "Рекомендованная длительность сна зависит от возраста; для взрослых 18–60 лет CDC указывает 7 и более часов как общий ориентир.",
+      "do_not_infer": "Не объявлять человека нездоровым по одной короткой ночи и не объяснять симптом только сном.",
+      "why_evergreen": "Исправляет универсализацию популярной цифры.",
+      "advice_boundary": {
+        "viewer_can": "Сравнить свой устойчивый режим с возрастным ориентиром.",
+        "viewer_cannot": "Самостоятельно диагностировать бессонницу или другую причину сонливости."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "cdc-sleep-about-2024",
+          "url": "https://www.cdc.gov/sleep/about/index.html",
+          "publisher": "Centers for Disease Control and Prevention",
+          "source_type": "official",
+          "evidence_role": "Возрастные ориентиры длительности и граница обращения к специалисту."
+        },
+        {
+          "source_id": "aasm-adult-sleep-consensus",
+          "url": "https://aasm.org/resources/pdf/pressroom/adult-sleep-duration-consensus.pdf",
+          "publisher": "American Academy of Sleep Medicine and Sleep Research Society",
+          "source_type": "secondary",
+          "evidence_role": "Профессиональный консенсус для здоровых взрослых 18–60 лет."
+        }
+      ],
+      "visual_plan": "Возрастная шкала с крупной пометкой «общий ориентир»; никаких часов как оценки конкретного человека.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-005-sleep-quality-matters",
+      "title": "Сон — это не только часы: зачем учитывать качество",
+      "topic": "сон",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Восемь часов в кровати ещё не отвечают на вопрос, был ли сон качественным.",
+      "summary": "Разделить длительность и качество сна, предложить наблюдать устойчивые проблемы и обсуждать их со специалистом.",
+      "allowed_claim": "Для здорового сна важны и достаточная длительность, и качество; устойчивые проблемы со сном стоит обсудить с медицинским специалистом.",
+      "do_not_infer": "Не диагностировать апноэ, бессонницу или психическое расстройство по усталости или храпу.",
+      "why_evergreen": "Даёт более точную рамку, чем погоня за одной цифрой.",
+      "advice_boundary": {
+        "viewer_can": "Отметить повторяющийся режим и дневное самочувствие для разговора со специалистом.",
+        "viewer_cannot": "По ролику устанавливать причину плохого сна или выбирать лечение."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "cdc-sleep-quality-2024",
+          "url": "https://www.cdc.gov/sleep/about/index.html",
+          "publisher": "Centers for Disease Control and Prevention",
+          "source_type": "official",
+          "evidence_role": "Длительность, качество и рекомендация обсудить проблемы со специалистом."
+        }
+      ],
+      "visual_plan": "Два независимых индикатора: часы и качество; нейтральный дневник сна без диагностического балла.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-006-hidden-sodium",
+      "title": "Соль, которую не видно: где прячется натрий",
+      "topic": "питание",
+      "format": "measurement_error",
+      "duration_seconds": [60, 80],
+      "hook": "Большая часть соли может попасть в рацион ещё до того, как вы взяли солонку.",
+      "summary": "Объяснить разницу между солью и натрием на этикетке и показать типичные категории обработанных продуктов без брендов.",
+      "allowed_claim": "Во многих рационах значимая доля натрия поступает из обработанных продуктов и приправ; избыток натрия связан с повышением давления.",
+      "do_not_infer": "Не назначать индивидуальный лимит при заболевании почек, сердца или приёме лекарств и не советовать калиевую соль всем подряд.",
+      "why_evergreen": "Навык чтения этикетки устойчив к моде на отдельные продукты.",
+      "advice_boundary": {
+        "viewer_can": "Сравнить содержание натрия или соли в сопоставимых продуктах.",
+        "viewer_cannot": "Определять лечебную диету или заменитель соли при заболевании."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-healthy-diet-2026-sodium",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Источники натрия и общая рекомендация."
+        },
+        {
+          "source_id": "who-sodium-reduction-2026",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/sodium-reduction",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Связь избытка натрия с давлением и общественные меры."
+        }
+      ],
+      "visual_plan": "Нейтральные макеты этикеток с выделением «натрий/соль» и одинаковой порцией; без рейтинга брендов.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-007-free-sugars-juice",
+      "title": "Почему сок считают источником свободных сахаров",
+      "topic": "питание",
+      "format": "myth_evidence_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Надпись «без добавленного сахара» не означает отсутствие свободных сахаров.",
+      "summary": "Объяснить определение свободных сахаров WHO и отличие целого фрукта от сока без демонизации еды.",
+      "allowed_claim": "WHO относит сахара, естественно присутствующие во фруктовых соках и концентратах, к свободным сахарам, потребление которых рекомендуется ограничивать.",
+      "do_not_infer": "Не объявлять фрукт вредным, не считать сахар в крови по продукту и не назначать рацион при диабете.",
+      "why_evergreen": "Проясняет устойчивую путаницу в маркировке и терминах.",
+      "advice_boundary": {
+        "viewer_can": "Отличать «без добавленного сахара» от отсутствия свободных сахаров.",
+        "viewer_cannot": "По ролику составлять лечебный рацион или корректировать терапию диабета."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-healthy-diet-2026-sugars",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Определение свободных сахаров и общий совет по ограничению."
+        }
+      ],
+      "visual_plan": "Сравнение списка ингредиентов и понятия свободных сахаров; без симуляции глюкозы крови.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-008-no-superfood",
+      "title": "Почему здоровый рацион — это система, а не суперфуд",
+      "topic": "питание",
+      "format": "myth_evidence_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Один продукт не делает рацион здоровым — и один продукт не описывает его целиком.",
+      "summary": "Показать четыре принципа WHO: достаточность, баланс, умеренность и разнообразие.",
+      "allowed_claim": "WHO описывает здоровый рацион через достаточность, баланс, умеренность и разнообразие с учётом контекста человека и культуры.",
+      "do_not_infer": "Не ранжировать продукты как лекарство или яд и не давать универсальное меню.",
+      "why_evergreen": "Противостоит циклу модных продуктов и жёстких диет.",
+      "advice_boundary": {
+        "viewer_can": "Оценить рацион по общим принципам, а не по одному продукту.",
+        "viewer_cannot": "Использовать ролик как диету при аллергии, расстройстве пищевого поведения или заболевании."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-healthy-diet-2026-principles",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Четыре базовых принципа здорового рациона."
+        }
+      ],
+      "visual_plan": "Четыре типографических блока и разнообразные культурно нейтральные блюда; без фото «идеального тела».",
+      "status": "candidate"
+    },
+    {
+      "id": "health-009-alcohol-risk-continuum",
+      "title": "Алкогольный риск — не выключатель «безопасно/опасно»",
+      "topic": "алкоголь и здоровье",
+      "format": "risk_not_binary",
+      "duration_seconds": [60, 80],
+      "hook": "Для риска рака не найден порог, ниже которого алкоголь можно назвать полностью безопасным.",
+      "summary": "Спокойно объяснить позицию WHO/Europe: риск начинается с низких уровней и растёт с количеством, без стыда и без персонального лечения зависимости.",
+      "allowed_claim": "По позиции WHO/Europe не установлен безопасный порог употребления алкоголя для риска рака; меньшее употребление связано с меньшим риском.",
+      "do_not_infer": "Не ставить расстройство употребления алкоголя, не обещать нулевой риск после отказа и не давать инструкцию резкой отмены человеку с возможной зависимостью.",
+      "why_evergreen": "Корректирует бинарный миф и сохраняет риск-коммуникацию.",
+      "advice_boundary": {
+        "viewer_can": "Использовать информацию для осознанного снижения воздействия и обратиться за поддержкой при трудностях.",
+        "viewer_cannot": "По ролику безопасно планировать прекращение при возможной физической зависимости или оценивать личный риск."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-europe-alcohol-no-safe-2023",
+          "url": "https://www.who.int/europe/news-room/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health",
+          "publisher": "WHO Regional Office for Europe",
+          "source_type": "official",
+          "evidence_role": "Позиция по отсутствию безопасного порога для здоровья и риску рака."
+        },
+        {
+          "source_id": "who-alcohol-fact",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/alcohol",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Факторы, влияющие на риск, и общественное здравоохранение."
+        }
+      ],
+      "visual_plan": "Плавная шкала риска без бокалов как эстетики; нейтральный язык и контакта помощи без универсального номера.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-010-secondhand-smoke",
+      "title": "Пассивный дым: почему «только рядом» не означает безопасно",
+      "topic": "табак",
+      "format": "risk_not_binary",
+      "duration_seconds": [60, 80],
+      "hook": "Для пассивного табачного дыма нет безопасного уровня воздействия.",
+      "summary": "Объяснить, что вред касается не только курящего, и сосредоточиться на бездымной среде, а не на стыде.",
+      "allowed_claim": "WHO указывает, что безопасного уровня воздействия вторичного табачного дыма нет и что он вызывает серьёзные сердечно-сосудистые и респираторные болезни.",
+      "do_not_infer": "Не оценивать болезнь конкретного человека и не обещать, что проветривание делает курение в помещении безопасным.",
+      "why_evergreen": "Поддерживает понятную норму бездымной среды.",
+      "advice_boundary": {
+        "viewer_can": "Стремиться к полностью бездымному дому и автомобилю.",
+        "viewer_cannot": "По ролику диагностировать последствия воздействия или выбирать лечение зависимости."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-tobacco-2026",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tobacco",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Вред вторичного дыма и отсутствие безопасного уровня воздействия."
+        }
+      ],
+      "visual_plan": "Схема распространения дыма в помещении; не показывать курение как стильный или социально желательный образ.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-011-antibiotics-not-viruses",
+      "title": "Почему антибиотик не лечит обычную вирусную простуду",
+      "topic": "рациональное применение антибиотиков",
+      "format": "myth_evidence_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Антибиотик нацелен на бактерии — вирусу от этого не становится хуже.",
+      "summary": "Разделить бактерии и вирусы и объяснить, почему ненужный антибиотик не ускоряет выздоровление, но может причинить вред.",
+      "allowed_claim": "Антибиотики не действуют на вирусы, вызывающие простуду и грипп; ненужный приём не помогает и может вызвать побочные эффекты.",
+      "do_not_infer": "Не решать по цвету выделений или одному симптому, бактериальная ли инфекция, и не советовать конкретный препарат.",
+      "why_evergreen": "Базовый навык против самолечения и антимикробной резистентности.",
+      "advice_boundary": {
+        "viewer_can": "Не требовать антибиотик «на всякий случай» и задать врачу вопрос о показаниях.",
+        "viewer_cannot": "Самостоятельно отменять уже назначенный антибиотик или диагностировать тип инфекции."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "cdc-antibiotic-dos-donts-2025",
+          "url": "https://www.cdc.gov/antibiotic-use/about/index.html",
+          "publisher": "Centers for Disease Control and Prevention",
+          "source_type": "official",
+          "evidence_role": "Различие вирусов и бактерий, вред ненужного применения."
+        },
+        {
+          "source_id": "cdc-common-cold-2026",
+          "url": "https://www.cdc.gov/common-cold/treatment/index.html",
+          "publisher": "Centers for Disease Control and Prevention",
+          "source_type": "official",
+          "evidence_role": "Простуда обычно не требует антибиотика и границы обращения."
+        }
+      ],
+      "visual_plan": "Простая схема «бактерия ≠ вирус»; упаковки и названия препаратов не показывать.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-012-dont-share-antibiotics",
+      "title": "Почему нельзя делиться остатками антибиотиков",
+      "topic": "рациональное применение антибиотиков",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Одинаковый симптом не делает чужой антибиотик подходящим для вас.",
+      "summary": "Показать три безопасных запрета CDC: не делиться, не брать чужое и не сохранять на будущую болезнь.",
+      "allowed_claim": "CDC рекомендует принимать антибиотики только по назначению, не делиться ими и не сохранять остатки для будущего случая.",
+      "do_not_infer": "Не давать инструкцию по утилизации без проверки местных правил и не советовать прекращать назначенный курс.",
+      "why_evergreen": "Конкретная бытовая ситуация с ясной границей.",
+      "advice_boundary": {
+        "viewer_can": "Использовать только препарат, назначенный ему квалифицированным специалистом, и уточнить местные правила утилизации.",
+        "viewer_cannot": "Менять длительность или прекращать назначение без связи со специалистом."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "cdc-antibiotic-dos-donts-2025-sharing",
+          "url": "https://www.cdc.gov/antibiotic-use/about/index.html",
+          "publisher": "Centers for Disease Control and Prevention",
+          "source_type": "official",
+          "evidence_role": "Прямые рекомендации не делиться и не сохранять антибиотики."
+        }
+      ],
+      "visual_plan": "Два силуэта и закрытая передача нейтрального флакона без бренда; красная черта не превращается в дозировочную инструкцию.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-013-how-vaccination-works",
+      "title": "Как вакцина знакомит иммунитет с угрозой заранее",
+      "topic": "вакцинация",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Вакцинация готовит иммунный ответ до встречи с опасной инфекцией.",
+      "summary": "На простом уровне объяснить распознавание антигена и формирование защиты, не углубляясь в выбор конкретной вакцины.",
+      "allowed_claim": "Вакцинация обучает иммунную систему распознавать конкретную инфекцию и снижает риск заболевания или его тяжёлого течения в зависимости от вакцины.",
+      "do_not_infer": "Не обещать стопроцентную защиту и не утверждать, что все вакцины устроены одинаково.",
+      "why_evergreen": "Базовая медицинская грамотность без привязки к сезону.",
+      "advice_boundary": {
+        "viewer_can": "Свериться с актуальным официальным календарём своей страны.",
+        "viewer_cannot": "По ролику выбирать вакцину, схему, противопоказание или срок после болезни."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-vaccination-qa-2025",
+          "url": "https://www.who.int/news-room/questions-and-answers/item/vaccines-and-immunization-what-is-vaccination",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Механизм вакцинации и общая польза."
+        }
+      ],
+      "visual_plan": "Абстрактная схема распознавания антигена; не изображать инъекцию как гарантию невосприимчивости.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-014-schedules-differ",
+      "title": "Почему календари вакцинации различаются между странами",
+      "topic": "вакцинация",
+      "format": "category_not_verdict",
+      "duration_seconds": [60, 80],
+      "hook": "Разные календари не обязательно означают, что один из них ошибочный.",
+      "summary": "Объяснить роль эпидемиологии, системы здравоохранения и национальных решений; направить к официальному календарю своей страны.",
+      "allowed_claim": "Национальные календари могут различаться по возрастам, целевым группам и срокам, потому что учитывают местную эпидемиологию и систему здравоохранения.",
+      "do_not_infer": "Не переносить календарь ЕС/ЕЭЗ на другую страну и не давать индивидуальную схему наверстывающей вакцинации.",
+      "why_evergreen": "Предотвращает ложные противоречия и подчёркивает юрисдикцию.",
+      "advice_boundary": {
+        "viewer_can": "Открыть официальный календарь страны и подготовить вопросы специалисту.",
+        "viewer_cannot": "Самостоятельно выбирать интервалы, дозы или противопоказания."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "ecdc-vaccine-scheduler-2026",
+          "url": "https://vaccine-schedule.ecdc.europa.eu/Scheduler/ByCountries",
+          "publisher": "European Centre for Disease Prevention and Control",
+          "source_type": "official",
+          "evidence_role": "Сравнение национальных календарей и предупреждение о локальном контексте."
+        },
+        {
+          "source_id": "ecdc-childhood-vaccination-faq-2025",
+          "url": "https://www.ecdc.europa.eu/en/infectious-disease-topics/related-public-health-topics/immunisation-and-vaccines/faq-children",
+          "publisher": "European Centre for Disease Prevention and Control",
+          "source_type": "official",
+          "evidence_role": "Причины различий календарей."
+        }
+      ],
+      "visual_plan": "Несколько абстрактных календарей с разными сетками; крупная пометка «сверяйтесь со своей страной».",
+      "status": "candidate"
+    },
+    {
+      "id": "health-015-safe-listening",
+      "title": "Громкость × время: простая математика безопасного слушания",
+      "topic": "здоровье слуха",
+      "format": "risk_not_binary",
+      "duration_seconds": [60, 80],
+      "hook": "Риск для слуха зависит не только от громкости, но и от того, как долго вы слушаете.",
+      "summary": "Показать взаимосвязь громкости и длительности и базовые меры WHO: ниже громкость, перерывы, дистанция, защита слуха.",
+      "allowed_claim": "Чем выше уровень звука и дольше воздействие, тем выше риск повреждения слуха; WHO предлагает держать устройство не выше 60% максимума и ориентироваться на средний уровень ниже 80 дБ, когда доступен мониторинг.",
+      "do_not_infer": "Не обещать, что процент громкости одинаков на всех устройствах, и не диагностировать потерю слуха домашним приложением.",
+      "why_evergreen": "Применимо к наушникам, концертам, играм и шумной работе.",
+      "advice_boundary": {
+        "viewer_can": "Уменьшить громкость, делать перерывы и использовать функции мониторинга воздействия.",
+        "viewer_cannot": "По ролику оценить уже возникшее повреждение; стойкий шум или трудности со слухом требуют специалиста."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-safe-listening-2026",
+          "url": "https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Зависимость риска от громкости и времени, профилактические ориентиры и признаки обращения."
+        }
+      ],
+      "visual_plan": "Двухосевая схема «громкость/время», системный индикатор воздействия без бренда и сцена дистанции от колонки.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-016-uv-index-three",
+      "title": "УФ-индекс важнее ощущения жары",
+      "topic": "защита от ультрафиолета",
+      "format": "measurement_error",
+      "duration_seconds": [60, 80],
+      "hook": "Ультрафиолет нельзя почувствовать, а прохладный день не гарантирует низкий УФ-индекс.",
+      "summary": "Объяснить, что UV не равен температуре, и показать ориентир WHO: защита рекомендуется при индексе 3 и выше.",
+      "allowed_claim": "УФ-излучение не видно и не ощущается; WHO рекомендует меры защиты при УФ-индексе 3 и выше.",
+      "do_not_infer": "Не рассчитывать индивидуальное безопасное время на солнце и не давать совет по витамину D или фоточувствительным препаратам.",
+      "why_evergreen": "Обучает использовать погодный показатель, а не субъективное чувство жары.",
+      "advice_boundary": {
+        "viewer_can": "Проверить локальный УФ-индекс и использовать сочетание тени, одежды, очков и солнцезащитного средства.",
+        "viewer_cannot": "По ролику оценивать кожное образование, ожог или персональную потребность в витамине D."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-uv-fact-2022",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/ultraviolet-radiation",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Свойства УФ-излучения, УФ-индекс и меры защиты."
+        }
+      ],
+      "visual_plan": "Прохладное облачное небо рядом с высоким УФ-индексом; иконки комплексной защиты.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-017-sunscreen-not-extra-time",
+      "title": "Солнцезащитный крем не покупает дополнительное время на солнце",
+      "topic": "защита от ультрафиолета",
+      "format": "myth_evidence_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Крем — часть защиты, а не разрешение оставаться на солнце дольше.",
+      "summary": "Показать иерархию WHO: тень и одежда важны, средство используется на открытых участках и не должно продлевать воздействие.",
+      "allowed_claim": "WHO рекомендует сочетать тень, защитную одежду, головной убор, очки и средство широкого спектра на открытых участках; средство не используют, чтобы продлить пребывание на солнце.",
+      "do_not_infer": "Не назначать SPF для конкретного заболевания, не обсуждать аллергию и не давать обещание полной защиты.",
+      "why_evergreen": "Исправляет поведенческую ошибку без рейтинга косметики.",
+      "advice_boundary": {
+        "viewer_can": "Использовать комплекс мер и не увеличивать время воздействия из-за крема.",
+        "viewer_cannot": "По ролику выбирать средство при кожном заболевании или фоточувствительности."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-uv-protective-measures-2022",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/ultraviolet-radiation",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Комплекс мер и запрет использовать крем для продления времени на солнце."
+        }
+      ],
+      "visual_plan": "Слои защиты как система: тень, ткань, очки, средство; без демонстрации бренда и SPF-гонки.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-018-five-keys-food",
+      "title": "Пять ключей безопасной еды на домашней кухне",
+      "topic": "пищевая безопасность",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Безопасность еды — это цепочка, и слабое звено может быть не там, где вы думаете.",
+      "summary": "Дать пять ключей WHO: чистота, разделение сырого и готового, тщательная готовка, безопасная температура, безопасная вода и сырьё.",
+      "allowed_claim": "WHO предлагает пять универсальных принципов безопасного обращения с пищей для снижения риска пищевых инфекций.",
+      "do_not_infer": "Не гарантировать стерильность и не давать точный режим для конкретного продукта без локального руководства.",
+      "why_evergreen": "Понятная бытовая памятка, не зависящая от моды.",
+      "advice_boundary": {
+        "viewer_can": "Разделять сырые и готовые продукты и соблюдать пять общих принципов WHO.",
+        "viewer_cannot": "По ролику оценивать безопасность сомнительного продукта или лечить пищевое отравление."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-five-keys-food",
+          "url": "https://www.who.int/activities/promoting-safe-food-handling/promoting-safe-food-handling",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Пять ключей безопасного обращения с пищей."
+        },
+        {
+          "source_id": "who-food-safety-2026",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/food-safety",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Контекст пищевых инфекций и ответственность потребителя."
+        }
+      ],
+      "visual_plan": "Пять последовательных кухонных сцен с цветовым кодом сырого и готового; без опасной постановки с реальным сырым мясом рядом с салатом.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-019-handwashing-20-seconds",
+      "title": "Почему мыть руки нужно не символически",
+      "topic": "гигиена рук",
+      "format": "measurement_error",
+      "duration_seconds": [60, 80],
+      "hook": "Пять секунд под водой — не то же самое, что полноценное мытьё с мылом.",
+      "summary": "Показать механику намыливания и обработки всех участков примерно 20 секунд без псевдолабораторных опытов.",
+      "allowed_claim": "CDC рекомендует намыливать и тереть все поверхности рук около 20 секунд, чтобы эффективнее удалить микробы и химические загрязнения.",
+      "do_not_infer": "Не обещать полную защиту от инфекции и не утверждать, что санитайзер всегда равнозначен мытью.",
+      "why_evergreen": "Базовый практический навык с простой демонстрацией.",
+      "advice_boundary": {
+        "viewer_can": "Следовать официальной технике мытья рук и использовать санитайзер, когда вода недоступна, по инструкции продукта.",
+        "viewer_cannot": "Использовать ролик вместо правил инфекционного контроля в клинической или пищевой среде."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "cdc-clean-hands-faq-2024",
+          "url": "https://www.cdc.gov/clean-hands/faq/index.html",
+          "publisher": "Centers for Disease Control and Prevention",
+          "source_type": "official",
+          "evidence_role": "Почему важно мыть около 20 секунд и какие участки охватывать."
+        }
+      ],
+      "visual_plan": "Крупный план техники и нейтральный 20-секундный таймер; без ложного эффекта светящихся «микробов после».",
+      "status": "candidate"
+    },
+    {
+      "id": "health-020-bp-technique",
+      "title": "Пять деталей, которые делают домашнее измерение давления точнее",
+      "topic": "артериальное давление",
+      "format": "measurement_error",
+      "duration_seconds": [60, 80],
+      "hook": "Разговор, одежда под манжетой и неподдержанная рука могут испортить полезное измерение.",
+      "summary": "Показать валидированный плечевой прибор, подходящую манжету, пять минут покоя, опору спины/стоп и руку на уровне сердца.",
+      "allowed_claim": "Корректная техника и манжета подходящего размера важны для точного домашнего измерения; серия записей полезнее одиночного снимка для обсуждения со специалистом.",
+      "do_not_infer": "Не ставить гипертонию по ролику и не советовать менять лекарство по домашнему значению.",
+      "why_evergreen": "Высокая практическая ценность без лечения.",
+      "advice_boundary": {
+        "viewer_can": "Проверить инструкцию прибора, размер манжеты, позу и записывать результаты.",
+        "viewer_cannot": "Диагностировать гипертонию или менять назначенную терапию."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "aha-home-bp-2025",
+          "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+          "publisher": "American Heart Association",
+          "source_type": "official",
+          "evidence_role": "Выбор прибора, размер манжеты, подготовка, поза и серия измерений."
+        },
+        {
+          "source_id": "aha-acc-bp-guideline-2025",
+          "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know",
+          "publisher": "American Heart Association and American College of Cardiology",
+          "source_type": "official",
+          "evidence_role": "Актуальная профессиональная рамка домашнего мониторинга."
+        }
+      ],
+      "visual_plan": "Сплит «ошибка/корректно» для манжеты, позы и руки; прибор без бренда, значения не интерпретируются как диагноз.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-021-bp-single-reading",
+      "title": "Одно высокое измерение давления: снимок, а не диагноз",
+      "topic": "артериальное давление",
+      "format": "category_not_verdict",
+      "duration_seconds": [60, 80],
+      "hook": "Одна цифра показывает момент — диагноз требует корректных повторных данных и клинической оценки.",
+      "summary": "Разделить одиночное значение, повторное корректное измерение и ситуацию с очень высоким давлением плюс опасные симптомы.",
+      "allowed_claim": "Одиночное высокое измерение само по себе не подтверждает диагноз; внезапно очень высокое значение с болью в груди, одышкой, слабостью, нарушением зрения или речи может быть экстренной ситуацией.",
+      "do_not_infer": "Не давать универсальные диагностические пороги вне указанной юрисдикции и не предлагать препарат или ожидание при опасных симптомах.",
+      "why_evergreen": "Снижает и ложное успокоение, и панику от одной цифры.",
+      "advice_boundary": {
+        "viewer_can": "При отсутствии опасных симптомов повторить измерение по инструкции, записать оба результата и связаться со специалистом по локальным правилам.",
+        "viewer_cannot": "Самостоятельно подтверждать диагноз, менять лечение или ждать при очень высоком значении с опасными симптомами."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "aha-home-bp-high-reading-2025",
+          "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+          "publisher": "American Heart Association",
+          "source_type": "official",
+          "evidence_role": "Одиночное измерение, повтор и экстренные симптомы."
+        },
+        {
+          "source_id": "esc-bp-pocket-2024",
+          "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/pocket-guidelines/elevated-blood-pressure-and-hypertension/",
+          "publisher": "European Society of Cardiology",
+          "source_type": "official",
+          "evidence_role": "Европейская клиническая рамка для проверки терминов и порогов перед производством."
+        }
+      ],
+      "visual_plan": "Одна точка превращается в ряд измерений; затем отдельная красная карточка симптомов и CTA к местной экстренной службе.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-022-be-fast-stroke",
+      "title": "B.E. F.A.S.T.: признаки инсульта, при которых нельзя ждать",
+      "topic": "инсульт",
+      "format": "recognize_and_escalate",
+      "duration_seconds": [60, 80],
+      "hook": "Внезапная потеря равновесия, зрения, силы в руке или ясной речи — повод действовать немедленно.",
+      "summary": "Научить мнемонике B.E. F.A.S.T. и единственному действию: срочно обратиться в местную экстренную службу.",
+      "allowed_claim": "Внезапные нарушения равновесия или зрения, асимметрия лица, слабость руки и нарушение речи могут быть признаками инсульта; время критично.",
+      "do_not_infer": "Не подтверждать инсульт домашним тестом, не предлагать лекарство, еду, питьё или самостоятельную поездку.",
+      "why_evergreen": "Короткая мнемоника для состояния, где задержка опасна.",
+      "advice_boundary": {
+        "viewer_can": "Запомнить признаки, отметить время их появления и немедленно обратиться в местную экстренную службу.",
+        "viewer_cannot": "Исключать инсульт, если признак прошёл, или пытаться лечить человека дома."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "asa-stroke-facts-2026",
+          "url": "https://www.stroke.org/en/stroke-facts",
+          "publisher": "American Stroke Association",
+          "source_type": "official",
+          "evidence_role": "B.E. F.A.S.T., срочность и действие."
+        },
+        {
+          "source_id": "asa-tia-warning-signs",
+          "url": "https://www.stroke.org/en/help-and-support/resource-library/lets-talk-about-stroke/stroke-tia-and-warning-signs",
+          "publisher": "American Stroke Association",
+          "source_type": "official",
+          "evidence_role": "Не игнорировать внезапные признаки, даже если они прошли."
+        }
+      ],
+      "visual_plan": "Шесть крупных букв с нейтральной инсценировкой, маркированной как постановка; финальный экран только с экстренным действием.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-023-sepsis-act-fast",
+      "title": "Сепсис: сочетание признаков после инфекции, с которым не ждут",
+      "topic": "сепсис",
+      "format": "recognize_and_escalate",
+      "duration_seconds": [60, 80],
+      "hook": "Инфекция плюс спутанность, выраженная одышка или резкое ухудшение — не ситуация для домашнего диагноза.",
+      "summary": "Объяснить, что сепсис — опасная реакция на инфекцию; перечислить официальные признаки CDC без создания диагностического чек-листа.",
+      "allowed_claim": "Сепсис — угрожающая жизни экстренная реакция организма на инфекцию; возможны спутанность, липкая кожа, сильная боль или дискомфорт, жар/озноб, учащённый пульс и одышка.",
+      "do_not_infer": "Не утверждать, что один признак подтверждает сепсис, и не предлагать наблюдение или домашнее лечение при резком ухудшении.",
+      "why_evergreen": "Повышает настороженность к опасному ухудшению без самодиагностики.",
+      "advice_boundary": {
+        "viewer_can": "При подозрении на опасное ухудшение на фоне инфекции срочно обратиться в местную экстренную службу и сообщить об инфекции.",
+        "viewer_cannot": "Исключить или подтвердить сепсис по ролику и откладывать помощь ради наблюдения."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "cdc-sepsis-about-2026",
+          "url": "https://www.cdc.gov/sepsis/about/index.html",
+          "publisher": "Centers for Disease Control and Prevention",
+          "source_type": "official",
+          "evidence_role": "Определение, признаки и экстренная срочность."
+        }
+      ],
+      "visual_plan": "Нейтральная временная линия «инфекция → резкое ухудшение» и крупный CTA; никаких изображений интенсивной терапии как приманки.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-024-caries-sugar-fluoride",
+      "title": "Кариес: два повседневных рычага — свободные сахара и фтор",
+      "topic": "здоровье полости рта",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Для профилактики кариеса важны и частота контакта с сахарами, и регулярное удаление налёта фторсодержащей пастой.",
+      "summary": "Связать определение свободных сахаров WHO с доказательствами пользы фторсодержащих паст, не уходя в детские дозировки и лечение.",
+      "allowed_claim": "Свободные сахара — основной пищевой фактор риска кариеса; регулярная чистка фторсодержащей пастой помогает предотвращать кариес.",
+      "do_not_infer": "Не выбирать концентрацию фтора для ребёнка, не советовать добавки фтора и не лечить боль или уже возникший кариес роликом.",
+      "why_evergreen": "Два понятных профилактических принципа без рекламы стоматологии.",
+      "advice_boundary": {
+        "viewer_can": "Ограничивать частые источники свободных сахаров и пользоваться фторсодержащей пастой по возрастной маркировке и местной рекомендации.",
+        "viewer_cannot": "По ролику выбирать детскую концентрацию, добавки или откладывать стоматолога при боли, отёке или травме."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-sugars-caries-2025",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/sugars-and-dental-caries",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Свободные сахара, налёт, фтор и профилактика кариеса."
+        },
+        {
+          "source_id": "cochrane-fluoride-toothpaste-2019",
+          "url": "https://www.cochrane.org/evidence/CD007868_fluoride-toothpastes-different-strengths-preventing-tooth-decay",
+          "publisher": "Cochrane",
+          "source_type": "secondary",
+          "evidence_role": "Систематический обзор эффективности фторсодержащих паст и ограничений по концентрациям."
+        }
+      ],
+      "visual_plan": "Схема налёта и свободных сахаров плюс нейтральная паста без бренда; никаких изображений тяжёлого поражения как шока.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-025-falls-multifactorial",
+      "title": "Профилактика падений: почему одного коврика недостаточно",
+      "topic": "здоровое старение",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Риск падения складывается из среды, зрения, равновесия, мобильности и лекарств — не из одной причины.",
+      "summary": "Показать многофакторную природу риска и безопасные направления: убрать явные препятствия, улучшить свет, обсудить зрение, равновесие и лекарства со специалистами.",
+      "allowed_claim": "У пожилых людей риск падений часто многофакторный; эффективная профилактика может включать тренировку силы и баланса, оценку дома и индивидуальную оценку факторов риска.",
+      "do_not_infer": "Не советовать отменять лекарства, не назначать витамин D и не давать универсальную программу упражнений.",
+      "why_evergreen": "Практичный формат для семьи и ухаживающих без обвинения человека.",
+      "advice_boundary": {
+        "viewer_can": "Убрать явные бытовые препятствия и подготовить список падений, зрения, мобильности и лекарств для консультации.",
+        "viewer_cannot": "Самостоятельно отменять препараты или выбирать реабилитационную программу."
+      },
+      "risk_level": "yellow",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-falls-fact-2021",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/falls",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Факторы риска и многоуровневые меры профилактики."
+        },
+        {
+          "source_id": "who-step-safely-2021",
+          "url": "https://www.who.int/publications/i/item/978924002191-4",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Технический пакет доказательных стратегий."
+        }
+      ],
+      "visual_plan": "Домашний аудит света и проходов плюс консультационный чек-лист; пожилой человек показан автономно и с достоинством.",
+      "status": "candidate"
+    },
+    {
+      "id": "health-026-ventilation-respiratory",
+      "title": "Проветривание — отдельный слой защиты при респираторных инфекциях",
+      "topic": "профилактика респираторных инфекций",
+      "format": "one_principle_one_boundary",
+      "duration_seconds": [60, 80],
+      "hook": "Чистые руки важны, но воздух в помещении — другой путь передачи, которому нужен свой слой защиты.",
+      "summary": "Объяснить, что улучшение вентиляции снижает концентрацию респираторных частиц и дополняет, а не заменяет другие меры.",
+      "allowed_claim": "WHO включает улучшение вентиляции в меры, которые помогают снизить распространение респираторных инфекций в помещениях.",
+      "do_not_infer": "Не обещать нулевой риск, не задавать инженерные нормы для конкретного здания и не заменять локальные рекомендации во время вспышки.",
+      "why_evergreen": "Принцип слоёв защиты применим каждый сезон.",
+      "advice_boundary": {
+        "viewer_can": "Улучшать приток наружного воздуха, когда это безопасно и возможно, и сочетать с актуальными локальными мерами.",
+        "viewer_cannot": "Считать проветривание полной заменой вакцинации, масок при показаниях, изоляции заболевшего или инженерной оценки."
+      },
+      "risk_level": "green",
+      "medical_review_required": true,
+      "source_candidates": [
+        {
+          "source_id": "who-flu-prevention-2026",
+          "url": "https://www.who.int/news-room/questions-and-answers/item/how-can-i-avoid-getting-the-flu",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Вентиляция как часть мер против гриппа."
+        },
+        {
+          "source_id": "who-covid-ventilation-2021",
+          "url": "https://www.who.int/news-room/questions-and-answers/item/coronavirus-disease-covid-19-ventilation-and-air-conditioning",
+          "publisher": "World Health Organization",
+          "source_type": "official",
+          "evidence_role": "Механизм вентиляции и принцип сочетания мер."
+        }
+      ],
+      "visual_plan": "Слои защиты вокруг комнаты и стрелки наружного воздуха; не визуализировать воздух как мгновенно стерильный.",
+      "status": "candidate"
+    }
+  ]
+}

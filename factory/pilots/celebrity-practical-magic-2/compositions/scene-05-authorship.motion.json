@@ -1,0 +1,11 @@
+{
+  "duration": 6.165397,
+  "maxStaticSec": 1.5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#authorship-name", "bySec": 1.5 },
+    { "kind": "before", "a": "#authorship-name", "b": "#book-card" },
+    { "kind": "staysInFrame", "selector": "#book-card" },
+    { "kind": "keepsMoving", "withinSelector": "#root" }
+  ]
+}
+

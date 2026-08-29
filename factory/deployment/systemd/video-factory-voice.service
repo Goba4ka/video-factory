@@ -1,0 +1,38 @@
+[Unit]
+Description=Video Factory job-bound Fish Audio voice worker
+Requires=video-factory-preflight.service
+After=video-factory-preflight.service network-online.target
+Wants=network-online.target
+ConditionPathExists=/etc/video-factory/secrets/fish_api_key
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=video-factory
+Group=video-factory
+UMask=0027
+EnvironmentFile=/etc/video-factory/runtime.env
+LoadCredential=fish_api_key:/etc/video-factory/secrets/fish_api_key
+Environment=FISH_API_KEY_FILE=%d/fish_api_key
+WorkingDirectory=/opt/video-factory/current
+ExecStart=/opt/video-factory/current/.venv/bin/video-factory worker --db ${VIDEO_FACTORY_DB} --worker %H-voice --role voice --handler-executable /opt/video-factory/current/.venv/bin/python --handler-arg=-m --handler-arg=video_factory.voice_handler --handler-cwd ${VIDEO_FACTORY_WORKSPACE} --handler-timeout 900 --lease-seconds ${VIDEO_FACTORY_WORKER_LEASE_SECONDS} --heartbeat-seconds ${VIDEO_FACTORY_WORKER_HEARTBEAT_SECONDS} --poll-seconds ${VIDEO_FACTORY_WORKER_POLL_SECONDS} --resource-lock none
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=45s
+KillSignal=SIGTERM
+SuccessExitStatus=0
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=/var/lib/video-factory
+
+[Install]
+WantedBy=multi-user.target

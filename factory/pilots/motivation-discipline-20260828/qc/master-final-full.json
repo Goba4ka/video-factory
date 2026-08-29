@@ -1,0 +1,68 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "d9f651e4142e475f9bf1d75d75a713b696b6622d00d4ff9d6ec8f1217c08d6fc",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\d9\\d9f651e4142e475f9bf1d75d75a713b696b6622d00d4ff9d6ec8f1217c08d6fc.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 4.594,
+  "failures": [
+    {
+      "code": "integrated_loudness",
+      "message": "-16.24 LUFS is outside -15.0..-14.0"
+    }
+  ],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 26.6,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 26.6,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-discipline-20260828\\renders\\motivation-discipline-master-final.mp4",
+    "size_bytes": 23568467,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 26.6,
+      "fps": 30.0,
+      "height": 1920,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 1080
+    }
+  },
+  "ok": false,
+  "profile": {
+    "name": "motivation_v3_master",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -16.24,
+      "lra_lu": 5.6,
+      "threshold_lufs": -26.72,
+      "true_peak_dbtp": -2.09
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-discipline-20260828\\renders\\motivation-discipline-master-final.mp4",
+  "status": "final_technical_fail",
+  "technical_pass": false,
+  "warnings": []
+}

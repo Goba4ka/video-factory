@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "canvas": { "width": 1080, "height": 1920 },
+  "square": { "x": 0, "y": 420, "width": 1080, "height": 1080 },
+  "caption_anchor": { "x": 540, "y": 960 },
+  "source_contract": { "width": 1920, "height": 1080, "allow_upscale": false },
+  "speakers": {
+    "speaker-01-markaryan": { "crop_x": 360, "camera_left": -360, "transform_origin_x_pct": 46.875 },
+    "speaker-02-gandapas": { "crop_x": 580, "camera_left": -580, "transform_origin_x_pct": 58.333 },
+    "speaker-03-sitnikov": { "crop_x": 270, "camera_left": -270, "transform_origin_x_pct": 42.1875 }
+  },
+  "evidence": "motivation-ru-source-truth-v3/qc/B1-B3 contact sheets inspected at original detail"
+}

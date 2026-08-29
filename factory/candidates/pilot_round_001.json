@@ -1,0 +1,86 @@
+{
+  "batch_label": "pilot_round_001",
+  "created_at": "2026-08-27T00:00:00+03:00",
+  "ideas": [
+    {
+      "id": "space-moon-trees-001",
+      "pod": "space_technology",
+      "title": "Деревья, которые облетели Луну",
+      "topic": "Apollo 14 Moon Trees",
+      "hook": "Эти деревья облетели Луну ещё до того, как проросли.",
+      "message": "Семена на Apollo 14 пережили полёт и повреждение контейнера, а выросшие деревья стали живым наследием лунной программы.",
+      "why_now": "Evergreen; verified pre-production and official media candidates are already available.",
+      "quality_profile": "wonder_mystery_slow",
+      "risk": "green",
+      "rights_feasibility": "green",
+      "sources": [
+        "https://www.nasa.gov/history/moon-trees/",
+        "https://www.nasa.gov/mission/apollo-14/",
+        "https://www.srs.fs.usda.gov/pubs/gtr/gtr_srs272/gtr_srs272.pdf"
+      ],
+      "preproduction": "pilots/moon_trees_preproduction"
+    },
+    {
+      "id": "space-lost-tomato-001",
+      "pod": "space_technology",
+      "title": "Помидор, пропавший в космосе",
+      "topic": "ISS XROOTS lost tomatoes",
+      "hook": "Астронавта почти год шутливо обвиняли в том, что он съел этот помидор.",
+      "message": "Два экспериментальных помидора потерялись на МКС и нашлись почти через год, высохшими в пакете.",
+      "why_now": "Evergreen light science story with strong official NASA visuals.",
+      "quality_profile": "human_contrast_fast",
+      "risk": "green",
+      "rights_feasibility": "green",
+      "sources": [
+        "https://www.nasa.gov/missions/station/nasa-lets-ketchup-on-international-space-station-tomato-research/"
+      ]
+    },
+    {
+      "id": "space-voyager-computer-001",
+      "pod": "space_technology",
+      "title": "Компьютер слабее смартфона, который говорит из межзвёздного пространства",
+      "topic": "Voyager computing and communications",
+      "hook": "Этот компьютер слабее твоего телефона в миллионы раз, но работает почти полвека.",
+      "message": "Ограниченная вычислительная техника Voyager продолжает поддерживать уникальную межзвёздную миссию благодаря инженерной экономии и Deep Space Network.",
+      "why_now": "NASA still listed both Voyager spacecraft as functioning in April 2026; current status must be rechecked before production.",
+      "quality_profile": "wonder_mystery_slow",
+      "risk": "yellow",
+      "rights_feasibility": "green",
+      "sources": [
+        "https://science.nasa.gov/mission/voyager/frequently-asked-questions/",
+        "https://science.nasa.gov/mission/voyager/voyager-1/"
+      ]
+    },
+    {
+      "id": "nature-whale-fall-001",
+      "pod": "nature_animals",
+      "title": "Смерть кита создаёт новый город",
+      "topic": "Whale-fall ecosystem",
+      "hook": "Когда кит умирает, вокруг него появляется целый подводный город.",
+      "message": "Туша кита на глубине поддерживает последовательность сообществ, а скелет может питать экосистему годами и десятилетиями.",
+      "why_now": "Evergreen ocean science with downloadable NOAA expedition footage.",
+      "quality_profile": "wonder_mystery_slow",
+      "risk": "green",
+      "rights_feasibility": "green",
+      "sources": [
+        "https://oceanservice.noaa.gov/facts/whale-fall.html"
+      ]
+    },
+    {
+      "id": "nature-bioluminescence-001",
+      "pod": "nature_animals",
+      "title": "Океан светится не ради красоты",
+      "topic": "Deep-sea bioluminescence",
+      "hook": "В темноте океана свет означает еду, любовь или смерть.",
+      "message": "Морские организмы создают свет для охоты, защиты и общения, превращая глубоководную темноту в систему сигналов.",
+      "why_now": "Evergreen science story with official NOAA downloadable video resources.",
+      "quality_profile": "wonder_mystery_slow",
+      "risk": "green",
+      "rights_feasibility": "green",
+      "sources": [
+        "https://oceanexplorer.noaa.gov/education/bioluminescence/",
+        "https://oceanservice.noaa.gov/facts/biolum.html"
+      ]
+    }
+  ]
+}

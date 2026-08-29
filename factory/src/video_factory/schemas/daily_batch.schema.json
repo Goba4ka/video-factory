@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/daily_batch.schema.json",
+  "title": "DailyBatch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "batch_id", "production_date", "target_count", "pod_allocations", "status"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "batch_id": {"type": "string", "pattern": "^batch_[0-9]{4}-[0-9]{2}-[0-9]{2}(_[a-z0-9_-]+)?$"},
+    "production_date": {"type": "string", "format": "date"},
+    "target_count": {"type": "integer", "minimum": 1, "maximum": 15},
+    "pod_allocations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["pod", "target", "candidate_idea_ids", "approved_idea_ids"],
+        "properties": {
+          "pod": {"enum": ["space_technology", "nature_animals", "people_culture", "war_history", "celebrity_news", "motivation", "chinese_medicine", "health"]},
+          "target": {"type": "integer", "minimum": 1, "maximum": 5},
+          "candidate_idea_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "approved_idea_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+        }
+      }
+    },
+    "status": {"enum": ["idea_review", "producing", "qc", "ready", "publishing", "complete", "blocked"]},
+    "capacity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "render_slots": {"type": "integer", "minimum": 1},
+        "human_review_minutes": {"type": "integer", "minimum": 0},
+        "max_yellow_risk_jobs": {"type": "integer", "minimum": 0}
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

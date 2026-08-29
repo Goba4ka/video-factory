@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru"><body><template>
+  <style>
+    #root { position:absolute; inset:0; width:1080px; height:1920px; overflow:hidden; background:#08090b; color:#f2efe8; }
+    .camera { position:absolute; inset:-24px; overflow:hidden; transform-origin:50% 44%; will-change:transform; }
+    .source-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 46%; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,9,11,.08) 35%,rgba(8,9,11,.54) 64%,rgba(8,9,11,.95) 100%); }
+    .speaker { position:absolute; left:60px; top:154px; color:rgba(242,239,232,.72); font:700 20px "Space Mono",monospace; letter-spacing:.13em; }
+    .take { position:absolute; right:60px; top:154px; color:#b5222a; font:700 20px "Space Mono",monospace; }
+    .flash { background:#efe9df; mix-blend-mode:screen; opacity:.82; }
+    .caption { left:54px; right:54px; bottom:300px; height:auto; margin:auto; display:flex; justify-content:center; align-items:center; text-align:center; font:700 98px/1.04 "Oswald",sans-serif; letter-spacing:-.025em; text-transform:uppercase; text-shadow:0 4px 18px rgba(0,0,0,.95),0 0 3px #000; transform-origin:50% 70%; }
+    .hot { color:#b5222a; }
+  </style>
+  <div id="root" data-composition-id="scene-02-markaryan" data-width="1080" data-height="1920" data-duration="5.145833">
+    <div id="s2-camera" class="camera"><video id="s2-video" class="clip source-video" src="assets/source/markaryan.mp4" data-start="0" data-duration="5.145833" data-media-start="12.18" data-playback-rate="0.96" data-track-index="1" data-color-grading='{"preset":"mono-clean","intensity":1,"adjust":{"contrast":0.22,"blacks":-0.2,"highlights":-0.1},"details":{"grain":0.15,"grainSize":0.31,"grainRoughness":0.6,"vignette":0.34,"vignetteMidpoint":0.43,"vignetteFeather":0.77}}' muted playsinline></video></div>
+    <div class="shade"></div><div class="speaker">АРСЕН МАРКАРЯН</div><div class="take">02</div><div id="s2-flash" class="clip flash" data-start="0" data-duration="0.066667" data-track-index="30"></div>
+    <div id="s2-c1" class="clip caption" data-start="0" data-duration="1.34" data-track-index="20">ВЕСЬ&nbsp;<span class="hot">ОТВЕТ</span></div>
+    <div id="s2-c2" class="clip caption" data-start="1.34" data-duration="1.48" data-track-index="20">У&nbsp;<span class="hot">ИЗБРАННОГО</span></div>
+    <div id="s2-c3" class="clip caption" data-start="2.82" data-duration="1.32" data-track-index="20"><span class="hot">ДЕЙСТВУЮ</span></div>
+    <div id="s2-c4" class="clip caption" data-start="4.14" data-duration="1.005833" data-track-index="20">НЕ&nbsp;<span class="hot">СДАЮСЬ</span></div>
+  </div>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo("#s2-camera",{scale:1.025,x:5,y:2},{scale:1.06,x:-10,y:-12,duration:5.145833,ease:"none"},0);
+    tl.fromTo(".speaker",{opacity:0,x:-18},{opacity:.72,x:0,duration:.3,ease:"expo.out"},.14);
+    [["#s2-c1",0,1.34],["#s2-c2",1.34,2.82],["#s2-c3",2.82,4.14],["#s2-c4",4.14,5.145833]].forEach(([id,a,b])=>{tl.fromTo(id,{opacity:0,scale:.94,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.12,ease:"power3.out"},a+.02);if(b<5.14)tl.to(id,{opacity:0,scale:1.015,filter:"blur(5px)",duration:.08,ease:"power2.in"},b-.08);});
+    window.__timelines["scene-02-markaryan"]=tl;
+  </script>
+</template></body></html>

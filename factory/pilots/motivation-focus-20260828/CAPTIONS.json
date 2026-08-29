@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "language": "ru",
+  "source_caption_status": "embedded_in_user_video",
+  "captions": [
+    {"id":"cap-01","start":0.35,"end":1.70,"text":"НЕ БУДЬТЕ","accent_tokens":["НЕ"]},
+    {"id":"cap-02","start":1.70,"end":3.75,"text":"СРЕДИ ПРОИГРАВШИХ","accent_tokens":["ПРОИГРАВШИХ"]},
+    {"id":"cap-03","start":3.75,"end":5.30,"text":"БУДЬТЕ СРЕДИ","accent_tokens":["БУДЬТЕ"]},
+    {"id":"cap-04","start":5.30,"end":6.55,"text":"ПОБЕДИТЕЛЕЙ","accent_tokens":["ПОБЕДИТЕЛЕЙ"]},
+    {"id":"cap-05","start":6.55,"end":9.75,"text":"ПЕРЕСТАТЬ ЖАЛЕТЬ СЕБЯ","accent_tokens":["ПЕРЕСТАТЬ","СЕБЯ"]},
+    {"id":"cap-06","start":19.55,"end":22.20,"text":"ПЕРЕСТАНЬ ЖАЛЕТЬ СЕБЯ","accent_tokens":["ПЕРЕСТАНЬ"]}
+  ]
+}
+

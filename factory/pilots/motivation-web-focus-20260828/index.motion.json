@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "assertions": [
+    {"kind":"appearsBy","selector":"#caption-1","bySec":0.25},
+    {"kind":"staysInFrame","selector":"#caption-1 .caption-card"},
+    {"kind":"keepsMoving","withinSelector":"[data-composition-id]","maxStaticSec":2.5},
+    {"kind":"appearsBy","selector":"#caption-7","bySec":20.7}
+  ]
+}

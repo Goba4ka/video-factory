@@ -1,0 +1,257 @@
+{
+  "source": "factory\\pilots\\motivation-discipline-20260828\\assets\\video\\jocko-source.mp4",
+  "language": "en",
+  "language_probability": 1,
+  "duration": 17.02025,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 7.08,
+      "text": "it's fickle. It comes and goes. You can't count on motivation to be there when you need to get",
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.32,
+          "word": " it's",
+          "probability": 0.6440867930650711
+        },
+        {
+          "start": 0.32,
+          "end": 0.7,
+          "word": " fickle.",
+          "probability": 0.990716427564621
+        },
+        {
+          "start": 1.3,
+          "end": 1.36,
+          "word": " It",
+          "probability": 0.9482956528663635
+        },
+        {
+          "start": 1.36,
+          "end": 1.66,
+          "word": " comes",
+          "probability": 0.997948944568634
+        },
+        {
+          "start": 1.66,
+          "end": 1.84,
+          "word": " and",
+          "probability": 0.9922766089439392
+        },
+        {
+          "start": 1.84,
+          "end": 2.1,
+          "word": " goes.",
+          "probability": 0.9988173842430115
+        },
+        {
+          "start": 3.04,
+          "end": 3.14,
+          "word": " You",
+          "probability": 0.994559109210968
+        },
+        {
+          "start": 3.14,
+          "end": 3.52,
+          "word": " can't",
+          "probability": 0.9958810806274414
+        },
+        {
+          "start": 3.52,
+          "end": 3.98,
+          "word": " count",
+          "probability": 0.9879751801490784
+        },
+        {
+          "start": 3.98,
+          "end": 4.26,
+          "word": " on",
+          "probability": 0.9986238479614258
+        },
+        {
+          "start": 4.26,
+          "end": 4.8,
+          "word": " motivation",
+          "probability": 0.994114339351654
+        },
+        {
+          "start": 4.8,
+          "end": 5.1,
+          "word": " to",
+          "probability": 0.9971700310707092
+        },
+        {
+          "start": 5.1,
+          "end": 5.34,
+          "word": " be",
+          "probability": 0.9956515431404114
+        },
+        {
+          "start": 5.34,
+          "end": 5.68,
+          "word": " there",
+          "probability": 0.9990230798721313
+        },
+        {
+          "start": 5.68,
+          "end": 6.14,
+          "word": " when",
+          "probability": 0.9687038064002991
+        },
+        {
+          "start": 6.14,
+          "end": 6.38,
+          "word": " you",
+          "probability": 0.9986640214920044
+        },
+        {
+          "start": 6.38,
+          "end": 6.66,
+          "word": " need",
+          "probability": 0.9966022968292236
+        },
+        {
+          "start": 6.66,
+          "end": 6.88,
+          "word": " to",
+          "probability": 0.997683048248291
+        },
+        {
+          "start": 6.88,
+          "end": 7.08,
+          "word": " get",
+          "probability": 0.9965190887451172
+        }
+      ]
+    },
+    {
+      "start": 7.08,
+      "end": 14.78,
+      "text": "through truly challenging times. But you can count on discipline. Discipline is something you dictate.",
+      "words": [
+        {
+          "start": 7.08,
+          "end": 7.44,
+          "word": " through",
+          "probability": 0.9964101910591125
+        },
+        {
+          "start": 7.44,
+          "end": 8.02,
+          "word": " truly",
+          "probability": 0.9932684302330017
+        },
+        {
+          "start": 8.02,
+          "end": 8.6,
+          "word": " challenging",
+          "probability": 0.9979305267333984
+        },
+        {
+          "start": 8.6,
+          "end": 9.18,
+          "word": " times.",
+          "probability": 0.9987658262252808
+        },
+        {
+          "start": 10.08,
+          "end": 10.3,
+          "word": " But",
+          "probability": 0.9918056726455688
+        },
+        {
+          "start": 10.3,
+          "end": 10.46,
+          "word": " you",
+          "probability": 0.9821672439575195
+        },
+        {
+          "start": 10.46,
+          "end": 10.74,
+          "word": " can",
+          "probability": 0.9854909181594849
+        },
+        {
+          "start": 10.74,
+          "end": 11.16,
+          "word": " count",
+          "probability": 0.9928654432296753
+        },
+        {
+          "start": 11.16,
+          "end": 11.54,
+          "word": " on",
+          "probability": 0.995326042175293
+        },
+        {
+          "start": 11.54,
+          "end": 12.04,
+          "word": " discipline.",
+          "probability": 0.9972544312477112
+        },
+        {
+          "start": 12.8,
+          "end": 13.4,
+          "word": " Discipline",
+          "probability": 0.9958078066507975
+        },
+        {
+          "start": 13.4,
+          "end": 13.5,
+          "word": " is",
+          "probability": 0.9982030391693115
+        },
+        {
+          "start": 13.5,
+          "end": 13.82,
+          "word": " something",
+          "probability": 0.9988458156585693
+        },
+        {
+          "start": 13.82,
+          "end": 14.38,
+          "word": " you",
+          "probability": 0.9707434773445129
+        },
+        {
+          "start": 14.38,
+          "end": 14.78,
+          "word": " dictate.",
+          "probability": 0.9967417120933533
+        }
+      ]
+    },
+    {
+      "start": 15.76,
+      "end": 17.0,
+      "text": "Motivation won't make you",
+      "words": [
+        {
+          "start": 15.76,
+          "end": 16.38,
+          "word": " Motivation",
+          "probability": 0.985029419263204
+        },
+        {
+          "start": 16.38,
+          "end": 16.72,
+          "word": " won't",
+          "probability": 0.9948351681232452
+        },
+        {
+          "start": 16.72,
+          "end": 16.9,
+          "word": " make",
+          "probability": 0.9963836669921875
+        },
+        {
+          "start": 16.9,
+          "end": 17.0,
+          "word": " you",
+          "probability": 0.9347630739212036
+        }
+      ]
+    }
+  ]
+}

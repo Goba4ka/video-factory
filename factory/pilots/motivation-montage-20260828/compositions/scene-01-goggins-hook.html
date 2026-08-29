@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru"><body><template>
+  <style>
+    #root { position:absolute; inset:0; width:1080px; height:1920px; overflow:hidden; background:#08090b; color:#f2efe8; }
+    .camera { position:absolute; inset:-24px; overflow:hidden; transform-origin:50% 45%; will-change:transform; }
+    .source-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 48%; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,9,11,.1) 38%,rgba(8,9,11,.55) 64%,rgba(8,9,11,.94) 100%); pointer-events:none; }
+    .speaker { position:absolute; left:60px; top:154px; color:rgba(242,239,232,.72); font:700 20px "Space Mono",monospace; letter-spacing:.13em; }
+    .take { position:absolute; right:60px; top:154px; color:#b5222a; font:700 20px "Space Mono",monospace; }
+    .caption { left:58px; right:58px; bottom:300px; height:auto; margin:auto; display:flex; justify-content:center; align-items:center; text-align:center; font:700 102px/1.02 "Oswald",sans-serif; letter-spacing:-.025em; text-transform:uppercase; text-shadow:0 4px 18px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,1); transform-origin:50% 70%; }
+    .hot { color:#b5222a; }
+  </style>
+  <div id="root" data-composition-id="scene-01-goggins-hook" data-width="1080" data-height="1920" data-duration="4">
+    <div id="s1-camera" class="camera"><video id="s1-video" class="clip source-video" src="assets/source/goggins.mp4" data-start="0" data-duration="4" data-media-start="0" data-playback-rate="0.96" data-track-index="1" data-color-grading='{"preset":"mono-clean","intensity":1,"adjust":{"contrast":0.2,"blacks":-0.18,"highlights":-0.08},"details":{"grain":0.14,"grainSize":0.3,"grainRoughness":0.58,"vignette":0.32,"vignetteMidpoint":0.44,"vignetteFeather":0.78}}' muted playsinline></video></div>
+    <div class="shade"></div><div class="speaker">DAVID GOGGINS</div><div class="take">01</div>
+    <div id="s1-c1" class="clip caption" data-start="0" data-duration="1.12" data-track-index="20">ПОПРОБУЙ&nbsp;<span class="hot">СНОВА</span></div>
+    <div id="s1-c2" class="clip caption" data-start="1.12" data-duration="1.36" data-track-index="20">ЕЩЁ&nbsp;<span class="hot">РАЗ</span></div>
+    <div id="s1-c3" class="clip caption" data-start="2.48" data-duration="1.52" data-track-index="20">И ЕЩЁ&nbsp;<span class="hot">РАЗ</span></div>
+  </div>
+  <script>
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo("#s1-camera",{scale:1.02,x:0,y:0},{scale:1.055,x:-8,y:-10,duration:4,ease:"none"},0);
+    tl.fromTo(".speaker",{opacity:0,x:-18},{opacity:.72,x:0,duration:.34,ease:"power3.out"},.16);
+    [["#s1-c1",0,1.12],["#s1-c2",1.12,2.48],["#s1-c3",2.48,4]].forEach(([id,a,b])=>{tl.fromTo(id,{opacity:0,scale:.94,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.12,ease:"power3.out"},a+.02);if(b<3.99)tl.to(id,{opacity:0,scale:1.015,filter:"blur(5px)",duration:.08,ease:"power2.in"},b-.08);});
+    window.__timelines["scene-01-goggins-hook"]=tl;
+  </script>
+</template></body></html>

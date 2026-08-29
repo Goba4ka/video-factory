@@ -1,0 +1,73 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "774729d1d92ef1a97af156bdb9ef387db319efb5101b4f8dbeecd6669bf8f6e7",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\77\\774729d1d92ef1a97af156bdb9ef387db319efb5101b4f8dbeecd6669bf8f6e7.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 2.344,
+  "failures": [
+    {
+      "code": "integrated_loudness",
+      "message": "-16.27 LUFS is outside -15.5..-13.5"
+    }
+  ],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 26.6,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 26.6,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-discipline-20260828\\renders\\motivation-discipline-telegram-final.mp4",
+    "size_bytes": 2535449,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 26.6,
+      "fps": 30.0,
+      "height": 1280,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 720
+    }
+  },
+  "ok": false,
+  "profile": {
+    "name": "motivation_v3_telegram",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -16.27,
+      "lra_lu": 5.6,
+      "threshold_lufs": -26.75,
+      "true_peak_dbtp": -1.96
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-discipline-20260828\\renders\\motivation-discipline-telegram-final.mp4",
+  "status": "final_technical_fail",
+  "technical_pass": false,
+  "warnings": [
+    {
+      "code": "delivery_size",
+      "message": "2535449 bytes exceeds Telegram target 2378000"
+    }
+  ]
+}

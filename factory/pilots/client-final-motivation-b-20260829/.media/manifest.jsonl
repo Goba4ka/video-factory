@@ -1,0 +1,3 @@
+{"id":"bgm_001","type":"bgm","path":"assets/audio/nightfall.mp3","source":"existing","description":"nightfall","provenance":{"provider":"local","adopted":true}}
+{"id":"video_001","type":"video","path":"assets/video/speaker-audio-source.mp4","source":"existing","description":"speaker audio source","provenance":{"provider":"local","adopted":true}}
+{"id":"video_002","type":"video","path":"assets/video/speaker.mp4","source":"existing","description":"speaker","provenance":{"provider":"local","adopted":true}}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "idea_id": "motivation_first_action_001",
+  "pod": "motivation",
+  "title": "Не жди мотивацию: начни с минимального действия",
+  "hook": "Ждёшь, пока появится мотивация? Поменяй порядок: сначала — минимальное действие.",
+  "message": "Уменьши первый шаг и привяжи его к конкретному сигналу. Две минуты используются как понятный редакционный формат старта, а не как универсальная научная норма.",
+  "why_now": "Вечнозелёная практическая тема с ясным действием, сильной визуализацией и безопасной формулировкой без обещаний результата.",
+  "audience": "Русскоязычные зрители 18–44 лет, откладывающие бытовые, учебные или рабочие задачи.",
+  "destination": ["youtube_shorts", "instagram_reels", "tiktok"],
+  "source_candidates": [
+    {
+      "source_id": "src_gollwitzer_sheeran_2006",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1",
+      "publisher": "Elsevier / Advances in Experimental Social Psychology",
+      "source_type": "primary",
+      "notes": "Meta-analysis of implementation intentions and goal achievement."
+    },
+    {
+      "source_id": "src_nci_implementation_intentions",
+      "url": "https://cancercontrol.cancer.gov/brp/research/constructs/implementation-intentions",
+      "publisher": "U.S. National Cancer Institute",
+      "source_type": "official",
+      "notes": "Official construct summary used to bound the if-then planning claim."
+    }
+  ],
+  "visual_plan": {
+    "target_shots": 11,
+    "rights_feasibility": "green",
+    "visual_world": "Real everyday stock footage, graphite scrim, warm white captions and signal-yellow emphasis.",
+    "candidate_asset_count": 7
+  },
+  "score": {
+    "relevance": 0.82,
+    "audience_fit": 0.9,
+    "visualability": 0.92,
+    "source_quality": 0.88,
+    "rights_availability": 0.95,
+    "novelty": 0.58,
+    "saturation": 0.55,
+    "policy_risk": 0.18
+  },
+  "risk": "yellow",
+  "status": "completed",
+  "created_at": "2026-08-27T20:01:02+03:00"
+}

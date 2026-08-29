@@ -1,0 +1,11 @@
+{
+  "duration": 5.279683,
+  "maxStaticSec": 1.5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#event-date", "bySec": 1.1 },
+    { "kind": "before", "a": "#event-date", "b": "#event-source" },
+    { "kind": "staysInFrame", "selector": "#event-panel" },
+    { "kind": "keepsMoving", "withinSelector": "#root" }
+  ]
+}
+

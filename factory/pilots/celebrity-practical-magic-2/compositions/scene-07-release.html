@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Даты проката</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      .release-title {
+        position: absolute;
+        top: 250px;
+        left: 72px;
+        z-index: 6;
+        font-size: 96px;
+      }
+      .release-stack {
+        position: absolute;
+        top: 475px;
+        left: 72px;
+        right: 72px;
+        z-index: 7;
+        display: grid;
+        gap: 24px;
+      }
+      .release-card {
+        position: relative;
+        min-height: 298px;
+        padding: 30px 36px 34px;
+        overflow: hidden;
+        background: rgba(9, 10, 14, 0.9);
+        border-top: 4px solid var(--amber);
+        border-bottom: 2px solid rgba(217, 222, 255, 0.42);
+      }
+      .release-date {
+        color: var(--amber);
+        font-size: 172px;
+        line-height: 0.88;
+        font-variant-numeric: tabular-nums;
+      }
+      .release-region {
+        margin-top: 22px;
+        color: var(--paper);
+        font-size: 26px;
+        line-height: 1.25;
+      }
+      .release-year {
+        position: absolute;
+        right: 28px;
+        top: 26px;
+        color: #77798a;
+        font-family: "Oswald", sans-serif;
+        font-size: 82px;
+      }
+      .release-source {
+        position: absolute;
+        top: 1195px;
+        left: 72px;
+        z-index: 8;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-07-release"
+      data-duration="8.571927"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="media-frame">
+        <div class="media-motion" id="release-media" data-layout-allow-overflow>
+          <video
+            id="release-video"
+            class="clip media-clip"
+            src="assets/footage/cinema-release.mp4"
+            data-start="0"
+            data-duration="8.571927"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="mono scene-index">07 / КОГДА СМОТРЕТЬ</span>
+        <span class="context-chip mono">КИНОКОНТЕКСТ · STOCK</span>
+      </div>
+      <h1 class="display release-title" id="release-title">ДАТЫ<br /><span class="accent">ПРОКАТА</span></h1>
+      <div class="release-stack">
+        <section class="release-card" id="release-card-1">
+          <div class="display release-date">09.09</div>
+          <div class="mono release-region">МЕЖДУНАРОДНЫЙ ПРОКАТ</div>
+          <div class="release-year">2026</div>
+        </section>
+        <section class="release-card" id="release-card-2">
+          <div class="display release-date moon-text">10.09</div>
+          <div class="mono release-region">СЕВЕРНАЯ АМЕРИКА</div>
+          <div class="release-year">2026</div>
+        </section>
+      </div>
+      <div class="source-chip mono release-source" id="release-source">OFFICIAL MOVIE SITE · RELEASE</div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#release-media", { scale: 1.04, y: -8 }, { scale: 1.1, y: 10, duration: 8.571927, ease: "none" }, 0);
+      tl.fromTo(".top-meta", { y: -28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.42, ease: "power3.out" }, 0.14);
+      tl.fromTo("#release-title", { x: -78, opacity: 0 }, { x: 0, opacity: 1, duration: 0.56, ease: "expo.out" }, 0.32);
+      tl.fromTo("#release-card-1", { x: -170, opacity: 0 }, { x: 0, opacity: 1, duration: 0.68, ease: "power4.out" }, 0.74);
+      tl.fromTo("#release-card-2", { x: 170, opacity: 0 }, { x: 0, opacity: 1, duration: 0.76, ease: "power3.out" }, 1.02);
+      tl.fromTo("#release-source", { scaleX: 0.76, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.44, ease: "power2.out", transformOrigin: "0 50%" }, 1.52);
+      tl.to("#release-card-1", { y: -7, duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.15);
+      tl.to("#release-card-2", { y: 7, duration: 2.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.15);
+      window.__timelines["scene-07-release"] = tl;
+    </script>
+  </body>
+</html>

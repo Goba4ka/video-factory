@@ -1,0 +1,11 @@
+{
+  "duration": 4.467619,
+  "maxStaticSec": 1.2,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#curse-word-1", "bySec": 0.7 },
+    { "kind": "before", "a": "#curse-word-1", "b": "#curse-fact" },
+    { "kind": "staysInFrame", "selector": "#curse-fact" },
+    { "kind": "keepsMoving", "withinSelector": "#root" }
+  ]
+}
+

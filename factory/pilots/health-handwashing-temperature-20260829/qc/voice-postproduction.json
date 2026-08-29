@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "health-handwashing-temperature-20260829",
+  "source_generations": [1, 2],
+  "fish_generation_count": 2,
+  "fish_generation_limit": 2,
+  "operation": "editorial_splice_existing_generations",
+  "output": "assets/audio/voice-final.wav",
+  "output_duration_seconds": 27.196,
+  "segments": [
+    {"source": "voice-v2.wav", "start": 0.0, "end": 13.62},
+    {"source": "voice.wav", "start": 13.18, "end": 16.04},
+    {"source": "voice-v2.wav", "start": 17.80, "end": 28.676}
+  ],
+  "crossfade_seconds": 0.08,
+  "reason": "Keep the clean Russian first-generation CDC phrase while preserving the corrected second-generation final sentence. No additional provider call was made.",
+  "asr_qc": "qc/fish-faster-whisper-final.json"
+}

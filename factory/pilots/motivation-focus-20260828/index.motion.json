@@ -1,0 +1,10 @@
+{
+  "duration": 22.2,
+  "assertions": [
+    {"kind":"appearsBy","selector":"#caption-01","bySec":0.55},
+    {"kind":"before","a":"#caption-01","b":"#caption-04"},
+    {"kind":"staysInFrame","selector":".caption-card"},
+    {"kind":"keepsMoving","withinSelector":"#motivation-focus","maxStaticSec":2.8}
+  ]
+}
+

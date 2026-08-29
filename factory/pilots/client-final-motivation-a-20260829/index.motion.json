@@ -1,0 +1,10 @@
+{
+  "duration": 29.278,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#cap-01 .txt", "bySec": 0.5 },
+    { "kind": "before", "a": "#cap-01 .txt", "b": "#cap-14 .txt" },
+    { "kind": "staysInFrame", "selector": "#cap-14" },
+    { "kind": "staysInFrame", "selector": "#cap-16" },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 3.2 }
+  ]
+}

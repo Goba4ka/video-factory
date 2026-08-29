@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "snapshot_hours": [1, 6, 24, 72, 168],
+  "cohort": {
+    "dimensions": ["platform", "account_id", "pod", "duration_band"],
+    "calibration_posts": 10,
+    "stable_posts_min": 30,
+    "stable_posts_max": 50,
+    "max_age_days": 90
+  },
+  "daily_mix": {
+    "exploit": 0.6,
+    "adjacent": 0.3,
+    "tail": 0.1
+  },
+  "north_star_weights": {
+    "hook": 0.35,
+    "hold": 0.3,
+    "value": 0.2,
+    "conversion": 0.15
+  },
+  "promotion": {
+    "evaluation_snapshot_hours": 72,
+    "minimum_comparable_outputs": 5,
+    "maximum_followups_per_winner": 2,
+    "requires_human_approval": true,
+    "requires_no_policy_event": true
+  }
+}

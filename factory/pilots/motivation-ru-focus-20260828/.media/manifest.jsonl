@@ -1,0 +1,4 @@
+{"id":"bgm_001","type":"bgm","path":"assets/audio/oskar-voice-28.68-57.05.wav","source":"existing","description":"oskar voice 28.68 57.05","duration":28.4,"provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_002","type":"bgm","path":"assets/audio/scott-buckley-the-long-dark.mp3","source":"existing","description":"scott buckley the long dark","duration":439.8,"provenance":{"provider":"local","adopted":true}}
+{"id":"bgm_003","type":"bgm","path":"assets/audio/the-long-dark-165.00-193.37.wav","source":"existing","description":"the long dark 165.00 193.37","duration":28.4,"provenance":{"provider":"local","adopted":true}}
+{"id":"video_001","type":"video","path":"assets/source/oskar-hartmann-official.mp4","source":"existing","description":"oskar hartmann official","duration":146.3,"width":640,"height":360,"provenance":{"provider":"local","adopted":true}}

@@ -1,0 +1,83 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "98605d383e83e2300d681a10f315e9b39d28614c4049be52b9bbde07d24aac03",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\98\\98605d383e83e2300d681a10f315e9b39d28614c4049be52b9bbde07d24aac03.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 10.125,
+  "failures": [
+    {
+      "code": "av_drift",
+      "message": "audio/video duration drift is 0.100s"
+    },
+    {
+      "code": "delivery_size",
+      "message": "5461764 bytes exceeds hard Telegram cap 3380000"
+    },
+    {
+      "code": "freeze_run",
+      "message": "unmarked freeze is at least 1.50s"
+    }
+  ],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 31.3,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 31.3,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-20260828\\01_MOTIVATION_TSISKARIDZE_TELEGRAM.mp4",
+    "size_bytes": 5461764,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 31.2,
+      "fps": 30.0,
+      "height": 1280,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 720
+    }
+  },
+  "ok": false,
+  "profile": {
+    "name": "motivation_v3_telegram",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [
+      1.56667,
+      1.7,
+      1.86667,
+      1.66667
+    ],
+    "loudness": {
+      "integrated_lufs": -14.81,
+      "lra_lu": 2.4,
+      "threshold_lufs": -25.43,
+      "true_peak_dbtp": -2.38
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 1.86667,
+    "max_silence_seconds": 0.358458,
+    "silence_durations_seconds": [
+      0.358458
+    ]
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-20260828\\01_MOTIVATION_TSISKARIDZE_TELEGRAM.mp4",
+  "status": "final_technical_fail",
+  "technical_pass": false,
+  "warnings": []
+}

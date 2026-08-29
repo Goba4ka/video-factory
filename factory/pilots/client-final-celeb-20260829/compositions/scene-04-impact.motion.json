@@ -1,0 +1,11 @@
+{
+  "duration": 7.621,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#s4-cap1", "bySec": 0.35 },
+    { "kind": "before", "a": "#s4-cap1", "b": "#s4-cap2" },
+    { "kind": "before", "a": "#s4-cap2", "b": "#s4-cap3" },
+    { "kind": "before", "a": "#s4-cap3", "b": "#s4-cap4" },
+    { "kind": "staysInFrame", "selector": ".caption" },
+    { "kind": "keepsMoving", "withinSelector": "#s4-world", "maxStaticSec": 1.5 }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "provider": "piper",
+  "voice": "ru_RU-denis-medium",
+  "dataset_license": "CC0",
+  "model_card": "https://huggingface.co/rhasspy/piper-voices/blob/main/ru/ru_RU/denis/medium/MODEL_CARD",
+  "sample_rate": 22050,
+  "samples": 630392,
+  "duration": 28.589,
+  "captions": [
+    {
+      "id": "caption-01",
+      "text": "Личные вещи Басты и Крида",
+      "start": 0.05,
+      "duration": 1.995
+    },
+    {
+      "id": "caption-02",
+      "text": "сегодня продают в Москве",
+      "start": 2.045,
+      "duration": 1.815
+    },
+    {
+      "id": "caption-03",
+      "text": "Но деньги заберут не звёзды",
+      "start": 3.861,
+      "duration": 2.214
+    },
+    {
+      "id": "caption-04",
+      "text": "Более двухсот артистов и блогеров",
+      "start": 6.075,
+      "duration": 1.995
+    },
+    {
+      "id": "caption-05",
+      "text": "передали свыше двух тысяч вещей",
+      "start": 8.07,
+      "duration": 2.214
+    },
+    {
+      "id": "caption-06",
+      "text": "Среди лотов — часы Сергея Бурунова",
+      "start": 10.285,
+      "duration": 1.995
+    },
+    {
+      "id": "caption-07",
+      "text": "из сериала «Кибердеревня»",
+      "start": 12.28,
+      "duration": 1.416
+    },
+    {
+      "id": "caption-08",
+      "text": "И платье Екатерины Волковой",
+      "start": 13.696,
+      "duration": 1.596
+    },
+    {
+      "id": "caption-09",
+      "text": "с синей дорожки VK Fest",
+      "start": 15.292,
+      "duration": 2.214
+    },
+    {
+      "id": "caption-10",
+      "text": "Все средства направят",
+      "start": 17.507,
+      "duration": 1.197
+    },
+    {
+      "id": "caption-11",
+      "text": "на социальные и экологические инициативы",
+      "start": 18.704,
+      "duration": 2.214
+    },
+    {
+      "id": "caption-12",
+      "text": "За три года проект собрал",
+      "start": 20.918,
+      "duration": 1.995
+    },
+    {
+      "id": "caption-13",
+      "text": "больше четырёх с половиной миллионов",
+      "start": 22.913,
+      "duration": 2.214
+    },
+    {
+      "id": "caption-14",
+      "text": "Самый дорогой лот здесь",
+      "start": 25.128,
+      "duration": 1.596
+    },
+    {
+      "id": "caption-15",
+      "text": "не имя, а помощь",
+      "start": 26.724,
+      "duration": 1.815
+    }
+  ]
+}

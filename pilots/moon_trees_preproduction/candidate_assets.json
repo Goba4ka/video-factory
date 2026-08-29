@@ -1,0 +1,179 @@
+{
+  "project": "moon_trees_preproduction",
+  "as_of": "2026-08-27",
+  "download_policy": "Ничего не скачано. URL проверены HTTP HEAD; загрузка допускается только после утверждения темы и финального rights check.",
+  "rights_policy_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "assets": [
+    {
+      "id": "A01",
+      "media_type": "video_mp4",
+      "title": "Apollo 14 Launch Coverage",
+      "landing_url": "https://images.nasa.gov/details/Apollo%2014%20Launch%20Coverage",
+      "download_url": "https://images-assets.nasa.gov/video/Apollo%2014%20Launch%20Coverage/Apollo%2014%20Launch%20Coverage~preview.mp4",
+      "credit": "NASA",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "video/mp4",
+        "content_length_bytes": 14866557
+      },
+      "rights_status": "usable_with_nasa_media_guidelines",
+      "rights_notes": "NASA-credit editorial footage. Do not imply NASA endorsement; avoid logo-led branding beyond documentary context.",
+      "intended_shot": "Старт Apollo 14 и короткий пролёт ракеты в начале истории.",
+      "claim_ids": ["C01"]
+    },
+    {
+      "id": "A02",
+      "media_type": "image_jpeg",
+      "title": "Stuart Roosa with seed canister",
+      "landing_url": "https://www.nasa.gov/history/celebrating-moon-trees-on-arbor-day/",
+      "download_url": "https://www.nasa.gov/wp-content/uploads/2021/04/arbor_day_4_roosa_with_seed_canister_usfs_photo.jpg",
+      "credit": "U.S. Forest Service, as credited by NASA",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "content_length_bytes": 35772
+      },
+      "rights_status": "needs_file_specific_confirmation",
+      "rights_notes": "Third-party/USFS credit on a NASA page is not covered by NASA's blanket media guidance. Confirm USFS federal origin and reuse status before publication.",
+      "intended_shot": "Портрет Русы и физический контейнер с семенами.",
+      "claim_ids": ["C01", "C02", "C06"]
+    },
+    {
+      "id": "A03",
+      "media_type": "image_jpeg",
+      "title": "Apollo 14 crew photo S70-55387",
+      "landing_url": "https://www.nasa.gov/history/celebrating-moon-trees-on-arbor-day/",
+      "download_url": "https://www.nasa.gov/wp-content/uploads/2021/04/arbor_day_2_apollo_14_crew_photo_s70-55387.jpg",
+      "credit": "NASA, image S70-55387",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "content_length_bytes": 159510
+      },
+      "rights_status": "usable_with_nasa_media_guidelines",
+      "rights_notes": "Editorial historical use; names and likenesses must not imply endorsement.",
+      "intended_shot": "Быстро представить Шепарда, Русу и Митчелла с подписями ролей.",
+      "claim_ids": ["C03"]
+    },
+    {
+      "id": "A04",
+      "media_type": "image_jpeg",
+      "title": "Kitty Hawk in lunar orbit AS14-66-9347",
+      "landing_url": "https://www.nasa.gov/history/celebrating-moon-trees-on-arbor-day/",
+      "download_url": "https://www.nasa.gov/wp-content/uploads/2021/04/arbor_day_3_apollo_14_kitty_hawk_during_rv_and_docking_as14-66-9347hr.jpg",
+      "credit": "NASA, image AS14-66-9347",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "content_length_bytes": 97648
+      },
+      "rights_status": "usable_with_nasa_media_guidelines",
+      "rights_notes": "NASA historical image; apply credit and no-endorsement rules.",
+      "intended_shot": "Командный модуль на лунной орбите; графический счётчик 1→34.",
+      "claim_ids": ["C03", "C04"]
+    },
+    {
+      "id": "A05",
+      "media_type": "image_jpeg",
+      "title": "Apollo Moon Tree at NASA Goddard",
+      "landing_url": "https://www.nasa.gov/history/moon-trees/",
+      "download_url": "https://www.nasa.gov/wp-content/uploads/2026/04/g-2009-0542-005.jpg",
+      "credit": "NASA/Pat Izzo",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "content_length_bytes": 1120160
+      },
+      "rights_status": "usable_with_nasa_media_guidelines",
+      "rights_notes": "NASA-credit still; retain the listed photographer credit and avoid endorsement framing.",
+      "intended_shot": "Хук, современный вид оригинального Moon Tree и финальная метафора.",
+      "claim_ids": ["C08", "C09", "C10", "I01"]
+    },
+    {
+      "id": "A06",
+      "media_type": "video_mp4_vertical",
+      "title": "Artemis I Moon Tree Planting — vertical small",
+      "landing_url": "https://svs.gsfc.nasa.gov/14929/",
+      "download_url": "https://svs.gsfc.nasa.gov/vis/a010000/a014900/a014929/14929_A1_Moon_Tree_Planting_VERTCAL_Small.mp4",
+      "credit": "NASA SVS; producer Dan Gallagher; videography John D. Philyaw; scientific consulting Noah Petro",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "video/mp4",
+        "content_length_bytes": 62211218
+      },
+      "rights_status": "visual_only_no_audio_pending_final_check",
+      "rights_notes": "The NASA SVS landing page credits Universal Production Music tracks. Never reuse source audio. If selected, import muted and confirm the visual track contains no additional third-party material.",
+      "intended_shot": "Современная посадка поколения Artemis I в финале.",
+      "claim_ids": ["C11"]
+    },
+    {
+      "id": "A07",
+      "media_type": "image_jpeg",
+      "title": "Artemis I Moon Tree Planting still",
+      "landing_url": "https://svs.gsfc.nasa.gov/14929/",
+      "download_url": "https://svs.gsfc.nasa.gov/vis/a010000/a014900/a014929/14929_A1_Moon_Tree_Planting.00_01_26_19.Still003.jpg",
+      "credit": "NASA SVS; see landing page for production credits",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "content_length_bytes": 2831331
+      },
+      "rights_status": "usable_with_nasa_media_guidelines_pending_visual_review",
+      "rights_notes": "Still has no audio issue, but visually inspect for third-party marks and retain landing-page credits before use.",
+      "intended_shot": "Безопасная беззвучная альтернатива видео A06 для финала.",
+      "claim_ids": ["C11"]
+    },
+    {
+      "id": "A08",
+      "media_type": "image_jpeg",
+      "title": "USFS Moon Tree plaque",
+      "landing_url": "https://research.fs.usda.gov/media/10513",
+      "download_url": "https://research.fs.usda.gov/sites/default/files/2023-07/wo-moodtree.jpg",
+      "credit": "Jessica Nickelsen, Director of Natural Inquirer Program / U.S. Forest Service",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "content_length_bytes": 331796
+      },
+      "rights_status": "needs_file_specific_confirmation",
+      "rights_notes": "Official USFS landing page provides creator credit but no rights text captured in this package. Confirm reuse terms for this exact file before publication.",
+      "intended_shot": "Табличка Moon Tree; на экране отдельно уточнить: «облетели Луну, не высаживались на ней».",
+      "claim_ids": ["C03", "C09"]
+    },
+    {
+      "id": "A09",
+      "media_type": "image_jpeg",
+      "title": "Artemis Moon Tree planting at NASA Stennis",
+      "landing_url": "https://www.nasa.gov/history/moon-trees/",
+      "download_url": "https://www.nasa.gov/wp-content/uploads/2024/10/artemis-moon-tree-e1730295810625.jpg",
+      "credit": "NASA; confirm exact caption credit on landing page at ingest",
+      "verification": {
+        "date": "2026-08-27",
+        "method": "HTTP HEAD only; file not downloaded",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "content_length_bytes": 1644242
+      },
+      "rights_status": "usable_with_nasa_media_guidelines_pending_caption_capture",
+      "rights_notes": "Capture and preserve the exact NASA caption/photographer credit during ingest.",
+      "intended_shot": "Запасной современный визуал для мостика к Artemis I.",
+      "claim_ids": ["C11"]
+    }
+  ]
+}

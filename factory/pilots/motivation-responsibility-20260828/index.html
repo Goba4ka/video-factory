@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Ответственность возвращает силу</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Oswald Local";
+        src: url("assets/fonts/Oswald-Variable.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 200 700;
+        font-display: block;
+      }
+
+      :root {
+        --matte: #050608;
+        --paper: #f1f0eb;
+        --muted: #a8a7a1;
+        --accent: #b51f2a;
+        --outline: #030405;
+      }
+
+      * { box-sizing: border-box; }
+      html, body {
+        width: 1080px;
+        height: 1920px;
+        margin: 0;
+        overflow: hidden;
+        background: var(--matte);
+      }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--matte);
+      }
+
+      #picture {
+        position: absolute;
+        left: 0;
+        top: 420px;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #090a0c;
+        border-radius: 118px;
+        z-index: 1;
+      }
+
+      .visual {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .visual-inner {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      .visual video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+
+      .visual video.dave {
+        width: 131%;
+        height: 131%;
+        margin-left: -15.5%;
+        margin-top: -15.5%;
+        object-position: 43% 42%;
+      }
+
+      .visual video.fog { object-position: 55% center; }
+      .visual video.stairs { object-position: center 48%; }
+      .visual video.work { object-position: center 43%; }
+
+      .caption-clip {
+        position: absolute;
+        inset: 0;
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .caption-anchor {
+        position: absolute;
+        left: 46px;
+        right: 46px;
+        top: 1112px;
+        min-height: 164px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .caption-text {
+        display: inline-block;
+        max-width: 988px;
+        color: var(--paper);
+        font-family: "Oswald Local", sans-serif;
+        font-size: 78px;
+        font-weight: 700;
+        line-height: 0.98;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        -webkit-text-stroke: 4px var(--outline);
+        paint-order: stroke fill;
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.88), 0 10px 24px rgba(0, 0, 0, 0.72);
+        will-change: transform, opacity;
+      }
+
+      .caption-text.long { font-size: 68px; }
+      .accent { color: var(--accent); }
+
+      .final-clip {
+        position: absolute;
+        inset: 0;
+        z-index: 30;
+        pointer-events: none;
+      }
+
+      .final-lockup {
+        position: absolute;
+        left: 54px;
+        right: 54px;
+        top: 760px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-family: "Oswald Local", sans-serif;
+        text-transform: uppercase;
+        color: var(--paper);
+        text-shadow: 0 5px 26px rgba(0, 0, 0, 0.92);
+        will-change: transform, opacity;
+      }
+
+      .final-lockup .line-a {
+        font-size: 94px;
+        line-height: 1;
+        letter-spacing: 0.025em;
+      }
+
+      .final-lockup .line-b {
+        margin-top: 10px;
+        font-size: 116px;
+        font-weight: 700;
+        line-height: 0.92;
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-root="true" data-composition-id="motivation-responsibility" data-start="0" data-width="1080" data-height="1920" data-duration="48" data-fps="30">
+      <div id="picture" data-layout-ignore="">
+        <div id="vis-dave-a" class="visual" data-layout-ignore="">
+          <div class="visual-inner"><video data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="dave-a" class="dave" src="assets/video/dave-berke-source.mp4" data-start="0" data-duration="9" data-media-start="0.7" muted playsinline></video></div>
+        </div>
+        <div id="vis-fog-a" class="visual" data-layout-ignore="">
+          <div class="visual-inner"><video data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="fog-a" class="fog" src="assets/video/fog.mp4" data-start="8.82" data-duration="5.08" data-media-start="3" muted playsinline></video></div>
+        </div>
+        <div id="vis-dave-b" class="visual" data-layout-ignore="">
+          <div class="visual-inner"><video data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="dave-b" class="dave" src="assets/video/dave-berke-source.mp4" data-start="13.72" data-duration="6.68" data-media-start="14.42" muted playsinline></video></div>
+        </div>
+        <div id="vis-shoes" class="visual" data-layout-ignore="">
+          <div class="visual-inner"><video data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="shoes" src="assets/video/shoelaces.mp4" data-start="20.22" data-duration="6.18" data-media-start="5" muted playsinline></video></div>
+        </div>
+        <div id="vis-stairs" class="visual" data-layout-ignore="">
+          <div class="visual-inner"><video data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="stairs" class="stairs" src="assets/video/stairs.mp4" data-start="26.22" data-duration="6.68" data-media-start="0.8" muted playsinline></video></div>
+        </div>
+        <div id="vis-work" class="visual" data-layout-ignore="">
+          <div class="visual-inner"><video data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="work" class="work" src="assets/video/late-work.mp4" data-start="32.72" data-duration="6.08" data-media-start="0.5" muted playsinline></video></div>
+        </div>
+        <div id="vis-dave-c" class="visual" data-layout-ignore="">
+          <div class="visual-inner"><video data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="dave-c" class="dave" src="assets/video/dave-berke-source.mp4" data-start="38.62" data-duration="6.08" data-media-start="39.32" muted playsinline></video></div>
+        </div>
+        <div id="vis-fog-final" class="visual" data-layout-ignore="">
+          <div class="visual-inner"><video data-color-grading="{&quot;preset&quot;:&quot;muted-editorial&quot;,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.06,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:-0.12,&quot;whites&quot;:0.02,&quot;blacks&quot;:-0.18,&quot;temperature&quot;:-0.03,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.22,&quot;saturation&quot;:-0.62},&quot;details&quot;:{&quot;vignette&quot;:0.22,&quot;vignetteMidpoint&quot;:0.48,&quot;vignetteRoundness&quot;:0.02,&quot;vignetteFeather&quot;:0.78,&quot;grain&quot;:0.08,&quot;grainSize&quot;:0.23,&quot;grainRoughness&quot;:0.56},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="fog-final" class="fog" src="assets/video/fog.mp4" data-start="44.52" data-duration="3.48" data-media-start="15" muted playsinline></video></div>
+        </div>
+      </div>
+
+      <div class="clip caption-clip" data-start="0.00" data-duration="1.45" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ЭТО <span class="accent">БЬЁТ</span></div></div></div>
+      <div class="clip caption-clip" data-start="1.45" data-duration="1.05" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ПО САМОЛЮБИЮ</div></div></div>
+      <div class="clip caption-clip" data-start="2.60" data-duration="1.10" data-track-index="4"><div class="caption-anchor"><div class="caption-text">Я ПЛОХО ОБЪЯСНИЛ</div></div></div>
+      <div class="clip caption-clip" data-start="3.82" data-duration="0.73" data-track-index="4"><div class="caption-anchor"><div class="caption-text">Я — ЛИДЕР</div></div></div>
+      <div class="clip caption-clip" data-start="4.84" data-duration="0.98" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ЭТО МОЯ ПРОБЛЕМА</div></div></div>
+      <div class="clip caption-clip" data-start="6.30" data-duration="1.45" data-track-index="4"><div class="caption-anchor"><div class="caption-text">БОЛЬНО ЛИШЬ СЕКУНДУ</div></div></div>
+      <div class="clip caption-clip" data-start="7.90" data-duration="1.90" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ПОКА НЕ ПОЙМЁШЬ</div></div></div>
+      <div class="clip caption-clip" data-start="10.65" data-duration="2.05" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ЭТО ТВОЁ <span class="accent">ОТРАЖЕНИЕ</span></div></div></div>
+      <div class="clip caption-clip" data-start="13.60" data-duration="1.60" data-track-index="4"><div class="caption-anchor"><div class="caption-text">НО СРАЗУ ПОСЛЕ</div></div></div>
+      <div class="clip caption-clip" data-start="15.20" data-duration="0.90" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ЭТОГО</div></div></div>
+      <div class="clip caption-clip" data-start="16.45" data-duration="1.47" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ПОЯВЛЯЕТСЯ <span class="accent">ОТВЕТ</span></div></div></div>
+      <div class="clip caption-clip" data-start="18.35" data-duration="1.55" data-track-index="4"><div class="caption-anchor"><div class="caption-text">И ЭТО — ЛУЧШЕЕ</div></div></div>
+      <div class="clip caption-clip" data-start="20.05" data-duration="1.15" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ЕСЛИ ПРОБЛЕМА</div></div></div>
+      <div class="clip caption-clip" data-start="21.20" data-duration="2.10" data-track-index="4"><div class="caption-anchor"><div class="caption-text">В ТВОЁМ ЛИДЕРСТВЕ</div></div></div>
+      <div class="clip caption-clip" data-start="23.80" data-duration="1.50" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ОТВЕТ — ТОЖЕ</div></div></div>
+      <div class="clip caption-clip" data-start="25.30" data-duration="1.40" data-track-index="4"><div class="caption-anchor"><div class="caption-text">В <span class="accent">ЛИДЕРСТВЕ</span></div></div></div>
+      <div class="clip caption-clip" data-start="26.75" data-duration="1.40" data-track-index="4"><div class="caption-anchor"><div class="caption-text">И ЭТО ОСВОБОЖДАЕТ</div></div></div>
+      <div class="clip caption-clip" data-start="28.15" data-duration="0.90" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ТЕПЕРЬ ЕСТЬ</div></div></div>
+      <div class="clip caption-clip" data-start="29.05" data-duration="0.75" data-track-index="4"><div class="caption-anchor"><div class="caption-text"><span class="accent">30 ВЕЩЕЙ</span></div></div></div>
+      <div class="clip caption-clip" data-start="29.80" data-duration="0.75" data-track-index="4"><div class="caption-anchor"><div class="caption-text">Я МОГУ ИЗМЕНИТЬ</div></div></div>
+      <div class="clip caption-clip" data-start="30.55" data-duration="0.80" data-track-index="4"><div class="caption-anchor"><div class="caption-text">КАК Я ДЕЙСТВУЮ</div></div></div>
+      <div class="clip caption-clip" data-start="31.45" data-duration="0.95" data-track-index="4"><div class="caption-anchor"><div class="caption-text">КАК Я ГОВОРЮ</div></div></div>
+      <div class="clip caption-clip" data-start="32.70" data-duration="1.30" data-track-index="4"><div class="caption-anchor"><div class="caption-text long">КАК ИСПОЛЬЗУЮ ИНСТРУМЕНТЫ</div></div></div>
+      <div class="clip caption-clip" data-start="34.70" data-duration="1.30" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ПОСМОТРИ НА ЭТО ТАК</div></div></div>
+      <div class="clip caption-clip" data-start="36.00" data-duration="1.50" data-track-index="4"><div class="caption-anchor"><div class="caption-text long">И НЕКОНТРОЛИРУЕМЫЕ</div></div></div>
+      <div class="clip caption-clip" data-start="37.50" data-duration="1.40" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ПРОБЛЕМЫ</div></div></div>
+      <div class="clip caption-clip" data-start="38.90" data-duration="2.00" data-track-index="4"><div class="caption-anchor"><div class="caption-text"><span class="accent">СТАНОВЯТСЯ РЕШАЕМЫМИ</span></div></div></div>
+      <div class="clip caption-clip" data-start="41.10" data-duration="1.60" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ТЫ ПРОВОДИШЬ СЕБЯ</div></div></div>
+      <div class="clip caption-clip" data-start="42.90" data-duration="1.40" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ПРОБЛЕМА ЛУЧШЕ</div></div></div>
+      <div class="clip caption-clip" data-start="44.30" data-duration="0.70" data-track-index="4"><div class="caption-anchor"><div class="caption-text">ЖИЗНЬ ЛУЧШЕ</div></div></div>
+
+      <div id="final-thesis" class="clip final-clip" data-start="45" data-duration="2.8" data-track-index="6">
+        <div class="final-lockup"><span class="line-a">ОТВЕТСТВЕННОСТЬ</span><span class="line-b">ВОЗВРАЩАЕТ СИЛУ</span></div>
+      </div>
+
+      <audio id="speech" src="assets/video/dave-berke-source.mp4" data-start="0" data-duration="44.3" data-media-start="0.7" data-track-index="10" data-volume="1.08"></audio>
+      <audio id="music" src="assets/audio/intervention-bed.wav" data-start="0" data-duration="48" data-media-start="0" data-track-index="11" data-volume="0.18"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      document.querySelectorAll(".visual").forEach((clip) => {
+        const inner = clip.querySelector(".visual-inner");
+        const media = clip.querySelector("video");
+        const start = Number(media.dataset.start);
+        const duration = Number(media.dataset.duration);
+        tl.fromTo(inner, { opacity: 0 }, { opacity: 1, duration: 0.16, ease: "power1.out", immediateRender: false }, start);
+        tl.to(inner, { opacity: 0, duration: 0.16, ease: "power1.in" }, Math.max(start + 0.16, start + duration - 0.16));
+        tl.fromTo(media, { scale: 1.005 }, { scale: 1.035, duration, ease: "none", immediateRender: false }, start);
+      });
+
+      document.querySelectorAll(".caption-clip").forEach((clip) => {
+        const text = clip.querySelector(".caption-text");
+        const accent = clip.querySelector(".accent");
+        const start = Number(clip.dataset.start);
+        const duration = Number(clip.dataset.duration);
+        tl.fromTo(text, { opacity: 0, y: 9, scale: 0.99 }, { opacity: 1, y: 0, scale: 1, duration: 0.06, ease: "power2.out", immediateRender: false }, start);
+        tl.to(text, { opacity: 0, y: -3, duration: 0.08, ease: "power2.in" }, Math.max(start + 0.08, start + duration - 0.08));
+        if (accent) {
+          tl.fromTo(accent, { textShadow: "0 0 0 rgba(181,31,42,0)" }, { textShadow: "0 0 18px rgba(181,31,42,0.42)", duration: 0.14, ease: "power2.out", immediateRender: false }, start + 0.02);
+          tl.to(accent, { textShadow: "0 0 7px rgba(181,31,42,0.18)", duration: 0.22 }, start + 0.16);
+        }
+      });
+
+      tl.fromTo(".final-lockup", { opacity: 0, y: 18, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.24, ease: "power2.out", immediateRender: false }, 45);
+      tl.to(".final-lockup", { opacity: 0, duration: 0.22, ease: "power1.in" }, 47.56);
+      window.__timelines["motivation-responsibility"] = tl;
+    </script>
+  </body>
+</html>

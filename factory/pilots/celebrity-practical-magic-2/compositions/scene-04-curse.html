@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Древнее проклятие</title>
+    <link rel="stylesheet" href="assets/editorial.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      .curse-stage {
+        position: absolute;
+        top: 300px;
+        left: 72px;
+        z-index: 6;
+        width: 900px;
+      }
+      .curse-word {
+        display: block;
+        opacity: 0;
+        font-size: 176px;
+        text-shadow: 0 12px 44px rgba(0, 0, 0, 0.84);
+      }
+      .curse-word:nth-child(2) {
+        color: var(--amber);
+        margin-top: 58px;
+        font-size: 150px;
+      }
+      .curse-fact {
+        position: absolute;
+        top: 970px;
+        left: 72px;
+        z-index: 7;
+        width: 780px;
+        padding: 30px 34px;
+        background: rgba(9, 10, 14, 0.88);
+        border-top: 3px solid var(--amber);
+        color: var(--paper);
+        font-size: 34px;
+        line-height: 1.35;
+      }
+      .curse-mark {
+        position: absolute;
+        top: 760px;
+        right: 72px;
+        z-index: 7;
+        width: 140px;
+        height: 140px;
+        border: 3px solid var(--moon);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--moon);
+        font-family: "Oswald", sans-serif;
+        font-size: 72px;
+        will-change: transform, opacity;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="scene-04-curse"
+      data-duration="4.467619"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="media-frame">
+        <div class="media-motion" id="curse-media" data-layout-allow-overflow>
+          <video
+            id="curse-video"
+            class="clip media-clip"
+            src="assets/footage/candles-curse.mp4"
+            data-start="0"
+            data-duration="4.467619"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="mono scene-index">04 / СЮЖЕТ</span>
+        <span class="mono">OFFICIAL SYNOPSIS</span>
+      </div>
+      <h1 class="display curse-stage">
+        <span class="curse-word" id="curse-word-1">ДРЕВНЕЕ</span>
+        <span class="curse-word" id="curse-word-2">ПРОКЛЯТИЕ</span>
+      </h1>
+      <div class="curse-mark" id="curse-mark" data-layout-ignore>II</div>
+      <div class="mono curse-fact" id="curse-fact">НОВАЯ УГРОЗА СНОВА СОБИРАЕТ СЕМЬЮ ОУЭНС ВМЕСТЕ</div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#curse-media", { scale: 1.03, x: -8 }, { scale: 1.09, x: 12, duration: 4.467619, ease: "none" }, 0);
+      tl.fromTo(".top-meta", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.36, ease: "power3.out" }, 0.12);
+      tl.set("#curse-word-1", { opacity: 1, y: 82 }, 0.25);
+      tl.to("#curse-word-1", { y: 0, duration: 0.2, ease: "power4.out" }, 0.25);
+      tl.set("#curse-word-2", { opacity: 1, y: 68 }, 0.45);
+      tl.to("#curse-word-2", { y: 0, duration: 0.17, ease: "expo.out" }, 0.45);
+      tl.fromTo("#curse-mark", { scale: 0.72, rotation: -18, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.48, ease: "power3.out" }, 0.7);
+      tl.fromTo("#curse-fact", { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: 0.54, ease: "power2.out" }, 0.88);
+      tl.to("#curse-mark", { rotation: 8, duration: 2.6, ease: "sine.inOut" }, 1.2);
+      window.__timelines["scene-04-curse"] = tl;
+    </script>
+  </body>
+</html>

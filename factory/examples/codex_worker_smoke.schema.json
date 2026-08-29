@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "language", "sandbox_write_required"],
+  "properties": {
+    "status": {"type": "string", "const": "ok"},
+    "language": {"type": "string", "const": "ru"},
+    "sandbox_write_required": {"type": "boolean", "const": false}
+  }
+}

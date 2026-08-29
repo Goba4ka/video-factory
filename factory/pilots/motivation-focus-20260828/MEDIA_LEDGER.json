@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "internal_client_format_review_only",
+  "assets": [
+    {
+      "id": "user-source-arsen",
+      "path": "assets/source/arsen-markaryan.mp4",
+      "origin": "user supplied MP4",
+      "sha256": "6a8fce5076bb6e435ed5f7de5a9254b29dda144f697145a98b3b3b4dc7938b50",
+      "usage": "real speaker picture and audio; two clean ranges",
+      "rights_status": "internal_test_authorized_by_user; public/commercial rights require separate confirmation"
+    },
+    {
+      "id": "derived-final-hold",
+      "path": "assets/source/final-hold.jpg",
+      "origin": "frame extracted locally from user-source-arsen at 21.64s",
+      "sha256": "9039316233c4cd670551be59c256d8414f4f7c299e347e700f00318762296df4",
+      "usage": "2.65-second clean final hold",
+      "rights_status": "inherits user-source-arsen"
+    },
+    {
+      "id": "procedural-bed-72",
+      "path": "assets/audio/depressive-bed-72bpm.wav",
+      "origin": "locally synthesized sine/drone composition",
+      "usage": "low piano/sub pulse, 9–10s riser, final bass impact",
+      "rights_status": "original procedural audio; no third-party recording"
+    }
+  ],
+  "tts_used": false,
+  "fish_audio_used": false,
+  "publication_authorized": false
+}
+

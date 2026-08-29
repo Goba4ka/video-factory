@@ -1,0 +1,10 @@
+{
+  "duration": 57.2,
+  "maxStaticSec": 1.5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#global-chrome", "bySec": 0.1 },
+    { "kind": "staysInFrame", "selector": "#global-chrome" },
+    { "kind": "keepsMoving", "withinSelector": "#celebrity-practical-magic-2" }
+  ]
+}
+

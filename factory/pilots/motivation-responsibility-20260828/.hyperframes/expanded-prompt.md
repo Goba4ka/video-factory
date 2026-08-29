@@ -1,0 +1,5 @@
+# Expanded prompt
+
+Create a 48-second vertical motivation edit in the restrained dark-authority language found in the supplied references. The piece must feel human, severe, and expensive rather than like a social-media template. Keep a black 9:16 matte with a centered square picture, large Russian subtitles in a condensed grotesque, and exactly one muted red accent. Remove all side labels, speaker names, badges, HUD elements, and decorative copy.
+
+The story is one complete argument: accepting that the problem may be in your own behavior briefly hurts the ego, but immediately returns options and control. Begin on Dave Berke's face, leave him only for semantic B-roll (fog, preparation, ascent, late work), and return to him before the conclusion. Use quick caption refreshes as the retention device. Transitions should be restrained 160 ms dissolves only at macro section boundaries. Add subtle push-ins that never call attention to themselves. Music is a dark no-melody ambient score under the original English voice; carve space for speech and end on a clean two-line thesis.

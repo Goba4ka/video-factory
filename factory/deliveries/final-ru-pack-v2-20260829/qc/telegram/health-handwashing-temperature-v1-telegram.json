@@ -1,0 +1,68 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "051b7e2e72a59a72bb0448a2ebb6b1230f8526f99c4d68e39acb6d254ac8713a",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\05\\051b7e2e72a59a72bb0448a2ebb6b1230f8526f99c4d68e39acb6d254ac8713a.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 1.859,
+  "failures": [],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 27.52,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 27.52,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-v2-20260829\\telegram\\health-handwashing-temperature-v1-telegram.mp4",
+    "size_bytes": 2349932,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 27.5,
+      "fps": 30.0,
+      "height": 1280,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 720
+    }
+  },
+  "ok": true,
+  "profile": {
+    "name": "motivation_v3_telegram",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -14.82,
+      "lra_lu": 1.9,
+      "threshold_lufs": -24.98,
+      "true_peak_dbtp": -1.11
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-v2-20260829\\telegram\\health-handwashing-temperature-v1-telegram.mp4",
+  "status": "final_technical_pass",
+  "technical_pass": true,
+  "warnings": [
+    {
+      "code": "loudness_range",
+      "message": "1.90 LU is outside 2.0..7.0"
+    }
+  ]
+}

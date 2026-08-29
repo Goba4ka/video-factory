@@ -1,0 +1,65 @@
+{
+  "version": 3,
+  "project": "motivation-v3-montage-20260828",
+  "local_qc_render_authorized": true,
+  "publish_authorized": false,
+  "source_truth": "../motivation-ru-source-truth-v3/SOURCE_TRUTH_V3.md",
+  "slots": [
+    {
+      "id": "speaker-01",
+      "speaker": "Арсен Маркарян",
+      "path": "assets/source/speaker-01.mp4",
+      "origin_path": "../motivation-ru-source-truth-v3/clips/B2-markaryan-6.50s-1080p.mp4",
+      "source_url": "https://www.youtube.com/watch?v=LnO_g5YAHHY",
+      "source_range": "00:02:29.600-00:02:36.100",
+      "editorial_duration_sec": 6.5,
+      "verified_media": "1920x1080, 25 fps, H.264/AAC",
+      "sha256": "c9cad42778380084dba96fd6b3761e2158dc9c78365cb0b1a1ac6368ef23c3c2",
+      "crop": { "source_x": 360, "source_y": 0, "width": 1080, "height": 1080, "upscale": false },
+      "rights": "permission_required"
+    },
+    {
+      "id": "speaker-02",
+      "speaker": "Радислав Гандапас",
+      "path": "assets/source/speaker-02.mp4",
+      "origin_path": "../motivation-ru-source-truth-v3/clips/B1-gandapas-8.78s-1080p.mp4",
+      "source_url": "https://www.youtube.com/watch?v=XGW9v9zASG0",
+      "source_range": "00:02:31.060-00:02:39.840",
+      "editorial_duration_sec": 8.78,
+      "verified_media": "1920x1080, 25 fps, H.264/AAC",
+      "sha256": "c2f80f471c8f058675a67155227f6e665fef21ad9d9d3b8c9650ef6e5a222e15",
+      "crop": { "source_x": 580, "source_y": 0, "width": 1080, "height": 1080, "upscale": false },
+      "rights": "permission_required"
+    },
+    {
+      "id": "speaker-03",
+      "speaker": "Алексей Ситников",
+      "path": "assets/source/speaker-03.mp4",
+      "origin_path": "../motivation-ru-source-truth-v3/clips/B3-sitnikov-10.00s-1080p.mp4",
+      "source_url": "https://www.youtube.com/watch?v=fXcYILoHAQY",
+      "source_range": "00:13:38.000-00:13:48.000",
+      "editorial_duration_sec": 10,
+      "verified_media": "1920x1080, 25 fps, H.264/AAC",
+      "sha256": "b30979bf923b3fdaa4447822e5120c3df92317b72aa0db9bf319e97f316a841c",
+      "crop": { "source_x": 270, "source_y": 0, "width": 1080, "height": 1080, "upscale": false },
+      "rights": "permission_required"
+    },
+    {
+      "id": "bed",
+      "path": "assets/audio/bed.wav",
+      "status": "fixed_reference_candidate",
+      "origin": "factory/research/motivation-references-v3-audio/candidates/reference/reference-bed-04-wide-pulse-97bpm-loop.wav",
+      "tempo_bpm": 97,
+      "rights": "permission_required"
+    }
+  ],
+  "final_gates": [
+    "Human-listen every source block against SCRIPT.md and ASS",
+    "Record permission or a valid reuse license for every speaker source",
+    "Obtain music permission or replace bed with a cleared equivalent",
+    "Run voice carve and measure final mix to integrated -14.5 LUFS / true peak <= -1.2 dBTP",
+    "Pass HyperFrames lint/check/keyframes and inspect the contact sheet",
+    "Receive explicit preview approval before publication"
+  ]
+}
+

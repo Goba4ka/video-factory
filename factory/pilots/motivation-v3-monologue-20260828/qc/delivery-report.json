@@ -1,0 +1,77 @@
+﻿{
+    "generated_at":  "2026-08-28T19:17:18.8295333+03:00",
+    "master":  {
+                   "path":  "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-v3-monologue-20260828\\renders\\motivation-v3-monologue-master.mp4",
+                   "loudness":  {
+                                    "path":  "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-v3-monologue-20260828\\renders\\motivation-v3-monologue-master.mp4",
+                                    "lufs_i":  -14.63,
+                                    "true_peak_dbtp":  -1.96,
+                                    "lra_lu":  2.7,
+                                    "pre_aac_target_tp":  -2
+                                },
+                   "probe":  {
+                                 "programs":  [
+
+                                              ],
+                                 "streams":  [
+                                                 {
+                                                     "index":  0,
+                                                     "codec_name":  "h264",
+                                                     "width":  1080,
+                                                     "height":  1920,
+                                                     "r_frame_rate":  "30/1"
+                                                 },
+                                                 {
+                                                     "index":  1,
+                                                     "codec_name":  "aac",
+                                                     "sample_rate":  "48000",
+                                                     "channels":  2,
+                                                     "r_frame_rate":  "0/0"
+                                                 }
+                                             ],
+                                 "format":  {
+                                                "duration":  "18.700000",
+                                                "size":  "4967710",
+                                                "bit_rate":  "2125223"
+                                            }
+                             },
+                   "sha256":  "DCC31E7FCF50D66215C1A47CF2207F727668028147898EAD2B8D46B515EAED46"
+               },
+    "telegram":  {
+                     "path":  "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-v3-monologue-20260828\\renders\\motivation-v3-monologue-telegram.mp4",
+                     "loudness":  {
+                                      "path":  "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\pilots\\motivation-v3-monologue-20260828\\renders\\motivation-v3-monologue-telegram.mp4",
+                                      "lufs_i":  -14.64,
+                                      "true_peak_dbtp":  -1.73,
+                                      "lra_lu":  2.7,
+                                      "pre_aac_target_tp":  -2
+                                  },
+                     "probe":  {
+                                   "programs":  [
+
+                                                ],
+                                   "streams":  [
+                                                   {
+                                                       "index":  0,
+                                                       "codec_name":  "h264",
+                                                       "width":  720,
+                                                       "height":  1280,
+                                                       "r_frame_rate":  "30/1"
+                                                   },
+                                                   {
+                                                       "index":  1,
+                                                       "codec_name":  "aac",
+                                                       "sample_rate":  "48000",
+                                                       "channels":  2,
+                                                       "r_frame_rate":  "0/0"
+                                                   }
+                                               ],
+                                   "format":  {
+                                                  "duration":  "18.700000",
+                                                  "size":  "1686632",
+                                                  "bit_rate":  "721553"
+                                              }
+                               },
+                     "sha256":  "8D63B5B5E58BE939FC5494595B9432ABAC3D76C80AC1ACFF05D37CBE0BDD4607"
+                 }
+}

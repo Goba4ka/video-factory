@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "defect_id": "defect_health_handwashing_text_v1",
+  "job_id": "health-handwashing-temperature-20260829",
+  "video_id": "health-handwashing-temperature-20260829",
+  "generation_no": 1,
+  "generation_status": "succeeded",
+  "request_hash": "4ef0db661e6ee6312d26011ec8028817b4b7c9f6fd2800ca7cc179e48b5aad25",
+  "output_sha256": "c3e24ba97018b9c35eacaa64e93a367bebbeeab9d8b85cbc9e3023dc30456073",
+  "retry_reason": "text_error",
+  "description": "Editorial QC found the final word 'покрытие' ambiguous and unnatural in the practical handwashing summary. The corrected script says 'полное намыливание' and expands the Russian name of the CDC.",
+  "evidence": "Independent visual/editorial QC flagged the final wording as unnatural for a Russian short-form health video.",
+  "regeneration_required": true,
+  "detected_by": "independent-editorial-review",
+  "detected_at": "2026-08-29T15:30:00+03:00"
+}

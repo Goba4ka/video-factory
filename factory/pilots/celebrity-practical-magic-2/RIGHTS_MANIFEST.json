@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "project_id": "celebrity-practical-magic-2",
+  "checked_on": "2026-08-27",
+  "status": "internal_test_ready_voice_review_required_for_commercial_publication",
+  "fact_sources": [
+    {
+      "url": "https://www.practicalmagicmovie.com/",
+      "owner": "Warner Bros.",
+      "usage": "Official cast, synopsis, director, source novel and release dates"
+    },
+    {
+      "url": "https://www.rte.ie/entertainment/2026/0827/1589384-practical-magic-2-returns-to-celebrate-sisterhood/",
+      "owner": "RTE Entertainment",
+      "usage": "London European premiere date and context; paraphrased, not copied"
+    }
+  ],
+  "media": [
+    {
+      "files": ["assets/footage/moon-hook.mp4", "assets/footage/moon-intrigue.mp4"],
+      "source": "https://www.pexels.com/video/36879996/",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "sha256": ["5EEDAF16DA8BADD2ED7830EC4D67BD22DCFF94247EF3A07DF50550130E6EB585", "06DEEF3BD321C56D72F60579AEEEDC0E7013DFA31A2518387852780DD78BB9DF"]
+    },
+    {
+      "files": ["assets/footage/cinema-premiere.mp4", "assets/footage/cinema-release.mp4"],
+      "source": "https://www.pexels.com/video/7988178/",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "sha256": ["97267400330A58499997D2BBE32BD58A5908BC3F63AA76E69C3EBB0C334996AC", "6155C9F97EC38705E2A1F45BC01CB37AB67DDBB14A01D37B28FA22CFE0E7DF31"]
+    },
+    {
+      "files": ["assets/footage/candles-curse.mp4", "assets/footage/candles-cast.mp4"],
+      "source": "https://www.pexels.com/video/8208356/",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "sha256": ["4FF2A2C92B5FA18ACEC93CE2E9E61CB6110D07EB279F3AF3973D63CEB533995E", "93D943B81F1B6F3ADFD8DD967F43FD8346E14CA265AEDC22D3E9D0C052C84E84"]
+    },
+    {
+      "files": ["assets/footage/book-director.mp4"],
+      "source": "https://www.pexels.com/video/10480415/",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "sha256": ["BA1EA7A77DC4F4A98C6FE849CFE9F9F8685B279E549B34E4B336F99C899219DC"]
+    },
+    {
+      "files": ["assets/images/sandra-bullock-2018.jpg"],
+      "source": "https://commons.wikimedia.org/wiki/File:Sandra_Bullock_2018_(cropped).jpg",
+      "author": "MTV International",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "modifications": "Cropped and resized for a vertical editorial layout",
+      "sha256": ["A013F9D1EF4F81FE6C463E025B0F119CCE625CC340F3E5A3A41655E07978E1AA"]
+    },
+    {
+      "files": ["assets/images/nicole-kidman-2006.jpg"],
+      "source": "https://commons.wikimedia.org/wiki/File:Nicole_Kidman.jpg",
+      "author": "Michael Albov",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "modifications": "Cropped and resized for a vertical editorial layout",
+      "sha256": ["8AD961D7AFFB0B4B7F1375FC14A373703B62EA7B174CA16E60375B09B69FEE36"]
+    },
+    {
+      "files": ["assets/audio/voice.wav"],
+      "source": "Local Microsoft Irina SAPI",
+      "license": "Not documented for commercial output",
+      "usage": "Internal control render only; replace with the supplied Fish Audio voice for publication",
+      "sha256": ["01BAC8509E308C2FD84B8FF65DF865808CFC3B6B0059A274F21A47BD58EBECBB"]
+    }
+  ],
+  "excluded_media": {
+    "official_trailer": "Not used because an official YouTube upload was not treated as a remix license.",
+    "ambiguous_theater_stock": "Downloaded during research but excluded from the edit to avoid implying that unrelated Chicago footage was the London premiere."
+  }
+}

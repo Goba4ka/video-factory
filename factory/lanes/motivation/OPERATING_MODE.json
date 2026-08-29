@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "lane_id": "motivation",
+  "mode": "armed_waiting_for_start",
+  "activation": {
+    "primary_user_command": "начинаем",
+    "matching": "case_insensitive_after_trim",
+    "current_instruction": "Не выполнять поиск, производство, загрузку медиа, рендер или публикацию до получения команды активации."
+  },
+  "mandatory_contracts": [
+    "TOPIC_PACK.json",
+    "EDITORIAL_PLAYBOOK.md",
+    "SOURCE_POLICY.md",
+    "SAFETY.md"
+  ],
+  "run_root_template": "factory/runs/YYYY-MM-DD/motivation/",
+  "activation_workflow": [
+    {
+      "step": 1,
+      "id": "load_contracts",
+      "action": "Полностью перечитать четыре обязательных lane-контракта и применить их как hard gates текущего запуска."
+    },
+    {
+      "step": 2,
+      "id": "research_slate",
+      "action": "Найти и заново перепроверить evergreen либо актуальные темы; не считать candidate_pool.json достаточной проверкой свежести.",
+      "output": "Короткий slate из 3–5 тем на русском языке.",
+      "slate_fields": [
+        "topic_id",
+        "working_title",
+        "one_sentence_angle",
+        "why_now_or_evergreen",
+        "primary_sources",
+        "editorial_risk",
+        "rights_feasibility",
+        "safety_gate"
+      ]
+    },
+    {
+      "step": 3,
+      "id": "user_selection_gate",
+      "action": "Показать slate пользователю и запросить короткие решения да/нет по темам. До решения пользователя производство не начинать.",
+      "approval_scope": "Одобрение темы разрешает исследование и производство контрольного ролика, но не внешнюю публикацию."
+    },
+    {
+      "step": 4,
+      "id": "autonomous_production",
+      "action": "После решений пользователя автономно произвести 2–3 одобренных ролика до контрольных MP4.",
+      "required_skill_entrypoints": [
+        "hyperframes",
+        "hyperframes-core",
+        "hyperframes-cli",
+        "media-use"
+      ],
+      "conditional_skills": [
+        "hyperframes-creative",
+        "hyperframes-animation",
+        "hyperframes-keyframes"
+      ],
+      "note": "Перед любым видео-действием использовать обязательный HyperFrames entry point; медиа разрешать и замораживать через media-use workflow."
+    },
+    {
+      "step": 5,
+      "id": "control_delivery",
+      "action": "Провести технический и редакционный QC, сформировать checksums и отдать только локальные контрольные MP4 и сопроводительные артефакты."
+    }
+  ],
+  "production_quantity": {
+    "minimum_control_mp4": 2,
+    "maximum_control_mp4": 3,
+    "selection_rule": "Производить только темы с явным 'да'; если одобрено меньше двух, остановиться и запросить дополнительные решения вместо расширения разрешения."
+  },
+  "required_artifacts": [
+    "slate.json",
+    "selection.json",
+    "research_notes.md",
+    "claim_ledger.json",
+    "script.md",
+    "captions.json",
+    "rights_ledger.json",
+    "frozen_media_manifest.json",
+    "render_manifest.json",
+    "qc_report.json",
+    "checksums.sha256",
+    "control MP4 files"
+  ],
+  "media_freeze": {
+    "policy": "freeze_only_after_rights_pass",
+    "allowed_bases": [
+      "owned",
+      "licensed",
+      "public_domain_verified_item_level",
+      "creative_commons_compatible_verified_item_level",
+      "written_permission"
+    ],
+    "required_evidence": [
+      "landing_page",
+      "creator_or_rightsholder",
+      "license_or_permission_basis",
+      "retrieved_at",
+      "license_receipt",
+      "local_asset_hash",
+      "timeline_usage"
+    ],
+    "block_on": [
+      "ambiguous_license",
+      "missing_creator",
+      "platform_download_without_permission",
+      "noncommercial_material_for_monetized_use",
+      "no_derivatives_material_requiring_edit",
+      "unresolved_likeness_or_privacy"
+    ]
+  },
+  "fail_closed_safety_gates": {
+    "medical": {
+      "default": "block",
+      "pass_requires": "Надёжные профильные источники, отсутствие диагностики/лечебных обещаний и явный human safety review."
+    },
+    "privacy": {
+      "default": "block",
+      "pass_requires": "Публичная необходимость, минимизация персональных данных, подтверждённое согласие/правовое основание и human review."
+    },
+    "military_history": {
+      "default": "block",
+      "pass_requires": "Первичные или авторитетные исторические источники, отсутствие приписанных цитат и пропагандистской/травматической эксплуатации, отдельный safety review."
+    },
+    "unresolved_gate_behavior": "Не заменять отсутствие доказательств уверенной формулировкой; снять тему со slate либо остановить её производство."
+  },
+  "publication_authority": {
+    "external_social_publish": false,
+    "external_social_schedule": false,
+    "external_upload": false,
+    "required_to_enable": "Отдельное явное разрешение пользователя после просмотра контрольных MP4 и QC."
+  },
+  "state_transitions": [
+    "armed_waiting_for_start -> slate_waiting_for_user_decisions",
+    "slate_waiting_for_user_decisions -> production_in_progress",
+    "production_in_progress -> control_mp4_ready",
+    "control_mp4_ready -> publication_waiting_for_explicit_permission"
+  ]
+}

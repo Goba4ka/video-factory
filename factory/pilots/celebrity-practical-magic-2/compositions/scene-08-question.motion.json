@@ -1,0 +1,11 @@
+{
+  "duration": 6.778776,
+  "maxStaticSec": 1.6,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#question-title", "bySec": 1.2 },
+    { "kind": "before", "a": "#question-title", "b": "#genre-3" },
+    { "kind": "staysInFrame", "selector": ".genre-chip" },
+    { "kind": "keepsMoving", "withinSelector": "#root" }
+  ]
+}
+

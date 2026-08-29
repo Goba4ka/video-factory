@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "operation": "remove_failed_phrase_with_crossfade",
+  "reason": "Offline ASR found the generated phrase 'Ждал продолжение?' unintelligible; no third Fish Audio request is permitted.",
+  "input": {
+    "path": "voice.wav",
+    "sha256": "3b7000221fe2801d34ceb96ff6b5db9bda303e1569d2e5c672c9a2a7f2c0601d",
+    "duration_seconds": 47.579841
+  },
+  "edit": {
+    "removed_start_seconds": 43.08,
+    "removed_end_seconds": 44.6,
+    "crossfade_seconds": 0.05
+  },
+  "output": {
+    "path": "voice-clean.wav",
+    "sha256": "d8b338693b7826a7cde4e68781b280764662a0ee75df41c7dabe8f39c401611b",
+    "bytes": 4058146,
+    "duration_seconds": 46.009841,
+    "codec": "pcm_s16le",
+    "sample_rate_hz": 44100,
+    "channels": 1,
+    "bits_per_sample": 16
+  },
+  "qa": {
+    "engine": "whisper.cpp ggml-base",
+    "transcript": "fish-clean-whisper.json",
+    "cta_detected": "Подпишись, здесь только проверенные новости о звёздах.",
+    "cloud_transcription_used": false
+  },
+  "created_at": "2026-08-28T11:15:04.4782787Z"
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "defect_id": "defect_fish_paid_balance_402",
+  "job_id": "celebrity-practical-magic-2",
+  "video_id": "celebrity-practical-magic-2",
+  "generation_no": 1,
+  "generation_status": "failed",
+  "request_hash": "53286d9879a40d9d67e123f75c8e66fa888edba6d3ed19cb0e09e8fc0e61aaa9",
+  "output_sha256": null,
+  "retry_reason": "provider_failure",
+  "description": "The paid s2.1-pro request was rejected before audio delivery because the Fish Audio account had insufficient API credit.",
+  "evidence": "Central Fish ledger: HTTP 402, fish_audio_http_402, completed 2026-08-28T11:10:10Z.",
+  "regeneration_required": true,
+  "detected_by": "video-factory-fish-runtime",
+  "detected_at": "2026-08-28T11:10:10Z"
+}

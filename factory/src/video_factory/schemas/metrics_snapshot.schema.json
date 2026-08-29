@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/metrics_snapshot.schema.json",
+  "title": "MetricsSnapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "job_id", "platform", "remote_id", "captured_at", "age_hours", "metrics"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "job_id": {"type": "string", "minLength": 6},
+    "platform": {"enum": ["youtube_shorts", "instagram_reels", "tiktok"]},
+    "remote_id": {"type": "string", "minLength": 1},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "age_hours": {"type": "number", "minimum": 0},
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["views", "likes", "comments", "shares"],
+      "properties": {
+        "views": {"type": "integer", "minimum": 0},
+        "engaged_views": {"type": ["integer", "null"], "minimum": 0},
+        "stayed_to_watch_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "average_view_duration_seconds": {"type": ["number", "null"], "minimum": 0},
+        "average_percentage_viewed": {"type": ["number", "null"], "minimum": 0},
+        "completion_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "likes": {"type": "integer", "minimum": 0},
+        "comments": {"type": "integer", "minimum": 0},
+        "shares": {"type": "integer", "minimum": 0},
+        "saves": {"type": ["integer", "null"], "minimum": 0},
+        "follows": {"type": ["integer", "null"], "minimum": 0},
+        "negative_feedback": {"type": ["integer", "null"], "minimum": 0}
+      }
+    },
+    "policy_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "status", "notes"],
+        "properties": {
+          "kind": {"enum": ["copyright", "recommendation", "ai_label", "commercial_label", "other"]},
+          "status": {"enum": ["none", "warning", "limited", "claim", "strike", "removed"]},
+          "notes": {"type": "string"}
+        }
+      },
+      "default": []
+    },
+    "production": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "minutes_to_produce": {"type": "number", "minimum": 0},
+        "estimated_cost": {"type": "number", "minimum": 0},
+        "currency": {"type": "string", "minLength": 3, "maxLength": 3}
+      }
+    }
+  }
+}

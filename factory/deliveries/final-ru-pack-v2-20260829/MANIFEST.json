@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "package_id": "final-ru-pack-v2-20260829",
+  "created_at": "2026-08-29T15:55:00+03:00",
+  "status": "ready_for_review_hold_for_rights",
+  "publish_eligible": false,
+  "publish_blockers": [
+    "rights_gate",
+    "fish_voice_rights_confirmation",
+    "human_final_review",
+    "checksum_bound_approval",
+    "celebrity_freshness_recheck"
+  ],
+  "qc": {
+    "master_profile": "motivation_v3_master",
+    "telegram_profile": "motivation_v3_telegram",
+    "level": "full",
+    "all_technical_pass": true
+  },
+  "artifacts": [
+    {
+      "path": "celebrity-kanye-petersburg-v2-master.mp4",
+      "sha256": "33cde7c77ed57fb0af13fd3bd7ba0c0b662147ef42ed61c8248880410490633a",
+      "bytes": 33041954,
+      "duration_seconds": 23.1,
+      "technical_pass": true,
+      "warnings": ["loudness_range"]
+    },
+    {
+      "path": "chinese-medicine-cupping-v1-master.mp4",
+      "sha256": "44774cdd438637e3c0b3609ea8a7fa5d5e957727e32a9a8db8f22126da33cfb5",
+      "bytes": 59444765,
+      "duration_seconds": 30.0,
+      "technical_pass": true,
+      "warnings": []
+    },
+    {
+      "path": "health-handwashing-temperature-v1-master.mp4",
+      "sha256": "d22e2ec517f33c4926e5723bc77f08b22b58bc2437ad4367f2a077c6167c2067",
+      "bytes": 53095087,
+      "duration_seconds": 27.5,
+      "technical_pass": true,
+      "warnings": ["loudness_range"]
+    },
+    {
+      "path": "motivation-lebedev-v2-master.mp4",
+      "sha256": "d7113d63c917f0620bf6e1e4f66d04e8febf1999c6db04e7133cbfdf3ab1675a",
+      "bytes": 40928172,
+      "duration_seconds": 29.3,
+      "technical_pass": true,
+      "warnings": []
+    },
+    {
+      "path": "motivation-tsiskaridze-v2-master.mp4",
+      "sha256": "af74445eb98848f55f745388fdb947961ea5bdd901ec6304d244dca86a5686ae",
+      "bytes": 58792291,
+      "duration_seconds": 28.8,
+      "technical_pass": true,
+      "warnings": []
+    },
+    {
+      "path": "war-midway-water-ruse-v1-master.mp4",
+      "sha256": "7af716d588a0fb4391fa241400a343fdc8a499f026084caa2848e05ef4555592",
+      "bytes": 69764304,
+      "duration_seconds": 35.2,
+      "technical_pass": true,
+      "warnings": ["loudness_range"]
+    },
+    {
+      "path": "telegram/celebrity-kanye-petersburg-v2-telegram.mp4",
+      "sha256": "9020a1184d99e7541fd759e4dead7aaa1a8e94af2d81451d7d2daf89883f6aaa",
+      "bytes": 2117460,
+      "duration_seconds": 23.104,
+      "technical_pass": true,
+      "warnings": ["delivery_size", "loudness_range"]
+    },
+    {
+      "path": "telegram/chinese-medicine-cupping-v1-telegram.mp4",
+      "sha256": "a4050de0f633ece1ca5afaadfb8834ad45fb2e9363199fcc0af7756cfd97dd7b",
+      "bytes": 2754331,
+      "duration_seconds": 30.016,
+      "technical_pass": true,
+      "warnings": ["delivery_size"]
+    },
+    {
+      "path": "telegram/health-handwashing-temperature-v1-telegram.mp4",
+      "sha256": "48cbbddb62acf659316689f3edf20b0f1095684b8986280cd740dbc9342e5ca4",
+      "bytes": 2349932,
+      "duration_seconds": 27.52,
+      "technical_pass": true,
+      "warnings": ["loudness_range"]
+    },
+    {
+      "path": "telegram/motivation-lebedev-v2-telegram.mp4",
+      "sha256": "3493c04e79c7f48b3d3f27b510076ecc05c6725df2d9f5bbbcc642310362f517",
+      "bytes": 2409776,
+      "duration_seconds": 29.3,
+      "technical_pass": true,
+      "warnings": []
+    },
+    {
+      "path": "telegram/motivation-tsiskaridze-v2-telegram.mp4",
+      "sha256": "ffa24a5c99a08f20c8a9b2927c3634454859bcf3246fccb88145f6bb0095d426",
+      "bytes": 2418734,
+      "duration_seconds": 28.8,
+      "technical_pass": true,
+      "warnings": []
+    },
+    {
+      "path": "telegram/war-midway-water-ruse-v1-telegram.mp4",
+      "sha256": "9e1438a3af6c98b0c5aa0c699e196e92fdcab2802408bf878ea1213c2ddf46f9",
+      "bytes": 2975112,
+      "duration_seconds": 35.2,
+      "technical_pass": true,
+      "warnings": ["loudness_range"]
+    }
+  ]
+}

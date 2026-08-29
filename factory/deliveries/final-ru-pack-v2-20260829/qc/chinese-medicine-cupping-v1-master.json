@@ -1,0 +1,63 @@
+{
+  "cache": {
+    "hit": false,
+    "key": "fb0db511fb6e45c566dd74ef561ba339ecb6c1f095e82623b1e4c733e5a4d931",
+    "report_path": "C:\\Users\\ns277\\AppData\\Local\\VideoFactoryRuntime\\cache\\objects\\media-qc\\fb\\fb0db511fb6e45c566dd74ef561ba339ecb6c1f095e82623b1e4c733e5a4d931.json"
+  },
+  "command": "media-qc",
+  "elapsed_seconds": 3.859,
+  "failures": [],
+  "kind": "media_qc_report",
+  "level": "full",
+  "media": {
+    "audio": {
+      "channels": 2,
+      "codec": "aac",
+      "duration_seconds": 30.0,
+      "sample_rate_hz": 48000,
+      "start_time_seconds": 0.0
+    },
+    "duration_seconds": 30.0,
+    "path": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-v2-20260829\\chinese-medicine-cupping-v1-master.mp4",
+    "size_bytes": 59444765,
+    "video": {
+      "codec": "h264",
+      "duration_seconds": 30.0,
+      "fps": 30.0,
+      "height": 1920,
+      "pixel_format": "yuv420p",
+      "start_time_seconds": 0.0,
+      "width": 1080
+    }
+  },
+  "ok": true,
+  "profile": {
+    "name": "motivation_v3_master",
+    "version": "1.0.0"
+  },
+  "publish_blockers": [
+    "rights_gate",
+    "human_final_review"
+  ],
+  "publish_eligible": false,
+  "scan": {
+    "black_durations_seconds": [],
+    "decode_passed": true,
+    "freeze_durations_seconds": [],
+    "loudness": {
+      "integrated_lufs": -14.46,
+      "lra_lu": 2.0,
+      "threshold_lufs": -24.78,
+      "true_peak_dbtp": -1.42
+    },
+    "max_black_seconds": 0.0,
+    "max_freeze_seconds": 0.0,
+    "max_silence_seconds": 0.0,
+    "silence_durations_seconds": []
+  },
+  "schema_version": "1.0.0",
+  "source": "C:\\Users\\ns277\\OneDrive\\Документы\\New project 2\\factory\\deliveries\\final-ru-pack-v2-20260829\\chinese-medicine-cupping-v1-master.mp4",
+  "status": "final_technical_pass",
+  "technical_pass": true,
+  "warnings": []
+}

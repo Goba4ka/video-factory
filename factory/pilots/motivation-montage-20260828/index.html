@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Дисциплина — эстафета мысли</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body {
+        width: 1080px;
+        height: 1920px;
+        margin: 0;
+        overflow: hidden;
+        background: #08090b;
+        color: #f2efe8;
+        font-family: "Space Mono", monospace;
+      }
+      #motivation-montage-20260828 {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #08090b;
+      }
+      .scene-host, .clip { position: absolute; inset: 0; }
+      .scene-host { z-index: 1; }
+      #global-chrome { z-index: 50; pointer-events: none; }
+      .top-rule {
+        position: absolute;
+        left: 58px;
+        right: 58px;
+        top: 76px;
+        height: 2px;
+        background: rgba(242, 239, 232, 0.34);
+      }
+      .series {
+        position: absolute;
+        left: 60px;
+        top: 96px;
+        color: rgba(242, 239, 232, 0.84);
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+      }
+      .chapter {
+        position: absolute;
+        right: 60px;
+        top: 96px;
+        color: #b5222a;
+        font-family: "Oswald", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+      }
+      .progress-track {
+        position: absolute;
+        left: 58px;
+        right: 58px;
+        bottom: 82px;
+        height: 3px;
+        background: rgba(242, 239, 232, 0.18);
+        overflow: hidden;
+      }
+      #progress-fill {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #b5222a;
+        transform-origin: 0 50%;
+        will-change: transform;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="motivation-montage-20260828"
+      data-composition-id="motivation-montage-20260828"
+      data-width="1080"
+      data-height="1920"
+      data-duration="29.458333"
+    >
+      <div id="scene-01-goggins-hook" class="clip scene-host" data-composition-id="scene-01-goggins-hook" data-composition-src="compositions/scene-01-goggins-hook.html" data-start="0" data-duration="4" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="scene-02-markaryan" class="clip scene-host" data-composition-id="scene-02-markaryan" data-composition-src="compositions/scene-02-markaryan.html" data-start="4" data-duration="5.145833" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="scene-03-anonymous" class="clip scene-host" data-composition-id="scene-03-anonymous" data-composition-src="compositions/scene-03-anonymous.html" data-start="9.145833" data-duration="10" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="scene-04-goggins-payoff" class="clip scene-host" data-composition-id="scene-04-goggins-payoff" data-composition-src="compositions/scene-04-goggins-payoff.html" data-start="19.145833" data-duration="10.3125" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <hf-audio-group
+        id="voiceover"
+        data-label="Original speaker relay"
+        data-volume="1"
+        data-fx-chain="{&quot;version&quot;:1,&quot;nodes&quot;:[{&quot;type&quot;:&quot;highpass&quot;,&quot;id&quot;:&quot;n1&quot;,&quot;label&quot;:&quot;Remove Rumble&quot;,&quot;params&quot;:{&quot;frequency&quot;:70,&quot;q&quot;:0.707,&quot;poles&quot;:&quot;2&quot;}},{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;n2&quot;,&quot;label&quot;:&quot;Reduce Mud&quot;,&quot;params&quot;:{&quot;frequency&quot;:250,&quot;gain&quot;:-2,&quot;q&quot;:1.2}},{&quot;type&quot;:&quot;compressor&quot;,&quot;id&quot;:&quot;n3&quot;,&quot;label&quot;:&quot;Even Out Loudness&quot;,&quot;params&quot;:{&quot;threshold&quot;:-20,&quot;ratio&quot;:3,&quot;attack&quot;:15,&quot;release&quot;:180,&quot;knee&quot;:2.5,&quot;makeup&quot;:2,&quot;mix&quot;:0.72}},{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;n4&quot;,&quot;label&quot;:&quot;Add Clarity&quot;,&quot;params&quot;:{&quot;frequency&quot;:3000,&quot;gain&quot;:1.5,&quot;q&quot;:1}},{&quot;type&quot;:&quot;limiter&quot;,&quot;id&quot;:&quot;n5&quot;,&quot;label&quot;:&quot;Peak Ceiling&quot;,&quot;params&quot;:{&quot;limit&quot;:-1.5,&quot;attack&quot;:5,&quot;release&quot;:80,&quot;level_out&quot;:0}}]}"
+      ></hf-audio-group>
+
+      <audio id="voice-g1" data-audio-group="voiceover" src="assets/source/goggins.mp4" data-start="0" data-duration="4" data-media-start="0" data-playback-rate="0.96" data-track-index="10" data-volume="2.15"></audio>
+      <audio id="voice-arsen" data-audio-group="voiceover" src="assets/source/markaryan.mp4" data-start="4" data-duration="5.145833" data-media-start="12.18" data-playback-rate="0.96" data-track-index="10" data-volume="1.45"></audio>
+      <audio id="voice-anonymous" data-audio-group="voiceover" src="assets/source/anonymous-speaker.mp4" data-start="9.145833" data-duration="10" data-media-start="20.10" data-playback-rate="0.96" data-track-index="10" data-volume="1.36"></audio>
+      <audio id="voice-g2" data-audio-group="voiceover" src="assets/source/goggins.mp4" data-start="19.145833" data-duration="10.3125" data-media-start="7.06" data-playback-rate="0.96" data-track-index="10" data-volume="2.35"></audio>
+
+      <audio
+        id="music-bed"
+        src="assets/audio/dark-bed.m4a"
+        data-start="0"
+        data-duration="29.458333"
+        data-track-index="20"
+        data-volume="0.74"
+        data-fx-chain="{&quot;version&quot;:1,&quot;nodes&quot;:[{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;b1&quot;,&quot;label&quot;:&quot;Voice Space Low&quot;,&quot;params&quot;:{&quot;frequency&quot;:400,&quot;gain&quot;:-4,&quot;q&quot;:1.4}},{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;b2&quot;,&quot;label&quot;:&quot;Voice Space Mid&quot;,&quot;params&quot;:{&quot;frequency&quot;:1000,&quot;gain&quot;:-5,&quot;q&quot;:1.4}},{&quot;type&quot;:&quot;peaking&quot;,&quot;id&quot;:&quot;b3&quot;,&quot;label&quot;:&quot;Voice Space Presence&quot;,&quot;params&quot;:{&quot;frequency&quot;:1600,&quot;gain&quot;:-4,&quot;q&quot;:1.4}},{&quot;type&quot;:&quot;limiter&quot;,&quot;id&quot;:&quot;b4&quot;,&quot;label&quot;:&quot;Bed Ceiling&quot;,&quot;params&quot;:{&quot;limit&quot;:-3,&quot;attack&quot;:5,&quot;release&quot;:100,&quot;level_out&quot;:0}}]}"
+        data-automation="{&quot;version&quot;:1,&quot;lanes&quot;:[{&quot;target&quot;:&quot;volume&quot;,&quot;points&quot;:[{&quot;t&quot;:0,&quot;v&quot;:0},{&quot;t&quot;:0.55,&quot;v&quot;:0.74},{&quot;t&quot;:3.88,&quot;v&quot;:0.48},{&quot;t&quot;:4.12,&quot;v&quot;:0.74},{&quot;t&quot;:8.98,&quot;v&quot;:0.48},{&quot;t&quot;:9.28,&quot;v&quot;:0.74},{&quot;t&quot;:18.98,&quot;v&quot;:0.48},{&quot;t&quot;:19.28,&quot;v&quot;:0.74},{&quot;t&quot;:28.65,&quot;v&quot;:0.74},{&quot;t&quot;:29.458333,&quot;v&quot;:0}]}]}"
+      ></audio>
+
+      <div id="global-chrome" class="clip" data-start="0" data-duration="29.458333" data-track-index="50">
+        <div class="top-rule"></div>
+        <div class="series">DISCIPLINE / RELAY</div>
+        <div class="chapter">01—04</div>
+        <div class="progress-track"><span id="progress-fill"></span></div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#progress-fill", { scaleX: 0 }, { scaleX: 1, duration: 29.458333, ease: "none" }, 0);
+      tl.fromTo("#global-chrome", { opacity: 0 }, { opacity: 1, duration: 0.24, ease: "power3.out" }, 0.12);
+      window.__timelines["motivation-montage-20260828"] = tl;
+    </script>
+  </body>
+</html>

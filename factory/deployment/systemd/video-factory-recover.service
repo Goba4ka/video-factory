@@ -1,0 +1,17 @@
+[Unit]
+Description=Recover expired Video Factory queue leases
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=video-factory
+Group=video-factory
+UMask=0027
+EnvironmentFile=/etc/video-factory/runtime.env
+WorkingDirectory=/opt/video-factory/current
+ExecStart=/opt/video-factory/current/.venv/bin/video-factory recover-expired --db ${VIDEO_FACTORY_DB}
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/video-factory

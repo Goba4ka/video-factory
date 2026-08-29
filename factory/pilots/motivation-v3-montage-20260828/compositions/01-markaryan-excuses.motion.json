@@ -1,0 +1,9 @@
+{
+  "duration": 6.5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#m3-markaryan-c01", "bySec": 0.3 },
+    { "kind": "staysInFrame", "selector": ".glyph" },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 1.25 }
+  ]
+}
+

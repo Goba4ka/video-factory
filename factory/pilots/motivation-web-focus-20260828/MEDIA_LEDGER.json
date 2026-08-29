@@ -1,0 +1,68 @@
+{
+  "project": "motivation-web-focus-20260828",
+  "policy": {
+    "web_only_new_media": true,
+    "old_downloads_or_reference_mp4_used": false,
+    "tts_used": false,
+    "fish_audio_used": false
+  },
+  "assets": [
+    {
+      "id": "jocko-primary",
+      "role": "primary speaker video and original voice",
+      "path": "assets/source/jocko-official-mweb.mp4",
+      "url": "https://www.youtube.com/watch?v=_tE8kE8IfiY",
+      "title": "Jocko Motivation - Where Does Discipline Come From? (from Jocko Podcast)",
+      "channel": "Jocko Podcast",
+      "channel_url": "https://www.youtube.com/channel/UCkqcY4CAuBFNFho6JgygCnA",
+      "availability": "public",
+      "published": "2016-02-19",
+      "source_timestamp": "00:55.520-01:21.600",
+      "license": "Standard YouTube license; no explicit reuse license in metadata",
+      "license_risk": "medium-high: verified primary/official source, but commercial redistribution permission is not granted by the page; publisher must clear before public release",
+      "sha256": "FAC4306311B5820E975AA2A7A122BCCB1867BBC24F7AF116522C66BB1E5EE620"
+    },
+    {
+      "id": "pexels-rain-runner",
+      "role": "vertical B-roll",
+      "path": "assets/source/pexels-rain-runner-9897057.mp4",
+      "url": "https://www.pexels.com/video/a-person-jogging-at-the-park-while-raining-9897057/",
+      "direct_url": "https://videos.pexels.com/video-files/9897057/9897057-hd_1080_1920_30fps.mp4",
+      "creator": "Evgenij Mikhailov",
+      "license": "Pexels License — free to use and modify; attribution not required",
+      "license_url": "https://www.pexels.com/license/",
+      "license_risk": "low, subject to Pexels restrictions and no implied endorsement",
+      "sha256": "F59620A38D82E099BF0E5CE69A8D837A5AD917B33C6CBF17F0D588C9856B811D"
+    },
+    {
+      "id": "pexels-night-track",
+      "role": "vertical B-roll",
+      "path": "assets/source/pexels-night-track-20540592.mp4",
+      "url": "https://www.pexels.com/video/a-man-is-running-on-a-track-at-night-20540592/",
+      "direct_url": "https://videos.pexels.com/video-files/20540592/20540592-hd_1080_1920_30fps.mp4",
+      "creator": "Mman",
+      "license": "Pexels License — free to use and modify; attribution not required",
+      "license_url": "https://www.pexels.com/license/",
+      "license_risk": "low, subject to Pexels restrictions and no implied endorsement",
+      "sha256": "A1FF6835223A01162C43EC5D0BE993E6367177E1AF7135A5AEBFA2A6B815AE20"
+    },
+    {
+      "id": "jocko-voice-cut",
+      "role": "derived real-voice track",
+      "path": "assets/audio/jocko-voice-55.52-81.60.wav",
+      "derived_from": "jocko-primary",
+      "operation": "lossless PCM extraction, source 00:55.520-01:21.600",
+      "sha256": "B52F7DCB8783F657E1277418E6E47DB2A0151D9AD6AE71720DBC23199A0063FD"
+    },
+    {
+      "id": "procedural-bed",
+      "role": "background music",
+      "path": "assets/audio/procedural-dark-bed-70bpm.wav",
+      "origin": "locally synthesized from sine oscillators; no recordings or samples",
+      "tempo_bpm": 70,
+      "license": "original procedural output for this project",
+      "license_risk": "low",
+      "sha256": "02D153AE8570CC94CCDB532D52231BFDF15D34DEBCEAAE1CF947A99481854260"
+    }
+  ]
+}

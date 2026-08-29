@@ -1,0 +1,49 @@
+{
+  "project": "motivation-ru-focus-20260828",
+  "generated_at": "2026-08-28",
+  "assets": [
+    {
+      "id": "speech-picture-oskar-hartmann",
+      "kind": "video",
+      "local_path": "assets/source/oskar-hartmann-official.mp4",
+      "source_url": "https://www.youtube.com/watch?v=PoffvJhJ_gU",
+      "publisher": "Оскар Хартманн (official verified YouTube channel)",
+      "title": "КАК ЗАСТАВИТЬ СЕБЯ ДЕЙСТВОВАТЬ? Оскар Хартманн о дисциплине и формуле успеха.",
+      "used_range": "00:28.680-00:57.050",
+      "license": null,
+      "rights_status": "permission_required",
+      "sha256": "5EA55507EE8887C9B21E7F5B2E0028ACAFC0A51B461401494C600F4D935AFC51"
+    },
+    {
+      "id": "music-scott-buckley-the-long-dark",
+      "kind": "music",
+      "local_path": "assets/audio/scott-buckley-the-long-dark.mp3",
+      "source_url": "https://www.scottbuckley.com.au/library/the-long-dark/",
+      "direct_url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2023/01/TheLongDark.mp3",
+      "creator": "Scott Buckley",
+      "title": "The Long Dark",
+      "used_range": "00:02:45.000-00:03:13.370",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "'The Long Dark' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au",
+      "rights_status": "cleared_with_attribution",
+      "sha256": "CD48B94164C17DFE86685C22D26E4F4FC96BC693F3B6F5ED7A53947A502E09CF"
+    },
+    {
+      "id": "font-oswald",
+      "kind": "font",
+      "local_path": "assets/fonts/Oswald-Variable.ttf",
+      "source_url": "https://github.com/google/fonts/tree/main/ofl/oswald",
+      "license": "SIL OFL 1.1",
+      "rights_status": "cleared"
+    },
+    {
+      "id": "font-ibm-plex-mono",
+      "kind": "font",
+      "local_path": "assets/fonts/IBMPlexMono-Regular.ttf",
+      "source_url": "https://github.com/google/fonts/tree/main/ofl/ibmplexmono",
+      "license": "SIL OFL 1.1",
+      "rights_status": "cleared"
+    }
+  ]
+}

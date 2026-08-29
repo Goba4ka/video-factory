@@ -1,0 +1,11 @@
+{
+  "duration": 7.731837,
+  "maxStaticSec": 1.5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#hook-line-1", "bySec": 0.9 },
+    { "kind": "before", "a": "#hook-line-1", "b": "#hook-sandra" },
+    { "kind": "staysInFrame", "selector": ".portrait-card" },
+    { "kind": "keepsMoving", "withinSelector": "#root" }
+  ]
+}
+

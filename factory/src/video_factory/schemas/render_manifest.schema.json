@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.video-factory/contracts/render_manifest.schema.json",
+  "title": "RenderManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "render_id", "job_id", "composition", "output", "output_sha256", "technical", "input_hashes"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "render_id": {"type": "string", "minLength": 6},
+    "job_id": {"type": "string", "minLength": 6},
+    "composition": {"type": "string", "minLength": 1},
+    "output": {"type": "string", "minLength": 1},
+    "output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "technical": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps", "duration_seconds", "video_codec", "audio_codec", "audio_sample_rate_hz"],
+      "properties": {
+        "width": {"const": 1080},
+        "height": {"const": 1920},
+        "fps": {"enum": [24, 25, 30, 50, 60]},
+        "duration_seconds": {"type": "number", "minimum": 15, "maximum": 180},
+        "video_codec": {"type": "string", "minLength": 2},
+        "audio_codec": {"type": "string", "minLength": 2},
+        "audio_sample_rate_hz": {"const": 48000},
+        "integrated_lufs": {"type": ["number", "null"]},
+        "true_peak_dbtp": {"type": ["number", "null"]}
+      }
+    },
+    "input_hashes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

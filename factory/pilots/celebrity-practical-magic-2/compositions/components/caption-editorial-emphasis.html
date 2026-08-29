@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Редакционные субтитры</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        margin: 0;
+        overflow: hidden;
+        background: transparent;
+      }
+
+      #caption-editorial-emphasis {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: transparent;
+        pointer-events: none;
+      }
+
+      .caption-safe {
+        position: absolute;
+        top: 1310px;
+        left: 72px;
+        width: 936px;
+        height: 390px;
+        display: flex;
+        align-items: center;
+      }
+
+      .caption-block {
+        position: absolute;
+        left: 0;
+        max-width: 936px;
+        padding: 26px 30px 28px;
+        opacity: 0;
+        background: rgba(9, 10, 14, 0.88);
+        border-top: 3px solid #e4a853;
+        border-bottom: 2px solid rgba(217, 222, 255, 0.42);
+        transform-origin: 0 100%;
+        will-change: transform, opacity;
+      }
+
+      .caption-line {
+        display: block;
+        color: #f2e9da;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 50px;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.12;
+        text-wrap: balance;
+      }
+
+      .caption-line + .caption-line {
+        margin-top: 8px;
+      }
+
+      .caption-emphasis {
+        display: block;
+        color: #d9deff;
+        font-family: "Oswald", sans-serif;
+        font-size: 78px;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        line-height: 0.96;
+        text-transform: uppercase;
+      }
+
+      .caption-emphasis.amber {
+        color: #e4a853;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="caption-editorial-emphasis"
+      data-composition-id="caption-editorial-emphasis"
+      data-duration="57.2"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="caption-safe" data-layout-allow-caption-zone>
+        <div class="caption-block" id="cap-01">
+          <span class="caption-line">Сандра Буллок и</span>
+          <span class="caption-emphasis">Николь Кидман</span>
+        </div>
+        <div class="caption-block" id="cap-02">
+          <span class="caption-emphasis amber">снова вместе</span>
+          <span class="caption-line">Почти двадцать восемь лет</span>
+        </div>
+        <div class="caption-block" id="cap-03">
+          <span class="caption-emphasis amber">Двадцать шестого августа</span>
+          <span class="caption-line">в Лондоне прошла европейская премьера</span>
+        </div>
+        <div class="caption-block" id="cap-04">
+          <span class="caption-emphasis amber">Это не слух</span>
+        </div>
+        <div class="caption-block" id="cap-05">
+          <span class="caption-line">Официальный сайт подтверждает</span>
+          <span class="caption-emphasis">возвращение сестёр Оуэнс</span>
+        </div>
+        <div class="caption-block" id="cap-06">
+          <span class="caption-line">Их семье снова угрожает</span>
+          <span class="caption-emphasis amber">древнее проклятие</span>
+        </div>
+        <div class="caption-block" id="cap-07">
+          <span class="caption-line">Режиссёр —</span>
+          <span class="caption-emphasis">Сюзанна Бир</span>
+        </div>
+        <div class="caption-block" id="cap-08">
+          <span class="caption-line">Основой стала «Книга магии»</span>
+          <span class="caption-emphasis amber">Элис Хоффман</span>
+        </div>
+        <div class="caption-block" id="cap-09">
+          <span class="caption-line">К дуэту присоединились</span>
+          <span class="caption-emphasis">Джои Кинг · Мэйси Уильямс</span>
+        </div>
+        <div class="caption-block" id="cap-10">
+          <span class="caption-emphasis amber">Ли Пейс</span>
+          <span class="caption-line">и другие</span>
+        </div>
+        <div class="caption-block" id="cap-11">
+          <span class="caption-line">Международный прокат начинается</span>
+          <span class="caption-emphasis amber">девятого сентября</span>
+        </div>
+        <div class="caption-block" id="cap-12">
+          <span class="caption-line">В Северной Америке —</span>
+          <span class="caption-emphasis">десятого сентября</span>
+        </div>
+        <div class="caption-block" id="cap-13">
+          <span class="caption-line">две тысячи</span>
+          <span class="caption-emphasis amber">двадцать шестого года</span>
+        </div>
+        <div class="caption-block" id="cap-14">
+          <span class="caption-emphasis">Вернётся ли та самая смесь</span>
+        </div>
+        <div class="caption-block" id="cap-15">
+          <span class="caption-line">романтики, чёрного юмора</span>
+          <span class="caption-emphasis amber">и мистики девяностых?</span>
+        </div>
+        <div class="caption-block" id="cap-16">
+          <span class="caption-emphasis">Ждал продолжение?</span>
+        </div>
+        <div class="caption-block" id="cap-17">
+          <span class="caption-line">Подпишись — здесь только</span>
+          <span class="caption-emphasis amber">проверенные новости о звёздах</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const cues = [
+        ["#cap-01", 0.08, 3.35],
+        ["#cap-02", 3.35, 7.55],
+        ["#cap-03", 7.82, 12.83],
+        ["#cap-04", 13.08, 15.1],
+        ["#cap-05", 15.1, 19.66],
+        ["#cap-06", 19.93, 24.13],
+        ["#cap-07", 24.39, 27.15],
+        ["#cap-08", 27.15, 30.3],
+        ["#cap-09", 30.55, 33.15],
+        ["#cap-10", 33.15, 35.62],
+        ["#cap-11", 35.88, 39.05],
+        ["#cap-12", 39.05, 42.4],
+        ["#cap-13", 42.4, 44.19],
+        ["#cap-14", 44.45, 47.5],
+        ["#cap-15", 47.5, 50.97],
+        ["#cap-16", 51.22, 53.3],
+        ["#cap-17", 53.3, 56.98],
+      ];
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set(".caption-block", { autoAlpha: 0 }, 0);
+      cues.forEach(([selector, start, end]) => {
+        tl.fromTo(
+          selector,
+          { autoAlpha: 0, y: 18, scale: 1.035 },
+          { autoAlpha: 1, y: 0, scale: 1, duration: 0.13, ease: "power3.out" },
+          start,
+        );
+        tl.to(
+          selector,
+          { autoAlpha: 0, y: -10, duration: 0.06, ease: "power2.in" },
+          Math.max(start + 0.14, end - 0.06),
+        );
+      });
+      window.__timelines["caption-editorial-emphasis"] = tl;
+    </script>
+  </body>
+</html>

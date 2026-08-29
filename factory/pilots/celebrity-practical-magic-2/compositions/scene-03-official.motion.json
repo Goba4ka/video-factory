@@ -1,0 +1,11 @@
+{
+  "duration": 6.831429,
+  "maxStaticSec": 1.5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#official-title", "bySec": 1.1 },
+    { "kind": "before", "a": "#official-title", "b": "#official-source" },
+    { "kind": "staysInFrame", "selector": ".portrait-card" },
+    { "kind": "keepsMoving", "withinSelector": "#root" }
+  ]
+}
+
