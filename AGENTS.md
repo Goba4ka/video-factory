@@ -32,15 +32,23 @@ python -m pytest factory/tests -q
 python -m video_factory lanes --registry factory/lanes/registry.json
 ```
 
-The cloud repository intentionally excludes local databases, downloaded tools,
-dependency directories, raw media, model weights, renders, and other generated
-binary artifacts. Treat a missing heavy asset as an external-storage concern;
-do not fabricate it or silently replace it with an unlicensed download.
+The cloud repository includes the current code, project documentation, selected
+pilot audio/images, thumbnails, and audit context. It still excludes local
+databases, downloaded executables, dependency directories, large raw media,
+model weights, renders, and other ignored binary artifacts. Treat a missing
+heavy asset as an external-storage concern; do not fabricate it or silently
+replace it with an unlicensed download.
 
 ## Safety and authority boundaries
 
 - Never commit secrets, authentication caches, API keys, voice credentials, or
-  production `.env` files. Use Codex Cloud environment secrets.
+  production `.env` files. `FISH_API_KEY` and `PEXELS_API_KEY` may be supplied
+  through Codex Cloud environment variables when a task needs them. The Codex
+  Cloud **Secrets** section is setup-only and is not available during the agent
+  phase.
+- Agent internet access may be enabled for cloud tasks. Network availability
+  does not waive source licensing, rights evidence, privacy, safety, or human
+  approval requirements.
 - Do not publish to social platforms, spend money on paid media/TTS calls, or
   invoke a production writer without explicit approval from the owner.
 - Preserve medical, privacy, sensitivity, factual, rights, originality, and
