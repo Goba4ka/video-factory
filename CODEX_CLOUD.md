@@ -15,6 +15,11 @@
    bash scripts/codex-cloud-setup.sh
    ```
 
+   Скрипт также устанавливает системные `ffmpeg` и `ffprobe`, если их нет в
+   universal image, и завершает setup с ошибкой, если они недоступны. После
+   обновления setup-скрипта нажмите **Reset cache** у окружения перед новой
+   задачей: Codex может повторно использовать ранее подготовленный контейнер.
+
 4. Для полнофункциональной работы включите `Agent internet access = On` и
    добавьте `FISH_API_KEY` и `PEXELS_API_KEY` в раздел `Environment variables`.
    Раздел `Secrets` доступен только setup-скрипту и не передаёт значения
